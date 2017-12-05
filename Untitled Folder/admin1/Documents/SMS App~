@@ -1,0 +1,64 @@
+
+
+sms app:
+_______
+when buying a number then Number should be sms,voice & mms enabled.
+________
+
+Call forwarding link:
+
+Call forwarding : https://support.twilio.com/hc/en-us/articles/223179908-Setting-up-call-forwarding
+
+1) <?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Dial>
+    +1-205-444-5555
+  </Dial>
+</Response>
+_____________________________________________
+
+2)say message setup:
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+     <Say>Hello World</Say>
+</Response>
+
+
+
+______________________________________________
+
+
+2)when creating subaccounts & buying number paste the link inside when 
+messg comes in:
+if mms & sms thn paste on 1 url.
+_________________________________________________
+3)If the number is 9 digits number:
+
+IF( LEFT( tdc_tsw__ToNumber__c , 1) == '0' , '+33' +RIGHT(tdc_tsw__ToNumber__c, ( LEN(tdc_tsw__ToNumber__c)-FIND("0", tdc_tsw__ToNumber__c ) ) ) , '+33' +tdc_tsw__ToNumber__c)
+
+
+____________________________________
+
+To move the number from demo to live:(if particular client want only tht number)
+
+http://360sms-developer-edition.ap2.force.com/apex/UpdateTwilioNumber
+
+_________________________________________
+
+
+To disable incoming aftr making chages from timesheet:
+
+
+
+incoming link 360degreeapps.com/smsapp/smsapppage/client.php
+ user-name:-support@360degreeapps.com
+ and password:-dev@360smsteam
+
+
+______________________________________________________________
+hr org setuporg@360degreecloud.in  360appclients
+ subscribers
+ 
+ ___________________________________________________________
+

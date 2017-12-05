@@ -1,0 +1,30 @@
+<apex:page standardController="Account">
+    <style type="text/css">
+         {
+          font-family: Roboto;
+        }
+
+        div.message {
+          position: relative;
+          padding: 1px;
+          padding-left: 35px;
+          margin: 20px 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+          background: #BBB;
+          color: #FFF;
+        }
+
+      
+        
+        div.message.account{
+            color: white;
+            background: green;
+        }
+    </style>
+
+   
+    
+    <div class="account message" style="display:Total No of Opportuinties" > 
+      Account: Total No of Opportuinities {!Account.Total_No_of_Opportuinties__c} 
+    </div>
+</apex:page>

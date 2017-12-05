@@ -1,0 +1,10 @@
+#Equinox secure storage version 1.0
+#Fri Apr 21 04:58:35 IST 2017
+/Force\ Projects/New\ Force\ Project/password=org.eclipse.equinox.security.ui.defaultpasswordprovider\tTEn6FJZnVoA\=,L1fI992sC6HSk29Tvnjo3g\=\=
+org.eclipse.equinox.security.preferences.version=1
+/Force\ Projects/New\ Force\ Project/token=org.eclipse.equinox.security.ui.defaultpasswordprovider\tdDUWFUSUa5Y\=,nbmayFYN+Wg81hj7JE6JnfBzAg+F4D1Lx7DWE66J4dc\=
+org.eclipse.equinox.security.preferences.cipher=PBEWithMD5AndDES
+/org.eclipse.equinox.secure.storage/verification/org.eclipse.equinox.security.ui.defaultpasswordprovider=org.eclipse.equinox.security.ui.defaultpasswordprovider\t5JscQa39Whg\=,PrjMNkTfpxRW2HvnM04OiehNJ4UdZZ34
+org.eclipse.equinox.security.preferences.keyFactory=PBEWithMD5AndDES
+/Force\ Projects/New\ Project/token=org.eclipse.equinox.security.ui.defaultpasswordprovider\tyDLHtEyiNgE\=,RebTcfAA8aJw5sIBg0vj3B7R1edfR87fVuLYRgEL2gM\=
+/Force\ Projects/New\ Project/password=org.eclipse.equinox.security.ui.defaultpasswordprovider\tH6U8jEo/IEc\=,Hoo7ERRXV+LplLr7y4kSuw\=\=

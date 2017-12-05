@@ -1,0 +1,26 @@
+@isTest
+public with sharing class SMSHistoryTriggerHandlerTest{
+
+      public static testMethod void smsHistoryTest(){
+          test.startTest();
+		  
+		  lead objlead = new lead();
+		  objlead.Name = 'Test Lead';
+		  objlead.Company = 'Test Company';
+		  objlead.Phone = '1237888123';
+		  objlead.Email = 'test123@email.com';
+		  objlead.Status = 'Working - Contacted';
+		  objlead.MobilePhone = '1234567890';
+		  insert objlead; 
+		  
+		  tdc_tsw__Message__c objMessage = new tdc_tsw__Message__c();
+		  objMessage.Name == 'Incoming';
+		  objMessage.Lead__c = objlead.id;
+		  objMessage.Message_Text_New__c = '#SMS (Sumit,sumit123@test.com,12312)';
+		  
+		  
+		  test.stopTest();
+	  
+	  
+	  }
+}	  

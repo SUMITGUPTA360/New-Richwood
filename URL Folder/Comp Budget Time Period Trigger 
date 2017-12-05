@@ -1,0 +1,240 @@
++public with sharing class CompBudgetDetailTriggerHandler {
+    public static void onAfter(List<SHCM__HRCompBudgetDetail__c> lstCompBudDetail){
+        rollupOrganistaionFields(lstCompBudDetail);
+    }
+    private static void rollupOrganistaionFields(List<SHCM__HRCompBudgetDetail__c> lstCompBudDetail){
+        Set<ID> setOrgId = new Set<ID>();
+        List<SHCM__HR_Organization__c> lstOrgToUpdate = new List<SHCM__HR_Organization__c>();
+        for(SHCM__HRCompBudgetDetail__c objCompBudDetail: lstCompBudDetail){
+            if(objCompBudDetail.SHCM__organization__c != null)
+               setOrgId.add(objCompBudDetail.SHCM__organization__c);
+        }
+        if(setOrgId.size()>0){
+            String dynamicSOQL = createDynamicQuery(setOrgId);
+            for(SHCM__HR_Organization__c objOrg:Database.query(dynamicSOQL)){
+                decimal empActual = 0.00;
+                decimal empBudget = 0.00;
+                decimal empCommitted = 0.00;
+                decimal empTaxActual = 0.00;
+                decimal empTaxBudget = 0.00;
+                decimal empTaxCommitted = 0.00;
+                decimal hourlyActual = 0.00;
+                decimal hourlyBudget = 0.00;
+                decimal hourlyCommitted = 0.00;
+                decimal meritBudget = 0.00;
+                decimal meritCommitted = 0.00;
+                decimal otherActual = 0.00;
+                decimal otherBudget = 0.00; 
+                decimal otherCommitted = 0.00;
+                decimal salaryActual = 0.00;
+                decimal salaryBudget = 0.00;
+                decimal salaryCommitted = 0.00;
+                decimal salesActual = 0.00;
+                decimal salesBudget = 0.00;
+                decimal salesCommitted = 0.00;
+                decimal variableActual = 0.00;
+                decimal variableBudget = 0.00;
+                decimal variableCommitted = 0.00;
+                for(SHCM__HRCompBudgetDetail__c objCompBudDetail:objOrg.SHCM__HR_Comp_Budget_Details1__r){
+                    if(objCompBudDetail.SHCM__employerPaidBenefits_CompActuals__c != null)
+                        empActual += objCompBudDetail.SHCM__employerPaidBenefits_CompActuals__c;
+                    if(objCompBudDetail.SHCM__employerPaidBenefits_CompBudgeted__c != null)
+                        empBudget += objCompBudDetail.SHCM__employerPaidBenefits_CompBudgeted__c;
+                    if(objCompBudDetail.SHCM__employerPaidBenefits_CompCommitted__c != null)
+                        empCommitted += objCompBudDetail.SHCM__employerPaidBenefits_CompCommitted__c;
+                    if(objCompBudDetail.SHCM__employerPaidTaxes_CompActuals__c != null)
+                        empTaxActual += objCompBudDetail.SHCM__employerPaidTaxes_CompActuals__c;
+                    if(objCompBudDetail.SHCM__employerPaidTaxes_CompBudgeted__c != null)
+                        empTaxBudget += objCompBudDetail.SHCM__employerPaidTaxes_CompBudgeted__c;
+                    if(objCompBudDetail.SHCM__employerPaidTaxes_CompCommitted__c != null)
+                        empTaxCommitted += objCompBudDetail.SHCM__employerPaidTaxes_CompCommitted__c;
+                    if(objCompBudDetail.SHCM__hourly_CompActuals__c != null)
+                        hourlyActual += objCompBudDetail.SHCM__hourly_CompActuals__c;
+                    if(objCompBudDetail.SHCM__hourly_CompBudgeted__c != null)
+                        hourlyBudget += objCompBudDetail.SHCM__hourly_CompBudgeted__c;
+                    if(objCompBudDetail.SHCM__hourly_CompCommitted__c != null)
+                        hourlyCommitted += objCompBudDetail.SHCM__hourly_CompCommitted__c;
+                    if(objCompBudDetail.SHCM__meritIncrease_CompBudgeted__c != null)
+                        meritBudget += objCompBudDetail.SHCM__meritIncrease_CompBudgeted__c;
+                    if(objCompBudDetail.SHCM__meritIncrease_CompCommitted__c != null)
+                        meritCommitted += objCompBudDetail.SHCM__meritIncrease_CompCommitted__c;
+                    if(objCompBudDetail.SHCM__otherCompensation_CompActuals__c != null)
+                        otherActual += objCompBudDetail.SHCM__otherCompensation_CompActuals__c;
+                    if(objCompBudDetail.SHCM__otherCompensation_CompBudgeted__c != null)
+                        otherBudget += objCompBudDetail.SHCM__otherCompensation_CompBudgeted__c;
+                    if(objCompBudDetail.SHCM__otherCompensation_CompCommitted__c != null)
+                        otherCommitted += objCompBudDetail.SHCM__otherCompensation_CompCommitted__c;
+                    if(objCompBudDetail.SHCM__salary_CompActuals__c != null)
+                        salaryActual += objCompBudDetail.SHCM__salary_CompActuals__c;
+                    if(objCompBudDetail.SHCM__salary_CompBudgeted__c != null)
+                        salaryBudget += objCompBudDetail.SHCM__salary_CompBudgeted__c;
+                    if(objCompBudDetail.SHCM__salary_CompCommitted__c != null)
+                        salaryCommitted += objCompBudDetail.SHCM__salary_CompCommitted__c;
+                    if(objCompBudDetail.SHCM__salesCommission_CompActuals__c != null)
+                        salesActual += objCompBudDetail.SHCM__salesCommission_CompActuals__c;
+                    if(objCompBudDetail.SHCM__salesCommission_CompBudgeted__c != null)
+                        salesBudget += objCompBudDetail.SHCM__salesCommission_CompBudgeted__c;
+                    if(objCompBudDetail.SHCM__salesCommission_CompCommitted__c != null)
+                        salesCommitted += objCompBudDetail.SHCM__salesCommission_CompCommitted__c;
+                    if(objCompBudDetail.SHCM__variablePay_CompActuals__c != null)
+                        variableActual += objCompBudDetail.SHCM__variablePay_CompActuals__c;
+                    if(objCompBudDetail.SHCM__variablePay_CompBudgeted__c != null)
+                        variableBudget += objCompBudDetail.SHCM__variablePay_CompBudgeted__c;
+                    if(objCompBudDetail.SHCM__variablePay_CompCommitted__c != null)
+                    variableCommitted += objCompBudDetail.SHCM__variablePay_CompCommitted__c;
+                }
+                objOrg.SHCM__employerPaidBenefits_CompActuals__c = empActual;
+                objOrg.SHCM__employerPaidBenefits_CompBudgeted__c = empBudget;
+                objOrg.SHCM__employerPaidBenefits_CompCommitted__c = empCommitted;
+                objOrg.SHCM__employerPaidTaxes_CompActuals__c = empTaxActual;
+                objOrg.SHCM__employerPaidTaxes_CompBudgeted__c = empTaxBudget;
+                objOrg.SHCM__employerPaidTaxes_CompCommitted__c = empTaxCommitted;
+                objOrg.SHCM__hourly_CompActuals__c = hourlyActual;
+                objOrg.SHCM__hourly_CompBudgeted__c = hourlyBudget;
+                objOrg.SHCM__hourly_CompCommitted__c = hourlyCommitted;
+                objOrg.SHCM__meritIncrease_CompBudgeted__c = meritBudget;
+                objOrg.SHCM__meritIncrease_CompCommitted__c = meritCommitted;
+                objOrg.SHCM__otherCompensation_CompActuals__c = otherActual;
+                objOrg.SHCM__otherCompensation_CompBudgeted__c = otherBudget;
+                objOrg.SHCM__otherCompensation_CompCommitted__c = otherCommitted;
+                objOrg.SHCM__salary_CompActuals__c = salaryActual;
+                objOrg.SHCM__salary_CompBudgeted__c = salaryBudget;
+                objOrg.SHCM__salary_CompCommitted__c = salaryCommitted;
+                objOrg.SHCM__salesCommission_CompActuals__c = salesActual;
+                objOrg.SHCM__salesCommission_CompBudgeted__c = salesBudget;
+                objOrg.SHCM__salesCommission_CompCommitted__c = salesCommitted;
+                objOrg.SHCM__variablePay_CompActuals__c = variableActual;
+                objOrg.SHCM__variablePay_CompBudgeted__c = variableBudget;
+                objOrg.SHCM__variablePay_CompCommitted__c = variableCommitted;
+                lstOrgToUpdate.add(objOrg);
+            }
+            if(lstOrgToUpdate.size()>0)
+                update lstOrgToUpdate;
+        }
+    }
+    private static String createDynamicQuery(Set<ID> setOrgId){
+        String query = 'SELECT ';
+        for(String fieldAPI : Schema.getGlobalDescribe().get('SHCM__HRCompBudgetDetail__c').getDescribe().fields.getMap().keySet()){
+            query += fieldAPI + ',';
+        }
+        query = query.subString(0, query.length() - 1);
+        query += ' from SHCM__HR_Comp_Budget_Details1__r';
+        String query1 = 'SELECT ';
+        for(String fieldAPI : Schema.getGlobalDescribe().get('SHCM__HR_Organization__c').getDescribe().fields.getMap().keySet()){
+            query1 += fieldAPI + ',';
+        }
+        query1 += '('+ query +') FROM SHCM__HR_Organization__c where Id IN: setOrgId';
+        return query1;
+    }
+    
+     public Static void beforeInsertCompBudgetDetails(list<SHCM__HRCompBudgetDetail__c> lstCompBudgetDetail)
+  {
+    checkNumberOfCBD(lstCompBudgetDetail);
+  }
+ 
+    
+    
+        private static void checkNumberOfCBD(List<SHCM__HRCompBudgetDetail__c> lstCBD)
+        {
+            Set<String> setHROrgId = new Set<String>();
+            Set<String> setTimePeriod = new Set<String>();
+            
+            for(SHCM__HRCompBudgetDetail__c objCBD : lstCBD)
+            {
+                setHROrgId.add(objCBD.SHCM__organization__c);
+                setTimePeriod.add(objCBD.SHCM__timePeriod__c);
+            }
+            List<RecordType> objRec = [SELECT Id FROM RecordType WHERE Name = 'Comp Budget Detail' limit 1];
+            String str;
+            if(objRec.size()> 0)
+            {
+                str = objRec[0].Id;
+            }
+            List<SHCM__Setup__c> tempSetup = new List<SHCM__Setup__c>();
+            if(String.isNotBlank(str))
+            {
+                tempSetup = [SELECT id,SHCM__budgetByTimePeriodType__c FROM SHCM__Setup__c WHERE RecordTypeId  =: str];
+            }
+            String budgetByTimePeriodType;
+            if(tempSetup.size() > 0)
+            {
+                budgetByTimePeriodType = tempSetup[0].SHCM__budgetByTimePeriodType__c;
+            }
+            else
+            {
+                budgetByTimePeriodType = 'Month/Period';
+            }
+            
+            Map<String, SHCM__Time_Period__c> mapIdToTP = new Map<String, SHCM__Time_Period__c>();
+            for(SHCM__Time_Period__c objTP : [SELECT Id, SHCM__type__c from SHCM__Time_Period__c where Id IN : setTimePeriod])
+            {
+                mapIdToTP.put(objTP.Id, objTP);
+            }
+            Map<String, SHCM__HR_Organization__c> mapORGandTPToCBD = new Map<String, SHCM__HR_Organization__c>();
+            for(SHCM__HR_Organization__c objHRORG : [SELECT Id, (Select Id,SHCM__timePeriod__r.SHCM__type__c from HR_Comp_Budget_Details1__r where SHCM__timePeriod__c IN : setTimePeriod) 
+                                                        from SHCM__HR_Organization__c where Id IN : setHROrgId])
+            {
+                mapORGandTPToCBD.put(objHRORG.Id, objHRORG);
+            }
+            for(SHCM__HRCompBudgetDetail__c objCompBudgetDetail : lstCBD){
+                Integer countYear = 0;
+                Integer countMonth = 0;
+                Integer countQuarter = 0;
+                for(SHCM__HRCompBudgetDetail__c objCBD : mapORGandTPToCBD.get(objCompBudgetDetail.SHCM__organization__c).HR_Comp_Budget_Details1__r)
+                {   
+                    if(objCBD.SHCM__timePeriod__c == objCompBudgetDetail.SHCM__timePeriod__c)
+                    {
+                        if(objCBD.SHCM__timePeriod__r.SHCM__type__c == 'Year')
+                        {
+                            countYear = countYear+1;
+                        }
+                        if(objCBD.SHCM__timePeriod__r.SHCM__type__c == 'Month/Period')
+                        {
+                            countMonth+= 1;
+                        }
+                        if(objCBD.SHCM__timePeriod__r.SHCM__type__c == 'Quarter')
+                        {
+                            countQuarter+=1;
+                        }
+                    }
+                        
+                }
+                if(budgetByTimePeriodType =='Month/Period')
+                {
+                    if(countYear >= 1 && mapIdToTP.get(objCompBudgetDetail.SHCM__timePeriod__c).SHCM__type__c == 'Year')
+                    {
+                        objCompBudgetDetail.adderror('there may only be 12 Month AND there may only be 4 Quarter AND 1 Year Time Period Comp Budget Detail records for each Year Time Period Comp Budget record.');
+                    }
+                    if(countMonth >= 12 && mapIdToTP.get(objCompBudgetDetail.SHCM__timePeriod__c).SHCM__type__c == 'Month/Period')
+                    {
+                         objCompBudgetDetail.adderror('there may only be 12 Month AND there may only be 4 Quarter AND 1 Year Time Period Comp Budget Detail records for each Year Time Period Comp Budget record.');
+                    }
+                    if(countQuarter >= 4 && mapIdToTP.get(objCompBudgetDetail.SHCM__timePeriod__c).SHCM__type__c == 'Quarter')
+                    {
+                         objCompBudgetDetail.adderror(' there may only be 12 Month AND there may only be 4 Quarter AND 1 Year Time Period Comp Budget Detail records for each Year Time Period Comp Budget record.');                 
+                    }
+                }
+                if(budgetByTimePeriodType == 'Quarter')
+                {
+                    if(countYear >= 1 && mapIdToTP.get(objCompBudgetDetail.SHCM__timePeriod__c).SHCM__type__c == 'Year')
+                    {
+                        objCompBudgetDetail.adderror('there may only be 4 Quarter Time AND 1 Year Time Period Comp Budget Detail records for each Year Time Period Comp Budget record.');
+                    }
+                    
+                    if(countQuarter >= 4 && mapIdToTP.get(objCompBudgetDetail.SHCM__timePeriod__c).SHCM__type__c == 'Quarter')
+                    {
+                        objCompBudgetDetail.adderror('there may only be 4 Quarter Time AND 1 Year Time Period Comp Budget Detail records for each Year Time Period Comp Budget record.');
+                    }
+                }
+                if(budgetByTimePeriodType == 'Year')
+                {
+                    if(countYear >= 1 && mapIdToTP.get(objCompBudgetDetail.SHCM__timePeriod__c).SHCM__type__c == 'Year')
+                    {
+                         objCompBudgetDetail.adderror('there may only be 1 Year Time Period Comp Budget Detail record for each Year Time Period Comp Budget record.');
+                    }
+                    
+                }
+                
+            } 
+        }
+}

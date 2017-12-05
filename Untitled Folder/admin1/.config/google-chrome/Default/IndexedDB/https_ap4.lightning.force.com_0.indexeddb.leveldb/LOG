@@ -1,0 +1,30 @@
+2017/04/13-20:36:13.971 2371 Reusing MANIFEST /home/admin1/.config/google-chrome/Default/IndexedDB/https_ap4.lightning.force.com_0.indexeddb.leveldb/MANIFEST-000001
+2017/04/13-20:36:13.971 2371 Recovering log #26
+2017/04/13-20:36:13.976 2371 Reusing old log /home/admin1/.config/google-chrome/Default/IndexedDB/https_ap4.lightning.force.com_0.indexeddb.leveldb/000026.log 
+2017/04/13-20:37:12.851 3590 Level-0 table #32: started
+2017/04/13-20:37:12.942 3590 Level-0 table #32: 2718623 bytes OK
+2017/04/13-20:37:12.976 3590 Delete type=0 #26
+2017/04/13-20:37:21.243 3590 Compacting 1@1 + 1@2 files
+2017/04/13-20:37:21.309 3590 Generated table #33@1: 556 keys, 750600 bytes
+2017/04/13-20:37:21.309 3590 Compacted 1@1 + 1@2 files => 750600 bytes
+2017/04/13-20:37:21.342 3590 compacted to: files[ 0 0 1 0 0 0 0 ]
+2017/04/13-20:37:21.342 3590 Delete type=2 #29
+2017/04/13-20:37:21.343 3590 Delete type=2 #32
+2017/04/13-20:38:39.981 3590 Level-0 table #35: started
+2017/04/13-20:38:40.087 3590 Level-0 table #35: 2975078 bytes OK
+2017/04/13-20:38:40.138 3590 Delete type=0 #31
+2017/04/13-20:38:43.310 3590 Compacting 1@1 + 1@2 files
+2017/04/13-20:38:43.416 3590 Generated table #36@1: 1008 keys, 1511920 bytes
+2017/04/13-20:38:43.416 3590 Compacted 1@1 + 1@2 files => 1511920 bytes
+2017/04/13-20:38:43.449 3590 compacted to: files[ 0 0 1 0 0 0 0 ]
+2017/04/13-20:38:43.449 3590 Delete type=2 #35
+2017/04/13-20:38:43.451 3590 Delete type=2 #33
+2017/04/13-20:40:05.003 3590 Level-0 table #38: started
+2017/04/13-20:40:05.109 3590 Level-0 table #38: 3087283 bytes OK
+2017/04/13-20:40:05.142 3590 Delete type=0 #34
+2017/04/13-20:40:58.672 3590 Compacting 1@1 + 1@2 files
+2017/04/13-20:40:58.798 3590 Generated table #39@1: 1261 keys, 1557336 bytes
+2017/04/13-20:40:58.798 3590 Compacted 1@1 + 1@2 files => 1557336 bytes
+2017/04/13-20:40:58.831 3590 compacted to: files[ 0 0 1 0 0 0 0 ]
+2017/04/13-20:40:58.831 3590 Delete type=2 #38
+2017/04/13-20:40:58.832 3590 Delete type=2 #36

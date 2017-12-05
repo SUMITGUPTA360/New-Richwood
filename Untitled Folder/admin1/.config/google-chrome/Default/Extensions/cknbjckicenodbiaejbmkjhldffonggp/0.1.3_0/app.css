@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background: transparent;
+    color: white;
+}
+
+webview {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#titlebar {
+    width: 100%;
+    position: absolute;
+    height: 92px;
+}
+
+
+.options {
+    width: 100%;
+    position: absolute;
+    background: #2f2f2f;
+}
+
+.options-container {
+    max-width: 320px;
+    width: 100%;
+    margin: auto;
+}
+
+.option {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px 22px;
+    max-width: 80px;
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+}
+
+.option.is-active {
+    color: #2A94D6;
+}
+
+.option:hover {
+    color: #8199af;
+}
+
+.option:active {
+    color: #2A94D6;
+}
+
+.option.is-active:hover {
+    color: #2A94D6;
+}
+
+.option--top {
+    padding: 20px 10px;
+}
+
+#iphone-5s-button {
+    font-size: 20px;
+}
+
+#iphone-6-button {
+    font-size: 22px;
+}
+
+#iphone-6-plus-button {
+    font-size: 26px;
+}
+
+#ipad-button {
+    font-size: 32px;
+}
+
+#close-window-button:hover {
+    color: #CF5C60;
+}
+
+.wrapper {
+    height: 100%;
+    -webkit-app-region: drag;
+}
+
+#device {
+    background: #202020;
+    width: 100%;
+    height: 100%;
+    border-radius: 3em;
+}
+.camera {
+    position: absolute;
+    top: 4%;
+    left: calc(50% - 5px);
+    background: #3f3f3f;
+    width: 10px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+
+
+.speaker {
+    position: absolute;
+    top: 7%;
+    left: calc(50% - 27px);
+    background: #3f3f3f;
+    width: 54px;
+    height: 11px;
+    border-radius: 1em;
+}
+
+.screen {
+    background: #2f2f2f;
+    position: absolute;
+    width: 90%;
+    height: 75%;
+    top: 12.5%;
+    left: 5%;
+    animation: lighten 5s infinite alternate;
+    -webkit-app-region: no-drag;
+}
+
+#url-input {
+    border: none;
+    outline: none;
+    background: inherit;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 14px;
+    padding: 2px;
+    width: calc(100% - 104px);
+    margin: 20px 0;
+    text-align: center;
+}
+
+#url-input:hover {
+    border-color: #8199af;
+    color: #8199af;
+}
+
+#url-input:active, #url-input:focus {
+    border-color: #2A94D6;
+    color: #2A94D6;
+}
+
+#url-input:invalid {
+    color: #CF5C60;
+}
+
+.button {
+    position: absolute;
+    background: #3f3f3f;
+    border: 1px solid #3f3f3f;
+    border-radius: 50%;
+    cursor: pointer;
+
+    width: 54px;
+    height: 54px;
+    left: calc(50% - 27px);
+    bottom: calc(6.25% - 27px);
+
+    transition: background-color 0.5s ease;
+
+    -webkit-app-region: no-drag;
+}
+
+.button:active {
+    transition: background-color 0s ease;
+    background: #333;
+}
+
+.button.is-active {
+    background: #2A94D6;
+}
+
+.square {
+    position: absolute;
+    top: 27.5%;
+    left: 27.5%;
+    border: 2px solid #d7d7d7;
+    border-radius: .3em;
+    width: 45%;
+    height: 45%;
+}
+
+/*-- Tablet Mode has different UI -----*/
+.tablet .screen {
+    width: 82.5%;
+    height: 82.5%;
+    top: 8.75%;
+    left: 8.75%;
+}
+
+.tablet .button {
+    bottom: calc(8.75% / 2 - 27px);
+}
+
+.tablet .camera {
+    left: 49.25%;
+    width: 1.5%;
+    padding-top: 1.5%;
+}
+
+.tablet .speaker {
+    display: none;
+}
+
+/*------------- UTILITY ---------------*/
+
+.fade-in {
+    opacity: 0;
+    visibility: hidden;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+
+.fade-in.is-visible {
+    visibility: visible;
+    opacity: .9;
+    transition-delay:0s;
+}
+
+.right {
+    float: right;
+}
+
+.top {
+    top: -1px; /* should be 0, but for some reason this doesn't show on top in screen */
+}
+
+.bottom {
+    bottom: 0;
+}

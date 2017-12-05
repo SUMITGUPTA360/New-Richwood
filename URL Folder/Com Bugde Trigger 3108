@@ -1,0 +1,208 @@
+public class CompBudgetTriggerHandler{
+
+  public Static void onAfterUpdate(list<SHCM__HRCompBudget__c> listCompBudget ,map<id,SHCM__HRCompBudget__c> mapCompBudget)
+   {
+           afterUpdate(listCompBudget,mapCompBudget);
+   }
+  private Static void afterUpdate(list<SHCM__HRCompBudget__c> listCompBudget ,map<id,SHCM__HRCompBudget__c> mapCompBudget)
+    {
+        list<SHCM__Transaction__c> lst = new list<SHCM__Transaction__c>();
+        SHCM__Transaction__c compTransaction;
+        
+        for(SHCM__HRCompBudget__c obj: listCompBudget){
+        if(obj.SHCM__compBudget__c != mapCompBudget.get(obj.id).SHCM__compBudget__c){
+                
+             compTransaction =  new SHCM__Transaction__c();
+             compTransaction.SHCM__apiName__c = 'SHCM__compBudget__c';
+             compTransaction.SHCM__apiNamelabel__c = 'compBudget';
+             compTransaction.SHCM__compBudget__c = obj.id;
+             compTransaction.SHCM__costCode__c = obj.SHCM__organization__r.SHCM__costCode__r.Name;
+             compTransaction.SHCM__createdDateTime__c = obj.CreatedDate;
+             compTransaction.SHCM__newAmount__c = obj.SHCM__compBudget__c;
+             compTransaction.SHCM__objectName__c = 'HR-Comp Budget';
+             compTransaction.SHCM__oldAmount__c = mapCompBudget.get(obj.id).SHCM__compBudget__c;
+             compTransaction.SHCM__timePeriod__r =obj.SHCM__timePeriod__r;       
+             lst.add(compTransaction);
+             }
+            
+        }
+        
+       if(lst.size() > 0)
+       {
+          insert lst;
+       } 
+    } 
+    
+    
+    public static void beforeInsertHRCompBudget(List<SHCM__HRCompBudget__c> insertedNewListHRCompBudget){
+        beforeInsertHRCompBudgetAction(insertedNewListHRCompBudget);
+    } 
+    
+    /*
+    private Static void beforeInsertHRCompBudgetAction(List<SHCM__HRCompBudget__c> insertedNewListHRCompBudget){
+    
+        Set<String> setHRCompBudgetId = new Set<String>();
+       
+        for(SHCM__HRCompBudget__c objCon : insertedNewListHRCompBudget){
+            
+            system.debug('objCon-----'+objCon);
+            if(objCon != NULL){
+                system.debug('objCon-----------'+objCon.id);
+                setHRCompBudgetId.add(objCon.id); 
+            }   
+        }
+        
+        List<SHCM__HR_Organization__c> ListSHCMHROrganization = [Select id ,SHCM__currentTimePeriod__c,SHCM__currentTimePeriod__r.name, SHCM__parentOrganization__c, SHCM__parentOrganization__r.name,SHCM__masterOrganization__c,SHCM__masterOrganization__r.name from SHCM__HR_Organization__c]; 
+        System.debug('ListSHCMHROrganization---'+ListSHCMHROrganization);
+        
+        for(SHCM__HRCompBudget__c HRComBugetObj:insertedNewListHRCompBudget){
+            
+            for(SHCM__HR_Organization__c HROrganizationObj : ListSHCMHROrganization){
+                
+                system.debug('HROrganizationObj.Id----'+HROrganizationObj.Id);
+                system.debug('HROrganizationObj.SHCM__currentTimePeriod__c----'+HROrganizationObj.SHCM__currentTimePeriod__c);
+                system.debug('HRComBugetObj.SHCM__timePeriod__c----'+HRComBugetObj.SHCM__timePeriod__c);
+                system.debug('HRComBugetObj.SHCM__organization__c----'+HRComBugetObj.SHCM__organization__c);
+                                
+                if(HROrganizationObj.Id != Null && HROrganizationObj.SHCM__currentTimePeriod__c != Null && HROrganizationObj.SHCM__currentTimePeriod__c == HRComBugetObj.SHCM__timePeriod__c && HROrganizationObj.Id == HRComBugetObj.SHCM__organization__c){
+                    HRComBugetObj.addError('An Existin Comp Budget for the select time period already exists. You may not create more than one Comp Budget for the prriod.'); 
+                }            
+            }        
+        }     
+    }
+     */
+     
+     private Static void beforeInsertHRCompBudgetAction(List<SHCM__HRCompBudget__c> insertedNewListHRCompBudget){
+    
+        Set<Id> setHROrgId = new Set<Id>();
+        Set<Id> setHRTPId = new Set<Id>();
+        Map<String, String> mapObjStr = new Map<String, String>();
+        
+        for(SHCM__HRCompBudget__c objCon : insertedNewListHRCompBudget){
+         system.debug('New '+mapObjStr);
+            if(String.isNotBlank(String.valueOf(objCon.SHCM__organization__c))){
+                setHROrgId.add(objCon.SHCM__organization__c);
+                setHRTPId.add(objCon.SHCM__timePeriod__c);
+                String key = objCon.SHCM__organization__c+'||'+objCon.SHCM__timePeriod__c;
+                system.debug('key'+key);
+                if(!mapObjStr.containsKey(key))
+                {
+                    system.debug('New '+mapObjStr);
+                    mapObjStr.put(key, 'New');
+                }
+               else
+               {
+                  system.debug('New '+mapObjStr);
+                 objCon.addError('An Existin Comp Budget for the select time period already exists. You may not create more than one Comp Budget for the prriod.');
+               }
+            }   
+        }
+      
+        for(SHCM__HRCompBudget__c objCompBudget : [ Select SHCM__organization__c, SHCM__timePeriod__c from SHCM__HRCompBudget__c where SHCM__organization__c IN : setHROrgId OR SHCM__timePeriod__c IN : setHRTPId])
+        {
+            String Key = objCompBudget.SHCM__organization__c+ '||' +objCompBudget.SHCM__timePeriod__c;
+            if(mapObjStr.containsKey(key))
+           {
+                 mapObjStr.remove(key);
+           }
+            system.debug('New '+mapObjStr);
+            mapObjStr.put(key, 'old');
+         }
+       
+        
+        for(SHCM__HRCompBudget__c HRComBugetObj:insertedNewListHRCompBudget){
+            
+           String key = HRComBugetObj.SHCM__organization__c+'||'+HRComBugetObj.SHCM__timePeriod__c;
+           if(mapObjStr.containsKey(key) && mapObjStr.get(key) == 'old')
+           {
+               HRComBugetObj.addError('An Existin Comp Budget for the select time period already exists. You may not create more than one Comp Budget for the prriod.');
+           }      
+        }     
+    }
+    
+    public static void onAfterUndelete(List<SHCM__HRCompBudget__c> listOfSHCMHRCompBudget){
+        onAfterUndeleteAction(listOfSHCMHRCompBudget);
+    }
+    
+    
+     private static void onAfterUndeleteAction(List<SHCM__HRCompBudget__c> listOfSHCMHRCompBudget)
+        {
+            system.debug('onAfterUndeleteAction---'+listOfSHCMHRCompBudget);
+            Set<Id> setHROrgId = new Set<Id>();
+            Set<Id> setHRTPId = new Set<Id>();
+            Set<Id> setCBIds  = new Set<Id>();
+            Map<String,String> mapObjStr = new Map<String,String>();
+            
+            for(SHCM__HRCompBudget__c objCB : listOfSHCMHRCompBudget)
+            {
+               if(objCB.SHCM__organization__c != null && objCB.SHCM__timePeriod__c != null){
+                 setHROrgId.add(objCB.SHCM__organization__c) ;
+                 setHRTPId.add(objCB.SHCM__timePeriod__c);
+                 setCBIds.add(objCB.id);
+                  system.debug('setHROrgId---'+setHROrgId   +setHRTPId);
+               }
+            }
+            if(setHROrgId.size() > 0 && setHRTPId.size() > 0)
+            {
+                system.debug('setHROrgId---'+setHROrgId   +setHRTPId);
+               List<SHCM__HRCompBudget__c> listOfCB = [Select SHCM__organization__c, SHCM__timePeriod__c from   SHCM__HRCompBudget__c where id NOT IN : setCBIds AND (SHCM__organization__c IN : setHROrgId OR SHCM__timePeriod__c IN : setHRTPId )];
+               Set<Id> setOfTimePeriodIds = new Set<Id>();  
+               
+                for(SHCM__HRCompBudget__c cntCB : listOfCB){
+                       setOfTimePeriodIds.add(cntCB.SHCM__timePeriod__c);  
+                 }
+                
+                for(SHCM__HRCompBudget__c objCompBudge : listOfCB){
+                  
+                  if(setOfTimePeriodIds.contains(objCompBudge.SHCM__timePeriod__c))
+                  {
+                      objCompBudge.addError('A Sales Plan for this Contact HCM already exists for the selected Year Time Period.') ;
+                  }
+                }
+            
+            }
+            
+        }    
+    
+    
+     
+      
+     public static void beforeUpdateHRCompBudget(Map<Id,SHCM__HRCompBudget__c> mapOfNewValues,Map<Id,SHCM__HRCompBudget__c> mapOfOldValues ){
+       beforeUpdateHRCompBudgetAction(mapOfNewValues,mapOfOldValues);
+    }
+    
+     private Static void beforeUpdateHRCompBudgetAction(Map<Id,SHCM__HRCompBudget__c> mapOfNewValues,Map<Id,SHCM__HRCompBudget__c> mapOfOldValues){
+        
+		List<SHCM__HRCompBudget__c> lstCompBudget = new List<SHCM__HRCompBudget__c>();
+		Set<Id> setHROrgId = new Set<Id>();
+        Set<Id> setHRTPId = new Set<Id>();
+        for(SHCM__HRCompBudget__c objCon : newMapOfHRCompBudget.values()){
+       
+            if(mapOfNewValues.get(objCon.Id).SHCM__organization__c != mapOfOldValues.get(objCon.Id).SHCM__organization__c 
+                   || mapOfNewValues.get(objCon.Id).SHCM__timePeriod__c != mapOfOldValues.get(objCon.Id).SHCM__timePeriod__c){
+                   lstCompBudget.add(objCon);
+				   setHROrgId.add(objCon.SHCM__organization__c);
+				   setHRTPId.add(objCon.SHCM__timePeriod__c);
+              } 				  
+			  		      
+        for(SHCM__HRCompBudget__c objCompBudget : [ Select SHCM__organization__c, SHCM__timePeriod__c from SHCM__HRCompBudget__c where Id In: setCombId and  (SHCM__organization__c IN : setHROrgId OR SHCM__timePeriod__c IN : setHRTPId)])
+        { 
+		
+           
+        }
+       
+        
+        for(SHCM__HRCompBudget__c HRComBugetObj:UpdateNewListOfHRCompBudget){
+            
+           String key = HRComBugetObj.SHCM__organization__c+'||'+HRComBugetObj.SHCM__timePeriod__c;
+           if(mapObjStr.containsKey(key) && mapObjStr.get(key) == 'old')
+           {
+               HRComBugetObj.addError('An Existin Comp Budget for the select time period already exists. You may not create more than one Comp Budget for the prriod.');
+           }      
+        }     
+    }
+          
+   
+           
+    
+}

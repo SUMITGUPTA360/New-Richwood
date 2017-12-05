@@ -1,0 +1,149 @@
+<apex:page controller="tmd.MergeSetupController" >
+    <style>
+        .myButton {
+                      -moz-box-shadow:inset 0px 34px 0px -15px black;
+                        -webkit-box-shadow:inset 0px 34px 0px -15px black;
+                        box-shadow:inset 0px 34px 0px -15px black;
+                        background-color:black;
+                        border:1px solid #241d13;
+                        display:inline-block;
+                        cursor:pointer;
+                        color:#ffffff;
+                        font-family:arial;
+                        font-size:15px;
+                        font-weight:bold;
+                        padding:3px 5px 10px 5px;
+                        text-decoration:none;
+                        border-radius:3px;
+                        //text-shadow:0px -1px 0px #7a2a1d;
+                        height:10px;
+                    }
+          .myButton1 {
+                      -moz-box-shadow:inset 0px 34px 0px -15px #3385FF;
+                        -webkit-box-shadow:inset 0px 34px 0px -15px #3385FF;
+                        box-shadow:inset 0px 34px 0px -15px #3385FF;
+                        background-color:#3385FF;
+                        border:1px solid #3385FF;
+                        display:inline-block;
+                        cursor:pointer;
+                        color:#ffffff;
+                        font-family:arial;
+                        font-size:15px;
+                        font-weight:bold;
+                        padding:3px 5px 10px 5px;
+                        text-decoration:none;
+                       // text-shadow:0px -1px 0px #7a2a1d;
+                        border-radius:3px;
+                        height:10px;
+                    }          
+    
+            ul li
+            {
+                list-style-type: none;
+            }
+        .table1
+        {
+            width:100%;
+            border-collapse:collapse;
+        }
+        .table1 td,th
+        {
+            height:30px;           
+            border-bottom:1px solid #D6D6D6;
+            border-collapse:collapse;
+            vertical-align:middle;
+            font-size:1.2em
+        }
+    </style>
+   <Apex:form >
+    
+        
+        <apex:actionFunction name="showcriteria" action="{!showcriteria}" reRender="tableshow,errormsg">
+            <apex:param value="" name="Param1" assignTo="{!SN}"/>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="deletescheduled" action="{!deletescheduled}" reRender="tableshow,errormsg">
+            <apex:param value="" name="Param1" assignTo="{!SN}"/>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="singlesave" action="{!singlesave}" reRender="tableshow,errormsg">
+            <apex:param value="" name="Param1" assignTo="{!SN}"/>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="editmode" action="{!editmode}" reRender="tableshow,errormsg">
+            <apex:param value="" name="Param1" assignTo="{!SN}"/>
+        </apex:actionFunction>
+         
+        <apex:actionFunction name="addnew" action="{!addnewrow}" reRender="tableshow,errormsg" />
+        <apex:actionFunction name="saveall" action="{!saveall}" reRender="tableshow,errormsg" />
+        <apex:actionFunction name="deleteall" action="{!deleteall}" reRender="tableshow,errormsg" />
+        
+        <div style="width:1095px;height:450px">
+            <div style="background-color:#3385FF;height:30px;border-radius:3px;width:100%">
+                <span style="display:inline-block;vertical-align:middle;margin-top:4px;font-size:1.6em;color:white;font-style: normal;font-weight: normal;margin-left:30px">Scheduler Setting</span>
+            </div>
+            <div style="width:95%;margin-left:5%">
+                
+                    <table class="table1" style="width:98.25%">
+                        <tr>
+                            <th width="30px">S.N.</th>
+                            <th width="15%">Objects<span style="color:red;font-size:1.4em"><b>*</b></span></th>
+                            <th width="20%">Duplicate Criteria<span style="color:red;font-size:1.4em">*</span></th>
+                            <th width="15%">Month Day<span style="color:red;font-size:1.4em">*</span></th>
+                            <th width="15%">Time<span style="color:red;font-size:1.4em">*</span></th>
+                            <th width="15%">Active</th>
+                            <th width="117px"><span style="color:red"><span style="color:red;font-size:1.4em">*</span> Mandatory Fields</span></th>
+                        </tr>
+                     </table>
+                  <apex:outputPanel id="tableshow">
+                  <apex:messages id="errormsg" style="color:red;font-size:1.3em" />
+                     <div style="width:100%;height:300px;overflow:scroll">
+                         <table class="table1">   
+                            <apex:repeat value="{!list_show_scheduler}" var="Var1">
+                                <tr>
+                                    <td width="30px">
+                                        {!Var1.SN+1}
+                                       
+                                    </td>
+                                    <td width="15%">
+                                        <apex:outputPanel rendered="{!if(Var1.type=='View',true,false)}" >{!Var1.sobj.tmd__Sobject__c}</apex:outputPanel>
+                                        <apex:outputPanel rendered="{!if(Var1.type=='Edit',true,false)}" ><apex:inputField value="{!Var1.sobj.tmd__Sobject__c}" onchange="showcriteria('{!Var1.SN}')" /> </apex:outputPanel>
+                                    </td>
+                                    <td width="20%">
+                                        <apex:outputPanel rendered="{!if(Var1.type=='View',true,false)}" >{!Var1.sobj.tmd__Duplicate_Criteria__c}</apex:outputPanel>
+                                        <apex:outputPanel rendered="{!if(Var1.type=='Edit',true,false)}" >
+                                            <apex:selectList value="{!Var1.sobj.tmd__Duplicate_Criteria__c}" size="1" style="width:90%">
+                                                <apex:selectOptions value="{!Var1.selectcriteria}"/>
+                                            </apex:selectList>
+                                        </apex:outputPanel>
+                                    </td>
+                                    <td width="15%">
+                                        <apex:outputPanel rendered="{!if(Var1.type=='View',true,false)}" >{!Var1.sobj.tmd__Month_Day__c}</apex:outputPanel>
+                                        <apex:outputPanel rendered="{!if(Var1.type=='Edit',true,false)}" ><apex:inputField value="{!Var1.sobj.tmd__Month_Day__c}"  /></apex:outputPanel>
+                                    </td>
+                                    <td width="15%">
+                                        <apex:outputPanel rendered="{!if(Var1.type=='View',true,false)}" >{!Var1.sobj.tmd__Time__c}</apex:outputPanel>
+                                        <apex:outputPanel rendered="{!if(Var1.type=='Edit',true,false)}" ><apex:inputField value="{!Var1.sobj.tmd__Time__c}" /></apex:outputPanel>
+                                    </td>
+                                    <td width="15%">
+                                        <apex:outputPanel rendered="{!if(Var1.type=='View',true,false)}" ><apex:outputField value="{!Var1.sobj.Active__c }"/> </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!if(Var1.type=='Edit',true,false)}" ><apex:inputField value="{!Var1.sobj.Active__c }" /></apex:outputPanel>
+                                    </td>
+                                    <td width="117px">
+                                        <apex:outputPanel rendered="{!if(Var1.type=='View',true,false)}" ><a class="myButton"  href="#" onclick="editmode('{!Var1.SN}');">Edit</a></apex:outputPanel>
+                                        <apex:outputPanel rendered="{!if(Var1.type=='Edit',true,false)}" ><a class="myButton" href="#" onclick="singlesave('{!Var1.SN}');">Save</a></apex:outputPanel>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <a class="myButton" href="#" onclick="deletescheduled('{!Var1.SN}')">Delete</a>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </table>
+                    </div>
+                </apex:outputPanel>
+            </div>
+            <div style="height:30px;border-radius:3px;width:100%;padding-top:5px">
+                <span style="display:inline-block;vertical-align:middle;margin-top:4px;font-size:1.2em;font-style:normal;font-weight:normal;margin-left:55px"><a class="myButton1" href="#" onclick="addnew();"> Add New </a>  &nbsp;&nbsp;&nbsp; <a class="myButton1" href="#" onclick="saveall();"> Save All </a>  &nbsp;&nbsp;&nbsp; <a class="myButton1" href="#" onclick="deleteall();" > Delete All </a> </span>
+            </div>
+        </div>
+    </Apex:form>   
+</apex:page>

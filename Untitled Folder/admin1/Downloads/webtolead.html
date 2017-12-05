@@ -1,0 +1,53 @@
+
+<!-- saved from url=(0037)file:///home/admin1/Desktop/webtolead -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" async="" src="./webtolead_files/recaptcha__en.js"></script><script src="./webtolead_files/api.js"></script>
+<script>
+ function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+</script>
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+</head><body><div style="
+    div {     width: 300px;
+    border: 25px solid green;
+    padding: 25px;
+    margin: 25px; }
+">
+
+<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+<h4>CONTACT US</h4>
+
+<input type="hidden" name="captcha_settings" value="{&quot;keyname&quot;:&quot;captcha&quot;,&quot;fallback&quot;:&quot;true&quot;,&quot;orgId&quot;:&quot;00D6F000001gq3M&quot;,&quot;ts&quot;:&quot;1489477254449&quot;}">
+<input type="hidden" name="oid" value="00D6F000001gq3M">
+<input type="hidden" name="retURL" value="http://GOOGLE.COM">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="premathakur66@gmail.com">                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<label for="first_name">Enter Your Name</label><br><input id="first_name" maxlength="40" name="first_name" size="20" type="text"><br>
+
+<label for="email">Email ID</label><br><input id="email" maxlength="80" name="email" size="20" type="text"><br>
+
+<label for="company">Company</label><br><input id="company" maxlength="40" name="company" size="20" type="text"><br>
+
+<label for="city">City</label><br><input id="city" maxlength="40" name="city" size="20" type="text"><br>
+
+<label for="state">State/Province</label><br><input id="state" maxlength="20" name="state" size="20" type="text"><br>
+
+<label for="country">Country</label><br><input id="country" maxlength="40" name="country" size="20" type="text"><br><br>
+
+<div class="g-recaptcha" data-sitekey="6LeCuBgUAAAAAPHU_ZMm3LpTgE5_xVZifxhYZhb9"><div style="width: 304px; height: 78px;"><div><iframe src="./webtolead_files/anchor.html" title="recaptcha widget" width="304" height="78" frameborder="0" scrolling="no" name="undefined"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div><br>
+<input type="submit" name="submit">
+
+</form>
+  </div>
+</body></html>

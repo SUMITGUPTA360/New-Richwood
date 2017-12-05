@@ -1,0 +1,8 @@
+upstart-event-bridge: Disconnected from Upstart
+upstart-event-bridge: Connection is closed
+process 24175: arguments to dbus_pending_call_unref() were incorrect, assertion "pending != NULL" failed in file ../../dbus/dbus-pending-call.c line 608.
+This is normally a bug in some application using the D-Bus library.
+upstart-event-bridge: Connection is closed
+process 24175: arguments to dbus_pending_call_unref() were incorrect, assertion "pending != NULL" failed in file ../../dbus/dbus-pending-call.c line 608.
+This is normally a bug in some application using the D-Bus library.
+upstart-event-bridge: Disconnected from Upstart

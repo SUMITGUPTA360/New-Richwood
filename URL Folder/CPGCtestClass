@@ -1,0 +1,65 @@
+@isTest
+public with sharing class CloneCompensationGradeChangeTest{
+
+      public static testMethod void copmGCTest(){
+        
+        SHCM__Earnings_Code__c objEC = new SHCM__Earnings_Code__c();
+        objEC.name = 'EC test';
+        insert objEC;
+        
+        SHCM__Country_Codes__c objCC = new SHCM__Country_Codes__c();
+        objCC.Name = 'CC test';
+        insert objCC;
+        
+        SHCM__Pay_Group__c objPG = new SHCM__Pay_Group__c();
+        objPG.name = 'PG Test';
+        
+        
+        SHCM__Compensation_Plan__c objCP = new SHCM__Compensation_Plan__c();
+        objCP.Name= 'CompP Test';
+        objCP.SHCM__defaultEarningsCode__c = objEC.id;
+        
+        SHCM__Compensation_Grade__c objCPG = new SHCM__Compensation_Grade__c();
+        objCPG.Name = 'CPG Test';
+        objCPG.SHCM__defaultBaseCompensation__c = 10;
+        objCPG.SHCM__gradeStep__c = 'grade/Step 1';
+        objCPG.SHCM__maximum__c = 100;
+        objCPG.SHCM__midpoint__c = 50;
+        objCPG.SHCM__minimum__c = 20;
+        insert objCPG ;
+        
+        
+        
+        SHCM__Compensation_Grade_Change__c objGradeChangeClone = new SHCM__Compensation_Grade_Change__c();
+        objGradeChangeClone.SHCM__compensationPlan__c=objCP.Id;
+        objGradeChangeClone.Name=objCPG.Name;
+        objGradeChangeClone.SHCM__defaultBaseCompensation__c = 10;
+        objGradeChangeClone.SHCM__gradeStep__c = 'grade/Step 1';
+        objGradeChangeClone.SHCM__maximum__c = 100;
+        objGradeChangeClone.SHCM__midpoint__c = 50;
+        objGradeChangeClone.SHCM__minimum__c = 20;
+        objGradeChangeClone.SHCM__compensationGrade__c=objCPG.id;
+        
+        
+        insert objGradeChangeClone; 
+        Test.starttest();
+        String oldGradeChangeId = ApexPages.currentPage().getParameters().get('gradeChangeId');
+		
+        ApexPages.StandardController sc = new ApexPages.StandardController(objGradeChangeClone);
+        CloneCompensationGradeChange objCGP = new CloneCompensationGradeChange(sc);
+        objCGP.tf1 = True;
+        objCGP.tf2= false;
+        objCGP.tf3= false;
+        
+        
+        objCGP.confirmClone();
+        objCGP.showClone();
+        
+        Test.stoptest();
+        
+        
+        
+    }
+    
+    
+}

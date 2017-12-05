@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <!-- Salesforce wanted to restore the metadata for all groups except for Competitive Marketing (org 6139) -->
+    <title>Hands-on Workshop: Coding on Force.com for Admins and Non-Developers</title>
+  <link rel="icon" href="https://cdn.vidyard.com/default_hub_favicon.ico" />
+  <link rel="shortcut icon" href="https://cdn.vidyard.com/default_hub_favicon.ico" />
+  <meta name="title" content="" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="generator" content="vidyard.com">
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="GtJaq5/TPknnhTHmWhktFa3oQFNikZk9p3OFGeWIKMsAL8hw+9J6HFwvQXXQlbN+OvrOGuvFF1v+5Np5rcZcRw==" />
+  <!-- Salesforce is using embedly in chatter and we need to force these metatags to show on non-secured players -->
+      <meta name="medium" content="video">
+  <meta name="title" content="Hands-on Workshop: Coding on Force.com for Admins and Non-Developers">
+  <meta name="description" content="Are you a Salesforce point-and-click guru looking to learn more about the programmatic features of the platform? Are you interested in learning how to code but have no formal coding background? Join us to learn how to analyze code and assess what it does, outline and use the available tools to tinker on existing code to modify functionality, and set a foundation for being able to build your own triggers and test classes. You&#39;ll learn not only what programmatic tools exist and when you can use them, but also get context into where these features extend the limitations of the point-and-click tools you are already using today. Note: This Elevate at Dreamforce Hands-on Workshop is a classroom style hands-on workshop in the DevZone breakout rooms. Please bring your own laptop for the hands-on exercises. ">
+  <meta name="video_type" content="application/x-shockwave-flash">
+  <meta name="video_height" content="360">
+  <meta name="video_width" content="640">
+
+  <meta property="fb:admins" content="42301029">
+
+  <meta property="og:url" content="http://dreamforce.vidyard.com/watch/AIpOFTPxhnsQNwuNQuGqng?custom_id=">
+  <meta property="og:site_name" content="Vidyard">
+  <meta property="og:title" content="Hands-on Workshop: Coding on Force.com for Admins and Non-Developers">
+  <meta property="og:description" content="Are you a Salesforce point-and-click guru looking to learn more about the programmatic features of the platform? Are you interested in learning how to code but have no formal coding background? Join us to learn how to analyze code and assess what it does, outline and use the available tools to tinker on existing code to modify functionality, and set a foundation for being able to build your own triggers and test classes. You&#39;ll learn not only what programmatic tools exist and when you can use them, but also get context into where these features extend the limitations of the point-and-click tools you are already using today. Note: This Elevate at Dreamforce Hands-on Workshop is a classroom style hands-on workshop in the DevZone breakout rooms. Please bring your own laptop for the hands-on exercises. ">
+
+  <meta property="og:image" content="https://cdn.vidyard.com/thumbnails/custom/9PRS-vUVk7EVxkh2EHpoHA">
+  <meta property="og:image:width" content="470">
+  <meta property="og:image:height" content="264">
+
+  <meta property="og:type" content="video.movie">
+  <meta property="video:duration" content="6231">
+
+  <meta property="og:video:type" content="text/html">
+  <meta property="og:video:width" content="470">
+  <meta property="og:video:height" content="264">
+  <meta property="og:video" content="https://play.vidyard.com/AIpOFTPxhnsQNwuNQuGqng.html?autoplay=0&amp;disable_popouts=1&amp;embed_button=0&amp;v=3.1.1&amp;viral_sharing=0">
+  <meta property="og:video:secure_url" content="https://play.vidyard.com/AIpOFTPxhnsQNwuNQuGqng.html?autoplay=0&amp;disable_popouts=1&amp;embed_button=0&amp;v=3.1.1&amp;viral_sharing=0">
+
+  <meta property="og:video:type" content="application/x-shockwave-flash">
+  <meta property="og:video:width" content="470">
+  <meta property="og:video:height" content="264">
+  <meta property="og:video" content="https://secure.vidyard.com/flash/flowplayer.vidyard-3.2.16.1.swf?config=https://play.vidyard.com/AIpOFTPxhnsQNwuNQuGqng/type/standalone">
+  <meta property="og:video:secure_url" content="https://secure.vidyard.com/flash/flowplayer.vidyard-3.2.16.1.swf?config=https://play.vidyard.com/AIpOFTPxhnsQNwuNQuGqng/type/standalone">
+
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="470">
+    <meta property="og:video:height" content="264">
+    <meta property="og:video" content="https://cdn.vidyard.com/videos/6Pd_Ga827m_-zbzf2rxJ7Q/sd.mp4?SxhuvhH2Pvp2P-rdKSRnkhhdsma-VdkLyJSK6914Klk91q6XOhlZlU3ihPLWi0UXcUsFQukSUtutmNjYSomYIuQZm0v65-FMCbmxhr9j">
+    <meta property="og:video:secure_url" content="https://cdn.vidyard.com/videos/6Pd_Ga827m_-zbzf2rxJ7Q/sd.mp4?SxhuvhH2Pvp2P-rdKSRnkhhdsma-VdkLyJSK6914Klk91q6XOhlZlU3ihPLWi0UXcUsFQukSUtutmNjYSomYIuQZm0v65-FMCbmxhr9j">
+
+    <meta name="twitter:player:stream" content="https://cdn.vidyard.com/videos/6Pd_Ga827m_-zbzf2rxJ7Q/sd.mp4?SxhuvhH2Pvp2P-rdKSRnkhhdsma-VdkLyJSK6914Klk91q6XOhlZlU3ihPLWi0UXcUsFQukSUtutmNjYSomYIuQZm0v65-FMCbmxhr9j">
+    <meta name="twitter:player:stream:content_type" content="video/mp4; codecs=&quot;avc1.42E01E1, mp4a.40.2&quot;">
+
+  <meta name="twitter:card" content="player">
+  <meta name="twitter:url" content="http://dreamforce.vidyard.com/watch/AIpOFTPxhnsQNwuNQuGqng?custom_id=">
+  <meta name="twitter:title" content="Hands-on Workshop: Coding on Force.com for Admins and Non-Developers">
+  <meta name="twitter:description" content="Are you a Salesforce point-and-click guru looking to learn more about the programmatic features of the platform? Are you interested in learning how to code but have no formal coding background? Join us to learn how to analyze code and assess what it does, outline and use the available tools to tinker on existing code to modify functionality, and set a foundation for being able to build your own triggers and test classes. You&#39;ll learn not only what programmatic tools exist and when you can use them, but also get context into where these features extend the limitations of the point-and-click tools you are already using today. Note: This Elevate at Dreamforce Hands-on Workshop is a classroom style hands-on workshop in the DevZone breakout rooms. Please bring your own laptop for the hands-on exercises. ">
+  <meta name="twitter:player:width" content="435">
+  <meta name="twitter:player:height" content="245">
+  <meta name="twitter:player" content="https://play.vidyard.com/AIpOFTPxhnsQNwuNQuGqng.html?autoplay=0&amp;disable_popouts=1&amp;embed_button=0&amp;v=3.1.1&amp;viral_sharing=0">
+  <meta name="twitter:image" content="https://cdn.vidyard.com/thumbnails/custom/9PRS-vUVk7EVxkh2EHpoHA">
+
+  <script src="https://assets.vidyard.com/assets/manifest_hub_dashboard_hub-f3aea04c436183187a7d0c6b6f2f87ebcd96730e7a4b47c3a92ea7ef4fc7c6d8.js"></script>
+  <link rel="stylesheet" media="screen" href="https://assets.vidyard.com/assets/manifest_hub_dashboard_hub-9768f3c2adbdefafdd31618b379e97b7493548518d0d50b72783f64fdb04a1ad.css" />
+  <script src="https://assets.vidyard.com/assets/manifest_hub_layout_salesforce-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"></script>
+  <link rel="stylesheet" media="screen" href="https://assets.vidyard.com/assets/manifest_hub_layout_salesforce-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" />
+  <script>
+//<![CDATA[
+
+  $(document).ready(function () {
+      if (typeof Hub.init === 'function') {
+        Hub.init();
+      }
+  });
+
+//]]>
+</script>
+
+
+  <style type="text/css">
+  </style>
+    <style type="text/css">
+
+    html {
+      background-color: #F3F3F3;
+    }
+
+    .video-description-container.expanded {
+      padding-bottom: 1em;
+    }
+
+    .stage-container {
+      width: 100%;
+    }
+
+    .bsp-container {
+      background-color: #FFF;
+    }
+
+    .full-span {
+      width: 100%;
+    }
+
+    .video-title {
+      color: #808080 !important;
+      float: none;
+      font-size: 2em;
+      margin: auto;
+      margin-top: 20px;
+      clear: none;
+      white-space: normal;
+      overflow: visible;
+    }
+
+    h3.video-about-header {
+      display: block !important;
+      color: white;
+    }
+
+    .stage-info {
+      padding: 0 0px;
+    }
+
+    .aspect-ratio {
+      border-color: #808080;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    #video_container {
+      margin: auto;
+    }
+
+    .hub-container {
+      border: 0;
+    }
+
+    .stage-container {
+      border: 0;
+    }
+
+    #disqus_container {
+      padding: 10px;
+      margin-top: 20px;
+      width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Responsive Code */
+    @media screen and (max-width : 950px) {
+      .video-title {
+        width: 100%;
+        font-size: 2.8em;
+      }
+
+      .stage-info {
+        padding: 0 10px;
+      }
+
+      #disqus_container {
+        padding: 10px;
+        margin-top: 20px;
+        width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media screen and (max-width : 600px) {
+      .video-title {
+        font-size: 1.7em;
+      }
+    }
+
+    @media screen and (max-width : 480px) { //MobilÃ©
+      .video-title {
+        width: 100%;
+        overflow: hidden;
+        font-size: 1.7em;
+      }
+
+      #disqus_container {
+        padding: 10px;
+        margin-top: 20px;
+        width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { //iPhone5
+      .video-title {
+        width: 100%;
+        font-size: 1.7em;
+      }
+
+      #disqus_container {
+        padding: 10px;
+        margin-top: 20px;
+        width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media screen and (max-device-width: 420px) and (orientation: portrait) {
+      .stage {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+  <style type='text/css' class='css_style'>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.hero {
+    background-size: cover;
+    height: 100px;
+    background-position: center center;
+    background-image: url('https://secure.sfdcstatic.com/events-app/df14/images/dreamforce-header-small.jpg');
+}
+
+.desktop, .hub-container {
+    background-color: #fff;
+}
+
+.large-hero .hero {
+    height: 350px;
+}
+
+#sub-nav {
+    background-color: #2494d6;
+    font-family: 'Helvetica Neue',Helvetica,Arial;
+}
+
+#sub-nav .nav-secondary .active>a:after {
+    display: none;
+}
+
+.sidebar-offcanvas.sidebar-left .list-group.sub-nav {
+    list-style: none;
+    background: #666;
+}
+
+.sidebar-offcanvas.sidebar-left .list-group.sub-nav li {
+    padding-left: 25px;
+}
+
+.sidebar-offcanvas.sidebar-left .list-group.sub-nav .active {
+    background-color: #999;
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 7px;
+    padding-right: 7px;
+    max-width: 1024px;
+}
+
+.container>.navbar-header,.container-fluid>.navbar-header,.container>.navbar-collapse,.container-fluid>.navbar-collapse {
+    margin-right: -7px;
+    margin-left: -7px;
+}
+
+@media (min-width:768px) {
+    .container>.navbar-header,.container-fluid>.navbar-header,.container>.navbar-collapse,.container-fluid>.navbar-collapse {
+        margin-right: 0;
+        margin-left: 0;
+    };
+}
+
+@media (min-width:768px) {
+    .navbar>.container .navbar-brand,.navbar>.container-fluid .navbar-brand {
+        margin-left: -7px;
+    };
+}
+
+.clearfix:before,.clearfix:after,.container:before,.container:after,.container-header:before,.container-header:after,.container-fluid:before,.container-fluid:after,.row:before,.row:after,.form-horizontal .form-group:before,.form-horizontal .form-group:after,.nav:before,.nav:after,.navbar:before,.navbar:after,.navbar-header:before,.navbar-header:after,.navbar-collapse:before,.navbar-collapse:after,.panel-body:before,.panel-body:after,.modal-footer:before,.modal-footer:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after,.container:after,.container-header:after,.container-fluid:after,.row:after,.form-horizontal .form-group:after,.nav:after,.navbar:after,.navbar-header:after,.navbar-collapse:after,.panel-body:after,.modal-footer:after {
+    clear: both;
+}
+
+
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.nav>li,.nav>li>a {
+    position: relative;
+    display: block;
+}
+
+.nav>li>a {
+    padding: 10px 15px;
+}
+
+.nav>li>a:hover,.nav>li>a:focus {
+    text-decoration: none;
+    background-color: #eee;
+}
+
+.nav>li.disabled>a {
+    color: #999;
+}
+
+.nav>li.disabled>a:hover,.nav>li.disabled>a:focus {
+    color: #999;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: not-allowed;
+}
+
+.nav .open>a,.nav .open>a:hover,.nav .open>a:focus {
+    background-color: #eee;
+    border-color: #428bca;
+}
+
+.nav .nav-divider {
+    height: 1px;
+    margin: 8px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+.nav-secondary {
+    background-color: #2494d6;
+}
+
+.nav-secondary li {
+    float: left;
+}
+
+.nav-secondary li a {
+    color: #fff;
+    padding: 18px 0;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.nav-secondary li a:hover,.nav-secondary li a:focus {
+    background-color: #0088c6;
+}
+
+.nav-secondary .active>a,.nav-secondary .active>a:hover,.nav-secondary .active>a:focus {
+    background-color: #0080bb;
+    position: relative;
+}
+
+.nav-secondary .active>a:after {
+    border: solid transparent;
+    border-width: 11px;
+    border-top-color: #0080bb;
+    content: " ";
+    left: 50%;
+    margin-left: -11px;
+    position: absolute;
+    pointer-events: none;
+    height: 0;
+    width: 0;
+    top: 100%;
+    z-index: 1000;
+}
+
+.nav-justified {
+    width: 100%;
+}
+
+.nav-justified>li {
+    float: none;
+}
+
+.nav-justified>li>a {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.nav-justified>.dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+}
+
+@media (min-width:768px) {
+    .nav-justified>li {
+        display: table-cell;
+        width: 1%;
+    }
+
+    .nav-justified>li>a {
+        margin-bottom: 0;
+    };
+}
+
+a {
+    color: #428bca;
+    text-decoration: none;
+}
+
+#footer .footer-inner {
+    padding: 30px 0 10px;
+}
+
+.container-header {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+@media (min-width:768px) {
+    .container-header {
+        width: 734px;
+    };
+}
+
+@media (min-width:992px) {
+    .container-header {
+        width: 954px;
+    };
+}
+
+@media (min-width:1200px) {
+    .container-header {
+        width: 1038px;
+    };
+}
+
+.container-header>.navbar-header,.container-header>.navbar-collapse {
+    margin-right: -7px;
+    margin-left: -7px;
+}
+
+@media (min-width:768px) {
+    .container-header>.navbar-header,.container-header>.navbar-collapse {
+        margin-right: 0;
+        margin-left: 0;
+    };
+}
+
+@media (min-width:1200px) {
+    .container-header {
+        width: 1214px;
+    };
+}
+
+#footer {
+    background: #666;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#footer .footer-inner {
+    padding: 30px 0 10px;
+}
+
+#footer h3,#footer p,#footer a,#footer span.footer-text {
+    color: #fff;
+    line-height: 150%;
+}
+
+#footer a.btn {
+    color: #444;
+    line-height: 100%;
+    padding: 8px 16px;
+    font-weight: 700;
+}
+
+#footer a.btn:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+#footer h3 {
+    /*font-family: 'ProximaNovaRegular';
+    font-weight: 700;*/
+    font-family: Arial, sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0 0 5px;
+    font-size: 1.17em;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+#footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#footer .footer-section {
+    width: 25%;
+    float: left;
+}
+
+#footer .footer-section-2 ul.ul-social-icons {
+    display: inline-block;
+    margin: 10px auto 0;
+}
+
+#footer .footer-section-5 {
+    clear: both;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #777;
+    margin-top: 10px;
+}
+
+#footer .footer-section-5 ul {
+    display: inline-block;
+    margin: 10px auto 0;
+}
+
+#footer .footer-section ul li {
+    padding: 3px 0;
+}
+
+#footer .footer-section-5 ul li {
+    float: left;
+    padding: 0 12px;
+}
+
+#footer .footer-section-2 ul.ul-social-icons li {
+    float: left;
+    padding: 0 1px;
+}
+
+#footer .footer-section-inner {
+    padding: 10px;
+}
+
+#footer .footer-section-2 a.footer-icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 0 100px;
+    text-indent: -9999px;
+    vertical-align: top;
+    width: 20px;
+    height: 20px;
+    margin: 2px 5px 0;
+    padding: 0;
+}
+
+#footer .footer-section-2 a.footer-icon-first {
+    margin-left: 0;
+}
+
+#footer .footer-section-2 a.footer-icon-last {
+    margin-right: 0;
+}
+
+#footer .footer-section-2 a.footer-facebook {
+    background-position: -105px -241px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 15px;
+}
+
+#footer .footer-section-2 a.footer-twitter {
+    background-position: -120px -240px;
+}
+
+#footer .footer-section-2 a.footer-youtube {
+    background-position: -140px -240px;
+}
+
+#footer .footer-section-2 a.footer-googleplus {
+    background-position: -160px -240px;
+}
+
+#footer .footer-section-2 a.footer-linkedin {
+    background-position: -180px -240px;
+}
+
+#footer p.p-extra {
+    padding-top: 35px;
+}
+
+#footer .listing-logo {
+    background: 0 0;
+    border: 0;
+    -moz-box-shadow: 0 .2em .6em 0 #999;
+    -webkit-box-shadow: 0 .2em .6em 0 #999;
+    box-shadow: 0 .2em .6em 0 #999;
+    padding: 1px!important;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open .dropdown-toggle.btn-default {
+    color: #333;
+    background-color: #ebebeb;
+    border-color: #adadad;
+}
+
+.btn-default:active,.btn-default.active,.open .dropdown-toggle.btn-default {
+    background-image: none;
+}
+
+.btn-default.disabled,.btn-default[disabled],fieldset[disabled] .btn-default,.btn-default.disabled:hover,.btn-default[disabled]:hover,fieldset[disabled] .btn-default:hover,.btn-default.disabled:focus,.btn-default[disabled]:focus,fieldset[disabled] .btn-default:focus,.btn-default.disabled:active,.btn-default[disabled]:active,fieldset[disabled] .btn-default:active,.btn-default.disabled.active,.btn-default[disabled].active,fieldset[disabled] .btn-default.active {
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-default .badge {
+    color: #fff;
+    background-color: #333;
+}
+
+#footer a.footer-icon {
+  background: url('https://success.salesforce.com/resource/1412384516000/uilib/img/sprite-icons.png');
+}
+  </style>
+  
+
+</head>
+<body>
+  <div id="notifications">
+  <div id="header_success" class="alert alert-success header alert-dismissable collapse">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <i class="fa fa-check-circle"></i>
+    <span class="message"></span>
+  </div>
+
+  <div id="header_notice" class="alert alert-info header alert-dismissable collapse">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <i class="fa fa-info-circle"></i>
+    <span class="message"></span>
+  </div>
+
+  <div id="header_error" class="alert alert-danger header alert-dismissable collapse">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <i class="fa fa-exclamation-circle"></i>
+    <span class="message"></span>
+  </div>
+</div>
+
+  
+  <div id="hub-layout-container">
+    
+<div id="header">
+  <div class="hero img-responsive"></div>
+<nav id="sub-nav">
+ <div class="container-fluid">
+    <div class="row">
+      <ul class="nav nav-secondary nav-justified">
+          <li class="">
+            <a href="https://success.salesforce.com/dreamforce" title="Home">
+              Home
+            </a>
+          </li>
+          <li class="">
+            <a href="https://success.salesforce.com/Ev_Sessions" title="Sessions">
+              Sessions
+            </a>
+          </li>
+          <li class="">
+            <a href="https://success.salesforce.com/Ev_MyAgenda" title="My Agenda">
+              My Agenda
+            </a>
+          </li>
+          <li class="">
+            <a href="https://success.salesforce.com/Ev_Sponsors" title="Sponsors">
+              Sponsors
+            </a>
+          </li>
+          <li class="">
+            <a href="https://success.salesforce.com/Ev_CloudExpoMap" title="Cloud Expo">
+              Cloud Expo
+            </a>
+          </li>
+          <li class="">
+            <a href="https://success.salesforce.com/Ev_VenueMaps" title="Maps">
+              Maps
+            </a>
+          </li>
+          <li class="">
+            <a href="https://success.salesforce.com/Ev_Explore" title="Explore">
+              Explore
+            </a>
+          </li>
+          <li class="">
+            <a href="https://success.salesforce.com/Ev_EventInfo" title="Event Info">
+              Event Info
+            </a>
+          </li>
+          <li class="">
+            <a href="https://success.salesforce.com/Ev_Landing" title="My Info">
+              Register
+            </a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</div>
+
+<div itemscope itemtype="http://schema.org/VideoObject" class="bsp-container">
+  <div class="hub-container">
+    <div class="span-24 last full-span">
+
+      <div class="stage-spacer">
+        <br>
+      </div>
+
+      <div class="stage append-bottom">
+        <meta itemprop="height" content="360">
+        <meta itemprop="width" content="640">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/AIpOFTPxhnsQNwuNQuGqng.jpg?">
+        <meta itemprop="duration" content="T6231S">
+        <div class="aspect-ratio">
+          <script type="text/javascript" id="vidyard_embed_code_AIpOFTPxhnsQNwuNQuGqng" src="//play.vidyard.com/AIpOFTPxhnsQNwuNQuGqng.js?disable_popouts=0&height=360&hide_html5_playlist=1&v=3.1.1&width=640&type=inline"></script>
+        </div>
+      </div>
+
+      <div class="stage-info">
+        <!-- Salesforce wanted to restore the metadata for all groups except for Competitive Marketing (org 6139) -->
+          <h1 itemprop="name" class="video-title">Hands-on Workshop: Coding on Force.com for Admins and Non-Developers</h1>
+          <h3 class="video-about-header">ABOUT</h3>
+<div class="video-description-container">
+  <p class="video-description">
+      Are you a Salesforce point-and-click guru looking to learn more about the programmatic features of the platform? Are you interested in learning how to code but have no formal coding background? Join us to learn how to analyze code and assess what it does, outline and use the available tools to tinker on existing code to modify functionality, and set a foundation for being able to build your own triggers and test classes. You'll learn not only what programmatic tools exist and when you can use them, but also get context into where these features extend the limitations of the point-and-click tools you are already using today. Note: This Elevate at Dreamforce Hands-on Workshop is a classroom style hands-on workshop in the DevZone breakout rooms. Please bring your own laptop for the hands-on exercises. 
+  </p>
+</div>
+<div class="video-description-expand-button"></div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="footer"><div class="footer-inner">
+            <div>
+                <div class="container-header">
+                  <div class="footer-section footer-section-1">
+                        <div class="footer-section-inner">
+                            <h3>Salesforce Success Community</h3>
+                            <ul class="ul-reset">
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:answers" name="dreamforceController:j_id0:j_id254:j_id255:answers" href="https://success.salesforce.com/answers">Answers</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:dreamforce" name="dreamforceController:j_id0:j_id254:j_id255:dreamforce" href="https://success.salesforce.com/dreamforce">Dreamforce '14</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:help" name="dreamforceController:j_id0:j_id254:j_id255:help" href="https://help.salesforce.com">Help &amp; Training</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:chatter" name="dreamforceController:j_id0:j_id254:j_id255:chatter" href="https://success.salesforce.com/_ui/core/chatter/ui/ChatterPage">Collaboration</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:ideas" name="dreamforceController:j_id0:j_id254:j_id255:ideas" href="https://success.salesforce.com/ideaSearch">Ideas</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:groups" name="dreamforceController:j_id0:j_id254:j_id255:groups" href="https://success.salesforce.com/userGroups">User Groups</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:issues" name="dreamforceController:j_id0:j_id254:j_id255:issues" href="https://success.salesforce.com/issues">Known Issues</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-section footer-section-2">
+                        <div class="footer-section-inner">
+                            <h3>More Places</h3>
+                            <ul class="ul-reset">
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:salesforce" name="dreamforceController:j_id0:j_id254:j_id255:salesforce" href="http://salesforce.com">Salesforce.com</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:appexchange" name="dreamforceController:j_id0:j_id254:j_id255:appexchange" href="https://appexchange.salesforce.com/">AppExchange</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:developerforce" name="dreamforceController:j_id0:j_id254:j_id255:developerforce" href="http://developer.force.com">Salesforce Developers</a>
+                                </li>
+                            </ul>
+                            <ul class="ul-reset ul-social-icons">
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:facebook" name="dreamforceController:j_id0:j_id254:j_id255:facebook" href="http://www.facebook.com/salesforce" title="Follow us on Facebook" target="_blank" class="footer-section-start footer-icon footer-facebook">Follow us on Facebook</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:twitter" name="dreamforceController:j_id0:j_id254:j_id255:twitter" href="http://www.twitter.com/salesforce" title="Follow us on Twitter" target="_blank" class="footer-icon footer-twitter">Follow us on Twitter</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:youtube" name="dreamforceController:j_id0:j_id254:j_id255:youtube" href="http://www.youtube.com/Salesforce" title="Visit our Channel on YouTube" target="_blank" class="footer-icon footer-youtube">Visit our Channel on YouTube</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:googleplus" name="dreamforceController:j_id0:j_id254:j_id255:googleplus" href="https://plus.google.com/+Salesforce/about" title="Follow us on Google+" target="_blank" class="footer-icon footer-googleplus">Follow us on Google+</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:linkedin" name="dreamforceController:j_id0:j_id254:j_id255:linkedin" href="http://www.linkedin.com/company/salesforce" title="Check us out on LinkedIn" target="_blank" class="footer-icon footer-linkedin footer-icon-last">Check us out on LinkedIn</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-section footer-section-3">
+                        <div class="footer-section-inner">
+                            <h3>Contact Us</h3>
+                            <p>
+                                1-800-NO-SOFTWARE<br>
+                                1-800-667-6389<br>
+                                One Market St.<br>
+                                Suite 300<br>
+                                San Francisco, CA 94105<br>
+                                United States<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer-section footer-section-4">
+                        <div class="footer-section-inner">
+                            <h3>Need More Help?</h3>
+                            <p>If you still can't find what you're looking for, try to submit a case.
+                            </p>
+                            <a class="btn btn-default" href="https://help.salesforce.com/HTPortalLogCase" title="Submit a Case">
+                        <span class="button-text">Submit a Case</span>
+                    </a>
+                            <p class="p-extra">
+                              <a href="https://www.salesforce.com/communities/overview/" target="_blank">Powered by the Salesforce Communities platform. Learn More â€º</a>
+                            </p>
+                </div>
+            </div>
+            <div class="footer-section footer-section-5">
+                        <div class="footer-section-inner">
+                            <ul class="ul-reset">
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:privacy" name="dreamforceController:j_id0:j_id254:j_id255:privacy" href="http://www.salesforce.com/company/privacy.jsp" target="_blank">Privacy Statement</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:security" name="dreamforceController:j_id0:j_id254:j_id255:security" href="https://www.salesforce.com/company/privacy/security.jsp" target="_blank">Security Statement</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:ftandc" name="dreamforceController:j_id0:j_id254:j_id255:ftandc" href="https://success.salesforce.com/terms" title="Terms of Use">Terms of Use</a>
+                                </li>
+                                <li>
+<a id="dreamforceController:j_id0:j_id254:j_id255:participation" name="dreamforceController:j_id0:j_id254:j_id255:participation" href="https://success.salesforce.com/guidelines">Participation Guidelines</a>
+                                </li>
+                                <li>
+                                    <span class="footer-text">Â©2000-2014, salesforce.com, inc</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <span class="phone-test" id="phone-test"></span>
+                    <span class="small-test" id="small-test"></span>
+                    <span class="large-test" id="large-test"></span>
+                </div>
+            </div>
+        </div>
+</div>
+
+<script type="text/javascript">
+  var playlist_open = false;
+  var player_width = 640;
+  var player_height = 360;
+
+  if (playlist_open) {
+    $('.aspect-ratio').addClass('aspect-ratio-playlist');
+  }
+
+  //Preload the iframe and display all the contents upon completion
+  $(window).load(function() {
+    //Comments load in a 480px frame with some padding.  Less that 480px makes it look bad, and we can't properly resize the text areas.
+    if ($(window).width() < 480) {
+      var _state = $('#toggle_comments > span').html();
+      if (_state === "Hide Comments") {
+        $('#toggle_comments > span').html('Show Comments');
+        $('#comment_container_fix').hide();
+      }
+    }
+
+    Check_Size();
+  });
+
+  $(window).on("resize", Check_Size);
+
+  function Check_Size() {
+    var window_width = $(window).width();
+    var aspect_ratio = player_width/player_height;
+    var isMobile = (/iPhone|iPod|iPad|Android|BlackBerry/).test(navigator.userAgent);
+    //Fix comments size - unaffected by CTAs or playlist.
+    // TODO: Move the following disqus js to css
+    if (window_width >= 640){
+      $('#disqus_container').width(640);
+      $('#disqus_container').css({'min-width' : '320px', 'margin-left' : 'auto', 'margin-right' : 'auto'});
+    } else if (isMobile && window_width < 640 && window_width > 420) {
+      $('#disqus_container').width(320);
+      $('#disqus_container').css({'min-width' : '320px', 'margin-left' : 'auto', 'margin-right' : 'auto'});
+    } else if (window_width < 640 && window_width > 420) {
+      $('#disqus_container').width(window_width);
+      $('#disqus_container').css({'min-width' : '320px', 'margin-left' : 'auto', 'margin-right' : 'auto'});
+    } else if (isMobile && window_width <= 420 && window_width >= 320) {
+      $('#disqus_container').width(320);
+      $('#disqus_container').css({'min-width' : '320px', 'margin-left' : 'auto', 'margin-right' : 'auto'});
+    } else if (window_width < 320) {
+      $('#disqus_container').width(window_width);
+      $('#disqus_container').css({'min-width' : '10px', 'margin-left' : 'auto', 'margin-right' : 'auto'});
+    } else {
+      $('#disqus_container').width(window_width);
+      $('#disqus_container').css({'min-width' : '10px', 'margin-left' : 'auto', 'margin-right' : 'auto'});
+    }
+  }
+</script>
+
+  </div>
+  
+  
+
+
+
+
+
+
+
+  
+</body>
+</html>
+3›ÍN›â      XÿxüXÿxý=°L¿       ;:http://dreamforce.vidyard.com/watch/AIpOFTPxhnsQNwuNQuGqng necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 25 Apr 2017 06:31:18 GMT
+Content-Type: text/html; charset=utf-8
+Cache-Control: max-age=0, private, must-revalidate
+Etag: W/"b6eef3379c5b3ef08755abe39f9b2056"
+X-Content-Type-Options: nosniff
+X-Frame-Options: ALLOWALL
+x-request-id: 6de81673-2149-4938-a3e7-ad02fc9ad726
+X-XSS-Protection: 1; mode=block
+ charset UTF-8 uncompressed-len 0 predictor::resource-count 8 predictor::https://assets.vidyard.com/assets/manifest_hub_dashboard_hub-f3aea04c436183187a7d0c6b6f2f87ebcd96730e7a4b47c3a92ea7ef4fc7c6d8.js 1,1,1493137660,0 predictor::https://assets.vidyard.com/assets/manifest_hub_dashboard_hub-9768f3c2adbdefafdd31618b379e97b7493548518d0d50b72783f64fdb04a1ad.css 1,1,1493137660,0 predictor::https://assets.vidyard.com/assets/manifest_hub_layout_salesforce-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js 1,1,1493137660,0 predictor::https://assets.vidyard.com/assets/manifest_hub_layout_salesforce-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css 1,1,1493137660,0 predictor::http://play.vidyard.com/AIpOFTPxhnsQNwuNQuGqng.js?disable_popouts=0&height=360&hide_html5_playlist=1&v=3.1.1&width=640&type=inline 1,1,1493137660,0 predictor::https://fonts.googleapis.com/css?family=Montserrat 1,1,1493137660,0 predictor::https://secure.sfdcstatic.com/events-app/df14/images/dreamforce-header-small.jpg 1,1,1493137660,0 predictor::https://success.salesforce.com/resource/1412384516000/uilib/img/sprite-icons.png 1,1,1493137660,0   ‰W

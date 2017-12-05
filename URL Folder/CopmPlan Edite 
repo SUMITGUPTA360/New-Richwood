@@ -1,0 +1,213 @@
+public with sharing class HRCompensationPlanTriggerHandler {
+    
+     public static void beforeInsertHRCompensationPlan(List<SHCM__Compensation_Plan__c> insertedNewListHRCompensationPlan){
+        beforeInsertHRCompensationPlanAction(insertedNewListHRCompensationPlan);
+     }
+     
+     private static void beforeInsertHRCompensationPlanAction(List<SHCM__Compensation_Plan__c> insertedNewListHRCompensationPlan){
+        
+        Set<String> setHRCompensationPlaneId = new Set<String>();       
+        List<SHCM__Compensation_Plan__c> CompensationPlanList = new List<SHCM__Compensation_Plan__c>(); 
+        for(SHCM__Compensation_Plan__c objCon : insertedNewListHRCompensationPlan){
+            
+            if(objCon != NULL){  
+                setHRCompensationPlaneId.add(objCon.OwnerId);       
+            }   
+        }
+     //   String userName = UserInfo.getUserName();
+    //    system.debug('userName'+userName);
+       
+        List<SHCM__Contact_HCM__c> ListContactHCM = [select id ,SHCM__active__c,owner.id,SHCM__reviewingManager__c,SHCM__salesforceUser__c,SHCM__reviewingManager__r.SHCM__salesforceUser__c from SHCM__Contact_HCM__c where OwnerId != null and  OwnerId in:setHRCompensationPlaneId];
+        system.debug('ListContactHCM========='+ListContactHCM);
+        for(SHCM__Compensation_Plan__c objComPlan :insertedNewListHRCompensationPlan)
+        {
+          for(SHCM__Contact_HCM__c objContactHCM :ListContactHCM)
+          {
+             objComPlan.SHCM__status__c='Saved';
+             objComPlan.SHCM__reviewingManagerUser__c = objContactHCM.SHCM__reviewingManager__r.SHCM__salesforceUser__c;
+             system.debug('--objContactHCM.OwnerId--objContactHCM.SHCM__active__c--objComPlan.OwnerId--UserInfo.getUserId()'+objContactHCM.OwnerId+objContactHCM.SHCM__active__c+objComPlan.OwnerId+UserInfo.getUserName());
+             system.debug('eeeeeeeee'+objContactHCM.OwnerId  +'999'+ +objContactHCM.SHCM__active__c+ +'999'+ objComPlan.OwnerId+  +'999'+  UserInfo.getUserId());
+
+             if(objContactHCM.SHCM__active__c == true && objContactHCM.OwnerId == objComPlan.OwnerId && objComPlan.OwnerId == UserInfo.getUserId())
+             {    
+                  objComPlan.SHCM__reviewingManager__c = objContactHCM.SHCM__reviewingManager__c; 
+                 // objComPlan.SHCM__reviewingManagerUser__c = objContactHCM.SHCM__salesforceUser__c;
+                //  system.debug('eeeeeeeeeeeeeeeee'+objContactHCM.OwnerId+objContactHCM.SHCM__active__c+objComPlan.OwnerId+UserInfo.getUserId());
+                //  CompensationPlanList.add(objComPlan);  
+             }
+              CompensationPlanList.add(objComPlan);
+          }       
+        }     
+     } 
+      
+     public static void beforeUpdateHRCompensationPlan(List<SHCM__Compensation_Plan__c> updateNewHRCompensationPlan,Map<Id,SHCM__Compensation_Plan__c> updateOldMapHRCompensationPlan){
+     
+      beforeUpdataHRCompensationPlanAction(updateNewHRCompensationPlan, updateOldMapHRCompensationPlan);   
+     }
+     
+     private static void beforeUpdataHRCompensationPlanAction(List<SHCM__Compensation_Plan__c> updateNewHRCompensationPlan,Map<Id,SHCM__Compensation_Plan__c> updateOldMapHRCompensationPlan){
+     
+         Set<String> setHRCompensationPlaneOwnerId = new Set<String>(); 
+         List<SHCM__Compensation_Plan__c> CompensationPlanList = new List<SHCM__Compensation_Plan__c>(); 
+         
+         for(SHCM__Compensation_Plan__c objCon : updateNewHRCompensationPlan){
+    
+             if(objCon != NULL){
+                 setHRCompensationPlaneOwnerId.add(objCon.Ownerid);          
+             }   
+          }
+         
+          List<SHCM__Contact_HCM__c> ListContactHCM = [select id ,SHCM__active__c,owner.id,SHCM__reviewingManager__c,SHCM__salesforceUser__c,SHCM__reviewingManager__r.SHCM__salesforceUser__c from SHCM__Contact_HCM__c where OwnerId != null and  OwnerId in:setHRCompensationPlaneOwnerId];
+          for(SHCM__Compensation_Plan__c objComPlan :updateNewHRCompensationPlan)
+          {
+              if(objComPlan.Name !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__bonus__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__country__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__defaultEarningsCode__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__description__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__hourly__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__meritReview__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) ||  objComPlan.SHCM__otherCompensation__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__overrideSalaryOrHourly__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__paygroup__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__salary__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__salesCommission__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) || objComPlan.SHCM__variablePay__c !=updateOldMapHRCompensationPlan.get(objComPlan.id) objComPlan.SHCM__readyToSubmit__c != True){  //  objComPlan.Name !=updateOldMapHRCompensationPlan.get(objComPlan.id)
+                  objComPlan.addError('Please add at least one Compensation Grade record related to Compensation Plan for Approval Process');
+              }
+              SHCM__Compensation_Plan__c CompensationPlanOldOwnerId = updateOldMapHRCompensationPlan.get(objComPlan.id);
+              If( updateOldMapHRCompensationPlan.containsKey(objComPlan.id)){
+                  for(SHCM__Contact_HCM__c objContactHCM :ListContactHCM)
+                  {
+                        objComPlan.SHCM__reviewingManagerUser__c = objContactHCM.SHCM__reviewingManager__r.SHCM__salesforceUser__c;
+                        if(objContactHCM.SHCM__active__c == true  && objContactHCM.OwnerId != null) 
+                         {   
+                              objComPlan.SHCM__reviewingManager__c = objContactHCM.SHCM__reviewingManager__c; 
+                             // objComPlan.SHCM__reviewingManagerUser__c = objContactHCM.SHCM__salesforceUser__c; 
+                            //  CompensationPlanList.add(objComPlan);  
+                         }
+                  }  
+               }  
+               CompensationPlanList.add(objComPlan);
+                   
+            }
+       }
+     
+         public static void afterUpdateHRCompensationPlan(Map<Id, SHCM__Compensation_Plan__c> mapNewCP, Map<Id, SHCM__Compensation_Plan__c> mapOldCP){
+            afterUpdateHRCompensationPlanAction(mapNewCP,mapOldCP);
+         }
+     
+         private static void afterUpdateHRCompensationPlanAction(Map<Id, SHCM__Compensation_Plan__c> mapNewCP, Map<Id, SHCM__Compensation_Plan__c> mapOldCP){
+              
+              system.debug('afterUpdateHRCompensationPlanAction');
+              Set<String> setCPIds = new Set<String>();
+              Set<String> setApprovedCPIds = new Set<String>();
+              Set<String> setRejectedCPIds   = new Set<String>();
+              for(SHCM__Compensation_Plan__c objCP: mapNewCP.values())
+              {  
+                if(objCP.SHCM__status__c != mapOldCP.get(objCP.Id).SHCM__status__c && objCP.SHCM__status__c == 'Submitted')
+                {
+                    setCPIds.add(objCP.Id);
+                }
+                if(objCP.SHCM__status__c != mapOldCP.get(objCP.Id).SHCM__status__c && objCP.SHCM__status__c == 'Approved')
+                {
+                    setApprovedCPIds.add(objCP.Id);
+                }
+                if(objCP.SHCM__status__c != mapOldCP.get(objCP.Id).SHCM__status__c && objCP.SHCM__status__c == 'Rejected')
+                {
+                    setRejectedCPIds.add(objCP.Id);
+                }   
+              }
+                    
+              List<Approval.ProcessSubmitRequest> requests = new List<Approval.ProcessSubmitRequest> ();
+              for(SHCM__Compensation_Plan__c objCP : [Select Id,name, (Select id,name from SHCM__HR_Compensation_Grades__r where SHCM__status__c = 'Saved') from SHCM__Compensation_Plan__c Where Id IN : setCPIds and SHCM__status__c = :'Submitted'])
+              {
+                 system.debug('objCP'+objCP);
+                 for(SHCM__Compensation_Grade__c objCPG : objCP.SHCM__HR_Compensation_Grades__r)
+                 { 
+                    system.debug('objCPG'+objCPG);
+                    Approval.ProcessSubmitRequest req1 = new Approval.ProcessSubmitRequest();
+                    req1.setComments('Submitting request for approval ');
+                    req1.setObjectId(objCPG.Id);
+                    system.debug('req1==='+req1);
+                     
+                    requests.add(req1);
+                    system.debug('requests'+requests);
+                }   
+
+            }
+            Approval.ProcessResult[] processResultsSubmited = Approval.process(requests, true);
+            if(setApprovedCPIds.size() > 0)
+            {
+                approveOrRejectCompGrades(setApprovedCPIds, 'Approve');
+            }
+            if(setRejectedCPIds.size() > 0)
+            {
+                approveOrRejectCompGrades(setRejectedCPIds, 'Reject');
+            } 
+                
+         }     
+    
+       private static void approveOrRejectCompGrades(Set<String> setCompPlan, String Action)
+       {
+            List<SHCM__Compensation_Plan__c> lstCPWithlstCPG = [Select Id, (Select Id, SHCM__minimum__c,SHCM__maximum__c,SHCM__rangeSpread__c,SHCM__status__c,SHCM__targetBonusPercent__c,  SHCM__targetMeritPercent__c,SHCM__midpoint__c,SHCM__defaultBaseCompensation__c, SHCM__approvalDate__c,SHCM__compensationPlan__c,SHCM__gradeStep__c,SHCM__description__c from SHCM__HR_Compensation_Grades__r where SHCM__status__c = 'Submitted') from SHCM__Compensation_Plan__c where ID IN : setCompPlan];     
+            Set<String> setCGIDs = new Set<String>();
+            for(SHCM__Compensation_Plan__c objCP : lstCPWithlstCPG)
+            {
+                for(SHCM__Compensation_Grade__c objCPG : objCP.SHCM__HR_Compensation_Grades__r)
+                {
+                    setCGIDs.add(objCPG.Id);
+                }
+            }
+           Map<String, String> mapCPGIdToPIWId = New Map<String, String>();
+           for(ProcessInstanceWorkitem objPIW : [Select p.Id, p.ProcessInstance.TargetObjectId from ProcessInstanceWorkitem p where p.ProcessInstance.TargetObjectId IN : setCGIDs])
+           {
+              
+               mapCPGIdToPIWId.put(objPIW.ProcessInstance.TargetObjectId, objPIW.Id);           
+           }
+           List<SHCM__Compensation_Plan__c> listCP = new List<SHCM__Compensation_Plan__c>();
+           List<Approval.ProcessWorkitemRequest> requests = new List<Approval.ProcessWorkitemRequest>();
+           for(SHCM__Compensation_Plan__c objCP : lstCPWithlstCPG)
+            {
+                for(SHCM__Compensation_Grade__c objCPG : objCP.SHCM__HR_Compensation_Grades__r)
+                {
+                    if(mapCPGIdToPIWId.containsKey(objCPG.Id))
+                    {
+                        Approval.ProcessWorkitemRequest req = new Approval.ProcessWorkitemRequest();
+                        req.setWorkitemId(mapCPGIdToPIWId.get(objCPG.Id));
+                        req.setAction(Action);
+                        requests.add(req);
+                    }
+                    
+                }
+                objCP.SHCM__active__c =  true;
+                listCP.add(objCP);
+            }
+            if(listCP.size()>0){
+                dataBase.update(listCP);
+            }
+        
+            if(requests.size() > 0)
+            {
+             try
+             {
+                Approval.ProcessResult[] processResults = Approval.process(requests);
+             }
+             catch(Exception e)
+             {
+                System.debug(e);
+             }
+            }  
+            
+            // Query the SHCM__Compensation_Plan_ to lock
+            List<SHCM__Compensation_Plan__c> listCPs = [SELECT Id,SHCM__status__c  from SHCM__Compensation_Plan__c WHERE SHCM__status__c  =:'Approved' and SHCM__active__c =: true];
+            system.debug('listCPs---------'+listCPs);
+            // Lock the Compention Plan
+            Approval.LockResult[] lrList = Approval.lock(listCPs, false);
+
+            // Iterate through each returned result
+            for(Approval.LockResult lr : lrList) {
+                if (lr.isSuccess()) {
+                    // Operation was successful, so get the ID of the record that was processed
+                    System.debug('Successfully locked account with ID: ' + lr.getId());
+                }
+                else {
+                    // Operation failed, so get all errors                
+                    for(Database.Error err : lr.getErrors()) {
+                        System.debug('The following error has occurred.');                    
+                        System.debug(err.getStatusCode() + ': ' + err.getMessage());
+                        System.debug('Account fields that affected this error: ' + err.getFields());
+                    }
+               }
+             }  
+      
+       }    
+}

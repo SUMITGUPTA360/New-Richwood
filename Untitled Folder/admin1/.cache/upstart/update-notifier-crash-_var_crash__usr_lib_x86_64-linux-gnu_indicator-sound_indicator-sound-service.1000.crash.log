@@ -1,0 +1,242 @@
+Tue May  2 22:13:34 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+** (apport-gtk:1633): WARNING **: Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-3NMbFwiQt6: Connection refused
+
+(apport-gtk:1633): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:1633): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:1633): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:1633): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:14:23 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:4583): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:4583): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:4583): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:4583): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:14:41 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:5726): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:5726): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:5726): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:5726): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:31:44 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:7123): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:7123): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:7123): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:7123): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:35:19 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:18028): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:18028): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:18028): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:18028): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:35:39 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:19240): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:19240): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:19240): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:19240): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:36:02 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:20426): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:20426): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:20426): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:20426): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:42:25 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:21620): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:21620): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:21620): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:21620): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:42:58 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:22927): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:22927): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:22927): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:22927): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:44:10 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:24321): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:24321): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:24321): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:24321): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:47:02 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:25519): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:25519): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:25519): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:25519): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:49:20 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:26862): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:26862): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:26862): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:26862): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 22:50:31 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:29412): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:29412): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:29412): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:29412): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Tue May  2 22:56:28 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+** (apport-gtk:1692): WARNING **: Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-64tpE8Kj8I: Connection refused
+
+(apport-gtk:1692): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:1692): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:1692): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:1692): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 23:47:20 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:6836): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:6836): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:6836): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:6836): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+Tue May  2 23:47:58 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:8063): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:8063): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:8063): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:8063): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Wed May  3 01:38:49 IST 2017 crash report /var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.1000.crash detected
+
+(apport-gtk:1709): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(apport-gtk:1709): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(apport-gtk:1709): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(apport-gtk:1709): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/button.png': Unrecognised image file format

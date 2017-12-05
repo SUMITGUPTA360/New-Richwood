@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>New Email To Case</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>premathakur66@gmail.com</senderEmail>
+            <senderName>Case To Email</senderName>
+            <template>unfiled$public/SupportEscalatedCaseNotification</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

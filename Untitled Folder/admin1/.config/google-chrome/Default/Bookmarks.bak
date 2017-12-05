@@ -1,0 +1,84 @@
+{
+   "checksum": "8294547738828768960ab204c649c7c5",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13133013451978467",
+            "id": "6",
+            "meta_info": {
+               "last_visited_desktop": "13135426782443177"
+            },
+            "name": "Profiles, Permission sets & Roles - SalesforceTutorial",
+            "sync_transaction_version": "6",
+            "type": "url",
+            "url": "http://www.salesforcetutorial.com/working-profiles-salesforce/"
+         }, {
+            "date_added": "13133265392744086",
+            "id": "9",
+            "meta_info": {
+               "last_visited_desktop": "13138206214285423"
+            },
+            "name": "TimeSheet",
+            "sync_transaction_version": "30",
+            "type": "url",
+            "url": "https://360dc.secure.force.com/TimeSheet/TSListView?Eid=a0K61000005qq4ZEAQ"
+         }, {
+            "date_added": "13133272655987156",
+            "id": "12",
+            "meta_info": {
+               "last_visited_desktop": "13137602085165038"
+            },
+            "name": "Webmail - Main",
+            "sync_transaction_version": "8",
+            "type": "url",
+            "url": "https://sg2plcpnl0242.prod.sin2.secureserver.net:2096/cpsess4415300153/webmail/gl_paper_lantern/index.html?mailclient=roundcube"
+         }, {
+            "date_added": "13133272662198613",
+            "id": "13",
+            "meta_info": {
+               "last_visited_desktop": "13133272662200154"
+            },
+            "name": "salesforce_creating_on_demand_apps.pdf",
+            "sync_transaction_version": "3",
+            "type": "url",
+            "url": "https://resources.docs.salesforce.com/sfdc/pdf/salesforce_creating_on_demand_apps.pdf"
+         }, {
+            "date_added": "13137185824922248",
+            "id": "18",
+            "meta_info": {
+               "last_visited_desktop": "13137623513997795"
+            },
+            "name": "How do I access the user's timezone in a formula field? - Answers - Salesforce Success Community",
+            "sync_transaction_version": "16",
+            "type": "url",
+            "url": "https://success.salesforce.com/answers?id=9063A000000suLPQAY"
+         } ],
+         "date_added": "13132987306517292",
+         "date_modified": "13137185824922248",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "sync_transaction_version": "3",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13132987306517306",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "sync_transaction_version": "3",
+         "type": "folder"
+      },
+      "sync_transaction_version": "30",
+      "synced": {
+         "children": [  ],
+         "date_added": "13132987306517308",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "sync_transaction_version": "3",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

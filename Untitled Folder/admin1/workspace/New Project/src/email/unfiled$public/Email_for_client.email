@@ -1,0 +1,6 @@
+Hello {!Contact.FirstName},
+    
+ We are woking on your case and will resolve the same ASAP
+
+Best Regards,
+{!User.Name}

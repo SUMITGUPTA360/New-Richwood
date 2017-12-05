@@ -1,0 +1,687 @@
+$(function(){var f="registrationTab";
+var ae=SB.getSuccessCookie();
+if(ae){var G=ae[0];
+if(G==="update_registration"){SB.clearSuccessCookie("update_registration");
+f="registrationTab"
+}else{if(G==="update_replayto"){SB.clearSuccessCookie("update_replayto");
+f="emailSettingsTab"
+}else{if(G==="update_remember_email"){SB.clearSuccessCookie("update_remember_email");
+f="emailSettingsTab"
+}else{if(G==="add_polling"){SB.clearSuccessCookie("add_polling");
+f="pollTab"
+}else{if(G==="edit_polling"){SB.clearSuccessCookie("edit_polling");
+f="pollTab"
+}}}}}}if($("#"+f).length>0){$("#registrationTab").addClass("hideme");
+$("#emailSettingsTab").addClass("hideme");
+$("#brandingTab").addClass("hideme");
+$("#pollTab").addClass("hideme");
+$("#tab_container ul li").removeClass("active");
+$("#"+f).removeClass("hideme");
+$("#show"+f).parent().addClass("active")
+}var ag=$.i18n.get("empty.trackfield.error");
+var w="_zm_free_mtg_tip";
+var y="";
+var Z=$("#tsp1").length>0;
+var ad=$("#tsp2").length>0;
+function ab(){return !!$.cookie(w)
+}function d(){var i=$("#free_meeting_40mins_tip");
+if(i.length&&$("#hide_free_tip").prop("checked")){if(!ab()){$.cookie(w,"1",{expires:3650,path:"/",secure:true})
+}}}if(!ab()){$("#free_meeting_40mins_tip").show()
+}jQuery.validator.addMethod("multiemaildomains",function(au,ar){var at=$.trim(au);
+if(!at){return true
+}var av=at.split(/[;,\n\r]+/);
+valid=true;
+for(var aq in av){au=$.trim(av[aq]);
+if(!au){continue
+}if(au.substr(0,2)=="*."){if(au.split(".").length<=2){valid=false
+}else{continue
+}}valid=valid&&jQuery.validator.methods.email.call(this,"a@"+au,ar)
+}return valid===true
+},$.i18n.get("meeting.email_domain_separate_by_semicolon"));
+jQuery.validator.addMethod("multiemails",function(au,ar){var at=$.trim(au);
+if(!at){return true
+}var av=at.split(/[;,\n\r]+/);
+valid=true;
+for(var aq in av){au=$.trim(av[aq]);
+if(!au){continue
+}valid=valid&&jQuery.validator.methods.email.call(this,au,ar)
+}return valid===true
+},$.i18n.get("meeting.email_separate_by_semicolon"));
+$("#topic").focus().select();
+$(".learn-more-button").click(function(){var aq=$(this).find("#advOptioni");
+if(aq.length>0){var i=$(aq).attr("class");
+if(i=="glyphicon glyphicon-menu-down"){$(aq).removeClass(i).addClass("glyphicon glyphicon-menu-up")
+}else{if(i=="glyphicon glyphicon-menu-up"){$(aq).removeClass(i).addClass("glyphicon glyphicon-menu-down")
+}}}var ar=$(this).data("learn-more");
+$("."+ar).slideToggle();
+return false
+});
+$("#countryCheckbox").click(function(){var i=$(this).is(":checked");
+if(i){$("#meetingCountryDiv").css("display","")
+}else{$("#meetingCountryDiv").css("display","none")
+}});
+var A=$("#deleteMeetingDialog");
+$("#meetings .admin-content").delegate("button.delete","click",function(){var i=$(this);
+V(i,"delete")
+});
+$("#meetings .admin-content").delegate("button.end","click",function(){var i=$(this);
+V(i,"end")
+});
+$("#btn_Delete_meeting").click(function(){var i=$(this);
+V(i,"delete")
+});
+function V(aw,au){var aq=aw.attr("data-id");
+var ar="";
+var ax="";
+A.find("input[name=mid]").val(aq);
+A.find("input[name=action]").val(au);
+if(au=="delete"){A.find(".confirm").text($.i18n.get("meeting.confirm_delete"));
+ax=aw.attr("data-s");
+$(".endMeeting").addClass("hideme");
+$("#submitDeleteEndBtn").text($.i18n.get("common.btn_delete"));
+$("#submitDeleteEndBtn").prop("disabled",false);
+$("#btnDeleteSingleOccurrence").prop("disabled",false);
+$("#btnDeleteAllOccurrences").prop("disabled",false);
+$(".deleteNormalMeeting").removeClass("hideme");
+$(".deleteRecurrenceMeeting").addClass("hideme");
+var av=aw.attr("data-t");
+if(ax!=undefined&&ax!=""&&ax!="0"&&av==8){$("#delete_meeting_occurrence").val(ax);
+$(".deleteRecurrenceMeeting").removeClass("hideme");
+$(".deleteNormalMeeting").addClass("hideme")
+}}else{if(au="end"){$(".deleteNormalMeeting").addClass("hideme");
+$(".deleteRecurrenceMeeting").addClass("hideme");
+$("#submitDeleteEndBtn").text($.i18n.get("common.btn_end"));
+$(".endMeeting").removeClass("hideme");
+A.find(".confirm").text($.i18n.get("meeting.confirm_end"))
+}}if($("#m_user_id").length>0){A.find("input[name=uid]").val($("#m_user_id").val())
+}var i=aw.attr("data-topic");
+A.find("span.topic").text(i);
+var at="";
+if($("#meeting_"+aq).length>0){at=$("#meeting_"+aq).attr("data-display")
+}if(at){A.find("span.host").text(at);
+A.find("div.host").show()
+}else{A.find("span.host").text("");
+A.find("div.host").hide()
+}$(".hasregistrants").addClass("hideme");
+SB.post3({url:"/meeting/"+aq+"/confirm?occurrence="+ax,success:function(ay){if(ay.errorCode==0){if(ay.result.registrants>0){$(".hasregistrants").removeClass("hideme");
+A.find(".tip").find("b").text(i);
+$("#occurrence_topic").html(ay.result.occurrence_topic);
+$("#subject").val(ay.result.display_subject);
+$("#mailbody").val(ay.result.display_body)
+}A.find(".alert-danger").empty().hide();
+$.modal(A,$.extend({},SB.MODAL_DEFAULTS,{overlayId:"deletemeeting-dialog-overlay",containerId:"deletemeeting-dialog-container",persist:true,minHeight:A.outerHeight(),onShow:function(){}}))
+}}})
+}function h(av){$("#submitDeleteEndBtn").prop("disabled",true);
+$("#btnDeleteSingleOccurrence").prop("disabled",true);
+$("#btnDeleteAllOccurrences").prop("disabled",true);
+var i=$("#mid").val();
+var au=$("#action").val();
+var at=false;
+if($(".send_mail").is(":visible")){at=$("#option_send_mail").prop("checked")
+}if(i){var ar={id:i,user_id:$("#uid").val(),occurrence:av,sendMail:at,subject:at?$("#subject").val():"",mailBody:at?$("#mailbody").val():""};
+var aq=L()+"delete";
+if(au=="end"){aq=L()+"end"
+}SB.post3({url:aq,data:ar,success:function(aw){if($("#meeting_number").length>0){if($("#uid").val()!=undefined&&$("#uid").val()!=""){SB.jump("/user/"+$("#uid").val()+"/meeting",false)
+}else{SB.jump("/meeting",false)
+}}else{location.reload(true)
+}},btnContainer:A,errorNode:A.find(".alert-danger"),showBusy:true,showBusyAfter:false});
+return false
+}}A.find("button.submit").click(function(){h("")
+});
+$("#btnDeleteAllOccurrences").on("click",function(){h("")
+});
+$("#btnDeleteSingleOccurrence").on("click",function(){var i=$("#delete_meeting_occurrence").val();
+if(i===""){i=-1
+}h(i)
+});
+var t=$("#pacCopyInviteDialog");
+$("#meetings .admin-content").delegate("button.pac","click",function(){var aq=$(this);
+mid=aq.attr("data-id");
+var i={meeting_number:mid,listen_only:false};
+SB.post3({url:L()+"pacInviteEmail",data:i,success:function(ar){$.modal(t,$.extend({},SB.MODAL_DEFAULTS,{overlayId:"copy-invite-dialog-overlay",containerId:"copy-invite-dialog-container",persist:true,overlayClose:true,minHeight:t.outerHeight(),minWidth:630,onShow:function(){t.find("#invite_email").text(ar.result.scheduleEmail);
+t.find("small").text($.i18n.get("meeting.invite_oper_step"))
+}}))
+},error:function(ar,at){if(ar){SB.alert(at)
+}},btnContainer:aq,showBusy:false})
+});
+t.find(".select-all").click(function(){$("#invite_email").select();
+t.find("small").text($.i18n.get("meeting.invite_copy_method"))
+});
+$(".pagination").delegate("a","click",function(){var i=$(this).parent();
+if(i.hasClass("disabled")||i.hasClass("active")){return false
+}var aq=parseInt($(this).attr("p"),10);
+window.location.href=SB.replaceUrl(/p=\d+/ig,"p="+aq);
+return false
+});
+jQuery.validator.addMethod("confno",function(ar,i){if(this.optional(i)){return true
+}var aq=ar.replace(/[^\d]/g,"");
+return aq.length>=9&&aq.length<=11
+},$.i18n.get("meeting.invalid_meeting_id"));
+var u=$("#roomSystemDialog");
+var O=u.find("input[name=pairing_meeting]");
+var ai=u.find("input[name=pairing_code]");
+var K=u.find("input[name=pairing_meeting_password]");
+var o=u.find("div[id=pmpasswordFields]");
+SB.initConfInput(O);
+function g(i){if(i){v(i)
+}else{SB.ajax({url:"/meeting/inprogress",data:null,success:function(aq){if(aq.result){i=aq.result.number
+}v(i)
+},error:function(aq){v(i)
+}})
+}}function v(i){o.hide();
+if(i){O.val(SB.formatConfNo(i))
+}else{O.val("")
+}ai.val("");
+K.val("");
+u.find(".alert-danger").hide();
+u.find(".form-group").removeClass("has-error");
+u.valid();
+$.modal(u,$.extend({},SB.MODAL_DEFAULTS,{overlayId:"room-system-dialog-overlay",containerId:"room-system-dialog-container",persist:true,overlayClose:true,minHeight:u.outerHeight(),minWidth:550,onShow:function(){window.setTimeout(function(){if(i){ai.focus()
+}else{O.focus()
+}},500)
+}}))
+}$("#btnRoomSystemJoin").click(function(){g();
+return false
+});
+$("#meetings .admin-content").delegate("button.room","click",function(){g($(this).attr("data-id"))
+});
+var am=u.validate({rules:{pairing_meeting:{required:true,confno:true},pairing_code:{required:true,maxlength:5,minlength:5}},submitHandler:function(){var aq=O.val().replace(/[^\d]/g,"");
+var i=ai.val().trim();
+var ar={pairing_meeting:aq,pairing_code:i,user_id:$("#m_user_id").val()};
+if(K.is(":visible")){$.extend(ar,{password:K.val()})
+}SB.post3({url:L()+"pairing",data:ar,success:function(at){SB.showSuccessMsg($.i18n.get("meeting.join_h323_success"));
+$.modal.close()
+},error:function(au,av,at){N(au,av,at)
+},btnContainer:$("#btnPairSubmit"),showBusy:true,showBusyAfter:true});
+return false
+}});
+var r={3004:"pairing_meeting_password",3021:"pairing_code",3001:"pairing_meeting",3022:"pairing_meeting"};
+function N(at,au,ar){var i=am;
+var aq=u.find(".alert-danger");
+if(at){if(ar===3004&&o.is(":hidden")){o.show();
+var av={};
+av[r[3004]]=$.i18n.get("meeting.require_password");
+i.showErrors(av)
+}else{if(typeof(au)==="undefined"){au=$.i18n.get("common.unknown_error")
+}if(r[ar]!=undefined){var av={};
+av[r[ar]]=au;
+i.showErrors(av)
+}else{aq.text(au).show()
+}}}else{aq.empty().hide()
+}}var ah=$("#copyInviteDialog");
+var ae=SB.getSuccessCookie();
+if(ae){if(ae[0]==="schedule"){SB.showSuccessMsg($.i18n.get("meeting.schedule_success"))
+}else{if(ae[0]==="edit"){SB.showSuccessMsg($.i18n.get("meeting.edit_success"))
+}}}ah.find(".select-all").click(function(){$("#invite_email").select();
+ah.find("small").text($.i18n.get("meeting.invite_copy_method"))
+});
+$("#copyInvitation").click(function(){$.modal(ah,$.extend({},SB.MODAL_DEFAULTS,{overlayId:"copy-invite-dialog-overlay",containerId:"copy-invite-dialog-container",persist:true,overlayClose:true,minHeight:ah.outerHeight(),minWidth:630,onShow:function(){ah.find("small").text($.i18n.get("meeting.invite_oper_step"))
+}}))
+});
+$("#schedule_for").change(function(){var aq=$(this).val().trim();
+var ar=$("#schedule_for option:selected").attr("data-pmi");
+var au=P(ar,"-");
+if(au!=""&&$("#withPMI").length>0){var ax=$.i18n.get("meeting.schedule_options_use_pmi",au);
+$("#withPmiSpan").html(ax);
+var at=$("#recurrence").val();
+if(at===""){$("#withPMI").removeClass("hideme")
+}else{var ay=JSON.parse(at);
+var i=ay.type;
+if(i==="CLASSIC"){$("#withPMI").removeClass("hideme")
+}else{if($("#option_rm").prop("checked")){$("#withPMI").addClass("hideme")
+}else{$("#withPMI").removeClass("hideme")
+}}}}else{$("#withPMI").addClass("hideme")
+}var av=$("#schedule_for option:selected").attr("data-cnmeeting");
+var aw=$("#schedule_for option:selected").attr("data-inmeeting");
+if(typeof(av)!="undefined"&&typeof(aw)!="undefined"){p(av,aw)
+}return false
+});
+function p(aq,i){if(aq=="false"&&i=="false"){$("#cnMeetingDiv").hide();
+$("#inMeetingDiv").hide();
+$("#cinMeetingDiv").hide()
+}else{if(aq=="true"&&i=="false"){$("#cnMeetingDiv").show();
+$("#inMeetingDiv").hide();
+$("#cinMeetingDiv").hide()
+}else{if(aq=="false"&&i=="true"){$("#cnMeetingDiv").hide();
+$("#inMeetingDiv").show();
+$("#cinMeetingDiv").hide()
+}else{$("#cnMeetingDiv").hide();
+$("#inMeetingDiv").hide();
+$("#cinMeetingDiv").show()
+}}}}function c(){$("#start_time_2, #duration_hr, #duration_min").select2({minimumResultsForSearch:-1});
+var ar=420;
+if($(document.body).outerWidth(true)<490){ar=parseInt($(document.body).outerWidth(true))-70
+}$("#timezone").select2({width:ar});
+$(".input-datepicker").datepicker({dateFormat:"mm/dd/yy",changeMonth:true,changeYear:true,minDate:0,showOn:"both",buttonImage:$("#imgCalendarUrl").val(),buttonText:$.i18n.get("meeting.choose_another_date"),buttonImageOnly:true}).datepicker("setDate",$("#m_start_date").val());
+if($("#schedule_for").length>0){$("#schedule_for").select2({width:ar});
+$("#schedule_for").val($("#m_schedule_for").val()).trigger("change")
+}else{var aq=$("#isCNMeetingEnable").val();
+var i=$("#isINMeetingEnable").val();
+p(aq,i)
+}$("#timezone").val($("#m_timezone").val()).trigger("change");
+$("#duration_hr").val($("#m_duration_hr").val()).trigger("change");
+$("#duration_min").val($("#m_duration_min").val()).trigger("change");
+$("#start_time_2").val($("#m_start_time_2").val()).trigger("change");
+$("input[name=trackfield]").map(function(){new ComboBox(this.id)
+});
+$("#changePMI").click(function(){$("#changePMI").parent().hide();
+$("#pmiDiv").show()
+})
+}function ac(){if($("#option_enforce_signed_in").prop("checked")){$("#enforce_loginSD_container").show();
+$("#option_water_mark").parents("div.form-group").show()
+}else{$("#enforce_loginSD_container").hide();
+$("#option_water_mark").parents("div.form-group").hide()
+}}$("#option_enforce_signed_in").change(ac);
+ac();
+function F(){var i=$("input[name=option_audio]:checked").val();
+if($("#show_tsp_info").length>0){if(i=="telephony"||i=="both"){$("#show_tsp_info").show()
+}else{$("#show_tsp_info").hide()
+}}else{if(i=="other"){$("#other_teleconf_info_container").show()
+}else{$("#other_teleconf_info_container").hide()
+}}}$("input[name=option_audio]").change(F);
+F();
+var T=0;
+var ap=null;
+if($("#meet-autorec").length==1){ap=$("#meet-autorec input[name=option_autorec]");
+T=$("#meet-autorec input[name=option_autorec_val]").length;
+function k(){if(T==1){return
+}if(ap.prop("checked")){$("#meet-autorec .sub-options").show()
+}else{$("#meet-autorec .sub-options").hide()
+}}k();
+ap.change(k)
+}function af(i){if(!T){return
+}if(ap.prop("checked")){$.extend(i,{autorec:$("#meet-autorec input[name=option_autorec_val]:checked").val()})
+}else{$.extend(i,{autorec:"none"})
+}}$("#option_password").change(function(){if($(this).prop("checked")){$("#password").show().focus()
+}else{$("#password").hide();
+$(this).parents("form").valid();
+$(this).parents(".form-group").removeClass("has-error")
+}});
+if($("#password").val()!=""){$("#option_password").prop("checked",true).change()
+}var Q=$("#mtg_alternative_host_hidden").val();
+if(typeof(Q)!="undefined"&&Q!=""){var n=new Array();
+var W=JSON.parse(Q);
+for(var ak=0;
+ak<W.length;
+ak++){n.push(W[ak].email)
+}var I=$("#mtg_alternative_host");
+if(I.is("input")){I.val(n.join(";"))
+}else{if(I.is("div")){I.html(n.join(";"))
+}}}function Y(){if(!U()){var at=$("input[name=option_video_host]:checked").val();
+var aq=$("input[name=option_video_participants]:checked").val();
+var ar=$("input[name=option_audio]:checked").val();
+var i=false;
+var au={number:$("#meeting_number").val(),topic:$("#topic").val(),agenda:$.trim($("#agenda").val()),start_date:$("#start_date").val(),start_time:$("#start_time").val(),start_time_2:$("#start_time_2").val(),timezone:$("#timezone").val(),schedule_for:$("#schedule_for").val(),duration:parseInt($("#duration_hr").val(),10)*60+parseInt($("#duration_min").val(),10),option_jbh:$("#option_jbh").prop("checked")?true:false,option_video_host:at?at:"on",option_video_participants:aq?aq:"on",option_audio_type:ar?ar:"both",other_teleconf_info:$("#other_teleconf_info").val(),option_rm:$("#option_rm").prop("checked")?true:false,password:$("#option_password").prop("checked")?$("#password").val():"",mtg_alternative_host:$("#mtg_alternative_host").val(),user_id:$("#m_user_id").val(),option_pac:i,trackfields:a(),recurrence_setting:$("#recurrence").val(),responseToSingleOccurrence:$("#responseToSingleOccurrence").val(),occurrence:$("#occurrence_time").val(),tsp_account:y,sendEmailToRegistrants:$("#sendEmailToRegistrants").prop("checked")};
+af(au);
+if($("#option_registration").length>0){$.extend(au,{option_registration:$("#option_registration").prop("checked")?true:false,registrationRequiredType:$("input[name='registrationRequiredType']:checked").val()})
+}if($("#withPMI").length>0&&$("#withPMI").is(":visible")){$.extend(au,{with_pmi:$("#option_withpmi").prop("checked")?true:false})
+}B($("#meeting_form"),au);
+SB.post3({url:L()+"save",data:au,success:function(av){SB.saveSuccessCookie("edit");
+if($("#responseToSingleOccurrence").val()==="true"){SB.jump(L(true)+$("#meeting_number").val()+"?occurrence="+$("#occurrence_time").val())
+}else{SB.jump(L(true)+av.result)
+}},error:function(ax,av,aw){if(ax){if(aw==1113||aw==1114||aw==1115){l(false,$("#error_msg"),av);
+l(true,$("#error_mtg_alternative_host"),av)
+}else{l(false,$("#error_mtg_alternative_host"),av);
+l(true,$("#error_msg"),av);
+return
+}}else{l(false,$("#error_msg"),av);
+l(false,$("#error_mtg_alternative_host"),av)
+}},btnContainer:$("#meeting_form"),showBusy:true});
+return false
+}}var R=$("#notifyRecurrenceMeetingDialog");
+function b(au,aq){var at=$.i18n.get("meeting.reschedule_notify_to_registrants_update");
+var i=$.i18n.get("meeting.reschedule_notify_to_registrants_update_email");
+var ar="";
+$("#notify_note_container").addClass("hideme");
+if(au&&aq&&$("#recurrenceType").val()!="CLASSIC"){at=$.i18n.get("meeting.reschedule_notify_to_registrants_reschedule");
+if($("#m_newRecurrence").val()==="on"){i=$.i18n.get("meeting.reschedule_notify_to_registrants_reschedule_email_occurrence");
+ar=$.i18n.get("meeting.reschedule_notify_to_registrants_reschedule_note_occurrence")
+}else{i=$.i18n.get("meeting.reschedule_notify_to_registrants_reschedule_email");
+ar=$.i18n.get("meeting.reschedule_notify_to_registrants_reschedule_note")
+}$("#notify_note_container").removeClass("hideme")
+}$("#notify_msg").text(at);
+$("#notify_checkbox_label").text(i);
+$("#notify_note").text(ar);
+$.modal(R,$.extend({},SB.MODAL_DEFAULTS,{overlayId:"notify-recurrence-meeting-dialog-overlay",containerId:"notify-recurrence-meeting-dialog-container",persist:true,minHeight:R.outerHeight(),onShow:function(){}}))
+}$("#btn_saveMeetingAndSendEmail").click(function(i){Y()
+});
+function aj(at,au){for(var ar=0;
+ar<at.length;
+ar++){var aq=at[ar];
+if(aq.type===au){return aq.value
+}}return""
+}function X(aC,az){if(aC===""&&az===""){return true
+}if(aC===az){return true
+}if(aC===""||az===""){return false
+}var av=JSON.parse(aC);
+var aA=JSON.parse(az);
+if(av.type!=aA.type){return false
+}if(av.type==="CLASSIC"){return true
+}if(av.timezone!=aA.timezone){return false
+}if(av.startTime!=aA.startTime){return false
+}if(av.endType!=av.endType){return false
+}if(av.endType==="END_TIMES"){if(av.times!=aA.times){return false
+}}else{if(av.endTime!=aA.endTime){return false
+}}var au=aj(av.recurrenceValues,"INTERVAL");
+var aB=aj(aA.recurrenceValues,"INTERVAL");
+if(au!=aB){return false
+}if(av.type==="DAILY"){return true
+}if(av.type==="WEEKLY"){var aw=aj(av.recurrenceValues,"BYDAY");
+var ay=aj(aA.recurrenceValues,"BYDAY");
+return aw==ay
+}if(av.type==="MONTHLY"){var ax=aj(av.recurrenceValues,"BYMONTHDAY");
+var i=aj(aA.recurrenceValues,"BYMONTHDAY");
+if(ax!=i){return false
+}if(ax===""){var aq=aj(av.recurrenceValues,"BYSETPOS");
+var at=aj(aA.recurrenceValues,"BYSETPOS");
+var ar=aj(av.recurrenceValues,"BYDAY");
+var aD=aj(aA.recurrenceValues,"BYDAY");
+return aq==at&&ar==aD
+}return true
+}return true
+}function z(){if($("#topic").attr("data-s")!=$("#topic").val()){return true
+}if($("#password").val()!=$("#m_password").val()){return true
+}if($("#schedule_for").length>0&&($("#schedule_for").val()!=$("#m_schedule_for").val())){return true
+}if($("#timezone").val()!=$("#m_timezone").val()){return true
+}if($("#start_date").val()!=$("#m_start_date").val()){return true
+}if($("#start_time").val()!=$("#m_start_time").val()&&"0"+$("#start_time").val()!=$("#m_start_time").val()){return true
+}if($("#start_time_2").val()!=$("#m_start_time_2").val()){return true
+}if($("input[name=option_audio]:checked").val()!=$("#m_option_audio").val()){return true
+}return false
+}function C(){c();
+$("#meeting_form").validate({onkeyup:false,rules:{topic:{required:true},agenda:{maxlength:2000},start_date:{required:true},start_time:{required:true,time12hNB:true},password:{required:function(){return $("#option_password").prop("checked")
+}},mtg_alternative_host:{multiemails:true},enforce_loginSD_info:{multiemaildomains:true,maxlength:1024},other_teleconf_info:{maxlength:65535},dailyInterval:{max:90},weeklyInterval:{max:12},monthlyInterval:{max:3},endTimes:{max:50}},messages:{topic:{required:$.i18n.get("meeting.require_topic")},start_date:{required:$.i18n.get("meeting.require_start_date")},start_time:{required:$.i18n.get("meeting.require_start_time")},password:{required:$.i18n.get("meeting.enter_password")}},errorPlacement:function(aq,ar){var i=ar.attr("id");
+if("dailyInterval"==i||"weeklyInterval"==i||"monthlyInterval"==i||"endTimes"==i){aq.addClass("interval-error");
+ar.parents(".col-sm-9").append(aq)
+}else{if("endTimes"==i){aq.addClass("times-error");
+ar.parents(".col-sm-9").append(aq)
+}else{ar.parent().append(aq)
+}}},submitHandler:function(){var av=false;
+var at=false;
+var au="";
+var aq="";
+if($("#option_registration").length>0){av=$("#option_registration").attr("data-s")=="true"?true:false;
+au=$("#option_registration").attr("data-t");
+at=$("#option_registration").prop("checked")?true:false;
+aq=$("input[name='registrationRequiredType']:checked").val()
+}var aw=false;
+var az=false;
+if($("#option_rm").length>0){aw=$("#m_newRecurrence").val()==="on"?true:false;
+az=$("#option_rm").prop("checked")?true:false
+}if($("#hasApprovedRegistrants").val()==="false"||$("#responseToSingleOccurrence").val()==="true"){return Y()
+}if(aw&&az){var ax=$("#recurrence").val();
+var ay=$("#recurrence").attr("data-s");
+if(!X(ay,ax)){var i=(au==1&&aq==1);
+b(!i,at);
+return false
+}if(at){var ar=false;
+if((au==2||au==3)&&(aq==2||aq==3)){ar=true
+}if(au!=aq&&!ar){b(true,at);
+return false
+}}if(z()){b(false,at);
+return false
+}}if(av&&!aw&&az){b(true,at);
+return false
+}if(av&&aw&&!az){b(true,at);
+return false
+}if(av&&!aw&&!az){if(z()){b(false,at);
+return false
+}}return Y()
+}})
+}function B(ar,at){ar.find("input.m_option_chk:visible").each(function(){var au=$(this).prop("name");
+var av=$(this).is(":checked")?1:0;
+at[au]=av
+});
+ar.find(".m_option_val:visible").each(function(){var au=$(this).prop("name");
+var av=$(this).val();
+at[au]=av
+});
+var aq=$("#countryCheckbox");
+if(aq.length>0){var i=$(aq).is(":checked");
+if(i){ar.find("input.m_option_country:visible").each(function(){var au=$(this).attr("data-id");
+var av=$(this).is(":checked")?1:0;
+at[au]=av
+})
+}}}function m(){c();
+$("#pmi_form").validate({onkeyup:false,rules:{pmi:{required:true},password:{required:function(){return $("#option_password").prop("checked")
+}},mtg_alternative_host:{multiemails:true},enforce_loginSD_info:{multiemaildomains:true,maxlength:256}},messages:{pmi:{required:$.i18n.get("meeting.require_pmi")},password:{required:$.i18n.get("meeting.enter_password")}},submitHandler:function(){if(!U()){var at=$("input[name=option_video_host]:checked").val();
+var aq=$("input[name=option_video_participants]:checked").val();
+var ar=$("input[name=option_audio]:checked").val();
+var i=false;
+var au={newPMI:$("#pmi").val().replace(/-/g,""),oldPMI:$("#meeting_number").val(),option_jbh:$("#option_jbh").prop("checked")?true:false,option_video_host:at?at:"on",option_video_participants:aq?aq:"on",option_audio_type:ar?ar:"both",option_pac:i,other_teleconf_info:$("#other_teleconf_info").val(),password:$("#option_password").prop("checked")?$("#password").val():"",mtg_alternative_host:$("#mtg_alternative_host").val(),user_id:$("#m_user_id").val(),trackfields:a()};
+af(au);
+B($("#pmi_form"),au);
+SB.post3({url:L()+"savePmi",data:au,success:function(av){SB.saveSuccessCookie("edit");
+SB.jump(L(true)+av.result)
+},btnContainer:$("#pmi_form"),showBusy:true});
+return false
+}}})
+}function M(){var ar=$.cookie("_zm_mtg_options");
+if(ar){try{var aq=JSON.parse(ar);
+if(aq){var i=$("#m_has_account_settings").val();
+if(i=="false"){if(aq.o1){$("#option_jbh").prop("checked",true)
+}if(aq.o2){$("input[name=option_video_host][value="+aq.o2+"]").prop("checked",true)
+}if(aq.o3){$("input[name=option_video_participants][value="+aq.o3+"]").prop("checked",true)
+}if(aq.o4){$("input[name=option_audio][value="+aq.o4+"]").prop("checked",true);
+if(aq.o4==="other"&&$("#other_teleconf_info_container").length>0){$("#other_teleconf_info_container").removeClass("hideme").show()
+}if(aq.o4!=="telephony"&&aq.o4!=="both"&&$("#show_tsp_info").length>0){$("#show_tsp_info").hide()
+}}}if(aq.o5){}if(aq.o6){$("#option_withpmi").prop("checked",true)
+}if(aq.o7){$("#enforce_loginSD_info").val(aq.o7)
+}if(aq.o8){y=aq.o8
+}else{E()
+}if(aq.o9&&!ap.prop("checked")){$("input[name=option_autorec_val][value="+aq.o9+"]").prop("checked",true)
+}}}catch(at){}}else{E()
+}}function aa(aq){var i={o1:aq.option_jbh,o2:aq.option_video_host,o3:aq.option_video_participants,o4:aq.option_audio_type,o5:aq.option_rm,o6:aq.with_pmi};
+if(aq.enforce_loginSD_info){i.o7=aq.enforce_loginSD_info
+}if(aq.tsp_account){i.o8=aq.tsp_account
+}if(aq.autorec){i.o9=aq.autorec
+}$.cookie("_zm_mtg_options",JSON.stringify(i),{expires:365,path:"/"})
+}function q(){c();
+$("#schedule_form").validate({onkeyup:false,rules:{topic:{required:true},agenda:{maxlength:2000},start_date:{required:true},start_time:{required:true,time12hNB:true},password:{required:function(){return $("#option_password").prop("checked")
+}},mtg_alternative_host:{multiemails:true},enforce_loginSD_info:{multiemaildomains:true,maxlength:1024},other_teleconf_info:{maxlength:65535},dailyInterval:{max:90},weeklyInterval:{max:12},monthlyInterval:{max:3},endTimes:{max:50}},messages:{topic:{required:$.i18n.get("meeting.require_topic")},start_date:{required:$.i18n.get("meeting.require_start_date")},start_time:{required:$.i18n.get("meeting.require_start_time")},password:{required:$.i18n.get("meeting.enter_password")}},errorPlacement:function(aq,ar){var i=ar.attr("id");
+if("dailyInterval"==i||"weeklyInterval"==i||"monthlyInterval"==i||"endTimes"==i){aq.addClass("interval-error");
+ar.parents(".col-sm-9").append(aq)
+}else{if("endTimes"==i){aq.addClass("times-error");
+ar.parents(".col-sm-9").append(aq)
+}else{ar.parent().append(aq)
+}}},submitHandler:function(){if(!U()){var at=$("input[name=option_video_host]:checked").val();
+var aq=$("input[name=option_video_participants]:checked").val();
+var ar=$("input[name=option_audio]:checked").val();
+var i=false;
+var au={topic:$("#topic").val(),agenda:$.trim($("#agenda").val()),start_date:$("#start_date").val(),start_time:$("#start_time").val(),start_time_2:$("#start_time_2").val(),timezone:$("#timezone").val(),schedule_for:$("#schedule_for").val(),duration:parseInt($("#duration_hr").val(),10)*60+parseInt($("#duration_min").val(),10),option_jbh:$("#option_jbh").prop("checked")?true:false,option_video_host:at?at:"on",option_video_participants:aq?aq:"on",option_audio_type:ar?ar:"both",other_teleconf_info:$("#other_teleconf_info").val(),option_rm:$("#option_rm").prop("checked")?true:false,password:$("#option_password").prop("checked")?$("#password").val():"",mtg_alternative_host:$("#mtg_alternative_host").val(),user_id:$("#m_user_id").val(),needUpUserTZ:$("#needUpUserTZ").val(),option_pac:i,trackfields:a(),recurrence_setting:$("#recurrence").val(),tsp_account:y};
+af(au);
+if($("#option_registration").length>0){$.extend(au,{option_registration:$("#option_registration").prop("checked")?true:false,registrationRequiredType:$("input[name='registrationRequiredType']:checked").val()})
+}if($("#withPMI").length>0&&$("#withPMI").is(":visible")){$.extend(au,{with_pmi:$("#option_withpmi").prop("checked")?true:false})
+}B($("#schedule_form"),au);
+SB.post3({url:L()+"save",data:au,success:function(av){SB.saveSuccessCookie("schedule");
+aa(au);
+d();
+SB.jump(L(true)+av.result)
+},error:function(ax,av,aw){if(ax){if(aw==1113||aw==1114||aw==1115){l(false,$("#error_msg"),av);
+l(true,$("#error_mtg_alternative_host"),av)
+}else{l(false,$("#error_mtg_alternative_host"),av);
+l(true,$("#error_msg"),av);
+return
+}}else{l(false,$("#error_msg"),av);
+l(false,$("#error_mtg_alternative_host"),av)
+}},btnContainer:$("#schedule_form"),showBusy:true});
+return false
+}}})
+}function l(ar,aq,i){if(ar){aq.text(i).show()
+}else{aq.empty().hide()
+}}function J(){c();
+$("#schedule_pac_form").validate({rules:{topic:{required:true},start_date:{required:true},start_time:{required:true,time12hNB:true}},messages:{topic:{required:$.i18n.get("meeting.require_topic")},start_date:{required:$.i18n.get("meeting.require_start_date")},start_time:{required:$.i18n.get("meeting.require_start_time")}},submitHandler:function(){if(!U()){var i={topic:$("#topic").val(),start_date:$("#start_date").val(),start_time:$("#start_time").val(),start_time_2:$("#start_time_2").val(),timezone:$("#timezone").val(),duration:parseInt($("#duration_hr").val(),10)*60+parseInt($("#duration_min").val(),10),option_jbh:false,option_video_host:"off",option_video_participants:"off",option_audio_type:"both",other_teleconf_info:"",option_rm:false,password:"",user_id:$("#m_user_id").val(),needUpUserTZ:$("#needUpUserTZ").val(),option_pac:true,selected_pac_account:$("#selected_pac_account").val(),trackfields:a(),recurrence_setting:$("#recurrence").val()};
+if($("#option_registration").length>0){$.extend(i,{option_registration:$("#option_registration").prop("checked")?true:false,registrationRequiredType:$("input[name='registrationRequiredType']:checked").val()})
+}SB.post3({url:L()+"save",data:i,success:function(aq){SB.saveSuccessCookie("schedule");
+SB.jump(L(true)+aq.result)
+},btnContainer:$("#schedule_pac_form"),showBusy:true});
+return false
+}}})
+}function an(){c();
+$("#pac_meeting_form").validate({rules:{topic:{required:true},start_date:{required:true},start_time:{required:true,time12hNB:true}},messages:{topic:{required:$.i18n.get("meeting.require_start_topic")},start_date:{required:$.i18n.get("meeting.require_start_date")},start_time:{required:$.i18n.get("meeting.require_start_time")}},submitHandler:function(){if(!U()){var i={number:$("#meeting_number").val(),topic:$("#topic").val(),start_date:$("#start_date").val(),start_time:$("#start_time").val(),start_time_2:$("#start_time_2").val(),timezone:$("#timezone").val(),duration:parseInt($("#duration_hr").val(),10)*60+parseInt($("#duration_min").val(),10),option_jbh:false,option_video_host:"off",option_video_participants:"off",option_audio_type:"both",other_teleconf_info:"",option_rm:false,password:"",user_id:$("#m_user_id").val(),needUpUserTZ:$("#needUpUserTZ").val(),option_pac:true,selected_pac_account:$("#selected_pac_account").val(),trackfields:a(),recurrence_setting:$("#recurrence").val()};
+if($("#option_registration").length>0){$.extend(i,{option_registration:$("#option_registration").prop("checked")?true:false,registrationRequiredType:$("input[name='registrationRequiredType']:checked").val()})
+}SB.post3({url:L()+"save",data:i,success:function(aq){SB.saveSuccessCookie("edit");
+SB.jump(L(true)+aq.result)
+},btnContainer:$("#pac_meeting_form"),showBusy:true});
+return false
+}}})
+}function j(){var i=$("#m_default_options");
+if(i.length==0||!i.val()){return false
+}try{var ar=JSON.parse(i.val());
+if(ar.hostVideo){$("input[name=option_video_host][value="+ar.hostVideo+"]").prop("checked",true)
+}if(ar.pVideo){$("input[name=option_video_participants][value="+ar.pVideo+"]").prop("checked",true)
+}if(ar.audio){$("input[name=option_audio][value="+ar.audio+"]").prop("checked",true);
+if(ar.audio!=="other"&&$("#other_teleconf_info_container").length>0){$("#other_teleconf_info_container").addClass("hideme")
+}}if(ar.jbh){$("input[name=option_jbh]").prop("checked",ar.jbh=="true")
+}}catch(aq){if(typeof console!=="undefined"){console.debug(aq)
+}}}if($("#pmi_form").length>0){m()
+}if($("#meeting_form").length>0){C()
+}if($("#schedule_form").length>0){q();
+M();
+j()
+}if($("#schedule_pac_form").length>0){J()
+}if($("#pac_meeting_form").length>0){an()
+}if($("#switchPacBtn").length>0){$("#switchPacBtn").click(function(){var i=$("#selected_pac_account").val();
+if(i==="pac2"){$("#selected_pac_account").val("pac1");
+$(".pac1-number-list").show();
+$(".pac2-number-list").hide();
+$(this).text($.i18n.get("pac.account_2_settings"));
+$("#pac_meeting_number").text($("#pac1_number").val());
+if($("#pac1_password").val().trim().length>0){$("#pac_meeting_pwd").text($("#pac1_password").val());
+$("#pac-pwd-sec").show();
+if($("#pac1_listen_password").val().trim().length>0){$("#pac_listen_meeting_pwd").text($("#pac1_listen_password").val());
+$("#pac-listen-pwd-sec").show()
+}else{$("#pac-listen-pwd-sec").hide()
+}}else{$("#pac-pwd-sec").hide();
+$("#pac-listen-pwd-sec").hide()
+}}else{$("#selected_pac_account").val("pac2");
+$(".pac1-number-list").hide();
+$(".pac2-number-list").show();
+$(this).text($.i18n.get("pac.account_1_settings"));
+$("#pac_meeting_number").text($("#pac2_number").val());
+if($("#pac2_password").val().trim().length>0){$("#pac_meeting_pwd").text($("#pac2_password").val());
+$("#pac-pwd-sec").show();
+if($("#pac2_listen_password").val().trim().length>0){$("#pac_listen_meeting_pwd").text($("#pac2_listen_password").val());
+$("#pac-listen-pwd-sec").show()
+}else{$("#pac-listen-pwd-sec").hide()
+}}else{$("#pac-pwd-sec").hide();
+$("#pac-listen-pwd-sec").hide()
+}}})
+}if(Z&&ad){if($("#schedule_form").length>0){if(y==="tsp1"){$("#tsp_account_info2").hide();
+$("#tsp_account_info1").show()
+}else{$("#tsp_account_info1").hide();
+$("#tsp_account_info2").show()
+}}$("#use_tsp1").click(function(){$("#tsp_account_info2").hide();
+$("#tsp_account_info1").show();
+y="tsp1"
+});
+$("#use_tsp2").click(function(){$("#tsp_account_info1").hide();
+$("#tsp_account_info2").show();
+y="tsp2"
+})
+}var e=$("#enable_tsp").length>0;
+if(e){if($("#tsp_account").length>0){var al=$("#tsp_account").val();
+y=al;
+if(al==="tsp1"){$("#tsp_account_info2").hide();
+$("#tsp_account_info1").show()
+}else{$("#tsp_account_info1").hide();
+$("#tsp_account_info2").show()
+}}else{E()
+}}function E(){if(Z){y="tsp1"
+}else{if(ad){y="tsp2"
+}}}function L(i){if($("#m_user_id").length>0){if(i&&$("#access_user_baseurl").length==1){return $("#access_user_baseurl").val()+"/"+$("#m_user_id").val()+"/meeting/"
+}return"/user/"+$("#m_user_id").val()+"/meeting/"
+}else{return"/meeting/"
+}}$(window).resize(function(){var i=$(document.body).outerWidth(true);
+if(i<490){i=parseInt(i)-70;
+$("#s2id_timezone").css({width:i});
+$("#s2id_schedule_for").css({width:i})
+}});
+var S=$("#detailPacCopyInviteDialog");
+S.find(".select-all").click(function(){$("#invite_email").select();
+S.find("small").text($.i18n.get("meeting.invite_copy_method"))
+});
+var ao=$("#copyPacInvitation");
+if(ao.length>0){ao.click(function(){var i=$.trim($(this).attr("data-id"));
+s(i,false)
+})
+}var x=$("#copyListenInvitation");
+if(x.length>0){x.click(function(){var i=$.trim($(this).attr("data-id"));
+s(i,true)
+})
+}var s=function(aq,i){var ar={meeting_number:aq,listen_only:i};
+SB.post3({url:"/meeting/pacInviteEmail",data:ar,success:function(at){$.modal(S,$.extend({},SB.MODAL_DEFAULTS,{overlayId:"copy-invite-dialog-overlay",containerId:"copy-invite-dialog-container",persist:true,overlayClose:true,maxHeight:750,minWidth:630,onShow:function(){S.find("#invite_email").text(at.result.scheduleEmail);
+S.find("small").text($.i18n.get("pac.select_copy_paste"))
+}}))
+},error:function(at,au){if(at){SB.alert(au)
+}},showBusy:false})
+};
+var U=function(){var i=false;
+$("div[name=trackfielderror]").remove();
+$("input[name=trackfield]").map(function(){if("true"==$(this).attr("require")&&$(this).val().trim()==""){$("<div name='trackfielderror'><span style='color:red;'>"+ag+"</span></div>").insertAfter($(this.parentNode));
+i=true
+}});
+return i
+};
+var a=function(){var i=[];
+$("input[name=trackfield]").map(function(){if($(this).val().trim()!=""){i.push({id:this.id,mtValue:$(this).val()})
+}});
+if(i.length>0){return JSON.stringify(i)
+}return""
+};
+function P(i,aq){if(i!="0"){if(i.length<9){i=D(9-i.length)+i
+}if(i.length==11){return i.substring(0,3)+aq+i.substring(3,7)+aq+i.substring(7)
+}return i.substring(0,3)+aq+i.substring(3,6)+aq+i.substring(6)
+}return""
+}function D(at){var aq="";
+if(at<=0){return""
+}for(var ar=0;
+ar<at;
+ar++){aq+="0"
+}return aq
+}$("#mHostId_Container ul li a").click(function(aq){var at=$(aq.target).attr("data-id");
+var au=$(aq.target).text();
+$("#mHostIdSelect").val(at);
+$("#mHostIdSelectName").text(au);
+var i=$("#meetingsType").val().trim();
+var ar=[];
+if(i!="upcoming"){ar.push("type="+i)
+}if(at){ar.push("hostId="+at)
+}if(ar.length){SB.jump("/meeting?"+ar.join("&"))
+}else{SB.jump("/meeting")
+}return false
+});
+$("#tab_container ul li a").click(function(i){$("#tab_container ul li").removeClass("active");
+$(i.target).parent().addClass("active");
+$("#registrationTab").addClass("hideme");
+$("#emailSettingsTab").addClass("hideme");
+$("#brandingTab").addClass("hideme");
+$("#pollTab").addClass("hideme");
+var aq=$(i.target).parent().attr("data-for");
+$("#"+aq).removeClass("hideme")
+});
+var H=$("#editRecurrenceMeetingDialog");
+$("#btnShowEditRecurrenceDialog").click(function(i){$("#edit_meeting_number").val($(i.target).attr("data-id"));
+$("#edit_meeting_occurrence").val($(i.target).attr("data-s"));
+$.modal(H,$.extend({},SB.MODAL_DEFAULTS,{overlayId:"edit-recurrence-meeting-dialog-overlay",containerId:"edit-recurrence-meeting-dialog-container",persist:true,minHeight:H.outerHeight(),onShow:function(){}}))
+});
+$("#btnEditThisOccurrence").click(function(aq){var i=L(false)+$("#edit_meeting_number").val()+"/edit?occurrence="+$("#edit_meeting_occurrence").val();
+SB.jump(i)
+});
+$("#btnEditAllOccurrences").click(function(aq){var i=L(false)+$("#edit_meeting_number").val()+"/edit";
+SB.jump(i)
+})
+});œÂ/Æ      YcYd=²pYd   J:https://d24cgw3uvb9a9h.cloudfront.net/static/90093/js/app/meetings.min.js necko:classified 1 security-info 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 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Content-Length: 37256
+Date: Mon, 24 Apr 2017 07:11:30 GMT
+Last-Modified: Mon, 24 Apr 2017 07:06:25 GMT
+Etag: "286755c4174262e56578536526405774"
+x-amz-meta-s3cmd-attrs: uid:496/gname:nginx/uname:nginx/gid:496/mode:33204/mtime:1493016269/atime:1493017284/md5:286755c4174262e56578536526405774/ctime:1493017285
+Accept-Ranges: bytes
+Server: AmazonS3
+Age: 82796
+X-Cache: Hit from cloudfront
+Via: 1.1 587dc871e0b842458664a6c4d7607f67.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: vIZD6omkXM_Ylv5qCHao9KtcbSQmyYqojwZ7LRnH57VXZsCj5_uSDQ==
+ uncompressed-len 0   ‘ˆ

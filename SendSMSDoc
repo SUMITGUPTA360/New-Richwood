@@ -1,0 +1,26 @@
+Hi Sonam,
+
+I have created chainset in a sandbox .  I have no permission to deploy in production box from chainset.
+I have done all changes according to requirement updated lead source 'SMS' And test classes were done.
+
+
+Chaninset Name : SMSHistory1.0.
+Custom field :SMS Send on Oject	Lead,	Custom Field API	SMS_Send
+Apex Class Name:	SMSHistoryTriggerHandler
+Apex Class Name:	SMSHistoryTriggerHandlerTest
+
+Email Templet Name: "Incoming SMS Formet" on Custom Object Name: SMS Template
+Email Templet Name: "Send text response SMS" on Custom Object Name: SMS Template
+
+I have used email templet Id in Process builder.
+Email template id used for Email templet 'Incoming SMS Format' in Custom Label: TempletId
+
+Process builder Name :
+
+Process Builder - Send Auto SMS for a Incoming SMS Formet 1.1.1		Flow Definition:	Send Auto SMS for a Incoming SMS Formet
+Process Builder - Send Auto SMS to Lead after Checkbox is Checked1    Flow Definition:	Send Auto SMS to Lead after Checkbox is Checked
+
+Custom Label Name:	TempletId 
+
+first process builder worked only when a record is created on lead object, Define Criteria for this Action Group Mobile number does not null
+and second Process builder worked when a record is created or edited an entry criteria custom field:  SMS send, "true".

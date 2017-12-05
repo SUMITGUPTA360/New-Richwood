@@ -1,0 +1,51 @@
+trigger TaskTrigger on Task (after insert,after update) {
+    
+    if(Trigger.isAfter && Trigger.IsInsert){
+        checkAndUpdateContacts();
+    }
+    
+    
+    if(Trigger.isAfter && Trigger.IsUpdate){
+        checkAndUpdateContacts();
+    }
+    
+    public void updateContact(Set<ID> contactIDChecked, Set<ID> contactIDUnChecked){
+         
+         List<Contact> objcon = new List<Contact>();
+         for(contact obj :  [select Has_Open_Task__c from contact where id IN :contactIDChecked and (Has_Open_Task__c!=true)]){
+             obj.Has_Open_Task__c = true;
+             objcon.add(obj);
+         }
+         
+         for(contact obj :  [select Has_Open_Task__c from contact where id IN :contactIDUnChecked and (Has_Open_Task__c=true)]){
+             obj.Has_Open_Task__c = false;
+             objcon.add(obj);
+         }
+        update objcon;
+    }
+     
+     public void checkAndUpdateContacts(){
+         
+         Set<ID> setOpenTaskWhoID = new Set<ID>();
+         for(Task objT : [select Status,WhoId from Task where Status!='Completed' AND WhoId!=null]){
+             if(String.valueOf(objT.WhoId).startsWith('003')){
+                    setOpenTaskWhoID.add(objT.WhoId);
+             }
+         }
+         
+        Set<ID> contactIDChecked = new  Set<ID>();
+        Set<ID> contactIDUnChecked = new  Set<ID>();
+        for(Task objtask : Trigger.new){
+            if(objtask.Status != 'Completed'  && String.valueOf(objtask.WhoId).startsWith('003')){
+                 contactIDChecked.add(objtask.WhoId);
+            }
+            else if(objtask.Status == 'Completed'  && String.valueOf(objtask.WhoId).startsWith('003') && (!setOpenTaskWhoID.contains(objtask.WhoId))){
+                contactIDUnChecked.add(objtask.WhoId);
+            }
+        }
+        
+        updateContact(contactIDChecked,contactIDUnChecked);
+     
+         
+     }
+}

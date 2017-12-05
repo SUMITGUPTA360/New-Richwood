@@ -1,0 +1,20 @@
+status: 200
+x-request-id: a514992c-367e-419f-a35a-14c4c8b05c61
+via: 1.1 juju-prod45-u1-sca-machine-26 (squid/3.3.8)
+x-cache: HIT from juju-prod45-u1-sca-machine-26
+content-language: en
+age: 403
+expires: Wed, 19 Apr 2017 05:02:06 GMT
+vary: Authorization,Accept-Language,Cookie
+server: Apache/2.4.7 (Ubuntu)
+x-cache-lookup: HIT from juju-prod45-u1-sca-machine-26:3128
+last-modified: Wed, 19 Apr 2017 04:52:06 GMT
+etag: "d751713988987e9331980363e24189ce"
+x-bzr-revision-number: 3994
+cache-control: max-age=600
+date: Wed, 19 Apr 2017 04:52:06 GMT
+content-type: application/json; charset=utf-8
+x-vcs-revision: 13.2
+content-location: http://software-center.ubuntu.com/api/2.0/applications/en/ubuntu/trusty/amd64/
+
+[]

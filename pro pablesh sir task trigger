@@ -1,0 +1,72 @@
+global class UpdateContactBatch implements Database.Batchable<sObject> {
+    global List<Task> lstTask;
+    global Set<ID> contactIDChecked;
+	global Set<ID> contactIDUnChecked;
+	
+    global UpdateContactBatch(List<Task> lstTasknew){
+    	lstTask = new List<Task>();
+    	contactIDChecked = new  Set<ID>();
+    	contactIDUnChecked = new  Set<ID>();
+    	lstTask = lstTasknew;
+    }
+    global Database.QueryLocator start(Database.BatchableContext BC) {
+        String query = 'select Status,WhoId from Task';
+        return Database.getQueryLocator(query);
+    }
+    global void execute(Database.BatchableContext BC, List<Task> scope) {
+    	try{
+			Set<ID> setOpenTaskWhoID = new Set<ID>();
+			System.debug('scope++'+scope);
+			
+			for(Task objT : scope){
+				if(String.valueOf(objT.WhoId).startsWith('003')){
+					setOpenTaskWhoID.add(objT.WhoId);
+				}
+			}
+			System.debug('setOpenTaskWhoID++'+setOpenTaskWhoID);
+			//Set<ID> contactIDChecked = new  Set<ID>();
+			//Set<ID> contactIDUnChecked = new  Set<ID>();
+			
+			for(Task objtask : lstTask){
+				System.debug('lstTask++'+lstTask);
+				if(objtask.Status != 'Completed'  && String.valueOf(objtask.WhoId).startsWith('003')){
+					contactIDChecked.add(objtask.WhoId);
+				}
+				else if(objtask.Status == 'Completed'  && String.valueOf(objtask.WhoId).startsWith('003')){
+					contactIDUnChecked.add(objtask.WhoId);
+					System.debug('contactIDUnChecked++'+contactIDUnChecked);
+				}
+			}
+			        
+		updateContact(contactIDChecked,contactIDUnChecked);	
+		}Catch(Exception e){
+			System.debug('Exception ++'+e);         	
+		}     
+    }
+    global void finish(Database.BatchableContext BC) {
+    	
+    }
+    global void updateContact(Set<ID> contactIDChecked, Set<ID> contactIDUnChecked){
+         
+         try{
+	         List<Contact> objcon = new List<Contact>();
+	         for(contact obj :  [select Has_Open_Task__c from contact where id IN :contactIDChecked and (Has_Open_Task__c!=true)]){
+	             obj.Has_Open_Task__c = true;
+	             objcon.add(obj);
+	         }
+	         
+	         for(contact obj :  [select Has_Open_Task__c from contact where id IN :contactIDUnChecked and (Has_Open_Task__c=true)]){
+	             obj.Has_Open_Task__c = false;
+	             objcon.add(obj);
+	         }
+	        if(objcon.size() > 0){
+	        	update objcon;
+	        	System.debug('objcon++'+objcon);
+	        }
+	        
+	        
+         }Catch(Exception e){
+         	System.debug('Exception 1+'+e);
+         }    
+    }   
+}

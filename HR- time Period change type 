@@ -1,0 +1,63 @@
+Task: SR-427 Ihave Created Picklist Global Value Set labeled “HR-Time Period Type-Frequency”.
+Task: SR-428 On the HR-Time Period object, updated the "Type" field to use the Picklist Global Value Set labeled “HR-Time Period Type-Frequency”.
+Task: SR-429 On the HR-Allowance object, update “Frequency” field picklist values to use the Picklist Global Value Set of “HR-Time Period Type-Frequency”.
+Task: SR-430 On the HR-Absence Type object, update “Accrual” field picklist values to use “HR-Time Period Type-Frequency”
+Task: SR-431 On the HR-Absence Entitlement object, update “Accrual” field picklist values to use “HR-Time Period Type-Frequency”.
+Task: SR-432 On the HR-Pay Group object, update 5 picklists to use the Picklist Global Value Set of “HR-Time Period Type-Frequency”.
+
+1. Update “Hourly Payroll Frequency” field picklist values to use the Picklist Global Value Set of “HR-Time Period Type-Frequency”
+2. Update “Other Compensation Payroll Frequency” field picklist values to use the Picklist Global Value Set of “HR-Time Period Type-Frequency”
+3. Update “Salary Payroll Frequency” field picklist values to use the Picklist Global Value Set of “HR-Time Period Type-Frequency”
+4. Update “Sales Commission Payroll Frequency” field picklist values to use the Picklist Global Value Set of “HR-Time Period Type-Frequency”
+5. Update “Variable Pay Payroll Frequency” field picklist values to use the Picklist Global Value Set of “HR-Time Period Type-Frequency”
+
+Field changed Lable Name: Type, API: SHCM__type__c to globle picklist on   Object  HR-Time Period
+Field Changed Lable Name: Frequency, API:SHCM__frequency__c to Globle picklist object on HR-Allowance
+Field Changed Lable Name: Accrual, API: SHCM__accrual__c to Globle picklist object on HR-Absence Type
+Field Changed Lable Name: Accrual, API: SHCM__accrual__c to Globle picklist object on HR-Absence Entitlement 
+Field Changed Lable Name: Hourly Payroll Frequency, API: SHCM__hourlyPayrollFrequency__c  to Globle picklist object on HR-Pay Group object
+Field Changed Lable Name: Other Compensation Payroll Frequency, API: SHCM__otherCompensationPayrollFrequency__c  to Globle picklist object on HR-Pay Group object
+Field Changed Lable Name: Salary Payroll Frequency, API: SHCM__salaryPayrollFrequency__c  to Globle picklist object on HR-Pay Group object
+Field Changed Lable Name: Sales Commission Payroll Frequency, API: SHCM__salesCommissionPayrollFrequency__c  to Globle picklist object on HR-Pay Group object
+Field Changed Lable: Variable Pay Payroll Frequency, API: SHCM__variablePayPayrollFrequency__c  to Globle picklist object on HR-Pay Group object
+
+After Update Globle Picklist. I have updated VF Page, Velidetion rules, Lookup Filter and Apex Classes.
+
+(A) VF Page
+1) CountCompBudgeted_VF
+
+ Velidetion rules
+1) HR-Time Period Validation Rule
+
+(B) Lookup Filter Related Lookup Filters on HR- Time Period
+
+Edit HR-Company Detail Custom Field
+1) Time Period
+Lookup Filter unactive
+
+2) Edit HR-Comp Budget Custom Field
+Time Period 
+Lookup Filter unactive
+
+3) Edit HR-Time Period Custom Field
+Fiscal Year
+Lookup fielter unactive 
+
+(C) Apex Classes 
+1)  OrganizationTriggerHandler 
+2)  OrganizationTriggerHandlerTest
+3)  CompBudgetDetailTriggerHandler
+4)  CompBudgetDetailTriggerHandlerTest
+5)  SetupTriggerHandler
+6)  SetupTriggerHandlerTest
+7)  SalesPlanTriggerHandler
+8)  SalesPlanTriggerHandlerTest
+9)  CountCompBudgeted_Con
+10) CountCompBudgeted_ConTest
+11) CompanyDetailTriggerHandler
+12) CompanyDetailTriggerHandlerTest
+13) HCM_SalesPlan
+14) HCM_SalesPlanTest
+16) Organizations_HierarchyController
+18) Organizations_HierarchyControllerTest
+19) CompBudgetTriggerHandlerTest

@@ -1,0 +1,62 @@
+Script for none started at run_im.
+Script for auto started at run_im.
+Script for default started at run_im.
+init: at-spi2-registryd main process ended, respawning
+init: at-spi2-registryd main process ended, respawning
+init: at-spi2-registryd main process ended, respawning
+init: at-spi2-registryd main process ended, respawning
+init: at-spi2-registryd main process ended, respawning
+init: at-spi2-registryd main process ended, respawning
+init: at-spi2-registryd main process ended, respawning
+init: at-spi2-registryd main process ended, respawning
+init: at-spi2-registryd main process ended, respawning
+init: at-spi2-registryd main process ended, respawning
+init: at-spi2-registryd respawning too fast, stopped
+init: unity-settings-daemon main process (1887) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: indicator-sound main process (2028) killed by ABRT signal
+init: indicator-sound main process ended, respawning
+init: indicator-sound main process (2182) killed by ABRT signal
+init: indicator-sound main process ended, respawning
+init: indicator-sound main process (2229) killed by ABRT signal
+init: indicator-sound respawning too fast, stopped
+init: unity-settings-daemon main process (2181) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: unity-settings-daemon main process (2241) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: unity-settings-daemon main process (2343) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: unity-settings-daemon main process (2392) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: unity-settings-daemon main process (2434) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: unity-settings-daemon main process (2473) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: unity-settings-daemon main process (2513) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: unity-settings-daemon main process (2552) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: unity-settings-daemon main process (2594) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: unity-settings-daemon main process (2647) killed by ABRT signal
+init: unity-settings-daemon main process ended, respawning
+init: gnome-session (Unity) main process (1899) terminated with status 1
+init: unity-settings-daemon main process (2697) killed by TERM signal
+init: logrotate main process (1632) killed by TERM signal
+init: update-notifier-crash (/var/crash/_opt_google_chrome_chrome.118.crash) main process (1672) killed by TERM signal
+init: update-notifier-crash (/var/crash/_usr_bin_compiz.119.crash) main process (1674) killed by TERM signal
+init: update-notifier-crash (/var/crash/_usr_bin_gnome-session.118.crash) main process (1675) killed by TERM signal
+init: update-notifier-crash (/var/crash/_usr_bin_nm-applet.112.crash) main process (1676) killed by TERM signal
+init: update-notifier-crash (/var/crash/_usr_bin_nm-applet.119.crash) main process (1677) killed by TERM signal
+init: update-notifier-crash (/var/crash/_usr_lib_x86_64-linux-gnu_indicator-keyboard-service.112.crash) main process (1681) killed by TERM signal
+init: update-notifier-crash (/var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.112.crash) main process (1684) killed by TERM signal
+init: update-notifier-crash (/var/crash/_usr_lib_x86_64-linux-gnu_indicator-sound_indicator-sound-service.119.crash) main process (1685) killed by TERM signal
+init: update-notifier-release main process (1744) killed by TERM signal
+init: indicator-bluetooth main process (2020) killed by TERM signal
+init: indicator-power main process (2022) killed by TERM signal
+init: indicator-datetime main process (2027) killed by TERM signal
+init: indicator-printers main process (2035) killed by TERM signal
+init: indicator-session main process (2036) killed by TERM signal
+init: indicator-application main process (2051) killed by TERM signal
+init: Disconnected from notified D-Bus bus
+init: hud main process (1893) killed by TERM signal

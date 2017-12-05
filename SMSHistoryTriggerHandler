@@ -1,0 +1,104 @@
+public class SMSHistoryTriggerHandler
+{
+    public static void onAfterInsert(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    {    
+        onAfterInsertAction(newListOfSMSHistory);            
+    }
+    
+    private static void onAfterInsertAction(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    { 
+     try{
+      String setMessage;                                         
+     
+      String[] setDetails; 
+      String setDetails1;
+      //  setMessage = #SMS (Sumit,sumit123@test.com,12312) ;
+       setMessage = #SMS (Sumit,sumit123@test.com,12312) ;
+      tdc_tsw__Message__c objMessage = newListOfSMSHistory[0];
+             
+         if(objMessage.Name == 'Incoming' &&
+             String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Message_Text_New__c)) && 
+             String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Lead__c))){  
+             setMessage = objMessage.tdc_tsw__Message_Text_New__c ;
+           
+            if(setMessage.startswith('#SMS (') && setMessage.endsWith(')') ){
+            
+               setDetails1 = setMessage.replace('#SMS (','');
+               setDetails = setDetails1.split(',');
+             }
+            if(setDetails.size() > 2 )
+               {  
+                   String regex = '[()\\-\\()]' ;
+                   String replacement = '' ;
+                
+                   Lead objLead = new Lead();
+                 //  objLead.SMS_Send__c = true;
+                   objLead.id = objMessage.tdc_tsw__Lead__c;
+                   if(String.isNotBlank(String.valueOf(setDetails[0]))){
+                      objLead.Salutation = null;
+                      objLead.FirstName = null;
+                      objLead.LastName  = setDetails[0];
+                   }
+                   if(String.isNotBlank(String.valueOf(setDetails[1]))){
+                       objLead.Email = setDetails[1];
+                   }
+                   if(String.isNotBlank(String.valueOf(setDetails[2]))){
+                        objLead.PostalCode = setDetails[2].replaceAll(regex,replacement);
+                   }
+                    objLead.PostalCode = setDetails[2].replaceAll(regex,replacement);
+                   
+                   if(objLead != null)
+                   update objLead;
+               }                  
+         } 
+       }
+       catch(Exception e){
+           system.debug('Exception  '+e);
+         }    
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]]]]]]]]]]]]]]]]
+
+
+@isTest
+public with sharing class SMSHistoryTriggerHandlerTest{
+
+      public static testMethod void smsHistoryTest(){
+          test.startTest();
+          
+          lead objlead = new lead();
+          objlead.LastName = 'Test Lead';
+          objlead.Company = 'Test Company';
+          objlead.Phone = '1237888123';
+          objlead.Email = 'test123@email.com';
+          objlead.Status = 'Working - Contacted';
+          objlead.MobilePhone = '1234567890';
+          insert objlead; 
+          
+          tdc_tsw__Message__c objMessage = new tdc_tsw__Message__c();
+          objMessage.Name = 'Incoming';
+          objMessage.tdc_tsw__Lead__c = objlead.id;
+          objMessage.tdc_tsw__Message_Text_New__c = '#SMS (Sumit,sumit123@test.com,12312)';
+          insert objMessage;
+          
+          
+          test.stopTest();
+      
+      
+      }
+}

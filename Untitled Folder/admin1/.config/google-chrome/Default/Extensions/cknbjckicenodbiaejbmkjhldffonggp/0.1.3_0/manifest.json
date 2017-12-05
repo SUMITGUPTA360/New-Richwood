@@ -1,0 +1,19 @@
+{
+   "app": {
+      "background": {
+         "scripts": [ "background.js" ]
+      }
+   },
+   "description": "Launch Salesforce1 in a mobile simulator.",
+   "icons": {
+      "128": "salesforce1.png",
+      "16": "salesforce1.png",
+      "48": "salesforce1.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAibZ+KrWGmEahJ3VEW0ZvqcpeK9pZQoKLMRRM+wzk2t4htl1/wOj7YGbQzxu7n8Lt/PLK2sM643/c4H8jgK3am2a3bT5QM9BUFHmKpZEFexxzgnBeAxkiVRt9Cqrot4vq5TJS1//3hSyiwPL4Yi/X/3ahBVLCMeWckhcKv4AH2cF3FSbf4TuIZVtIsPY3EOAQioy0ayeM/S6x37guofqUyW6kJ4T4ntzHxCMeRoCiul4QN8Tc8dQ4xcwzp6nGUAYhaEJzssw6KER++7745KJyO6USdroA/ayhcFX54g7/XRnumqQIsmzZDqn6RR2YfmqR4JG55SBuz2hhIKDkb1YSlwIDAQAB",
+   "manifest_version": 2,
+   "name": "Salesforce1 Simulator",
+   "permissions": [ "webview", "alwaysOnTopWindows", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.1.3"
+}

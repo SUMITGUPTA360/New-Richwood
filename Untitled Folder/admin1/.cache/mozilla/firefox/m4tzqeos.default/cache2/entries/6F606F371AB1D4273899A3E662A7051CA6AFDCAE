@@ -1,0 +1,844 @@
+/** Version 19**/
+
+/********************************************* 
+ * Help Center Dependent Value Fields - START
+ *********************************************/
+$(function() {
+	if(typeof(aoc_dep_val_keys) == 'undefined' || typeof(aoc_dep_val_triggers) == 'undefined') {
+		if (typeof(console) != 'undefined') {
+			console.warn("CloudSET :: Help Center Dependent Value Fields - aoc_dep_val_keys and aoc_dep_val_triggers must be defined, widget will be disabled");
+		}
+	} else {
+		try {
+			var iev = getIEVersion();
+			var dep_vals;
+			var control;
+			var userOrgTags;
+			var org_dep_mappings;
+			var selectedNestySpan = null;
+			var userOrgId = null;
+			var cs_dvf_brandId = null;
+			var cs_dvf_faux_brand_field = null;
+			//var ignoreChange = false;
+
+			function consoleWarn(msg) {
+				if (typeof(console) != 'undefined') {
+					console.warn(msg);
+				}
+			}
+
+			function fieldExistsOnForm(tfid) {
+				var nestedInput;
+				if (tfid == 'priority') {
+					nestedInput = $("div.form-field *[id='request_priority']");
+				} else if (tfid == 'type') {
+					nestedInput = $("div.form-field *[id='request_type']");
+				} else if (tfid == 'ticket_form_id') {
+					nestedInput = $("div.form-field *[id='request_issue_type_select']");
+				} else {
+					nestedInput = $("div.form-field *[id*='"+tfid+"']");
+				}
+				if (nestedInput != null && nestedInput[0]) {
+					return true;
+				}
+				return false;
+			}
+
+			// {"22441312":{"zzzzzzz":"has_mixer","fnerrr":"has_car"}}
+
+			function getOrgTicketFieldIds(org_field_mappings) {
+				var fieldIds = [];
+				if (org_field_mappings) {
+					for (var controlledFieldId in org_field_mappings) {
+						if (fieldExistsOnForm(controlledFieldId)) {
+							fieldIds.push(controlledFieldId);
+						} else {
+							consoleError("CloudSET :: Help Center Dependent Value Fields : Org Field Mappings , refer to a controlled field id, " + controlledFieldId + ", that is not present on the form.");
+						}
+					}
+				}
+				return fieldIds;
+			}
+
+			// '[{"orgid":"25358713","fields":[{"values":["happyval","unhappyval"],"fieldid":22146496}]}]'
+			function getOrgTicketFieldIdsFromKeys(org_dep_keys) {
+				var fieldIds = [];
+				if (org_dep_keys && userOrgId!=null) {
+					for (var i=0; i<org_dep_keys.length; i++) {
+						var mapping = org_dep_keys[i];
+						if (mapping.orgid==userOrgId) {
+							var fieldMappings = mapping.fields;
+							for (var j=0; j<fieldMappings.length; j++) {
+								var fieldMapping = fieldMappings[j];
+								var cFieldId = fieldMapping.fieldid;
+								if (fieldExistsOnForm(cFieldId)) {
+									fieldIds.push(cFieldId);
+								} else {
+									consoleError("CloudSET :: Help Center Dependent Value Fields : Org Field Mappings , refer to a controlled field id, " + cFieldId + ", that is not present on the form.");
+								}
+							}
+							break;
+						}
+					}
+				}
+				return fieldIds;
+			}
+
+			function getDVFTicketFieldIds(dep_val_keys) {
+				var fieldIds = {}
+				fieldIds.triggerIds = [];
+				fieldIds.cvIds = []
+				for (var i = 0; i < dep_val_keys.length; i++) {
+					var depValsDef = dep_val_keys[i];
+					var triggerField;
+					if (depValsDef.system) {
+						triggerField = depValsDef.triggerField;
+					} else {
+						triggerField = depValsDef.triggerField.substring(14); // strip off the ticket_fields_ prefix;
+					}
+					var cvField = depValsDef.cvField.substring(14); // strip off the ticket_fields_ prefix;
+					if (fieldExistsOnForm(triggerField)) {
+						fieldIds.triggerIds.push(triggerField);
+					} else {
+						consoleError("CloudSET :: Help Center Dependent Value Fields : Mapping definition, '" + depValsDef.dvfName + "' refers to a trigger field id, " + triggerField + ", that is not present on the form.");
+					}
+					if (fieldExistsOnForm(cvField)) {
+						fieldIds.cvIds.push(cvField);
+					} else {
+						consoleError("CloudSET :: Help Center Dependent Value Fields : Mapping definition, '" + depValsDef.dvfName + "', refers to a controlled field id, " + cvField + ", that is not present on the form.");
+					}
+				}
+				return fieldIds;
+			}
+
+			function addTFDivIdAttr(tfid) {
+				var formFieldDiv = null;
+				var nestedInput = null;
+				if ('priority' == tfid) {
+					nestedInput = $("div.form-field *[id='request_priority']");
+				} else if (tfid == 'type') {
+					nestedInput = $("div.form-field *[id='request_type']");
+				} else if (tfid == 'ticket_form_id') {
+					nestedInput = $("div.form-field *[id='request_issue_type_select']");
+				} else {
+					nestedInput = $("div.form-field *[id*='"+tfid+"']");
+				}
+				if (nestedInput != null && nestedInput[0]) {
+					formFieldDiv = nestedInput.parents(".form-field");
+					if (formFieldDiv[0]) {
+						formFieldDiv.attr("id","ticket_fields_"+tfid);
+					}
+				} else {
+					// earlier checks in getDVFTicketFieldIds should mean this case never occurs because the bad ids are not added to the arry
+					consoleError("CloudSET :: Help Center Dependent Value Fields : Mapping definitions refer to a field id, " + tfId + ", that is not present on the form.");
+				}
+
+				return formFieldDiv;
+			}
+
+			function getDataTaggerValueFromLabel(jDataTagger, label) {
+				var result = null;
+				for (var i=0; i<jDataTagger.length; i++) {
+					var mapping = jDataTagger[i];
+					if (mapping.options==null) {
+						// this is a simple label value pair
+						if (mapping.label==label) {
+							result = mapping.value;
+							break;
+						}
+					} else {
+						// We need to recurse and look through the options which has the same structure as the overall jDataTagger
+						result = getDataTaggerValueFromLabel(mapping.options,label);
+						if (result!=null) {
+							return result;
+						}
+					}
+				}
+				return result;
+			}
+
+			function getDataTaggerLabelFromValue(jDataTagger,value) {
+				var result = null;
+				for (var i=0; i<jDataTagger.length; i++) {
+					var mapping = jDataTagger[i];
+					if (mapping.options==null) {
+						// this is a simple label value pair
+						if (mapping.value==value) {
+							result = mapping.label;
+							break;
+						}
+					} else {
+						// We need to recurse and look through the options which has the same structure as the overall jDataTagger
+						result = getDataTaggerLabelFromValue(mapping.options,value);
+						if (result!=null) {
+							return result;
+						}
+					}
+				}
+				return result;
+			}
+
+			// Adds ticket field ids to the top level divs for all the select fields
+			// Adds event handlers to the trigger and controlled fields
+			function enhanceDVFDOMElements(fieldIds,orgFieldIds) {
+				var triggerFieldIds = _.uniq(fieldIds.triggerIds);
+				var uniqCvFieldIds = _.uniq(fieldIds.cvIds);
+				var uniqOrgFieldIds = _.uniq(orgFieldIds);
+				var cvFieldIds = _.union(uniqCvFieldIds,uniqOrgFieldIds); // need to add handlers to the controlled fields and org controlled fields
+				for (var i=0; i<triggerFieldIds.length; i++) {
+					var tfid = triggerFieldIds[i];
+					var tfDiv = addTFDivIdAttr(tfid);
+					if (tfid != 'ticket_form_id') {
+						if (tfDiv) {
+							var triggerNestedInputField = tfDiv.find("*[id*='" + tfid + "']");
+							var prev = triggerNestedInputField[0].onchange;
+							triggerNestedInputField.change(function (ev) {
+								if (prev) {
+									prev.apply(this, [ev]);
+								}
+								triggerInputChangeHandler(this);
+							});
+						}
+					}
+				}
+				// Add menu modifiers to both the depenedent controlled fields and org controlled fields
+				for (var i=0; i<cvFieldIds.length; i++) {
+					var cvfid = cvFieldIds[i];
+					var tfDiv = addTFDivIdAttr(cvfid);
+					if (tfDiv) {
+						var cvNestyInputSpan = tfDiv.find("span.nesty-input, a.nesty-input");
+						var prev = cvNestyInputSpan[0].onclick;
+						cvNestyInputSpan.click(function(ev) {
+							selectedNestySpan = this;
+							if (prev) {prev.apply(this,[ev]);}
+							if (iev && iev<9) {
+								setTimeout(cvInputClickHandler,10);
+							} else {
+								cvInputClickHandler(this);
+							}
+						});
+					}
+				}
+			}
+
+			// Called when the user changes a trigger field
+			// Does all the work of re-evaluating dvfinfos for the controlled fields by following the dvf rules
+			function triggerInputChangeHandler(nestyInputField) {
+				//if (!ignoreChange) {
+				showDepValues();
+				//}
+			}
+
+			// Gets called when the user clicks a select field
+			// whose values need to be filtered by the visible ids in the dvfinfo attribute.
+			// When the user clicks a select field - a corresponding div at the bottom of the page
+			// is populated with a fresh set of original values in a <ul> list
+			// These are scanned and made invisible if they are not in the visible set determined earlier
+			// by showDepValues() when the user changed a trigger field.
+			function cvInputClickHandler(nestyInputSpan) {
+				if (iev && iev<9) {
+					nestyInputSpan = selectedNestySpan;
+				}
+				var dvfInfoAttr = $(nestyInputSpan).attr("dvfinfo");
+				if (dvfInfoAttr==null) {
+					consoleError("CloudSET :: Help Center Dependent Value Fields : You have clicked on a controlled field but there is no dvfinfo attribute holding the controlled values. Please check that the controlling field is present on the form?");
+				} else {
+					var dvfInfo = JSON.parse(dvfInfoAttr);
+					var selValue = $(nestyInputSpan).html();
+					// Find the populated nesty panel div
+					var nestyPanelUl = $("div.nesty-panel ul");
+					if (!nestyPanelUl[0]) {
+						// try ol instead
+						nestyPanelUl = $("div.nesty-panel ol");
+					}
+					if (nestyPanelUl[0]) {
+						var nestyPanelDiv = nestyPanelUl.parent();
+						var panelHeight = nestyPanelDiv.height();
+						var items = nestyPanelUl.find("li");
+						for (var i = 0; i < items.length; i++) {
+							var item = $(items[i]);
+							var id = item.attr("id");
+							if (!id || id == 'null') {
+								id = "";
+							}
+							var val = item.html();
+							var selected = item.hasClass("nesty-selected");
+							//var nesty = item[0].nesty;
+							if (selected) {
+								if (val != selValue) {
+									// The currently selected option in the Zendesk model for the menu
+									// does not match the latest display setting. Unbolden
+									item.removeClass("nesty-selected");
+								}
+							} else {
+								if (val == selValue) {
+									// The currently selected option in the Zendesk model for the menu
+									// does not match the latest display setting
+									item.addClass("nesty-selected");
+									//ignoreChange=true;
+									//nesty.pushIt();
+									//ignoreChange=false;
+								}
+							}
+							if (!_.contains(dvfInfo.ids, id)) {
+								item.css("display", "none");
+							}
+						}
+						//nestyPanelDiv.height(panelHeight);
+					}
+				}
+			}
+
+			function shouldShowDVF(vids, v) {
+				for (var i = 0; i < vids.length; i++) {
+					if (vids[i] == v) {
+						return true;
+					}
+				}
+				return false;
+			}
+
+			function appliesDVF(appliesWhen) {
+				if (appliesWhen != null) {
+					for (var i = 0; i < appliesWhen.length; i++) {
+						var aw = appliesWhen[i];
+						var cField = $('#'+aw.field);
+						if (cField != null) {
+							if (cField.val() == aw.value) {
+								return true;
+							}
+						}
+					}
+					return false;
+				}
+				return true;
+			}
+
+
+			// Returns the corresponding id for the supplied valueName on the supplied ticket field
+			// This is looked up from the data-tagger attribute of the nested input element
+			function getIdFromValue(field, nameVal) {
+				var correspondingId = "";
+				var hiddenInput = field.find("input[data-tagger]");
+				var jDataTagger = null;
+				if (hiddenInput[0]) {
+					var dataTagger = hiddenInput.attr("data-tagger");
+					jDataTagger = JSON.parse(dataTagger);
+					correspondingId = getDataTaggerValueFromLabel(jDataTagger,nameVal);
+				} else {
+					// might be a system field so look for a hidden select
+					var hSel = field.find("select");
+					if (hSel[0]) {
+						if (nameVal == "-") {
+							correspondingId = "";
+						} else {
+							for (var i = 0; i < hSel[0].options.length; i++) {
+								if (hSel[0].options[i].text == nameVal) {
+									correspondingId = hSel[0].options[i].value;
+									break;
+								}
+							}
+						}
+					}
+				}
+				return correspondingId;
+			}
+
+			// Returns the corresponding value name for the supplied id on the supplied ticket field
+			// This is looked up from the data-tagger attribute of the nested input element
+			function getValueFromId(field, id) {
+				var value = "";
+				var hiddenInput = field.find("input[data-tagger]");
+				var jDataTagger = null;
+				if (hiddenInput[0]) {
+					var dataTagger = hiddenInput.attr("data-tagger");
+					jDataTagger = JSON.parse(dataTagger);
+					value = getDataTaggerLabelFromValue(jDataTagger,id);
+				} else {
+					// might be a system field so look for a hidden select
+					var hSel = field.find("select");
+					if (hSel[0]) {
+						if (id == "") {
+							value = "-";
+						} else {
+							for (var i = 0; i < hSel[0].options.length; i++) {
+								if (hSel[0].options[i].value == id) {
+									value = hSel[0].options[i].text;
+									break;
+								}
+							}
+						}
+					}
+				}
+				return value;
+			}
+
+			// Returns the corresponding id for the supplied value name on the supplied ticket field
+			// This is looked up from the data-tagger attribute of the nested input element
+			function getSelectedValueId(field) {
+				var result = null;
+				var nestyInput = field.find("span.nesty-input, a.nesty-input");
+				// if the selected option matches the controlling field value show the controlled field
+				if (nestyInput[0]) {
+					var encValueName = nestyInput.html();
+					var valueName = htmlDecode(encValueName);
+					// now find its matching id from the data-tagger element
+					result = getIdFromValue(field, valueName);
+				} else if (field.hasClass("cloudset") && field.attr("id")==="ticket_brand_id") {
+					// Check if this is our faux brand field
+					result = cs_dvf_brandId;
+				}
+				return result;
+			}
+
+			// Returns the corresponding id for the supplied valueName on the supplied ticket field
+			// This is looked up from the data-tagger attribute of the nested input element
+			function setSelectedValueFromId(field,id) {
+				var result = null;
+				var nestyInput = field.find("span.nesty-input, a.nesty-input");
+				// if the selected option matches the controlling field value show the controlled field
+				if (nestyInput[0]) {
+					var valueName = getValueFromId(field, id);
+					nestyInput.html(valueName);
+				}
+			}
+
+			function setCustomInfo(field,attr,info) {
+				var nestyInput = field.find("span.nesty-input, a.nesty-input");
+				if (nestyInput[0]) {
+					nestyInput.attr(attr,JSON.stringify(info));
+				}
+			}
+
+			function getCustomInfo(field,attr) {
+				var result = null;
+				var nestyInput = field.find("span.nesty-input, a.nesty-input");
+				if (nestyInput[0]) {
+					var attrVal = nestyInput.attr(attr);
+					if (attrVal) {
+						result = JSON.parse(attrVal);
+					}
+				}
+				return result;
+			}
+
+			// Set the selected value in the nesty input of the field
+			function setDVFInfo(field,dvfinfo) {
+				setCustomInfo(field,"dvfinfo",dvfinfo);
+			}
+
+			// Set the selected value in the nesty input of the field
+			function setOrgInfo(field,orginfo) {
+				setCustomInfo(field,"orginfo",orginfo);
+			}
+
+			// Return the dvfinfo attribute for the combo field that holds the visible ids etc
+			// This attribute is set on the controlled ticket field divs when working out the dependent value visibilties
+			function getDVFInfo(field) {
+				return getCustomInfo(field,"dvfinfo");
+			}
+
+			function getOrgInfo(field) {
+				return getCustomInfo(field,"orginfo");
+			}
+
+
+			function getTriggerField(fieldId) {
+				if (fieldId == 'type' || fieldId == 'priority' || fieldId == 'ticket_form_id') {
+					return $('#ticket_fields_' + fieldId);
+				} else if (fieldId == 'ticket_brand_id') {
+					// special case - return a faux DIV element with the value of the brand Id or an empty value if there is no current brand
+					return cs_dvf_faux_brand_field;
+				} else {
+					return $('#'+fieldId);
+				}
+			}
+
+
+			// Does all the work of re-evaluating dvfinfos for the controlled fields by following the dvf rules
+			function showDepValueFields() {
+				for (var i = 0; i < dep_vals.length; i++) {
+					if (appliesDVF(dep_vals[i].applieswhen)) {
+						// Get the DIV element that corresponds to the triggering field
+						// Note this will return cs_dvf_faux_brand_field if the the trigger field id is ticket_brand_id
+						var tfield = getTriggerField(dep_vals[i].triggerField);
+						// And the Controlled Field Div
+						var cfield = $('#'+dep_vals[i].cvField);
+						if (tfield[0] != null && cfield[0] != null) {
+							var tfValue = getSelectedValueId(tfield);
+							var cValue = getSelectedValueId(cfield)
+							var newValue = null;
+							for (var j = 0; j < dep_vals[i].showFields.length; j++) {
+								if (tfValue == dep_vals[i].showFields[j].triggerval) {
+									if (!dep_vals[i].showFields[j].ignore) {
+										// the trigger fields current value matches the trigger value
+										// so prepare a set of valid values for the control fields
+										var rawDepInfo = {};
+										rawDepInfo.ids = dep_vals[i].showFields[j].ids;
+										var orgInfo = getOrgInfo(cfield);
+										var dvfInfo = {};
+										if (orgInfo!=null && orgInfo.ids) {
+											dvfInfo.ids = _.intersection(orgInfo.ids,rawDepInfo.ids);
+										} else {
+											dvfInfo.ids = rawDepInfo.ids;
+										}
+										// set the dvf property against the controlled field
+										setDVFInfo(cfield,dvfInfo);
+										// now if the currently selected control value is not in the
+										// set of visible ids set its value to be the first on available
+										// or an empty space if no valid values exist
+										if (!shouldShowDVF(dvfInfo.ids, cValue)) {
+											if (dvfInfo.ids.length>0) {
+												setSelectedValueFromId(cfield,dvfInfo.ids[0]);
+											} else {
+												setSelectedValueFromId(cfield,"");
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				// Once all the processing is complete scan over the controlled fields looking at their visible ids
+				// and hide any that are empty or have a single "-" value - if the definition demands it
+				for (var i = 0; i < dep_vals.length; i++) {
+					if (dep_vals[i].hide_empty) {
+						var cfield = $('#'+dep_vals[i].cvField);
+						var dvfinfo = getDVFInfo(cfield);
+						if (dvfinfo && shouldHide(dvfinfo.ids)) {
+							cfield.hide();
+						} else {
+							cfield.show();
+						}
+					}
+				}
+			}
+
+
+			function buildOrgDepValueFields() {
+				if (org_dep_mappings) {
+					// {"22441312":{"zzzzzzz":"has_mixer","fnerrr":"has_car"}}
+					for (var controlledFieldId in org_dep_mappings) {
+						var org_cfield = $('#ticket_fields_'+controlledFieldId);
+						if (org_cfield[0]) {
+							var orginfo = {};
+							orginfo.ids = [];
+							var mappings = org_dep_mappings[controlledFieldId];
+							for (var tfid in mappings) {
+								var orgTag = mappings[tfid];
+								if (_.contains(userOrgTags,orgTag)) {
+									orginfo.ids.push(tfid);
+								}
+							}
+							setOrgInfo(org_cfield,orginfo);
+							setDVFInfo(org_cfield,orginfo);
+						}
+					}
+				} else if (org_dep_keys) {
+					// '[{"orgid":"25358713","fields":[{"values":["happyval","unhappyval"],"fieldid":22146496}]}]'
+					if (userOrgId!=null) {
+						for (var i=0; i<org_dep_keys.length; i++) {
+							var mapping = org_dep_keys[i];
+							if (mapping.orgid==userOrgId) {
+								var fieldMappings = mapping.fields;
+								for (var j=0; j<fieldMappings.length; j++) {
+									var orginfo = {};
+									orginfo.ids = [];
+									var fieldMapping = fieldMappings[j];
+									orginfo.ids = fieldMapping.values;
+									var cFieldId = fieldMapping.fieldid;
+									var org_cfield = $('#ticket_fields_'+cFieldId);
+									if (org_cfield[0]) {
+										setOrgInfo(org_cfield,orginfo);
+										setDVFInfo(org_cfield,orginfo);
+									}
+								}
+								break;
+							}
+						}
+					}
+				}
+			}
+
+			function showDepValues() {
+				buildOrgDepValueFields();
+				showDepValueFields();
+			}
+
+			function shouldHide(ids) {
+				for (var i=0; i<ids.length; i++) {
+					var id = ids[i];
+					if (id.length>0 && id!="-") {
+						return false;
+					}
+				}
+				return true;
+			}
+
+			function getUsersOrgTags() {
+				var tags = [];
+				var currentUser = HelpCenter.user;
+				if (currentUser && currentUser.organizations) {
+					// Now supplement with any tags on the users organizations;
+					var orgs = currentUser.organizations;
+					for (var i=0; i<orgs.length; i++) {
+						var org = orgs[i];
+						if (org.tags) {
+							tags = tags.concat(org.tags);
+						}
+					}
+				}
+				return tags;
+			}
+
+			function lookUpOrgIdByName(orgName) {
+				var result = null;
+				var href = "https://" + cs_domain;
+				var searchUrl = href + "/api/v2/search?query=type:organization+name:'" + encodeURIComponent(orgName) + "'";
+				$.ajax({
+					url : searchUrl,
+					dataType: 'json',
+					async: false,
+					type: 'GET',
+					success: function(data, status, response) {
+						var results = data.results;
+						if (!results || results.length==0) {
+							consoleError("CloudSET :: Help Center Dependent Value Fields : Failed to lookup details for organization with name " + orgName);
+						} else {
+							var match = results[0];
+							result = match.id;
+							if (results.length>1) {
+								consoleWarn("CloudSET :: Help Center Dependent Value Fields : More than one organization exists with name " + orgName + ". Using orgid = " + result);
+							}
+						}
+					},
+					error : function(jqXHR, status, error) {
+						consoleError("CloudSET :: Help Center Dependent Value Fields : Failed to lookup details for organization with name " + orgName + "Details : " + status + " - " + error);
+					}
+				});
+				if (result==null) {
+					consoleError("CloudSET :: Help Center Dependent Value Fields : Org Dependent value field functionality is disabled");
+				}
+				return result;
+			}
+
+			function lookUpCurrentUserOrgId() {
+				var result = null;
+				var href = location.protocol + "//" + location.hostname;
+				var meUrl = href + "/api/v2/users/me.json";
+				$.ajax({
+					url : meUrl,
+					dataType: 'json',
+					async: false,
+					type: 'GET',
+					success: function(data, status, response) {
+						var user  = data.user;
+						if (user) {
+							var orgid = user.orgid;
+							result = user.organization_id;
+						}
+						if (result==null) {
+							consoleInfo("CloudSET :: Help Center Dependent Value Fields :  User is not a member of an organization.");
+						}
+					},
+					error : function(jqXHR, status, error) {
+						consoleError("CloudSET :: Help Center Dependent Value Fields : Failed to lookup details user details. Error details : " + status + " - " + error);
+					}
+				});
+
+				return result;
+			}
+
+			function getUsersOrgId() {
+				var result = null;
+				var currentUser = HelpCenter.user;
+				if (currentUser && currentUser.organizations) {
+					// Now supplement with any tags on the users organizations;
+					var orgs = currentUser.organizations;
+					if (orgs.length>0) {
+						var org = orgs[0];
+						var orgId = lookUpOrgIdByName(org.name);
+						if (orgId) {
+							result = orgId.toString();
+						}
+					}
+				}
+				return result;
+			}
+
+
+			function preselectDVF(control) {
+				if (control.valueid!=null && control.fieldId!=null) {
+					var targetValue = control.valueid;
+					var targetField = "ticket_fields_" + control.fieldId
+					var found = false;
+					var triggerValue = null;
+					// first check the trigger fields directly
+					for ( var i = 0; i < dep_vals.length; i++) {
+						var dep_val = dep_vals[i];
+						if (targetField===dep_val.triggerField) {
+							// set the trigger field value directly
+							var tfield = getTriggerField(dep_val.triggerField);
+							setSelectedValueFromId(tfield,targetValue);
+							if (control.hidden) {
+								tfield.hide();
+							}
+							found = true;
+							break;
+						}
+					}
+					/*
+					 // if no direct trigger field selected search the controlled fields
+					 // for a match and set that along with the relevan parent trigger field value for it
+					 if (!found) {
+					 for ( var i = 0; i < dep_vals.length; i++) {
+					 var dep_val = dep_vals[i];
+					 for ( var j = 0; j < dep_val.showFields.length; j++) {
+					 var showField = dep_val.showFields[j]
+					 for ( var k = 0; k<showField.ids.length; k++) {
+					 var tVal = showField.ids[k];
+					 if (tVal===targetValue) {
+					 found = true;
+					 break;
+					 }
+					 }
+					 if (found) {
+					 triggerValue = showField.triggerval;
+					 break;
+					 }
+					 }
+					 if (triggerValue!=null) {
+					 var cfield = getTriggerField(dep_vals[i].cvField);
+					 // Pre select the controlled field value and hide if so specified
+					 if (cfield[0]) {
+					 setSelectedValueFromId(cfield,targetValue);
+					 if (control.hidden) {
+					 cfield.hide();
+					 }
+					 }
+					 // Now Pre select the corresponding trigger value in the trigger field
+					 if (tfield[0]) {
+					 setSelectedValueFromId(tfield,triggerValue);
+					 }
+					 }
+					 }
+
+					 }
+					 */
+				}
+			}
+
+			function applyControlOverride () {
+				// Override control value if value exists on page
+				// either as javascript variable
+				if (typeof(aoc_dep_val_formcontrol) != 'undefined') {
+					control.valueid = aoc_dvf_formcontrol;
+				} else {
+					// or as formcontrol attribute of a div with id "cloudset_dep_val" value somewhere on page
+					var formControlDiv = $("#cloudset_dep_val");
+					if (formControlDiv[0]) {
+						var formControlAttr = formControlDiv.attr("formcontrol");
+						if (formControlAttr && formControlAttr!="") {
+							control.valueid = formControlAttr;
+						}
+					}
+				}
+			}
+
+			function processPage() {
+				userOrgTags = getUsersOrgTags();
+				userOrgId = lookUpCurrentUserOrgId();
+				cs_dvf_brandId = null;
+				if ((typeof (cs_brands) != 'undefined') && cs_brands!=null) {
+					cs_dvf_brandId = getBrandId(cs_brands);
+				}
+				if (cs_dvf_brandId) {
+					// Add a faux brand field to the body if not already present
+					cs_dvf_faux_brand_field = $("div.cloudset#ticket_brand_id");
+					if (cs_dvf_faux_brand_field[0]==null) {
+						cs_dvf_faux_brand_field = $('<div class="cloudset" id="ticket_brand_id"><input type="hidden" value="' + cs_dvf_brandId + '"></input></div>');
+						$("body").append(cs_dvf_faux_brand_field);
+					}
+				}
+				//userOrgId = getUsersOrgId();
+				// Add id attributes to the ticket fields we are interested in so that they can be
+				// easily located with jQuery
+				dep_vals = JSON.parse(aoc_dep_val_keys);
+				dep_triggers = JSON.parse(aoc_dep_val_triggers);
+				control = {};
+				if (typeof(aoc_dep_val_control) != 'undefined') {
+					control = JSON.parse(aoc_dep_val_control);
+				}
+				var tfOrgIds = null;
+				if (typeof(aoc_org_field_mappings) != 'undefined' && aoc_org_field_mappings!="{}") {
+					org_dep_mappings = JSON.parse(aoc_org_field_mappings);
+					tfOrgIds = getOrgTicketFieldIds(org_dep_mappings);
+				} else if (aoc_org_dep_keys != 'undefined') {
+					org_dep_keys = JSON.parse(aoc_org_dep_keys);
+					tfOrgIds = getOrgTicketFieldIdsFromKeys(org_dep_keys);
+				}
+				applyControlOverride();
+				var tfIds = getDVFTicketFieldIds(dep_vals);
+				enhanceDVFDOMElements(tfIds,tfOrgIds);
+				preselectDVF(control);
+				showDepValues();
+				// re-run conditional fields
+				$.event.trigger({type:"CloudsetCC_ConditionalFieldsEvent"});
+			}
+
+			if (isRequestURL()) {
+				setTimeout(processPage,1000);
+
+				/*
+				 if (typeof aoc_org_dep_keys != 'undefined') {
+				 org_deps = JSON.parse(aoc_org_dep_keys);
+				 if (org_deps.length > 0) {
+				 var org = getCurrentOrg();
+				 if (org != null) {
+				 rebuildFieldsForOrg(org);
+				 }
+				 }
+				 }
+				 showDepValues();
+				 for ( var i = 0; i < dep_triggers.length; i++) {
+				 var tfield = $('#' + dep_triggers[i]);
+				 if (tfield != null) {
+				 var type = tfield.attr('type');
+				 if (type == 'hidden') {
+				 var nf = tfield.prev();
+				 nf.find('li.link').click(function() {
+				 var t = setTimeout("showDepValues();", 500);
+				 });
+				 } else {
+				 tfield.change(function() {
+				 showDepValues();
+				 });
+				 }
+				 }
+				 }
+				 */
+			}
+		} catch (err) {
+			if (typeof (console) != 'undefined') {
+				console.error("CloudSET :: Dependent Value Fields - " + err);
+			}
+		}
+	}
+});
+/**************************************** 
+ * Help Center Dependent Value Fields - END
+ ****************************************/
+üdþäúi      Y{DY{E=²bª       ^:https://prod.global.ssl.fastly.net/jswdeploy?action=widget&domain=twilio.zendesk.com&id=25191 necko:classified 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8F+O2DZM7ZTG6GukivU8OT5gAAAAAAAAvtMIIL6TCCCtGgAwIBAgIQBigdNnW0H8yz/xj67Pj93zANBgkqhkiG9w0BAQsFADBwMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMS8wLQYDVQQDEyZEaWdpQ2VydCBTSEEyIEhpZ2ggQXNzdXJhbmNlIFNlcnZlciBDQTAeFw0xNDEyMDgwMDAwMDBaFw0xODAyMDYxMjAwMDBaMGwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRUwEwYDVQQKEwxGYXN0bHksIEluYy4xGTAXBgNVBAMTEGEuc3NsLmZhc3RseS5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDUJUiQsaVP/vC4Mb3aJUmA9KnMQa7EJfjYLsE4F0VehrOp8jlSSXmQLELlUAwPp2F2PNyB32DDOFBHZIYwFrApFEzsJdTKQUYk6xHPZOdYoIijpmfb5xRMdTjqxThGkk+khU0+ipPWiErJNRkapLgPwPD4ctd5X8rnKF8lMHIxx5Xhdg6PqZC3F7y45Nym2a3M8xIKIkB77o1bkuDpGnV9ZESC/Yf9Mc4NmWrQjqQc+8yIabir+n7/YcM5UdUjZPNShgL4jLYVJ+KDRZcjIT/dXRZoPpJgRFL9NIep/eSAzQa3g659uW7tjN6tg5iQm4hwksaWp+zfTAJc4IXNtlndAgMBAAGjggiBMIIIfTAfBgNVHSMEGDAWgBRRaP+QrwIHdTzM2WVkYqISuFlyOzAdBgNVHQ4EFgQUwIj0Y03ka1Q28RLCtKWy4nN7FIgwggaxBgNVHREEggaoMIIGpIIQYS5zc2wuZmFzdGx5Lm5ldIISKi5hLnNzbC5mYXN0bHkubmV0gg9mYXN0Lndpc3RpYS5jb22CEHB1cmdlLmZhc3RseS5uZXSCEm1pcnJvcnMuZmFzdGx5Lm5ldIIOKi5wYXJzZWNkbi5jb22CDSouZmFzdHNzbC5uZXSCCXZveGVyLmNvbYINd3d3LnZveGVyLmNvbYIOKi5maXJlYmFzZS5jb22CEHNpdGVzLnlhbW1lci5jb22CGHNpdGVzLnN0YWdpbmcueWFtbWVyLmNvbYIPKi5za2ltbGlua3MuY29tghMqLnNraW1yZXNvdXJjZXMuY29tghBjZG4udGhpbmdsaW5rLm1lggwqLmZpdGJpdC5jb22CEiouaG9zdHMuZmFzdGx5Lm5ldIISY29udHJvbC5mYXN0bHkubmV0gg8qLndpa2lhLWluYy5jb22CFSoucGVyZmVjdGF1ZGllbmNlLmNvbYILKi53aWtpYS5jb22CEmYuY2xvdWQuZ2l0aHViLmNvbYIVKi5kaWdpdGFsc2Npcm9jY28ubmV0ggoqLmV0c3kuY29tghAqLmV0c3lzdGF0aWMuY29tgg0qLmFkZHRoaXMuY29tghAqLmFkZHRoaXNjZG4uY29tgg9mYXN0Lndpc3RpYS5uZXSCDnJhdy5naXRodWIuY29tgg93d3cudXNlcmZveC5jb22CEyouYXNzZXRzLXlhbW1lci5jb22CGyouc3RhZ2luZy5hc3NldHMteWFtbWVyLmNvbYIWYXNzZXRzLmh1Z2dpZXMtY2RuLm5ldIISb3JiaXQuc2hhemFtaWQuY29tgg9hYm91dC5qc3Rvci5vcmeCFyouZ2xvYmFsLnNzbC5mYXN0bHkubmV0gg13ZWIudm94ZXIuY29tgg9weXBpLnB5dGhvbi5vcmeCCyouMTJ3YnQuY29tghJ3d3cuaG9sZGVyZGVvcmQubm+CGnNlY3VyZWQuaW5kbi5pbmZvbGlua3MuY29tghBwbGF5LnZpZHlhcmQuY29tghhwbGF5LXN0YWdpbmcudmlkeWFyZC5jb22CFXNlY3VyZS5pbWcud2ZyY2RuLmNvbYIWc2VjdXJlLmltZy5qb3NzY2RuLmNvbYIQKi5nb2NhcmRsZXNzLmNvbYIVd2lkZ2V0cy5waW50ZXJlc3QuY29tgg4qLjdkaWdpdGFsLmNvbYINKi43c3RhdGljLmNvbYIPcC5kYXRhZG9naHEuY29tghBuZXcubXVsYmVycnkuY29tghJ3d3cuc2FmYXJpZmxvdy5jb22CEmNkbi5jb250ZW50ZnVsLmNvbYIQdG9vbHMuZmFzdGx5Lm5ldIISKi5odWV2b3NidWVub3MuY29tgg4qLmdvb2RlZ2dzLmNvbYIWKi5mYXN0bHkucGljbW9ua2V5LmNvbYIVKi5jZG4ud2hpcHBsZWhpbGwubmV0ghEqLndoaXBwbGVoaWxsLm5ldIIbY2RuLm1lZGlhMzQud2hpcHBsZWhpbGwubmV0ghtjZG4ubWVkaWE1Ni53aGlwcGxlaGlsbC5uZXSCG2Nkbi5tZWRpYTc4LndoaXBwbGVoaWxsLm5ldIIcY2RuLm1lZGlhOTEwLndoaXBwbGVoaWxsLm5ldIIOKi5tb2RjbG90aC5jb22CDyouZGlzcXVzY2RuLmNvbYILKi5qc3Rvci5vcmeCDyouZHJlYW1ob3N0LmNvbYIOd3d3LmZsaW50by5jb22CDyouY2hhcnRiZWF0LmNvbYINKi5oaXBtdW5rLmNvbYIaY29udGVudC5iZWF2ZXJicm9va3MuY28udWuCG3NlY3VyZS5jb21tb24uY3Nuc3RvcmVzLmNvbYIOd3d3LmpvaW5vcy5jb22CJXN0YWdpbmctbW9iaWxlLWNvbGxlY3Rvci5uZXdyZWxpYy5jb22CDioubW9kY2xvdGgubmV0ghAqLmZvdXJzcXVhcmUuY29tggwqLnNoYXphbS5jb22CCiouNHNxaS5uZXSCDioubWV0YWNwYW4ub3JnggwqLmZhc3RseS5jb22CCXdpa2lhLmNvbYIKZmFzdGx5LmNvbYIRKi5nYWR2ZW50dXJlcy5jb22CFnd3dy5nYWR2ZW50dXJlcy5jb20uYXWCFXd3dy5nYWR2ZW50dXJlcy5jby51a4IJa3JlZG8uY29tghZjZG4tdGFncy5icmFpbmllbnQuY29tghRteS5iaWxsc3ByaW5nYXBwLmNvbYIGcnZtLmlvMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwdQYDVR0fBG4wbDA0oDKgMIYuaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL3NoYTItaGEtc2VydmVyLWc1LmNybDA0oDKgMIYuaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL3NoYTItaGEtc2VydmVyLWc1LmNybDBMBgNVHSAERTBDMDcGCWCGSAGG/WwBATAqMCgGCCsGAQUFBwIBFhxodHRwczovL3d3dy5kaWdpY2VydC5jb20vQ1BTMAgGBmeBDAECAjCBgwYIKwYBBQUHAQEEdzB1MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wTQYIKwYBBQUHMAKGQWh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydFNIQTJIaWdoQXNzdXJhbmNlU2VydmVyQ0EuY3J0MAwGA1UdEwEB/wQCMAAwDQYJKoZIhvcNAQELBQADggEBAKLWzbX7wSyjzE7BVMjLrHAaiz+WGSwrAPrQBJ29sqouu9gvI7i2Ie6eiRb4YLMouy6D+ZNZ+RM+Hkjv+PZFxCcDRmaWi+74ha5d8O155gRJRPZ0Sy5SfD/8kqrJRfC+/D/KdQzOroD4sx6Qprs9lZ0IEn4CTf0YPNV+Cps37LsVyPJLfjDlGIM5K3B/vtZfn2f8buQ9QyKiN0bc67GdCjih9dSrkQNkxJiEOwqiSjYtkdFOdYpXF8d1rQKV7a6z2vJloDwilfXLLlUX7rA3qVu7r4EUfIsZgH7hgB4bbst7tx+7PgUEq2334kKPVFpsxgsj5++k4lh7tNlakXiBUtzALwADAAAAAAEBAAA= request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript;charset=UTF-8
+Server: Apache-Coyote/1.1
+Content-Length: 29119
+Accept-Ranges: bytes
+Date: Thu, 27 Apr 2017 13:17:47 GMT
+Via: 1.1 varnish
+Age: 142778
+X-Served-By: cache-sin18030-SIN
+X-Cache: HIT
+X-Cache-Hits: 2
+X-Timer: S1493299068.879846,VS0,VE0
+ uncompressed-len 0   q¿

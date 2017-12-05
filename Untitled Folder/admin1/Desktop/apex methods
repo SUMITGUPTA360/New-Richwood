@@ -1,0 +1,17 @@
+
+Methods:--
+
+String x='I am creating new Lead';
+x.ednwith('n');
+x.length();
+x.substring(5,10);//it'll start frm 6th &ends on 9th chrctr..it takes indexes & shows the value based on index
+
+Boolean is=true;
+String x1='you are'+((is? 'hello correct':'hello wrong'));//if correct o/p will be hello correct else wrng...this is calld teernary operatr
+Date startdate=Date.newInstance(year, month, day);//to store date
+
+-->to see all the methods of date class then type "date class saleforce " on google n ol methds will appear
+
+  Time newTime=Time.newInstance(hour, minute, second, millisecond)
+  
+  Date today=Date.today();

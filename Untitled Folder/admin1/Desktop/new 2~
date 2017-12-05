@@ -1,0 +1,51 @@
+OR(IF(AND(IF(INCLUDES(  [Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 1"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 2"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 3"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c , "New Account Type 4"),1,0),[Account].Numberss__c =1) ,"Type 1")
+,
+IF(AND(IF(INCLUDES(  [Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 1"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 2"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c , "New Account Type 3"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 4"),1,0),[Account].Numberss__c =2) ,"Type 2")
+,
+IF(AND(IF(INCLUDES(  [Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 1"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c , "New Account Type 2"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 3"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 4"),1,0),[Account].Numberss__c =3) ,"Type 3")
+,
+IF(AND(IF(INCLUDES(  [Account].Multiple_Opportunities_Multi_Picklist__c   , "New Account Type 1"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c , "New Account Type 2"),1,0) +
+                  IF(INCLUDES([Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 3"),1,0) +
+                  IF(INCLUDES( [Account].Multiple_Opportunities_Multi_Picklist__c  , "New Account Type 4"),1,0),[Account].Numberss__c =1) ,"Type 4")
+)
+
+
+
+
+IF(([Account].Numberss__c =1),"Opportunity Type 1",IF(([Account].Numberss__c =2),"Opportunity Type 2",IF(([Account].Numberss__c =3),"Opportunity Type 3",IF(([Account].Numberss__c =4),"Opportunity Type 4"," "))))
+
+
+
+(IF(([Account].Numberss__c =1),"Opportunity Type 1"," "))||(IF(([Account].Numberss__c =2),"Opportunity Type 2"," "))
+
+
+
+Hello,
+
+This is the confirmation mail regarding contact creation.Your contact has been created successfully.Your conact credentials are mentioned above:
+
+Name:{!First_Name}
+Contact ID:{!Contacid}
+Phone:{!Phone_Number}
+
+
+0036F000026kgZMQAY
+
+
+
+
+
+
+
+IF([Task].Running_Time__c =[Task].Timee__c ,true ,false )
+Send an email for tasks if its 30minutes older3

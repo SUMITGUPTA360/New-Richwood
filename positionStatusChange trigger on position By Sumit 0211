@@ -1,0 +1,86 @@
+ public static void positionStatusChange(list<SHCM__Position__c> lstPosition)
+    {
+        try
+        {
+            Set<Id> functionalManagerId = new Set<Id>();
+            for(SHCM__Position__c positionObj : lstPosition)
+            {
+                if(String.isNotBlank(String.valueOf(positionObj.SHCM__functionalManager__c)))
+                {
+                     functionalManagerId.add(positionObj.SHCM__functionalManager__c);
+                }
+            }
+            SHCM__Contact_HCM__c objContactHCM;
+            if(functionalManagerId.size() > 0 )
+            {
+                objContactHCM = [select id, SHCM__positionApprovalRequired__c from SHCM__Contact_HCM__c where Id IN : functionalManagerId];
+                for(SHCM__Position__c positionObj : lstPosition)
+                {
+                    if(objContactHCM.SHCM__positionApprovalRequired__c && positionObj.SHCM__positionPostingRequired__c)
+                    {
+                        positionObj.SHCM__approvalStatus__c = 'Saved-Not Approved';
+                        positionObj.SHCM__positionStatus__c = 'Draft';
+                    }
+                }  
+            }       
+        }
+        catch(Exception e)
+        {
+            system.debug('Exception Occurs');
+            errorHandlingUtility.sendErrorEmail(e);
+        }   
+    }
+	    //  created **** for update Position Status ***
+   public static void UpdatePositionStatus(list<SHCM__Position__c> lstPosition, map<Id,SHCM__Position__c> oldPosition)
+    {
+        try
+        {
+            Set<Id> functionalManagerId = new Set<Id>();
+			
+            for(SHCM__Position__c positionObj : lstPosition)
+            {
+                if(String.isNotBlank(String.valueOf(positionObj.SHCM__functionalManager__c)))
+                {
+                     functionalManagerId.add(positionObj.SHCM__functionalManager__c);
+                }
+            }
+            list<SHCM__Contact_HCM__c> listOfContactHCM;
+            if(functionalManagerId.size() > 0 )
+            {
+                listOfContactHCM = [select id, SHCM__positionApprovalRequired__c from SHCM__Contact_HCM__c where Id IN : functionalManagerId limit 10000];
+                for(SHCM__Position__c positionObj : lstPosition)
+                {
+                    if(objContactHCM.SHCM__positionApprovalRequired__c && positionObj.SHCM__positionPostingRequired__c &&  positionObj.SHCM__positionStatus__c != oldPosition.get(positionObj.Id).SHCM__positionStatus__c && positionObj.SHCM__approvalStatus__c == 'Submitted for Approval' &&  positionObj.SHCM__positionStatus__c == 'Proposed')
+                    {
+                    	positionObj.SHCM__approvalStatus__c = 'Submitted for Approval';
+                        positionObj.SHCM__positionStatus__c = 'Proposed';
+                       
+                    }
+					else   if(!objContactHCM.SHCM__positionApprovalRequired__c && !positionObj.SHCM__positionPostingRequired__c &&
+					   		 positionObj.SHCM__approvalStatus__c != oldPosition.get(positionObj.Id).SHCM__positionStatus__c && positionObj.SHCM__approvalStatus__c == 'Submitted for Approval' 
+								&&  positionObj.SHCM__positionStatus__c == 'Proposed')
+                        	{
+                    			positionObj.SHCM__approvalStatus__c = 'Approved';
+                        		positionObj.SHCM__positionStatus__c = 'Filled';
+                       
+                      		 }		    
+					else   if(!objContactHCM.SHCM__positionApprovalRequired__c && positionObj.SHCM__positionPostingRequired__c &&
+					    	positionObj.SHCM__approvalStatus__c != oldPosition.get(positionObj.Id).SHCM__positionStatus__c && positionObj.SHCM__approvalStatus__c == 'Submitted for Approval' 
+								&&  positionObj.SHCM__positionStatus__c == 'Proposed')
+                        	{
+                    			positionObj.SHCM__approvalStatus__c = 'Approved';
+                        		positionObj.SHCM__positionStatus__c = 'Approved Open';
+                       
+                      	   }	   
+                    }
+                }  
+            }       
+        
+        catch(Exception e)
+        {
+            system.debug('Exception Occurs');
+            errorHandlingUtility.sendErrorEmail(e);
+        }   
+   }
+   }
+    }

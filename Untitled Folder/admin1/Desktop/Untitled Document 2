@@ -1,0 +1,65 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+<style>
+div.g {
+    width: 320px;
+    border: 5px solid gray;
+  	  padding: 50px 30px 50px 80px;
+margin: auto;
+
+background-color: #00FFFF	;
+}
+.center {
+    text-align: center;
+    border: 3px solid green;
+}
+
+div.contact{
+padding: 20px 80;
+
+}
+</style>
+	<div class="g" >
+<form action="https://www.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+<div class="contact">
+<h4>CONTACT US</H4>
+</div>
+<form action="https://ap4.salesforce.com/500/o" method="POST">
+
+<input type=hidden name="orgid" value="00D6F000001gq3M">
+<input type=hidden name="retURL" value="https://ap4.salesforce.com">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="premathakur66@gmail.com">                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+	<label for="name">Contact Name  </br></label><input  id="name" maxlength="80" name="name" size="20" type="text" required /><br></br>
+
+	<label for="email">Email</br> </label><input  id="email" maxlength="80" name="email" size="20" type="text" required /><br><br>
+
+<label for="phone">Phone </br>  </label><input  id="phone" maxlength="80" name="phone" size="20" type="text" required /><br><br>
+
+<label for="subject">Subject      </br>          </label><input  id="subject" maxlength="80" name="subject" size="20" type="text" required /><br><br>
+  
+
+	<label for="description">   Description </br>          </label><input  id="description" maxlength="80" name="description" size="20" type="text" required /><br><br>
+    
+
+<input type="submit" name="Send an Email">
+
+</form>
+	</DIV>
+

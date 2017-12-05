@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formulas>
+        <name>accid2default</name>
+        <dataType>String</dataType>
+        <expression>{!$Organization.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>acciddef</name>
+        <dataType>String</dataType>
+        <expression>{!$Profile.Name}</expression>
+    </formulas>
+    <interviewLabel>Dynamically Create contact with Account ID {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Dynamically Create contact with Account ID</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>CONTACT</name>
+        <label>CONTACT</label>
+        <locationX>277</locationX>
+        <locationY>270</locationY>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>accid3</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>Last_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordCreates>
+    <screens>
+        <name>disp1</name>
+        <label>disp1</label>
+        <locationX>277</locationX>
+        <locationY>76</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>CONTACT</targetReference>
+        </connector>
+        <fields>
+            <name>demo1</name>
+            <fieldText>Create a Contact</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Last_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Last Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>accid2</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>accid3</elementReference>
+            </defaultValue>
+            <fieldText>Account ID</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>disp1</startElementReference>
+    <variables>
+        <name>accid3</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>accid2</elementReference>
+        </value>
+    </variables>
+</Flow>

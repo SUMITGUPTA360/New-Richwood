@@ -1,0 +1,159 @@
+global with sharing  Class CompensationChangeController{
+
+    public  List<SHCM__HR_Compensation_Change__c> lstComChange{get;set;}
+    public  String SelectedObj;
+    public  SHCM__HR_Compensation_Change__c objcChange{get;set;} 
+   
+
+    public CompensationChangeController(){
+        
+       lstComChange = new List<SHCM__HR_Compensation_Change__c>(); 
+       try{
+       
+       lstComChange = [select id ,Name,SHCM__active__c,SHCM__compensationGrade__r.Name,SHCM__compensationPlan__r.Name,SHCM__defaultCostCode__c,SHCM__status__c,SHCM__position__c,SHCM__position__r.Name,SHCM__effectiveUntil__c,SHCM__position__r.SHCM__reviewingManager__r.Name,SHCM__position__r.SHCM__reviewingManagerUser__r.Name,SHCM__payGroup__c from SHCM__HR_Compensation_Change__c where SHCM__status__c =:'submitted' ];
+       system.debug('lstComChange----------'+lstComChange);
+       }catch(Exception e){
+           system.debug('Exception Handler --'+e);   
+       }
+      } 
+         
+    public void setSelectedObj (String id){
+        system.debug('id==='+id);
+        SelectedObj =Id;  
+    }
+    public String getSelectedObj() {
+         system.debug('SelectedObj'+SelectedObj);
+     
+         objcChange =  [select id ,Name,SHCM__active__c,SHCM__compensationGrade__r.Name,SHCM__compensationPlan__r.Name,SHCM__defaultCostCode__c,SHCM__status__c,SHCM__position__c,SHCM__position__r.Name,SHCM__effectiveUntil__c,SHCM__position__r.SHCM__reviewingManager__r.Name,SHCM__position__r.SHCM__reviewingManagerUser__r.Name,SHCM__payGroup__c from SHCM__HR_Compensation_Change__c where id =:SelectedObj ];
+         system.debug('objcChange----'+objcChange);
+
+        return SelectedObj;
+    }
+    public void approvedMethod(){
+        System.debug('>>>>>>>>>>>>>>>>>start');
+         SHCM__HR_Compensation_Change__c objCC = [select id ,SHCM__active__c,SHCM__status__c from SHCM__HR_Compensation_Change__c where id =:SelectedObj and SHCM__status__c = :'Submitted' ];
+         system.debug('objCC----'+objCC); 
+        
+         List<SHCM__HR_Compensation_Change__c> lstCPChnage = new List<SHCM__HR_Compensation_Change__c>();
+         
+         List<Approval.ProcessSubmitRequest> requests = new List<Approval.ProcessSubmitRequest> ();
+         
+         Approval.ProcessSubmitRequest req1 = new Approval.ProcessSubmitRequest();
+         req1.setComments('Submitting request for approval ');
+         req1.setObjectId(objCC.Id);
+         system.debug('req1==='+req1);
+         requests.add(req1);
+         system.debug('requests'+requests);
+         Approval.ProcessResult[] processResultsSubmited = Approval.process(requests, true);
+         system.debug('processResultsSubmited'+processResultsSubmited);
+          
+        
+         Map<String, String> mapCCIdToPIWId = New Map<String, String>();
+         for(ProcessInstanceWorkitem objPIW : [Select p.Id, p.ProcessInstance.TargetObjectId from ProcessInstanceWorkitem p where p.ProcessInstance.TargetObjectId =: SelectedObj])
+           {
+               system.debug('objPIW'+objPIW);
+               mapCCIdToPIWId.put(objPIW.ProcessInstance.TargetObjectId, objPIW.Id);           
+           }    
+           List<Approval.ProcessWorkitemRequest> AppoRequests = new List<Approval.ProcessWorkitemRequest>();
+            
+            Approval.ProcessWorkitemRequest req = new Approval.ProcessWorkitemRequest();
+            req.setWorkitemId(mapCCIdToPIWId.get(objCC.Id));
+            req.setAction('Approve');
+            AppoRequests.add(req);
+                
+            objCC.SHCM__active__c =  true;
+            objCC.SHCM__effectiveDate__c = system.today();
+            lstCPChnage.add(objCC);
+            
+            if(lstComChange.size()>0){
+                dataBase.update(lstCPChnage);
+            }
+    
+            if(requests.size() > 0)
+            {
+             try
+             {
+                Approval.ProcessResult[] processResults = Approval.process(AppoRequests);
+             }
+             catch(Exception e)
+             {
+                System.debug(e);
+             }         
+           }
+           list<SHCM__position__c> lstPosition = new List<SHCM__position__c>();
+		   SHCM__position__c obj = [select id , (select id,SHCM__status__c,SHCM__compensationPlan__c,SHCM__position__c,SHCM__compensationGrade__c from SHCM__HR_Compensation_Changes__r where  Id in:SelectedObj) from SHCM__position__c ];
+           List<SHCM__HR_Compensation_Change__c> listOfCChnage = [select id ,SHCM__position__r.Name,SHCM__active__c,SHCM__status__c,SHCM__compensationPlan__c,SHCM__position__c,SHCM__compensationGrade__c from SHCM__HR_Compensation_Change__c where  SHCM__status__c = :'Approved' and id =:SelectedObj];
+           system.debug('listOfCChnage'+listOfCChnage);
+           for(SHCM__HR_Compensation_Change__c objCChange : listOfCChnage)   
+           {
+                 Obj.SHCM__compensationPlan__c = objCChange.SHCM__compensationPlan__c;
+                 Obj.SHCM__compensationGrade__c = objCChange.SHCM__compensationGrade__c;
+                 lstPosition.add(sObj);
+                 lstCPChnage.add(objCChange);
+                 lstComChange.addAll(lstCPChnage);
+              }
+          }
+          if(lstPosition.size()>0){
+                dataBase.update(lstPosition);
+            }
+           if(lstComChange.size()>0){
+                dataBase.update(lstCPChnage);
+            }
+            update lstComChange;
+                  
+      }
+      public void rejectMethod(){
+        
+         SHCM__HR_Compensation_Change__c objCC = [select id ,SHCM__active__c,SHCM__status__c from SHCM__HR_Compensation_Change__c where id =:SelectedObj and SHCM__status__c = :'Submitted' ];
+         system.debug('objCC----'+objCC); 
+         
+         List<SHCM__HR_Compensation_Change__c> lstCPChnage = new List<SHCM__HR_Compensation_Change__c>();
+         
+         List<Approval.ProcessSubmitRequest> requests = new List<Approval.ProcessSubmitRequest> ();
+         
+         Approval.ProcessSubmitRequest req1 = new Approval.ProcessSubmitRequest();
+         req1.setComments('Submitting request for approval ');
+         req1.setObjectId(objCC.Id);
+         system.debug('req1==='+req1);
+         
+         requests.add(req1);
+         system.debug('requests'+requests);
+         Approval.ProcessResult[] processResultsSubmited = Approval.process(requests, true);
+         system.debug('processResultsSubmited'+processResultsSubmited);
+          
+        
+         Map<String, String> mapCCIdToPIWId = New Map<String, String>();
+         for(ProcessInstanceWorkitem objPIW : [Select p.Id, p.ProcessInstance.TargetObjectId from ProcessInstanceWorkitem p where p.ProcessInstance.TargetObjectId =: SelectedObj])
+           {
+               system.debug('objPIW'+objPIW);
+               mapCCIdToPIWId.put(objPIW.ProcessInstance.TargetObjectId, objPIW.Id);           
+           }    
+           List<Approval.ProcessWorkitemRequest> AppoRequests = new List<Approval.ProcessWorkitemRequest>();
+            
+            Approval.ProcessWorkitemRequest req = new Approval.ProcessWorkitemRequest();
+            req.setWorkitemId(mapCCIdToPIWId.get(objCC.Id));
+            req.setAction('Reject');
+            AppoRequests.add(req);
+                
+            objCC.SHCM__active__c =  true;
+            lstCPChnage.add(objCC);
+            
+            if(lstComChange.size()>0){
+                dataBase.update(lstCPChnage);
+            }
+    
+            if(requests.size() > 0)
+            {
+             try
+             {
+                Approval.ProcessResult[] processResults = Approval.process(AppoRequests);
+             }
+             catch(Exception e)
+             {
+                System.debug(e);
+             }         
+           }       
+      }
+    
+     
+}

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Salesforce Training Online. Basics of Apex Language | Variables, Data Types (SObjects, Lists, Sets, Maps), Classes and Methods. Salesforce Administrator and Developer Training by Jeet Singh. Salesforce Certifications Training by Jeet Singh.">
+        <meta name="author" content="www.jeet-singh.com">
+
+        <title>Salesforce Training Online | Basics of Apex Language | Variables, Data Types (SObjects, Lists, Sets, Maps), Classes and Methods</title>       
+
+        <!-- Popup CSS -->
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    
+
+    <body>
+    <!-- Start LOGO Section -->
+            <!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        
+
+	<meta name="google-site-verification" content="aKxrjuBjv7nTNGrxi2RWDg9a2ox_p_a12sgN7A2G5O0" />
+
+
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+        <!-- Menu Files -->
+      
+
+        <!-- GeoPlugin -->
+        <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+
+        <!-- Contact Form Files -->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+        <script src="http://www.jeet-singh.com/js/form.js" type="text/javascript"></script>
+        
+        <link rel="icon" type="image/png" href="http://jeet-singh.com/favicon.ico">
+
+        <!-- Bootstrap Core CSS -->
+        <link href="http://www.jeet-singh.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Font Awesome CSS -->
+        <link href="http://www.jeet-singh.com/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- pinterest website confirmation -->
+<meta name="p:domain_verify" content="f4d206ec22ccb3a3987a208190a2d01a"/>
+
+	<!-- Custom CSS -->
+        <link href="http://www.jeet-singh.com/css/animate.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="http://jeet-singh.com/css/style3.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+        <!-- Accordion Files -->
+        <link rel="stylesheet" type="text/css" href="../assets-2/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Abeezee:400|Open+Sans:400,600,700|Source+Sans+Pro:400,600">
+	<link rel="stylesheet" type="text/css" href="http://www.jeet-singh.com/css/demo.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://www.jeet-singh.com/js/accordion.js"></script>
+
+        <!-- Template js -->
+        <script src="http://www.jeet-singh.com/js/jquery-2.1.1.min.js"></script>
+        <script src="http://www.jeet-singh.com/bootstrap/js/bootstrap.min.js"></script>
+        <script src="http://www.jeet-singh.com/js/jquery.appear.js"></script>
+        <script src="http://www.jeet-singh.com/js/jqBootstrapValidation.js"></script>
+        <script src="http://www.jeet-singh.com/js/modernizr.custom.js"></script>
+        <script src="http://www.jeet-singh.com/js/script.js"></script>
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+          ga('create', 'UA-72209114-1', 'auto');
+          ga('send', 'pageview');
+        
+        </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-79282318-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+        <!-- Google Analytics --> 
+
+
+<!--Start of Zendesk Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+$.src="https://v2.zopim.com/?4bdDovkOeIg3k8beaVyvpRsxKLJZTB5e";z.t=+new Date;$.
+type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+</script>
+<!--End of Zendesk Chat Script-->
+
+
+</head>
+
+<body>
+<div class="topbar">
+  <div class="container">
+   <div class="social-icons top-hide">
+    <a href="http://wikitrainings.tumblr.com/"><i class="fa fa-tumblr-square"></i></a>
+    <a href="https://plus.google.com/+Wikitrainings"><i class="fa fa-google-plus-square"></i></a>
+    <a href="https://twitter.com/jeetsingh_1"><i class="fa fa-twitter-square"></i></a>    
+    <a href="http://in.linkedin.com/in/jeetsingh7"><i class="fa fa-linkedin-square"></i></a>
+    <a href="https://www.youtube.com/channel/UCXlf6u-ApezTViVjHwhzjFw?sub_confirmation=1"><i class="fa fa-youtube-square"></i></a>
+    <a href="https://www.facebook.com/jeets007"><i class="fa fa-facebook-square"></i></a>
+   </div>  
+    <ul class="list-unstyled list-inline">
+      <li><i class="fa fa-phone"></i> +1 408 755 9120</li>
+      <li><i class="fa fa-phone"></i> +91 89612 71400</li>
+      <li class="top-hide"><i class="fa fa-envelope-o"></i> info@jeet-singh.com</li>
+    </ul>
+  </div>
+</div>
+<section id="logo-section" style="background:#0B2161;">
+
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                                        <h1 class="logo">Jeet Singh<p><i style="color: white;font-size:13px;">CRM Implementation Consultant & Trainer</i></p></h1>
+
+				</div>				
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav class="link-effect-2" id="link-effect-2">
+						<ul class="nav navbar-nav">
+							<li><a href="http://jeet-singh.com/" class="effect-3">Home</a></li>
+							<li><a href="http://www.jeet-singh.com/about-me.php" class="effect-3">About Me</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Courses <b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="http://www.jeet-singh.com/salesforce-administrator-training-certification.php">Admin Training</a></li>
+									<li><a href="http://www.jeet-singh.com/salesforce-developer-training-certification.php">Developer Training</a></li>
+									<li><a href="http://www.jeet-singh.com/salesforce-administrator-developer-training-certification.php">Admin + Developer Training</a></li>
+									<li><a href="http://www.jeet-singh.com/salesforce-sales-cloud-training-certification.php">Sales Cloud Training</a></li>
+									<li><a href="http://www.jeet-singh.com/salesforce-service-cloud-training-certification.php">Service Cloud Training</a></li>
+								</ul>
+							</li>
+							<li><a href="http://www.jeet-singh.com/salesforce-online-training.php" class="effect-3">Training Calendar</a></li>
+							<li><a href="http://www.jeet-singh.com/salesforce-webinars-and-workshops.php" class="effect-3">Webinars</a></li>
+							<li><a href="http://www.jeet-singh.com/salesforce-corporate-training.php" class="effect-3">Corporate Training</a></li>
+							<li><a href="http://www.jeet-singh.com/free-salesforce-video-tutorials.php" class="effect-3">Video Tutorials</a></li>
+							<li><a href="http://www.jeet-singh.com/contact.php" class="effect-3">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</nav>
+
+
+</div>
+
+</section>
+
+</body>
+</html><!-- End LOGO Section -->
+
+<!-- Start Contact Section -->
+
+
+                <div class="container"> 
+<div class="col-md-9" style="margin-top:10px;margin-right:10px; background-color: white">
+<div class="row section-title">
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/QgEuGNIlfNY" frameborder="0" allowfullscreen></iframe>
+<h3>Basics of Apex Language | Variables, Data Types (SObjects, Lists, Sets, Maps), Classes and Methods</h3>
+
+
+</div>
+
+</div>
+
+                                
+
+                    <div class="col-md-3" style="margin-top:10px;margin-left:0px;">
+
+<div class="row">
+<div class="accordion">
+			<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-9">Comprehensive Training Programs</a>
+				<div id="accordion-9" class="accordion-section-content">
+					  We have the most comprehensive training programs which cover all the concepts from the most basic ones to the most advanced ones.
+				</div><!--end .accordion-section-content-->
+			</div><!--end .accordion-section-->
+
+			<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-10">Real-time Case Studies and Assignments</a>
+				<div id="accordion-10" class="accordion-section-content">
+                                     We share real-time case studies and assignments during the trainings. This helps you get a good understanding of practical use cases and helps you clear the interview. It also helps you work smoothly on projects once you take a job after your training. These Assignments and used cases are from trainersâ€™ past projects, which they were involved in.
+				</div><!--end .accordion-section-content-->
+			</div><!--end .accordion-section-->
+
+			<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-11">Highly Experienced Trainers</a>
+				<div id="accordion-11" class="accordion-section-content">
+					We have highly experienced trainers, best in the Industry with 8+ years of Experience in their respective domains. All the trainers working with us possess Training experience as well and are regular corporate trainers doing corporate trainings for some of the biggest companies.
+				</div><!--end .accordion-section-content-->
+				</div><!--end .accordion-section-->
+				<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-12">Longer Course Duration</a>
+				<div id="accordion-12" class="accordion-section-content">
+					We understand that to become an expert in a subject requires time and hence we offer longer course duration. This is due to detailed training programs with assignments and real-time case studies.
+Access to Learning Portal: We provide you FREE Lifetime access to our learning portal. You can use this portal to access study material, read detailed topics, work on assignments, submit projects, take mock tests, post your queries, view sample resumes, access Free training programs.
+				</div><!--end .accordion-section-content-->
+				</div><!--end .accordion-section-->
+				<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-13">Extensive Study material</a>
+				<div id="accordion-13" class="accordion-section-content">
+					We share extensive study material to help the trainees gain knowledge through self-reading. It can also be used as a single point of reference while preparing for interviews, studying for Certifications and while working on projects.
+				</div><!--end .accordion-section-content-->
+			</div><!--end .accordion-section-->
+			<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-14">Never miss a session</a>
+				<div id="accordion-14" class="accordion-section-content">
+
+Every session you attend is recorded and shared with you after the session. Now that means you never miss on a session. Even if you are not able to attend one of the sessions due to any given reason, you have the recording available right after the session to go through
+				</div><!--end .accordion-section-content-->
+			</div><!--end .accordion-section-->
+			<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-15">Certification Assistance</a>
+				<div id="accordion-15" class="accordion-section-content">
+At the end of training, we guide you on the structure of the Certification. We also help you with tips & tricks to clear Certification. Our specially designed Certification Mock tests help you assess yourself before you appear for the certification exam. Hence, you get a clear understanding of the areas where you need to work. This helps you perform better during the certification exam. Itt also helps you save the Certification Fee as you apply for Certification exam only when you are ready.
+				</div><!--end .accordion-section-content-->
+			</div><!--end .accordion-section-->
+			<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-16">Placement Assistance</a>
+				<div id="accordion-16" class="accordion-section-content">
+We are associated with multiple recruiting companies and can help you get a job through one of our associates. Please click here to send us our details and queries. One of our counselors will get in touch.
+				</div><!--end .accordion-section-content-->
+			</div><!--end .accordion-section-->
+			<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-17">Career Counseling</a>
+				<div id="accordion-17" class="accordion-section-content">
+We understand that while you plan to make a career in a new technology, you need a lot of guidance and assistance to take the right decisions. We help you understand which technology is right for you based on your qualification and prior work experience. It helps you decide which technology to get into. Please click here to send us our details and queries. One of our counselors will get in touch.				</div><!--end .accordion-section-content-->
+			</div><!--end .accordion-section-->
+		</div><!--end .accordion-->
+</div><hr>                                    
+<div class="row">
+               <div class="col-md-12" style="background-color: rgb(197, 220, 237);">
+               <h5><b>Download Course Content</b></h5>
+                                            <input type="text" class="form-control" name="subscribeEmail" id="subscribeEmail" placeholder="Your Email *">
+                                            <span id="subscribeEmail-info" class="info help-block text-danger"></span>
+                                            <input type="hidden" name="filename" id="filename" value="Admin.pdf" />
+<div id="errorMessage" ></div>
+                                            <button type="submit" name="submit" class="btn btn-primary" onClick="Download();">Send Message</button>
+               </div>
+</div>
+<div class="row">               
+<div class="col-md-12" style="background-color: rgb(197, 220, 237);">
+                    <hr><h5><b>Yes, I'm Interested</b></h5>
+                            <div class="row">
+                                    <div class="col-md-12">      
+                                            <input type="text" class="form-control" name="userName" id="userName" placeholder="Your Name *">
+                                            <span id="userName-info" class="info help-block text-danger"></span>
+                                        
+                                            
+                                            <input type="text" class="form-control" name="userEmail" id="userEmail" placeholder="Your Email *">
+                                            <span id="userEmail-info" class="info help-block text-danger"></span>
+                                        
+                                            
+                                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone *">
+                                            <span id="phone-info" class="info help-block text-danger"></span>                                       
+                                                                           
+                                            <textarea class="form-control" name="content" id="content" placeholder="Message" ></textarea>
+                                            <span  class="help-block text-danger"></span>
+<input type="hidden" id="page" name="page" value="Admin and Developer Training Show Interest Form">
+<input type="hidden" id="url" name="url" value="http://www.jeet-singh.com/videos.php?id=QgEuGNIlfNY&salesforce-tutorial=Basics+of+Apex+Language+%7C+Variables%2C+Data+Types+(SObjects%2C+Lists%2C+Sets%2C+Maps)%2C+Classes+and+Methods">
+                                            
+                                      </div>      
+                                            
+                                    
+                                    <div class="clearfix"></div>
+                                    <div class="col-lg-12">
+                                        <div id="mail-status" ></div>
+                                        <button type="submit" name="submit" class="btn btn-primary" onClick="sendContact();">Send Message</button>
+                                    </div>
+                                </div>
+<hr />
+                        </div>
+                    </div>
+                </div>
+</div>
+        <!-- End Contact Section -->
+        <!-- Start Copyright Section -->
+
+            <div class="copyright" style="background-color:#0B2161;margin-top:20px;">
+<div class="container">
+<div class="footer-top-at">
+<div class="col-md-3 amet-sed">
+<h4>Salesforce Certifications</h4>
+<ul class="nav-bottom">
+<li><a href="http://www.jeet-singh.com/salesforce-administrator-certification-exam.php" role="tab">Salesforce Administrator Certification</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-advanced-administrator-certification-exam.php">Advanced Administrator Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-platform-app-builder-certification-exam.php">Platform App  Builder Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-platform-developer-1-certification-exam.php">Platform Developer-I Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-platform-developer-2-certification-exam.php">Platform Developer-II Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-sales-cloud-consultant-certification-exam.php">Sales Cloud Consultant Certification Exam</a></li>
+
+</ul>
+</div>
+
+<div class="col-md-3 amet-sed ">
+<h4>  &nbsp;</h4>
+<ul>
+<li><a href="http://www.jeet-singh.com/salesforce-service-cloud-consultant-certification-exam.php">Service Cloud Consultant Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-marketing-cloud-email-specialist-certification-exam.php">Email Specialist Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-marketing-cloud-social-specialist-certification-exam.php">Social Specialist Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-pardot-specialist-certification-exam.php">Pardot Specialist Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-pardot-consultant-certification-exam.php">Pardot Consultant Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-technical-architect-certification-exam.php">Technical Architect Certification Exam</a></li>
+</ul>
+
+
+</div>
+
+<div class="col-md-3 amet-sed">
+<h4>Salesforce Training Modules</h4>
+<ul class="nav-bottom">
+<li><a href="http://www.jeet-singh.com/salesforce-administrator-developer-training-certification.php">Salesforce Admin + Developer Training</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-administrator-training-certification.php" role="tab">Salesforce Admin Training</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-developer-training-certification.php">Salesforce Developer Training</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-sales-cloud-training-certification.php">Salesforce Sales Cloud Training</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-service-cloud-training-certification.php">Salesforce Service Cloud Training</a></li>
+<li><a href="http://www.jeet-singh.com/free-salesforce-video-tutorials.php">Free Salesforce Video Tutorials</a></li>
+<li style="display:none;"><a href="http://www.jeet-singh.com/training.php">Training</a></li>
+
+
+</ul>
+<!--
+<h4>Demo Session</h4>
+<ul class="nav-bottom">
+<li><a href="http://www.jeet-singh.com/video tutorial.php">Watch Recorded Demo</a></li>
+<li><a href="http://www.jeet-singh.com/contact.php">Request Live Demo</a></li>
+<li><a href="http://www.jeet-singh.com/online training.php">Course Fees</a></li>
+<li><a href="http://www.jeet-singh.com/testimoniala.php">Training Reviews</a></li>
+</ul>
+-->
+</div>
+
+<div class="col-md-3 amet-sed ">
+<h4>Contact Us</h4>
+<ul class="nav-bottom">
+<li><a href="http://www.jeet-singh.com/contact.php">Get a Call Back</a></li>
+<li><a href="http://www.jeet-singh.com/contact.php">India: +91 89612 71400</a></li>
+<li><a href="http://www.jeet-singh.com/contact.php">USA: +1 408 755 9120</a></li>
+<li><a href="http://www.jeet-singh.com/contact.php">Email: info@jeet-singh.com</a></li>
+</ul>
+</div>
+
+<div class="clearfix"> </div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="container">
+
+<div class="col-md-8 footer-logo">
+<a href="https://www.facebook.com/jeets007"><div class="facebook-hover social-slide"></div></a>
+<a href="https://www.youtube.com/channel/UCXlf6u-ApezTViVjHwhzjFw?sub_confirmation=1"><div class="youtube-hover social-slide"></div></a>
+<a href="https://in.pinterest.com/contactjeetsing/"><div class="pinterest-hover social-slide"></div></a>
+<a href="#"><div class="blogger-hover social-slide"></div></a>
+<a href="http://wikitrainings.tumblr.com/"><div class="tumblr-hover social-slide"></div></a>
+<a href="https://plus.google.com/+Wikitrainings"><div class="google-hover social-slide"></div></a>
+<a href="http://in.linkedin.com/in/jeetsingh7"><div class="linkedin-hover social-slide"></div></a>
+<a href="https://twitter.com/jeetsingh_1"><div class="twitter-hover social-slide"></div></a>
+</div>
+<div class="col-md-4 footer-class">
+<p>Â© 2017 Jeet Singh. All Rights Reserved </p>
+</div>
+
+
+<div class="clearfix"> </div>
+</div>
+</div>
+</div>
+
+<!-- Scrolling Images JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/parallax/parallax.min.js"></script>
+<script src="js/parallax/parallax.js"></script>        <!-- End Copyright Section -->
+
+<!-- <div id="boxes">
+  <div style="top: 199.5px; left: 551.5px; display: none;" id="dialog" class="window"> 
+<h1 style="color: #01126B;font-weight: bold;border-bottom:1px #FF0000 solid;">FREE Salesforce Webinars</h1>
+    <div id="lorem">
+      <p style="font-size:19px;color:#584646;padding:7px;font-weight:bold;font-family:Georgia, serif;">Never Miss a FREE Salesforce Webinar by Jeet Singh</p>
+<a class="hvr-sweep-to-right more" style="float:right;background:#050982;font-family:serif;font-size:19px;letter-spacing:2px;" href="http://www.jeet-singh.com/salesforce-webinars-and-workshops.php">Register FREE Now</a>
+                                            
+    </div>
+    
+  </div>
+  <div style="width: 1478px; font-size: 32pt; color:white; height: 602px; display: none; opacity: 0.8;" id="mask"></div>
+</div> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </body>
+
+</html>ž„Øš±ã      Xþ…ÎXþ†á=¯¤0       ·:http://www.jeet-singh.com/videos.php?id=QgEuGNIlfNY&salesforce-tutorial=Basics+of+Apex+Language+%7C+Variables%2C+Data+Types+(SObjects%2C+Lists%2C+Sets%2C+Maps)%2C+Classes+and+Methods necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Mon, 24 Apr 2017 13:13:44 GMT
+Server: Apache
+X-Powered-By: PHP/5.6.20
+Content-Type: text/html; charset=UTF-8
+ charset UTF-8 uncompressed-len 0 predictor::resource-count 42 predictor::http://www.jeet-singh.com/css/main.css 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/jquery-2.1.4.min.js 1,1,1493075406,0 predictor::http://www.geoplugin.net/javascript.gp 1,1,1493075406,0 predictor::https://code.jquery.com/jquery-2.1.1.min.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/form.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/bootstrap/css/bootstrap.min.css 1,1,1493075406,0 predictor::http://www.jeet-singh.com/css/font-awesome.min.css 1,1,1493075406,0 predictor::https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css 1,1,1493075406,0 predictor::http://www.jeet-singh.com/css/animate.css 1,1,1493075406,0 predictor::http://jeet-singh.com/css/style3.css 1,1,1493075406,0 predictor::http://fonts.googleapis.com/css?family=Lobster 1,1,1493075406,0 predictor::http://www.jeet-singh.com/assets-2/css/reset.css 1,1,1493075406,0 predictor::https://fonts.googleapis.com/css?family=Abeezee:400|Open+Sans:400,600,700|Source+Sans+Pro:400,600 1,1,1493075406,0 predictor::http://www.jeet-singh.com/css/demo.css 1,1,1493075406,0 predictor::https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/accordion.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/jquery-2.1.1.min.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/bootstrap/js/bootstrap.min.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/jquery.appear.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/jqBootstrapValidation.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/modernizr.custom.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/script.js 1,1,1493075406,0 predictor::http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600 1,1,1493075406,0 predictor::http://fonts.googleapis.com/css?family=Oswald:400,300 1,1,1493075406,0 predictor::https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/parallax/parallax.min.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/parallax/parallax.js 1,1,1493075406,0 predictor::http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/js/main.js 1,1,1493075406,0 predictor::http://www.jeet-singh.com/css/bg.jpg 1,1,1493075406,0 predictor::http://www.google-analytics.com/analytics.js 1,1,1493075406,0 predictor::https://www.google-analytics.com/analytics.js 1,1,1493075406,0 predictor::https://v2.zopim.com/?4bdDovkOeIg3k8beaVyvpRsxKLJZTB5e 1,1,1493075406,0 predictor::http://jeet-singh.com/fonts/Montserrat-Regular.ttf 1,1,1493075406,0 predictor::http://fonts.gstatic.com/s/oswald/v13/pEobIV_lL25TKBpqVI_a2w.woff2 1,1,1493075406,0 predictor::http://www.google-analytics.com/ga.js 1,1,1493075406,0 predictor::https://www.google-analytics.com/r/collect?v=1&_v=j51&a=1097334363&t=pageview&_s=1&dl=http%3A%2F%2Fwww.jeet-singh.com%2Fvideos.php%3Fid%3DQgEuGNIlfNY%26salesforce-tutorial%3DBasics%2Bof%2BApex%2BLanguage%2B%257C%2BVariables%252C%2BData%2BTypes%2B(SObjects%252C%2BLists%252C%2BSets%252C%2BMaps)%252C%2BClasses%2Band%2BMethods&ul=en-us&de=UTF-8&dt=Salesforce%20Training%20Online%20%7C%20Basics%20of%20Apex%20Language%20%7C%20Variables%2C%20Data%20Types%20(SObjects%2C%20Lists%2C%20Sets%2C%20Maps)%2C%20Classes%20and%20Methods&sd=24-bit&sr=1366x768&vp=1288x671&je=1&fl=24.0%20r0&_u=AACAAMABI~&jid=571612268&gjid=1139986899&cid=600159770.1493074838&tid=UA-72209114-1&_r=1&z=3595268 1,1,1493075406,0 predictor::https://www.google-analytics.com/collect?v=1&_v=j51&a=1097334363&t=pageview&_s=2&dl=http%3A%2F%2Fwww.jeet-singh.com%2Fvideos.php%3Fid%3DQgEuGNIlfNY%26salesforce-tutorial%3DBasics%2Bof%2BApex%2BLanguage%2B%257C%2BVariables%252C%2BData%2BTypes%2B(SObjects%252C%2BLists%252C%2BSets%252C%2BMaps)%252C%2BClasses%2Band%2BMethods&ul=en-us&de=UTF-8&dt=Salesforce%20Training%20Online%20%7C%20Basics%20of%20Apex%20Language%20%7C%20Variables%2C%20Data%20Types%20(SObjects%2C%20Lists%2C%20Sets%2C%20Maps)%2C%20Classes%20and%20Methods&sd=24-bit&sr=1366x768&vp=1288x671&je=1&fl=24.0%20r0&_u=AACAAMABI~&jid=&gjid=&cid=600159770.1493074838&tid=UA-72209114-1&z=1506060499 1,1,1493075406,0 predictor::https://www.google-analytics.com/r/collect?v=1&_v=j51&a=1097334363&t=event&_s=3&dl=http%3A%2F%2Fwww.jeet-singh.com%2Fvideos.php%3Fid%3DQgEuGNIlfNY%26salesforce-tutorial%3DBasics%2Bof%2BApex%2BLanguage%2B%257C%2BVariables%252C%2BData%2BTypes%2B(SObjects%252C%2BLists%252C%2BSets%252C%2BMaps)%252C%2BClasses%2Band%2BMethods&ul=en-us&de=UTF-8&dt=Salesforce%20Training%20Online%20%7C%20Basics%20of%20Apex%20Language%20%7C%20Variables%2C%20Data%20Types%20(SObjects%2C%20Lists%2C%20Sets%2C%20Maps)%2C%20Classes%20and%20Methods&sd=24-bit&sr=1366x768&vp=1288x671&je=1&fl=24.0%20r0&ec=Zopim%20Livechat&ea=Button%20Clicked&_u=ABCAAMABI~&jid=555216900&gjid=1833809734&cid=600159770.1493074838&tid=UA-72209114-1&_r=1&z=1241221887 1,1,1493075406,0 predictor::https://www.google-analytics.com/r/collect?v=1&_v=j51&a=1097334363&t=event&_s=4&dl=http%3A%2F%2Fwww.jeet-singh.com%2Fvideos.php%3Fid%3DQgEuGNIlfNY%26salesforce-tutorial%3DBasics%2Bof%2BApex%2BLanguage%2B%257C%2BVariables%252C%2BData%2BTypes%2B(SObjects%252C%2BLists%252C%2BSets%252C%2BMaps)%252C%2BClasses%2Band%2BMethods&ul=en-us&de=UTF-8&dt=Salesforce%20Training%20Online%20%7C%20Basics%20of%20Apex%20Language%20%7C%20Variables%2C%20Data%20Types%20(SObjects%2C%20Lists%2C%20Sets%2C%20Maps)%2C%20Classes%20and%20Methods&sd=24-bit&sr=1366x768&vp=1288x671&je=1&fl=24.0%20r0&ec=Zopim%20Livechat&ea=Offline%20Message%20Sent&_u=ABCAAMABI~&jid=642680769&gjid=1799043505&cid=600159770.1493074838&tid=UA-72209114-1&_r=1&z=172191201 1,1,1493075406,0 predictor::https://www.google-analytics.com/collect?v=1&_v=j51&a=1097334363&t=event&_s=5&dl=http%3A%2F%2Fwww.jeet-singh.com%2Fvideos.php%3Fid%3DQgEuGNIlfNY%26salesforce-tutorial%3DBasics%2Bof%2BApex%2BLanguage%2B%257C%2BVariables%252C%2BData%2BTypes%2B(SObjects%252C%2BLists%252C%2BSets%252C%2BMaps)%252C%2BClasses%2Band%2BMethods&ul=en-us&de=UTF-8&dt=Salesforce%20Training%20Online%20%7C%20Basics%20of%20Apex%20Language%20%7C%20Variables%2C%20Data%20Types%20(SObjects%2C%20Lists%2C%20Sets%2C%20Maps)%2C%20Classes%20and%20Methods&sd=24-bit&sr=1366x768&vp=1288x671&je=1&fl=24.0%20r0&ec=Zopim%20Livechat&ea=Button%20Clicked&_u=ABCAAMABI~&jid=&gjid=&cid=600159770.1493074838&tid=UA-72209114-1&z=351416131 1,1,1493075406,0 predictor::https://www.google-analytics.com/collect?v=1&_v=j51&a=1097334363&t=event&_s=6&dl=http%3A%2F%2Fwww.jeet-singh.com%2Fvideos.php%3Fid%3DQgEuGNIlfNY%26salesforce-tutorial%3DBasics%2Bof%2BApex%2BLanguage%2B%257C%2BVariables%252C%2BData%2BTypes%2B(SObjects%252C%2BLists%252C%2BSets%252C%2BMaps)%252C%2BClasses%2Band%2BMethods&ul=en-us&de=UTF-8&dt=Salesforce%20Training%20Online%20%7C%20Basics%20of%20Apex%20Language%20%7C%20Variables%2C%20Data%20Types%20(SObjects%2C%20Lists%2C%20Sets%2C%20Maps)%2C%20Classes%20and%20Methods&sd=24-bit&sr=1366x768&vp=1288x671&je=1&fl=24.0%20r0&ec=Zopim%20Livechat&ea=Button%20Clicked&_u=ABCAAMABI~&jid=&gjid=&cid=600159770.1493074838&tid=UA-72209114-1&z=486524149 1,1,1493075406,0   b^

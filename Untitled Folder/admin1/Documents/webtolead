@@ -1,0 +1,72 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+</script>
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+<style>
+div.g {
+    width: 320px;
+    border: 5px solid gray;
+  	  padding: 50px 30px 50px 80px;
+margin: auto;
+
+background-color:  #008B8B;
+}
+.center {
+    text-align: center;
+    border: 3px solid green;
+}
+
+div.contact{
+padding: 20px 80;
+
+
+}
+</style>
+
+<DIV class="g" >
+<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+<div class="contact">
+<h4>CONTACT US</H4>
+</div>
+
+<input type=hidden name='captcha_settings' value='{"keyname":"captcha","fallback":"true","orgId":"00D6F000001gq3M","ts":""}'>
+<input type=hidden name="oid" value="00D6F000001gq3M">
+<input type=hidden name="retURL" value="http://GOOGLE.COM">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="premathakur66@gmail.com">                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<label for="first_name">Enter Your Name</label><br><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+
+<label for="email">Email ID</label><br><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+<label for="company">Company</label><br><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+
+<label for="city">City</label><br><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+
+<label for="state">State/Province</label><br><input  id="state" maxlength="20" name="state" size="20" type="text" /><br>
+
+<label for="country">Country</label><br><input  id="country" maxlength="40" name="country" size="20" type="text" /><br><BR>
+
+<div class="g-recaptcha" data-sitekey="6LeCuBgUAAAAAPHU_ZMm3LpTgE5_xVZifxhYZhb9"></div><br>
+<input type="submit" name="submit">
+
+</form>
+</DIV>
+

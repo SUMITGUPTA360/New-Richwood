@@ -1,0 +1,923 @@
+!SESSION 2017-04-21 03:24:13.804 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2017-04-21 03:29:28.620
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at http://download.eclipse.org/releases/neon/201703231000/content.xml.xz.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:428)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCacheFromFile(CacheManager.java:132)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.getLocalFile(XZedSimpleMetadataRepositoryFactory.java:56)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.load(XZedSimpleMetadataRepositoryFactory.java:78)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:117)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:389)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:196)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Metadata.loadRepository(CachingRepositoryManager.java:456)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.read(AbstractSessionInputBuffer.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:178)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:137)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at java.io.FilterInputStream.read(FilterInputStream.java:107)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:178)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1002 2017-04-21 03:29:28.912
+!MESSAGE Unable to read repository at http://download.eclipse.org/releases/neon/201703231000/content.xml.xz.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.read(AbstractSessionInputBuffer.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:178)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:137)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at java.io.FilterInputStream.read(FilterInputStream.java:107)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:178)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2017-04-21 03:31:38.595
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at http://download.eclipse.org/releases/neon/201703141400/content.xml.xz.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:428)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCacheFromFile(CacheManager.java:132)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.getLocalFile(XZedSimpleMetadataRepositoryFactory.java:56)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.load(XZedSimpleMetadataRepositoryFactory.java:78)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
+	at sun.reflect.GeneratedMethodAccessor56.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:117)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:389)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:196)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Metadata.loadRepository(CachingRepositoryManager.java:456)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.addChild(CompositeMetadataRepository.java:166)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.<init>(CompositeMetadataRepository.java:106)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepositoryFactory.load(CompositeMetadataRepositoryFactory.java:122)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:117)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:389)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:196)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Metadata.loadRepository(CachingRepositoryManager.java:456)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.read(AbstractSessionInputBuffer.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:178)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:137)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at java.io.FilterInputStream.read(FilterInputStream.java:107)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:178)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1002 2017-04-21 03:31:38.595
+!MESSAGE Unable to read repository at http://download.eclipse.org/releases/neon/201703141400/content.xml.xz.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.read(AbstractSessionInputBuffer.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:178)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:137)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at java.io.FilterInputStream.read(FilterInputStream.java:107)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:178)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2017-04-21 03:31:38.671
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at http://download.eclipse.org/releases/neon.
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.addChild(CompositeMetadataRepository.java:185)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.<init>(CompositeMetadataRepository.java:106)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepositoryFactory.load(CompositeMetadataRepositoryFactory.java:122)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:117)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:389)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:196)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Metadata.loadRepository(CachingRepositoryManager.java:456)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at http://download.eclipse.org/releases/neon/201703141400/content.xml.xz.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:428)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCacheFromFile(CacheManager.java:132)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.getLocalFile(XZedSimpleMetadataRepositoryFactory.java:56)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.load(XZedSimpleMetadataRepositoryFactory.java:78)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
+	at sun.reflect.GeneratedMethodAccessor56.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:117)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:389)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:196)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Metadata.loadRepository(CachingRepositoryManager.java:456)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.addChild(CompositeMetadataRepository.java:166)
+	... 19 more
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.read(AbstractSessionInputBuffer.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:178)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:137)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at java.io.FilterInputStream.read(FilterInputStream.java:107)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:178)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1002 2017-04-21 03:31:38.671
+!MESSAGE Unable to read repository at http://download.eclipse.org/releases/neon.
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at http://download.eclipse.org/releases/neon/201703141400/content.xml.xz.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:428)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCacheFromFile(CacheManager.java:132)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.getLocalFile(XZedSimpleMetadataRepositoryFactory.java:56)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.load(XZedSimpleMetadataRepositoryFactory.java:78)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
+	at sun.reflect.GeneratedMethodAccessor56.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:117)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:389)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:196)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Metadata.loadRepository(CachingRepositoryManager.java:456)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.addChild(CompositeMetadataRepository.java:166)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.<init>(CompositeMetadataRepository.java:106)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepositoryFactory.load(CompositeMetadataRepositoryFactory.java:122)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:117)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:389)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:196)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Metadata.loadRepository(CachingRepositoryManager.java:456)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.read(AbstractSessionInputBuffer.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:178)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:137)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at java.io.FilterInputStream.read(FilterInputStream.java:107)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:178)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	... 1 more
+!SUBENTRY 2 org.eclipse.equinox.p2.transport.ecf 4 1002 2017-04-21 03:31:38.678
+!MESSAGE Unable to read repository at http://download.eclipse.org/releases/neon/201703141400/content.xml.xz.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.read(AbstractSessionInputBuffer.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:178)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:137)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at java.io.FilterInputStream.read(FilterInputStream.java:107)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:178)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2017-04-21 03:54:12.731 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -data file:/home/admin1/workspace/ -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY mega.js.tern 1 0 2017-04-21 03:54:29.963
+!MESSAGE Started Node.js v5.9.1 (V8 v4.6.85.31) in 937.2 ms
+
+!ENTRY mega.js.tern 1 0 2017-04-21 03:54:30.255
+!MESSAGE Loading tern.js...
+
+
+!ENTRY mega.js.tern 1 0 2017-04-21 03:54:30.256
+!MESSAGE Loading library ecma5
+
+
+!ENTRY mega.js.tern 1 0 2017-04-21 03:54:30.273
+!MESSAGE Loading library browser
+
+
+!ENTRY mega.js.tern 1 0 2017-04-21 03:54:30.283
+!MESSAGE Loading library ecma6
+
+
+!ENTRY mega.js.tern 1 0 2017-04-21 03:54:30.285
+!MESSAGE Loading plugin doc_comment
+
+
+!ENTRY mega.js.tern 1 0 2017-04-21 03:54:30.304
+!MESSAGE Loading plugin aura
+
+
+!ENTRY mega.js.tern 1 0 2017-04-21 03:54:31.181
+!MESSAGE Tern.js (0.19.0) ready
+
+
+!ENTRY mega.js.tern 1 0 2017-04-21 03:54:57.963
+!MESSAGE ':core' project is not available. Please add '<module>:core</module>' to your list of partial build modules. If using para, set 'ide-search-all-files: true' and run 'para refresh'
+
+!ENTRY mega.js.tern 1 0 2017-04-21 03:54:58.016
+!MESSAGE Analyzed Lightning System JavaScript Support in 50.05 ms
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:01:49.343
+!MESSAGE  WARN [2017-04-21 04:01:49,121] (ProjectAddEvaluator.java:runInWorkspace:120) - No credentials found for project 'New Force Project' - removing online nature
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:01:57.870
+!MESSAGE  WARN [2017-04-21 04:01:57,868] (ComponentResource.java:loadFromFile:430) - File 'src/package.xml' does not exist
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.721
+!MESSAGE  WARN [2017-04-21 04:03:25,719] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Setup_Page_Setting__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.724
+!MESSAGE  WARN [2017-04-21 04:03:25,721] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Manage__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.725
+!MESSAGE  WARN [2017-04-21 04:03:25,724] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Converbase__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.726
+!MESSAGE  WARN [2017-04-21 04:03:25,725] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Manage__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.726
+!MESSAGE  WARN [2017-04-21 04:03:25,726] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Converbase__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.727
+!MESSAGE  WARN [2017-04-21 04:03:25,726] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Setup_Page_Setting__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.727
+!MESSAGE  WARN [2017-04-21 04:03:25,727] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: OrgSMSConfig__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.728
+!MESSAGE  WARN [2017-04-21 04:03:25,727] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: SMSGeneralSettings__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.728
+!MESSAGE  WARN [2017-04-21 04:03:25,728] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: UserSMSConfig__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.729
+!MESSAGE  WARN [2017-04-21 04:03:25,728] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Incoming_SMS_360.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.729
+!MESSAGE  WARN [2017-04-21 04:03:25,729] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: OrgSMSConfig__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.730
+!MESSAGE  WARN [2017-04-21 04:03:25,729] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: SMSGeneralSettings__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.746
+!MESSAGE  WARN [2017-04-21 04:03:25,745] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: UserSMSConfig__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.746
+!MESSAGE  WARN [2017-04-21 04:03:25,746] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce1_for_Windows.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.747
+!MESSAGE  WARN [2017-04-21 04:03:25,747] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_iOS.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.748
+!MESSAGE  WARN [2017-04-21 04:03:25,747] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_BlackBerry.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.748
+!MESSAGE  WARN [2017-04-21 04:03:25,748] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_Android.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.749
+!MESSAGE  WARN [2017-04-21 04:03:25,748] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:SalesforceA.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.753
+!MESSAGE  WARN [2017-04-21 04:03:25,749] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Chatterbox.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:03:25.755
+!MESSAGE  WARN [2017-04-21 04:03:25,754] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_Desktop.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:14:46.619
+!MESSAGE  WARN [2017-04-21 04:14:46,592] (ComponentFactory.java:getCompositeComponentFromComponent:975) - Unable to load existing 'classes/LeadClass.cls-meta.xml' from project - associated component's file resource is null.  Assuming new.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:14:47.102
+!MESSAGE  WARN [2017-04-21 04:14:47,102] (ComponentController.java:deploy:443) - Remote save aborted - project is not online enabled
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:14:47.324
+!MESSAGE  WARN [2017-04-21 04:14:47,324] (Utils.java:loadDocument:807) - Unable to load document: /home/admin1/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/New Force Project/com.salesforce.ide.core/packageCache.xml (No such file or directory)
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:14:47.325
+!MESSAGE  WARN [2017-04-21 04:14:47,325] (ComponentController.java:run:421) - Unable to update cache with new component Apex Class - cache is not found
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:14:47.567
+!MESSAGE  WARN [2017-04-21 04:14:47,553] (DefaultBuilder.java:applyDirtyMarkers:93) - TODO: apply 'Save locally only...' markers on each resource
+
+
+!ENTRY com.salesforce.ide.ui.editors 4 2 2017-04-21 04:19:25.861
+!MESSAGE Problems occurred when invoking code from plug-in: "com.salesforce.ide.ui.editors".
+!STACK 0
+java.lang.NullPointerException
+	at apex.jorje.data.LocationBlocks$6._case(LocationBlocks.java:263)
+	at apex.jorje.data.LocationBlocks$6._case(LocationBlocks.java:204)
+	at apex.jorje.data.ast.Expr$VariableExpr.match(Expr.java:1210)
+	at apex.jorje.data.Locations.from(Locations.java:74)
+	at apex.jorje.parser.impl.BaseApexParser.tokenLoc(BaseApexParser.java:117)
+	at apex.jorje.parser.impl.ApexParser.statement(ApexParser.java:3716)
+	at apex.jorje.parser.impl.ApexParser.statementBlock(ApexParser.java:3563)
+	at apex.jorje.parser.impl.ApexParser.optionalStatementBlock(ApexParser.java:3627)
+	at apex.jorje.parser.impl.ApexParser.methodDecl(ApexParser.java:3385)
+	at apex.jorje.parser.impl.ApexParser.modifiedBlockMemberLoop(ApexParser.java:1210)
+	at apex.jorje.parser.impl.ApexParser.modifiedBlockMemberLoop(ApexParser.java:1256)
+	at apex.jorje.parser.impl.ApexParser.modifiedBlockMember(ApexParser.java:1164)
+	at apex.jorje.parser.impl.ApexParser.classMember(ApexParser.java:2335)
+	at apex.jorje.parser.impl.ApexParser.classDecl(ApexParser.java:2200)
+	at apex.jorje.parser.impl.ApexParser.typeDefCompilationUnit(ApexParser.java:563)
+	at apex.jorje.parser.impl.ApexParser.compilationUnit(ApexParser.java:473)
+	at apex.jorje.semantic.compiler.parser.NamedParser.parse(NamedParser.java:43)
+	at apex.jorje.semantic.compiler.CodeUnit.parse(CodeUnit.java:84)
+	at apex.jorje.semantic.compiler.CompilerStage$1.invoke(CompilerStage.java:38)
+	at apex.jorje.semantic.compiler.ApexCompiler.processNext(ApexCompiler.java:164)
+	at apex.jorje.semantic.compiler.ApexCompiler.compileInternal(ApexCompiler.java:98)
+	at apex.jorje.semantic.compiler.ApexCompiler.compile(ApexCompiler.java:86)
+	at com.salesforce.ide.apex.internal.core.CompilerService.compile(CompilerService.java:159)
+	at com.salesforce.ide.apex.internal.core.CompilerService.visitAstsFromStrings(CompilerService.java:144)
+	at com.salesforce.ide.apex.internal.core.CompilerService.visitAstFromString(CompilerService.java:117)
+	at com.salesforce.ide.ui.editors.apex.ApexParserRunnable.parseCurrentEditorContents(ApexParserRunnable.java:77)
+	at com.salesforce.ide.ui.editors.apex.ApexParserRunnable.run(ApexParserRunnable.java:58)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at com.salesforce.ide.ui.editors.apex.ApexReconcilingStrategy.reconcile(ApexReconcilingStrategy.java:62)
+	at com.salesforce.ide.ui.editors.apex.ApexReconcilingStrategy.reconcile(ApexReconcilingStrategy.java:58)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:73)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:20:35.340
+!MESSAGE  WARN [2017-04-21 04:20:35,340] (DefaultBuilder.java:applyDirtyMarkers:93) - TODO: apply 'Save locally only...' markers on each resource
+
+
+!ENTRY com.salesforce.ide.ui.editors 4 2 2017-04-21 04:24:47.249
+!MESSAGE Problems occurred when invoking code from plug-in: "com.salesforce.ide.ui.editors".
+!STACK 0
+java.lang.NullPointerException
+	at apex.jorje.data.LocationBlocks$7._case(LocationBlocks.java:336)
+	at apex.jorje.data.LocationBlocks$7._case(LocationBlocks.java:332)
+	at apex.jorje.data.ast.TypeRef$ClassTypeRef.match(TypeRef.java:119)
+	at apex.jorje.data.Locations.from(Locations.java:78)
+	at apex.jorje.data.LocationBlocks$8._case(LocationBlocks.java:438)
+	at apex.jorje.data.LocationBlocks$8._case(LocationBlocks.java:344)
+	at apex.jorje.data.ast.Stmnt$VariableDeclStmnt.match(Stmnt.java:1543)
+	at apex.jorje.data.Locations.from(Locations.java:66)
+	at apex.jorje.semantic.ast.statement.VariableDeclarationStatements.<init>(VariableDeclarationStatements.java:61)
+	at apex.jorje.semantic.ast.AstNodeFactory$1._case(AstNodeFactory.java:152)
+	at apex.jorje.semantic.ast.AstNodeFactory$1._case(AstNodeFactory.java:60)
+	at apex.jorje.data.ast.Stmnt$VariableDeclStmnt.match(Stmnt.java:1543)
+	at apex.jorje.semantic.ast.AstNodeFactory.create(AstNodeFactory.java:59)
+	at apex.jorje.semantic.ast.AstNodeFactory.lambda$createStatements$2(AstNodeFactory.java:450)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at apex.jorje.semantic.ast.AstNodeFactory.createStatements(AstNodeFactory.java:451)
+	at apex.jorje.semantic.ast.statement.BlockStatement$Builder$1._case(BlockStatement.java:266)
+	at apex.jorje.semantic.ast.statement.BlockStatement$Builder$1._case(BlockStatement.java:263)
+	at apex.jorje.data.ast.Stmnt$BlockStmnt.match(Stmnt.java:418)
+	at apex.jorje.semantic.ast.statement.BlockStatement$Builder.lambda$setStmnt$1(BlockStatement.java:262)
+	at apex.jorje.semantic.ast.statement.BlockStatement.<init>(BlockStatement.java:69)
+	at apex.jorje.semantic.ast.statement.BlockStatement.<init>(BlockStatement.java:48)
+	at apex.jorje.semantic.ast.statement.BlockStatement$Builder.build(BlockStatement.java:292)
+	at apex.jorje.semantic.ast.AstNodeFactory$1._case(AstNodeFactory.java:67)
+	at apex.jorje.semantic.ast.AstNodeFactory$1._case(AstNodeFactory.java:60)
+	at apex.jorje.data.ast.Stmnt$BlockStmnt.match(Stmnt.java:418)
+	at apex.jorje.semantic.ast.AstNodeFactory.create(AstNodeFactory.java:59)
+	at apex.jorje.semantic.ast.member.MethodFactory.lambda$createUserMethod$0(MethodFactory.java:71)
+	at java.util.Optional.map(Optional.java:215)
+	at apex.jorje.semantic.ast.member.MethodFactory.createUserMethod(MethodFactory.java:71)
+	at apex.jorje.semantic.ast.member.MethodFactory.createUserMethod(MethodFactory.java:51)
+	at apex.jorje.semantic.ast.compilation.UserClassMembers$Builder._case(UserClassMembers.java:308)
+	at apex.jorje.data.ast.BlockMember$MethodMember._switch(BlockMember.java:374)
+	at apex.jorje.semantic.ast.compilation.UserClassMembers.create(UserClassMembers.java:191)
+	at apex.jorje.semantic.ast.compilation.UserClass.<init>(UserClass.java:88)
+	at apex.jorje.semantic.ast.AstNodeFactory$3._case(AstNodeFactory.java:392)
+	at apex.jorje.semantic.ast.AstNodeFactory$3._case(AstNodeFactory.java:374)
+	at apex.jorje.data.ast.CompilationUnit$ClassDeclUnit.match(CompilationUnit.java:371)
+	at apex.jorje.semantic.ast.AstNodeFactory.create(AstNodeFactory.java:373)
+	at apex.jorje.semantic.compiler.CodeUnit.parse(CodeUnit.java:85)
+	at apex.jorje.semantic.compiler.CompilerStage$1.invoke(CompilerStage.java:38)
+	at apex.jorje.semantic.compiler.ApexCompiler.processNext(ApexCompiler.java:164)
+	at apex.jorje.semantic.compiler.ApexCompiler.compileInternal(ApexCompiler.java:98)
+	at apex.jorje.semantic.compiler.ApexCompiler.compile(ApexCompiler.java:86)
+	at com.salesforce.ide.apex.internal.core.CompilerService.compile(CompilerService.java:159)
+	at com.salesforce.ide.apex.internal.core.CompilerService.visitAstsFromStrings(CompilerService.java:144)
+	at com.salesforce.ide.apex.internal.core.CompilerService.visitAstFromString(CompilerService.java:117)
+	at com.salesforce.ide.ui.editors.apex.ApexParserRunnable.parseCurrentEditorContents(ApexParserRunnable.java:77)
+	at com.salesforce.ide.ui.editors.apex.ApexParserRunnable.run(ApexParserRunnable.java:58)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at com.salesforce.ide.ui.editors.apex.ApexReconcilingStrategy.reconcile(ApexReconcilingStrategy.java:62)
+	at com.salesforce.ide.ui.editors.apex.ApexReconcilingStrategy.reconcile(ApexReconcilingStrategy.java:58)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:73)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY com.salesforce.ide.ui.editors 4 2 2017-04-21 04:25:19.779
+!MESSAGE Problems occurred when invoking code from plug-in: "com.salesforce.ide.ui.editors".
+!STACK 0
+java.lang.NullPointerException
+	at apex.jorje.data.LocationBlocks$7._case(LocationBlocks.java:336)
+	at apex.jorje.data.LocationBlocks$7._case(LocationBlocks.java:332)
+	at apex.jorje.data.ast.TypeRef$ClassTypeRef.match(TypeRef.java:119)
+	at apex.jorje.data.Locations.from(Locations.java:78)
+	at apex.jorje.data.LocationBlocks$8._case(LocationBlocks.java:438)
+	at apex.jorje.data.LocationBlocks$8._case(LocationBlocks.java:344)
+	at apex.jorje.data.ast.Stmnt$VariableDeclStmnt.match(Stmnt.java:1543)
+	at apex.jorje.data.Locations.from(Locations.java:66)
+	at apex.jorje.semantic.ast.statement.VariableDeclarationStatements.<init>(VariableDeclarationStatements.java:61)
+	at apex.jorje.semantic.ast.AstNodeFactory$1._case(AstNodeFactory.java:152)
+	at apex.jorje.semantic.ast.AstNodeFactory$1._case(AstNodeFactory.java:60)
+	at apex.jorje.data.ast.Stmnt$VariableDeclStmnt.match(Stmnt.java:1543)
+	at apex.jorje.semantic.ast.AstNodeFactory.create(AstNodeFactory.java:59)
+	at apex.jorje.semantic.ast.AstNodeFactory.lambda$createStatements$2(AstNodeFactory.java:450)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at apex.jorje.semantic.ast.AstNodeFactory.createStatements(AstNodeFactory.java:451)
+	at apex.jorje.semantic.ast.statement.BlockStatement$Builder$1._case(BlockStatement.java:266)
+	at apex.jorje.semantic.ast.statement.BlockStatement$Builder$1._case(BlockStatement.java:263)
+	at apex.jorje.data.ast.Stmnt$BlockStmnt.match(Stmnt.java:418)
+	at apex.jorje.semantic.ast.statement.BlockStatement$Builder.lambda$setStmnt$1(BlockStatement.java:262)
+	at apex.jorje.semantic.ast.statement.BlockStatement.<init>(BlockStatement.java:69)
+	at apex.jorje.semantic.ast.statement.BlockStatement.<init>(BlockStatement.java:48)
+	at apex.jorje.semantic.ast.statement.BlockStatement$Builder.build(BlockStatement.java:292)
+	at apex.jorje.semantic.ast.AstNodeFactory$1._case(AstNodeFactory.java:67)
+	at apex.jorje.semantic.ast.AstNodeFactory$1._case(AstNodeFactory.java:60)
+	at apex.jorje.data.ast.Stmnt$BlockStmnt.match(Stmnt.java:418)
+	at apex.jorje.semantic.ast.AstNodeFactory.create(AstNodeFactory.java:59)
+	at apex.jorje.semantic.ast.member.MethodFactory.lambda$createUserMethod$0(MethodFactory.java:71)
+	at java.util.Optional.map(Optional.java:215)
+	at apex.jorje.semantic.ast.member.MethodFactory.createUserMethod(MethodFactory.java:71)
+	at apex.jorje.semantic.ast.member.MethodFactory.createUserMethod(MethodFactory.java:51)
+	at apex.jorje.semantic.ast.compilation.UserClassMembers$Builder._case(UserClassMembers.java:308)
+	at apex.jorje.data.ast.BlockMember$MethodMember._switch(BlockMember.java:374)
+	at apex.jorje.semantic.ast.compilation.UserClassMembers.create(UserClassMembers.java:191)
+	at apex.jorje.semantic.ast.compilation.UserClass.<init>(UserClass.java:88)
+	at apex.jorje.semantic.ast.AstNodeFactory$3._case(AstNodeFactory.java:392)
+	at apex.jorje.semantic.ast.AstNodeFactory$3._case(AstNodeFactory.java:374)
+	at apex.jorje.data.ast.CompilationUnit$ClassDeclUnit.match(CompilationUnit.java:371)
+	at apex.jorje.semantic.ast.AstNodeFactory.create(AstNodeFactory.java:373)
+	at apex.jorje.semantic.compiler.CodeUnit.parse(CodeUnit.java:85)
+	at apex.jorje.semantic.compiler.CompilerStage$1.invoke(CompilerStage.java:38)
+	at apex.jorje.semantic.compiler.ApexCompiler.processNext(ApexCompiler.java:164)
+	at apex.jorje.semantic.compiler.ApexCompiler.compileInternal(ApexCompiler.java:98)
+	at apex.jorje.semantic.compiler.ApexCompiler.compile(ApexCompiler.java:86)
+	at com.salesforce.ide.apex.internal.core.CompilerService.compile(CompilerService.java:159)
+	at com.salesforce.ide.apex.internal.core.CompilerService.visitAstsFromStrings(CompilerService.java:144)
+	at com.salesforce.ide.apex.internal.core.CompilerService.visitAstFromString(CompilerService.java:117)
+	at com.salesforce.ide.ui.editors.apex.ApexParserRunnable.parseCurrentEditorContents(ApexParserRunnable.java:77)
+	at com.salesforce.ide.ui.editors.apex.ApexParserRunnable.run(ApexParserRunnable.java:58)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at com.salesforce.ide.ui.editors.apex.ApexReconcilingStrategy.reconcile(ApexReconcilingStrategy.java:62)
+	at com.salesforce.ide.ui.editors.apex.ApexReconcilingStrategy.reconcile(ApexReconcilingStrategy.java:58)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:73)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:25:51.007
+!MESSAGE  WARN [2017-04-21 04:25:51,007] (DefaultBuilder.java:applyDirtyMarkers:93) - TODO: apply 'Save locally only...' markers on each resource
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:27:49.274
+!MESSAGE  WARN [2017-04-21 04:27:49,273] (Component.java:hasRemoteChanged:970) - Conflict found! Attribute compare of local and remote ApexClass 'classes/LeadClass.cls' [unpackaged] are NOT equal
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:27:49.274
+!MESSAGE  WARN [2017-04-21 04:27:49,274] (ProjectService.java:evaluateLocalAndRemote:2667) - Project package 'unpackaged' does not jive with remote package - assuming project is out of sync
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:28:03.895
+!MESSAGE  WARN [2017-04-21 04:28:03,887] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls-meta.xml'
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:28:03.959
+!MESSAGE  WARN [2017-04-21 04:28:03,956] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls'
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:28:16.975
+!MESSAGE  WARN [2017-04-21 04:28:16,973] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls-meta.xml'
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:28:16.994
+!MESSAGE  WARN [2017-04-21 04:28:16,994] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls'
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:30:53.449
+!MESSAGE  WARN [2017-04-21 04:30:53,447] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls-meta.xml'
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:30:53.460
+!MESSAGE  WARN [2017-04-21 04:30:53,460] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls'
+
+
+!ENTRY org.eclipse.compare 4 1 2017-04-21 04:30:54.840
+!MESSAGE target 'org.eclipse.pde.internal.ui.compare.PluginContentMergeViewerCreator' not found
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:31:13.067
+!MESSAGE  WARN [2017-04-21 04:31:13,067] (ProjectService.java:handleDeployResult:1942) - Save failed!
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:31:13.085
+!MESSAGE  WARN [2017-04-21 04:31:13,085] (ProjectService.java:handleRetrieveResult:2129) - Nothing to save to project - retrieve result is empty
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:31:13.088
+!MESSAGE  WARN [2017-04-21 04:31:13,087] (SyncController.java:saveToServer:759) - Failed to apply saves to server
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:31:17.001
+!MESSAGE  WARN [2017-04-21 04:31:16,996] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls-meta.xml'
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:31:17.021
+!MESSAGE  WARN [2017-04-21 04:31:17,018] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls'
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:45:00.765
+!MESSAGE  WARN [2017-04-21 04:45:00,740] (BaseRetryAspect.java:isLoginExceptionRetryable:124) - Login evaluation deemed exception not retry-able:
+ LoginFault: Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:45:00.799
+!MESSAGE  WARN [2017-04-21 04:45:00,798] (BaseRetryAspect.java:isConnectionExceptionRetryable:159) - Connection evaluation deemed exception not retry-able:
+ LoginFault: Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:45:00.826
+!MESSAGE  WARN [2017-04-21 04:45:00,826] (ProjectController.java:getRemotePackageNames:862) - Unable to get project packages for project 'New Project': Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:45:00.848
+!MESSAGE  WARN [2017-04-21 04:45:00,847] (ProjectOrganizationPage.java:prepareNextPage:263) - Unable to login: Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:46:04.736
+!MESSAGE  WARN [2017-04-21 04:46:04,735] (Utils.java:loadDocument:807) - Unable to load document: /home/admin1/workspace/.metadata/.plugins/com.salesforce.ide.core/packageCache.xml (No such file or directory)
+
+
+!ENTRY org.eclipse.jface 2 0 2017-04-21 04:46:53.364
+!MESSAGE Ignored reentrant call while viewer is busy. This is only logged once per viewer instance, but similar calls will still be ignored.
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.jface.viewers.ColumnViewer.checkBusy(ColumnViewer.java:761)
+	at org.eclipse.jface.viewers.ColumnViewer.refresh(ColumnViewer.java:516)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1478)
+	at com.salesforce.ide.ui.packagemanifest.PackageManifestTree$5.runInUIThread(PackageManifestTree.java:501)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:97)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4536)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4154)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:818)
+	at org.eclipse.jface.window.Window.open(Window.java:794)
+	at org.eclipse.jface.dialogs.MessageDialog.open(MessageDialog.java:396)
+	at org.eclipse.jface.dialogs.MessageDialog.open(MessageDialog.java:424)
+	at org.eclipse.jface.dialogs.MessageDialog.openWarning(MessageDialog.java:532)
+	at com.salesforce.ide.core.internal.utils.Utils.openWarn(Utils.java:362)
+	at com.salesforce.ide.ui.packagemanifest.PackageManifestController.logAndDisplayWarnMsgIfNeeded(PackageManifestController.java:743)
+	at com.salesforce.ide.ui.packagemanifest.PackageManifestController.createModel(PackageManifestController.java:864)
+	at com.salesforce.ide.ui.packagemanifest.PackageManifestController.updateManifest(PackageManifestController.java:174)
+	at com.salesforce.ide.ui.packagemanifest.PackageManifestController.getEnabledCompTypeTreeNodes(PackageManifestController.java:439)
+	at com.salesforce.ide.ui.packagemanifest.PackageManifestTree$ManifestContentProvider.getElements(PackageManifestTree.java:690)
+	at org.eclipse.jface.viewers.StructuredViewer.getRawChildren(StructuredViewer.java:1001)
+	at org.eclipse.jface.viewers.ColumnViewer.getRawChildren(ColumnViewer.java:701)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getRawChildren(AbstractTreeViewer.java:1349)
+	at org.eclipse.jface.viewers.TreeViewer.getRawChildren(TreeViewer.java:341)
+	at org.eclipse.jface.viewers.StructuredViewer.getFilteredChildren(StructuredViewer.java:907)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getSortedChildren(AbstractTreeViewer.java:621)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$0(AbstractTreeViewer.java:817)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:795)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:596)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:766)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalInitializeTree(AbstractTreeViewer.java:1538)
+	at org.eclipse.jface.viewers.TreeViewer.internalInitializeTree(TreeViewer.java:772)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1523)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1458)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:354)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1419)
+	at org.eclipse.jface.viewers.CheckboxTreeViewer.preservingSelection(CheckboxTreeViewer.java:409)
+	at com.salesforce.ide.ui.packagemanifest.PackageManifestTree$PackageManifestTreeViewer.preservingSelection(PackageManifestTree.java:417)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1517)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:286)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1696)
+	at com.salesforce.ide.ui.packagemanifest.PackageManifestTree.updateTree(PackageManifestTree.java:1693)
+	at com.salesforce.ide.ui.wizards.project.ProjectCustomComponentsComposite.initialize(ProjectCustomComponentsComposite.java:116)
+	at com.salesforce.ide.ui.wizards.project.ProjectCustomComponentsComposite.<init>(ProjectCustomComponentsComposite.java:72)
+	at com.salesforce.ide.ui.wizards.project.ProjectCustomComponentsDialog.createDialogArea(ProjectCustomComponentsDialog.java:59)
+	at org.eclipse.jface.dialogs.Dialog.createContents(Dialog.java:767)
+	at org.eclipse.jface.window.Window.create(Window.java:426)
+	at org.eclipse.jface.dialogs.Dialog.create(Dialog.java:1095)
+	at com.salesforce.ide.ui.wizards.project.ProjectCustomComponentsDialog.create(ProjectCustomComponentsDialog.java:156)
+	at org.eclipse.jface.window.Window.open(Window.java:783)
+	at com.salesforce.ide.ui.wizards.project.ProjectProjectContentComposite$8.widgetDefaultSelected(ProjectProjectContentComposite.java:294)
+	at com.salesforce.ide.ui.wizards.project.ProjectProjectContentComposite$8.widgetSelected(ProjectProjectContentComposite.java:309)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:249)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5227)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1340)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4561)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4151)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:818)
+	at org.eclipse.jface.window.Window.open(Window.java:794)
+	at org.eclipse.ui.internal.handlers.WizardHandler$New.executeHandler(WizardHandler.java:269)
+	at org.eclipse.ui.internal.handlers.WizardHandler.execute(WizardHandler.java:290)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor151.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:282)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:264)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:494)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:488)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:353)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:155)
+	at org.eclipse.ui.internal.actions.CommandAction.run(CommandAction.java:165)
+	at org.eclipse.ui.actions.NewWizardDropDownAction.run(NewWizardDropDownAction.java:176)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:565)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$5(ActionContributionItem.java:436)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5227)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1340)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4561)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4151)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1121)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1022)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:150)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:693)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:610)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:138)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1492)
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:47:26.157
+!MESSAGE  WARN [2017-04-21 04:47:26,156] (ComponentResource.java:loadFromFile:430) - File 'src/package.xml' does not exist
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:48:42.747
+!MESSAGE  WARN [2017-04-21 04:48:42,746] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:AppMenu and file name:AppSwitcher.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.390
+!MESSAGE  WARN [2017-04-21 04:49:14,389] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Setup_Page_Setting__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.390
+!MESSAGE  WARN [2017-04-21 04:49:14,390] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Manage__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.391
+!MESSAGE  WARN [2017-04-21 04:49:14,390] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Converbase__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.393
+!MESSAGE  WARN [2017-04-21 04:49:14,392] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Manage__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.394
+!MESSAGE  WARN [2017-04-21 04:49:14,394] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Converbase__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.394
+!MESSAGE  WARN [2017-04-21 04:49:14,394] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Setup_Page_Setting__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.395
+!MESSAGE  WARN [2017-04-21 04:49:14,394] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: OrgSMSConfig__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.395
+!MESSAGE  WARN [2017-04-21 04:49:14,395] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: SMSGeneralSettings__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.396
+!MESSAGE  WARN [2017-04-21 04:49:14,395] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: UserSMSConfig__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.396
+!MESSAGE  WARN [2017-04-21 04:49:14,396] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Incoming_SMS_360.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.396
+!MESSAGE  WARN [2017-04-21 04:49:14,396] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: OrgSMSConfig__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.397
+!MESSAGE  WARN [2017-04-21 04:49:14,396] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: SMSGeneralSettings__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.400
+!MESSAGE  WARN [2017-04-21 04:49:14,397] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: UserSMSConfig__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.401
+!MESSAGE  WARN [2017-04-21 04:49:14,400] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce1_for_Windows.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.401
+!MESSAGE  WARN [2017-04-21 04:49:14,401] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_iOS.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.402
+!MESSAGE  WARN [2017-04-21 04:49:14,401] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_BlackBerry.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.402
+!MESSAGE  WARN [2017-04-21 04:49:14,402] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_Android.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.403
+!MESSAGE  WARN [2017-04-21 04:49:14,402] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:SalesforceA.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.403
+!MESSAGE  WARN [2017-04-21 04:49:14,403] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Chatterbox.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:49:14.404
+!MESSAGE  WARN [2017-04-21 04:49:14,403] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_Desktop.
+
+
+!ENTRY com.salesforce.ide.core 4 2 2017-04-21 04:49:18.154
+!MESSAGE Problems occurred when invoking code from plug-in: "com.salesforce.ide.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.salesforce.ide.core.model.ComponentList.getComponentFactory(ComponentList.java:59)
+	at com.salesforce.ide.core.model.ComponentList.getComponentListForComponentType(ComponentList.java:261)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.collectDebuggerElements(SyncActionListener.java:145)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.collectApexDebuggerElementsWithOpenedEditors(SyncActionListener.java:120)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.projectSync(SyncActionListener.java:113)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster$1.run(SyncServiceListenerBroadcaster.java:54)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster.executeExtension(SyncServiceListenerBroadcaster.java:62)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster.broadcast(SyncServiceListenerBroadcaster.java:40)
+	at com.salesforce.ide.core.model.ProjectPackageList.saveResources(ProjectPackageList.java:1066)
+	at com.salesforce.ide.core.model.ProjectPackageList.saveResources(ProjectPackageList.java:996)
+	at com.salesforce.ide.core.services.ForceProjectRefreshJob$ForceProjectRefreshProject.doSaveResources(ForceProjectRefreshJob.java:62)
+	at com.salesforce.ide.core.services.ForceProjectRefreshJob.runInWorkspace(ForceProjectRefreshJob.java:42)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY com.salesforce.ide.core 4 0 2017-04-21 04:49:18.177
+!MESSAGE ERROR [2017-04-21 04:49:18,176] (SyncServiceListenerBroadcaster.java:handleException:59) - Error executing a contributed ISyncServiceListener
+
+!STACK 0
+java.lang.NullPointerException
+	at com.salesforce.ide.core.model.ComponentList.getComponentFactory(ComponentList.java:59)
+	at com.salesforce.ide.core.model.ComponentList.getComponentListForComponentType(ComponentList.java:261)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.collectDebuggerElements(SyncActionListener.java:145)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.collectApexDebuggerElementsWithOpenedEditors(SyncActionListener.java:120)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.projectSync(SyncActionListener.java:113)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster$1.run(SyncServiceListenerBroadcaster.java:54)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster.executeExtension(SyncServiceListenerBroadcaster.java:62)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster.broadcast(SyncServiceListenerBroadcaster.java:40)
+	at com.salesforce.ide.core.model.ProjectPackageList.saveResources(ProjectPackageList.java:1066)
+	at com.salesforce.ide.core.model.ProjectPackageList.saveResources(ProjectPackageList.java:996)
+	at com.salesforce.ide.core.services.ForceProjectRefreshJob$ForceProjectRefreshProject.doSaveResources(ForceProjectRefreshJob.java:62)
+	at com.salesforce.ide.core.services.ForceProjectRefreshJob.runInWorkspace(ForceProjectRefreshJob.java:42)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:55:37.707
+!MESSAGE  WARN [2017-04-21 04:55:37,690] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for '.settings/com.salesforce.ide.core.prefs'
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:58:33.577
+!MESSAGE  WARN [2017-04-21 04:58:33,493] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:58:33.578
+!MESSAGE  WARN [2017-04-21 04:58:33,578] (DescribeObjectRegistry.java:clearCache:663) - Clearing cached describes
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-04-21 04:58:33.579
+!MESSAGE  WARN [2017-04-21 04:58:33,578] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs
+

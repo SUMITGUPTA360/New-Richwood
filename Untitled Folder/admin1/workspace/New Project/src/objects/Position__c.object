@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>Position</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Position</fullName>
+        <fields>Name</fields>
+        <fields>Status__c</fields>
+        <fields>Hire_By__c</fields>
+        <fields>Job_Level__c</fields>
+        <label>Position</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object stores information about
+the open job positions at our company.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Age_Calculation__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF((FLOOR((TODAY() - Date_of_Birth_del__c  ) / 365.2425))=0,
+ &quot; &quot;, 
+ IF((FLOOR((TODAY() -  Date_of_Birth_del__c ) / 365.2425))=1, 
+ text(FLOOR((TODAY() -  Date_of_Birth_del__c ) / 365.2425))&amp;&quot;year&quot;, 
+ text(FLOOR((TODAY() -  Date_of_Birth_del__c ) / 365.2425))&amp;&quot;years&quot;))
+&amp;
+IF((FLOOR(MOD((TODAY()- Date_of_Birth_del__c ),365.2425)/30))=0,
+ &quot; &quot;, 
+ IF((FLOOR(MOD((TODAY()- Date_of_Birth_del__c ),365.2425)/30))=1, 
+ text(FLOOR(MOD((TODAY()- Date_of_Birth_del__c ),365.2425)/30))&amp;&quot;month&quot;, 
+ text(FLOOR(MOD((TODAY()- Date_of_Birth_del__c ),365.2425)/30))&amp;&quot;months&quot;) )
+&amp;
+IF((FLOOR(mod(MOD((TODAY()- Date_of_Birth_del__c ),365.25),30)/7))=0,
+ &quot; &quot;, 
+ IF((FLOOR(mod(MOD((TODAY()- Date_of_Birth_del__c),365.25),30)/7))=1, 
+ text(FLOOR(mod(MOD((TODAY()- Date_of_Birth_del__c),365.25),30)/7))&amp;&quot;week&quot;, 
+ text(FLOOR(mod(MOD((TODAY()- Date_of_Birth_del__c ),365.25),30)/7))&amp;&quot;weeks&quot;) )
+&amp;
+IF((FLOOR(mod(mod(MOD((TODAY()-Date_of_Birth_del__c ),365.2425),30.44),7)))=0,
+ &quot; &quot;, 
+ IF((FLOOR(mod(mod(MOD((TODAY()- Date_of_Birth_del__c),365.2425),30.44),7)))=1, 
+ text(FLOOR(mod(mod(MOD((TODAY()- Date_of_Birth_del__c),365.2425),30.44),7)))&amp;&quot;day&quot;, 
+ text(FLOOR(mod(mod(MOD((TODAY()- Date_of_Birth_del__c ),365.2425),30.44),7)))&amp;&quot;days&quot;) )</formula>
+        <label>Age</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>C__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Here are some easy ones. The Position object requires a few checkbox fields: one to indicate if travel is
+required for the position</description>
+        <externalId>false</externalId>
+        <label>C#</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Close_Date__c</fullName>
+        <description>our Recruiting app to track the date
+a position on which  the date it closes.</description>
+        <externalId>false</externalId>
+        <label>Close Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Birth_del__c</fullName>
+        <description>Enter the date of birth in the format yy/mm/dd</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the date of birth.</inlineHelpText>
+        <label>Date of Birth</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Days_Open__c</fullName>
+        <description>The number of days a position has
+been (or was) open.</description>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Close_Date__c ) ,
+           TODAY( ) -  Open_Date__c ,
+           Close_Date__c  -  Open_Date__c )</formula>
+        <label>Days Open</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Educational__c</fullName>
+        <description>High-level description of
+the job and its duties.</description>
+        <externalId>false</externalId>
+        <label>Educational Requirements</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Functional_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Functional Area</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Human Resources</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Picklist Functional Area</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Information Technology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Retail Operations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Warehousing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Miscellaneous</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Hire_By__c</fullName>
+        <defaultValue>TODAY()  + 90</defaultValue>
+        <description>our Recruiting app to track the date
+a position on which  date it closes,</description>
+        <externalId>false</externalId>
+        <label>Hire By</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Hiring_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Hiring Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Positions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>JavaScript__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Here are some easy ones. The Position object requires a few checkbox fields: one to indicate if travel is
+required for the position,</description>
+        <externalId>false</externalId>
+        <label>JavaScript</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Java__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Here are some easy ones. The Position object requires a few checkbox fields: one to indicate if travel is
+required for the position</description>
+        <externalId>false</externalId>
+        <label>Java</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Job_Description__c</fullName>
+        <description>High-level description of
+the job and its duties.</description>
+        <externalId>false</externalId>
+        <label>Job Description</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Job_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Job Level</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Functional_Area__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>FN-100</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>FN-200</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FN-300</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FN-400</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR-100</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR-200</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR-300</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR-400</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IT-100</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IT-200</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IT-300</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IT-400</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RO-100</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RO-200</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RO-300</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RO-400</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WH-100</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WH-200</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WH-300</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WH-400</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MC-100</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MC-200</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MC-300</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MC-400</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>FN-100</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>FN-200</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>FN-300</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>FN-400</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>HR-100</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>HR-200</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>HR-300</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>HR-400</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Picklist Functional Area</controllingFieldValue>
+                <valueName>WH-100</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Picklist Functional Area</controllingFieldValue>
+                <valueName>WH-200</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Picklist Functional Area</controllingFieldValue>
+                <valueName>WH-300</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Picklist Functional Area</controllingFieldValue>
+                <valueName>WH-400</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Information Technology</controllingFieldValue>
+                <valueName>IT-100</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Information Technology</controllingFieldValue>
+                <valueName>IT-200</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Information Technology</controllingFieldValue>
+                <valueName>IT-300</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Information Technology</controllingFieldValue>
+                <valueName>IT-400</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Operations</controllingFieldValue>
+                <valueName>RO-100</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Operations</controllingFieldValue>
+                <valueName>RO-200</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Operations</controllingFieldValue>
+                <valueName>RO-300</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Operations</controllingFieldValue>
+                <valueName>RO-400</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <description>Let&apos;s walk through the creation of the Location picklist field.</description>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>• San Francisco, CA</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>• Austin, TX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>• Boulder, CO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>• London, England</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>• New York, NY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>• Mumbai, India</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>• Sydney, Australia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>• Tokyo, Japan</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Max_Pay__c</fullName>
+        <description>Defining a currency field is almost identical to defining a text field, with a few slight differences.</description>
+        <externalId>false</externalId>
+        <label>Max Pay</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Min_Pay__c</fullName>
+        <description>Defining a currency field is almost identical to defining a text field, with a few slight differences.</description>
+        <externalId>false</externalId>
+        <label>Min Pay</label>
+        <precision>9</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Mobile__c</fullName>
+        <description>Please enter mobile number.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter mobile number with country code</inlineHelpText>
+        <label>Mobile</label>
+        <length>13</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Open_Date__c</fullName>
+        <description>our Recruiting app to track the date
+a position opens.</description>
+        <externalId>false</externalId>
+        <label>Open Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Responsibilities__c</fullName>
+        <description>High-level description of
+the job and its duties.</description>
+        <externalId>false</externalId>
+        <label>Responsibilities</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Skills_Required__c</fullName>
+        <description>High-level description of
+the job and its duties.</description>
+        <externalId>false</externalId>
+        <label>Skills Required</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New Position</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Pending Approval</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Picklist Status</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Open - Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed - Filled</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed - Not Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed - Canceled</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Travel_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Here are some easy ones. The Position object requires a few checkbox fields: one to indicate if travel is
+required for the position.</description>
+        <externalId>false</externalId>
+        <label>Travel Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Trial_Picklist_To_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Trial Picklist To Text</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full Time</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Part Time</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Position</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Position Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Positions</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Job_Level__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Location__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Functional_Area__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Hiring_Manager__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Open_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Close_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
+        <listViewButtons>Send_SMS_List</listViewButtons>
+        <lookupDialogsAdditionalFields>Close_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Functional_Area__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Hiring_Manager__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Job_Level__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Location__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Open_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Functional_Area__c</searchFilterFields>
+        <searchFilterFields>Hiring_Manager__c</searchFilterFields>
+        <searchFilterFields>Location__c</searchFilterFields>
+        <searchFilterFields>Open_Date__c</searchFilterFields>
+        <searchFilterFields>Close_Date__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Type__c</searchFilterFields>
+        <searchFilterFields>Job_Level__c</searchFilterFields>
+        <searchResultsAdditionalFields>Location__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Functional_Area__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Job_Level__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Hiring_Manager__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Open_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Close_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Date_Of_Brith_rule</fullName>
+        <active>true</active>
+        <description>Date of Birth cannot be more than Today&apos;s Date.Please enter the correct details.</description>
+        <errorConditionFormula>Date_of_Birth_del__c  &gt;  TODAY()</errorConditionFormula>
+        <errorDisplayField>Date_of_Birth_del__c</errorDisplayField>
+        <errorMessage>Date of Birth cannot be more than Today&apos;s Date.Please enter the correct details.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Min_Pay_Rule</fullName>
+        <active>true</active>
+        <description>Please Enter Min Pay  which should never exceed Max Pay.</description>
+        <errorConditionFormula>Min_Pay__c  &gt;  Max_Pay__c</errorConditionFormula>
+        <errorDisplayField>Min_Pay__c</errorDisplayField>
+        <errorMessage>enter Min Pay cannot exceed Max Pay</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mobile_Number_validation</fullName>
+        <active>false</active>
+        <description>It should not be more than 10 digits.</description>
+        <errorConditionFormula>(LEN(Mobile__c ) &gt; 10)</errorConditionFormula>
+        <errorDisplayField>Mobile__c</errorDisplayField>
+        <errorMessage>It should not be more than 10 digits.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Send_SMS</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send SMS</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/31.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&apos;/js/functions.js&apos;)}
+{!REQUIRESCRIPT(&apos;/resource/tdc_tsw__jQueryForPopup/jQuery/jquery-1.8.2.min.js&apos;)}
+{!REQUIRESCRIPT(&apos;/resource/tdc_tsw__jQueryForPopup/jQuery/ui/jquery-ui-1.9.1.custom.min.js&apos;)}
+{!REQUIRESCRIPT(&apos;/resource/tdc_tsw__jQueryForPopup/jQuery/postmessage/jquery.ba-postmessage.js&apos;)}
+{!REQUIRESCRIPT(&apos;/resource/tdc_tsw__jQueryForPopup/jQuery/bbq/jquery.ba-bbq.min.js&apos;)}
+requireCssFile(&apos;/resource/tdc_tsw__jQueryForPopup/jQuery/ui/css/ui-lightness/jquery-ui-1.9.1.custom.min.css&apos;);
+
+
+function requireCssFile(filename)
+{
+var fileref = document.createElement(&apos;link&apos;);
+fileref.setAttribute(&apos;rel&apos;, &apos;stylesheet&apos;);
+fileref.setAttribute(&apos;type&apos;, &apos;text/css&apos;);
+fileref.setAttribute(&apos;href&apos;, filename);
+document.getElementsByTagName(&apos;head&apos;)[0].appendChild(fileref);
+}
+
+var j$ = jQuery.noConflict();
+var contactid=&quot;{! Position__c.Id }&quot;;
+//alert(leadid);
+var iframe_url = &apos;{!URLFOR(&quot;/apex/tdc_tsw__SendSMS?id=&quot;)}&apos;+contactid+&apos;&amp;retURL=&apos;+window.location.href;
+//alert(iframe_url);
+var child_domain = iframe_url.substring(0, iframe_url.indexOf(&apos;/&apos;, 9));
+var parent_domain = window.location.protocol + &apos;//&apos; + window.location.host;
+var j$modalDialog = j$(&apos;&lt;div id=&quot;opppopup&quot;&gt;&lt;/div&gt;&apos;)
+.html(&apos;&lt;iframe id=&quot;iframeContentId&quot; src=&quot;&apos; + iframe_url + &apos;&quot; frameborder=&quot;0&quot; height=&quot;100%&quot; width=&quot;100%&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; /&gt;&apos;)
+.dialog({
+autoOpen: false,
+resizable: true,
+width: 800,
+height: 500,
+autoResize: true,
+modal: true,
+draggable: true,
+margin:0,
+padding:0
+});
+
+j$modalDialog.dialog(&apos;open&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_SMS_List</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send SMS</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/31.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&apos;/js/functions.js&apos;)}
+{!REQUIRESCRIPT(&apos;/resource/tdc_tsw__jQueryForPopup/jQuery/jquery-1.8.2.min.js&apos;)}
+{!REQUIRESCRIPT(&apos;/resource/tdc_tsw__jQueryForPopup/jQuery/ui/jquery-ui-1.9.1.custom.min.js&apos;)}
+{!REQUIRESCRIPT(&apos;/resource/tdc_tsw__jQueryForPopup/jQuery/postmessage/jquery.ba-postmessage.js&apos;)}
+{!REQUIRESCRIPT(&apos;/resource/tdc_tsw__jQueryForPopup/jQuery/bbq/jquery.ba-bbq.min.js&apos;)}
+requireCssFile(&apos;/resource/tdc_tsw__jQueryForPopup/jQuery/ui/css/ui-lightness/jquery-ui-1.9.1.custom.min.css&apos;);
+
+
+function requireCssFile(filename)
+{
+var fileref = document.createElement(&apos;link&apos;);
+fileref.setAttribute(&apos;rel&apos;, &apos;stylesheet&apos;);
+fileref.setAttribute(&apos;type&apos;, &apos;text/css&apos;);
+fileref.setAttribute(&apos;href&apos;, filename);
+document.getElementsByTagName(&apos;head&apos;)[0].appendChild(fileref);
+}
+
+var j$ = jQuery.noConflict();
+var records = {!GETRECORDIDS($ObjectType.Position__c)};
+var strIDs=&apos;&apos;;
+if (records[0] == null)
+{
+alert(&apos;Please Select At least One Contact to Send the SMS&apos;);
+}
+else
+{
+for (var n=0; n&lt;records.length; n++)
+{
+if(strIDs == &apos;&apos;)
+strIDs = records[n];
+else
+strIDs = strIDs + &quot;,&quot; + records[n] ;
+}
+var iframe_url = &apos;{!URLFOR(&quot;/apex/tdc_tsw__SendBulkSMS?ids=&quot;)}&apos;+ strIDs + &apos;&amp;retURL=&apos;+window.location.href;
+
+
+//alert(leadid);
+
+//alert(iframe_url);
+var child_domain = iframe_url.substring(0, iframe_url.indexOf(&apos;/&apos;, 9));
+var parent_domain = window.location.protocol + &apos;//&apos; + window.location.host;
+var j$modalDialog = j$(&apos;&lt;div id=&quot;opppopup&quot;&gt;&lt;/div&gt;&apos;)
+.html(&apos;&lt;iframe id=&quot;iframeContentId&quot; src=&quot;&apos; + iframe_url + &apos;&quot; frameborder=&quot;0&quot; height=&quot;100%&quot; width=&quot;100%&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; /&gt;&apos;)
+.dialog({
+autoOpen: false,
+resizable: true,
+width: 800,
+height: 520,
+autoResize: true,
+modal: true,
+draggable: true,
+margin:0,
+padding:0
+});
+
+j$modalDialog.dialog(&apos;open&apos;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_SMS_SF1</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Send SMS</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/tdc_tsw__SendSMS_SLDS?id={! Position__c.Id }</url>
+    </webLinks>
+</CustomObject>

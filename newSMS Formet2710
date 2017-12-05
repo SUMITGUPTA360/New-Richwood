@@ -1,0 +1,46 @@
+public class SMSHistoryTriggerHandler
+{
+    public static void onAfterInsert(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    {    
+        onAfterInsertAction(newListOfSMSHistory);            
+    }
+    
+    private static void onAfterInsertAction(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    { 
+     try{
+      String setMessage;                                         
+     
+      String[] setDetails; 
+      //  setMessage = '"{Sumit ; sumit123@test.com; 12312 }" ';
+      //  setMessage = #SMS (Sumit,sumit123@test.com,12312) ;
+      tdc_tsw__Message__c objMessage = newListOfSMSHistory[0];
+             
+         if(objMessage.Name == 'Incoming' &&
+             String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Message_Text_New__c)) && 
+             String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Lead__c))){
+             
+             setMessage = objMessage.tdc_tsw__Message_Text_New__c ;
+             
+            if(setMessage.startswith('"{') && setMessage.endsWith('}"') ){
+               setDetails = setMessage.split(';');   
+             }
+         
+            if(setDetails.size() > 2)
+               {  
+                   String regex = '[()\\-\\s{}""]' ;
+                   String replacement = '' ;
+                
+                   Lead objLead = new Lead();
+                   objLead.id = objMessage.tdc_tsw__Lead__c;
+                   objLead.LastName  = setDetails[0].replaceAll(regex,replacement); 
+                   objLead.Email = setDetails[1];
+                   objLead.SICCode__c = setDetails[2].replaceAll(regex,replacement);  
+                   update objLead;
+               }                  
+         } 
+       }
+       catch(Exception e){
+           system.debug('Exception  '+e);
+         }    
+  }
+}

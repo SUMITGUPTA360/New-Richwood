@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Salesforce1 Simulator
+Exec=/opt/google/chrome/google-chrome --profile-directory=Default --app-id=cknbjckicenodbiaejbmkjhldffonggp
+Icon=chrome-cknbjckicenodbiaejbmkjhldffonggp-Default
+StartupWMClass=crx_cknbjckicenodbiaejbmkjhldffonggp
+OnlyShowIn=Old;

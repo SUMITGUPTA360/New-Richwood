@@ -1,0 +1,200 @@
+<apex:page controller="tmd.MD_AdvanceSetupController" sidebar="false">
+    <apex:stylesheet value="{!$Resource.tmd__MergeCSS}"/>  
+    <apex:stylesheet value="{!$Resource.tmd__MergeDubCSS}"/> 
+    <apex:stylesheet value="{!$Resource.tmd__Number}"/>
+
+    <style>
+        .text_field{width:240px; height:20px; border:1px solid #b7b3b3; background-color:#fff; margin-top:12px}
+        .text_field02{width:150px; height:20px; border:1px solid #b7b3b3; background-color:#fff; margin-top:13px}
+        .table1
+        {
+            width:100%;
+            border-collapse:collapse; 
+        }
+        .table1 td,th
+        {
+            height:30px;           
+            border-bottom:1px solid #D6D6D6;
+            border-collapse:collapse;
+            vertical-align:middle;
+            font-size:1.2em
+        }
+        .seclect_object_main_con
+        {
+            display:none;
+        }
+        .top_text_container{ float:right; color: red;}    
+         .error_main_con{ width:100%; height:auto; float:left; padding-bottom:5px}
+        .error_con_left{ width:500px; height:auto; float:left;}
+        .right_counter_con{width:200px; height:auto; float:right;padding:0 0;}     
+    </style>
+    <script>
+        function toggle_visibility(e) 
+        {
+            var x = document.getElementsByClassName("seclect_object_main_con");
+            var i;
+             for (i = 0; i < x.length; i++) 
+             {
+                x[i].style.display = 'none';
+             }
+            x[e].style.display = 'block';
+        }
+    </script>
+    
+    <apex:form >
+        <apex:actionFunction name="Updatelicencekey" action="{!Updatelicencekey}"/>
+        <apex:actionFunction name="editlicencekey" action="{!editlicencekey}"/>
+         
+        <div class="main_container">
+        
+            <div class="error_main_con">
+                <div class="error_con_left">
+                 <apex:outputPanel >
+                     <apex:image url="{!URLFOR($Resource.tmd__MergeLogo,'Merge_Status.jpg')}" height="65" style="margin-top:-10px;" />
+                 </apex:outputPanel>
+                </div>
+                <div class="right_counter_con">
+                    <apex:outputPanel id="totalcount1" style="float:right;">
+                         <div style="margin-bottom: 1px; font-size: 13px;">
+                            Merge Counter
+                        </div>
+                        <apex:repeat value="{!totalmergedrecords}" var="num" >
+                             <span ><apex:image url="{!URLFOR($Resource.tmd__Number,num)}" height="35"/></span>
+                        </apex:repeat>
+                     </apex:outputPanel>
+                </div> 
+                <div style="clear:both;"></div>
+            </div>
+            <div class="step01_main_con">
+                            <apex:pageMessages />
+                <div class="step1_heading">
+                    <div class="arrow_con">
+                        <a href="" onclick="toggle_visibility(0);">
+                            <apex:image url="{!URLFOR($Resource.tmd__Number,'arrow_img.png')}"/>
+                        </a>
+                    </div>
+                    <div class="heading_con">
+                        <h1> General Setting</h1>
+                    </div>
+                </div><!--step1_heading -->
+            
+                <div class="seclect_object_main_con" style="display:block; width:100%">
+                  <div class="top_text_container">
+                     <apex:outputPanel rendered="{!(totalMergeRecordPermission - totalMerged )<= 500  && setupsetting.tmd__Status__c == 'Active'}">
+                        <b>You have&nbsp;<apex:outputText value="{!totalMergeRecordPermission - totalMerged}"/>&nbsp;Merges remaining, Please Upgrade.</b>
+                    </apex:outputPanel>
+                  </div>
+                    <div class="top_main_buttons_con">
+                        <a href="" onclick="Updatelicencekey();">
+                            <apex:image url="{!URLFOR($Resource.tmd__Number,'save2_button.png')}" styleClass="save_img_cls" />
+                        </a> 
+                        <a href="" onclick="editlicencekey();">
+                            <apex:image url="{!URLFOR($Resource.tmd__Number,'edit_button.png')}"/>
+                        </a>
+                    </div><!--top_main_buttons_con --> 
+                
+                    <table border="0" class="tabletab">
+                        <tr>
+                            <td Style="text-align: right;" width="206" class="object_cls">  <p>Licence Key : </p></td>
+                            <td width="150" style="vertical-align:middle;" colspan="3">
+                                <apex:inputText value="{!setupsetting.tmd__Licence_Key__c}" styleClass="text_field" rendered="{!mode=='Edit'}" />
+                                <apex:outputText value="{!setupsetting.tmd__Licence_Key__c}" rendered="{!mode=='View'}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td Style="text-align: right;"><p class="object_cls">Renewal Date : </p></td>
+                            <td style="vertical-align: middle; font-size:14px;">
+                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}" >
+                                    <apex:param value="{!setupsetting.tmd__Renewal_Date__c}"/>
+                                </apex:outputText>
+                            </td>
+                            <td Style="text-align: right;" width="70px"><p class="filter_record"> Status : </p></td>
+                            <td style="vertical-align: middle; font-size:14px;">    
+                                <apex:outputText value="{!setupsetting.tmd__Status__c}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td Style="text-align: right;"><p class="object_cls"> Administrator Username : </p> </td>
+                            <td>
+                                <apex:inputText value="{!setupsetting.tmd__Administrator_Username__c}" 
+                                                styleClass="text_field" rendered="{!mode=='Edit'}" />
+                                <apex:outputText value="{!setupsetting.tmd__Administrator_Username__c}" rendered="{!mode=='View'}"/>
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td> 
+                        </tr>
+                    </table>
+                </div><!-- seclect_object_main_con-->
+            </div><!-- step01_main_con-->
+            
+            <div class="step01_main_con">
+                <div class="step1_heading">
+                    <div class="arrow_con02" style="margin-top: 3px;">
+
+                        <a href="" onclick="toggle_visibility(1);">
+                            <apex:image url="{!URLFOR($Resource.tmd__Number,'arrow_img.png')}" />
+                        </a>
+                    </div>
+                    <div class="heading_con">
+                        <h1>App Usage</h1>
+                    </div>
+                </div><!--step1_heading -->
+                <div class="seclect_object_main_con">
+                    <table width="1000" border="0">
+                        <tr>
+                            <td Style="text-align: right;" width="142"><p class="object_cls" style="white-space: nowrap;">Total Allowed Merges</p></td>
+                            <td width="173" style="vertical-align: middle;">
+                                <apex:outputText value="{!totalMergeRecordPermission}"/>
+                            </td>
+                            <td Style="text-align: right;" width="73"><p class="filter_record" style="white-space: nowrap;">Used Merges</p></td>
+                            <td width="165" style="vertical-align: middle;">
+                                <apex:outputText value="{!ROUND(totalMerged, 0)}" />
+                            </td>
+                            <td Style="text-align: right;" width="44"><p class="filter_record" style="white-space: nowrap;">Remaining Merges</p></td>
+                            <td width="377" style="vertical-align: middle;">
+                                <apex:outputText value="{!if((totalMergeRecordPermission - totalMerged)>0,totalMergeRecordPermission - totalMerged,0)}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td Style="text-align: right;" width="142"><p class="object_cls">Account
+                            <span class="helpButton" id="Sectoin-App_Usage-_help">
+                                    <img src="/s.gif" class="helpOrb"/>
+                                    <script type="text/javascript">
+                                        sfdcPage.setHelp('Sectoin-App_Usage', 'No. of merges that have been done under the Account object.'); 
+                                    </script>
+                                </span>
+                            </p></td>
+                            <td width="173" style="vertical-align: middle;">
+                                <apex:outputText value="{!ROUND(setupsetting.tmd__Account__c,0)}" />
+                            </td>
+                            <td Style="text-align: right;" width="73"><p class="filter_record">Contact
+                            <span class="helpButton" id="Sectoin-App_Usage1-_help">
+                                    <img src="/s.gif" class="helpOrb"/>
+                                    <script type="text/javascript">
+                                        sfdcPage.setHelp('Sectoin-App_Usage1', 'No. of merges that have been done under the Contact object.'); 
+                                    </script>
+                                </span>
+                            </p></td>
+                            <td width="165" style="vertical-align: middle;">
+                                <apex:outputText value="{!ROUND(setupsetting.tmd__Contact__c,0)}" />
+                            </td>
+                            <td Style="text-align: right;" width="44"><p class="filter_record">Lead
+                            <span class="helpButton" id="Sectoin-App_Usage2-_help">
+                                    <img src="/s.gif" class="helpOrb"/>
+                                    <script type="text/javascript">
+                                        sfdcPage.setHelp('Sectoin-App_Usage2', 'No. of merges that have been done under the Lead object.'); 
+                                    </script>
+                                </span>
+                            </p></td>
+                            <td width="377" style="vertical-align: middle;">
+                                <apex:outputText value="{!ROUND(setupsetting.tmd__Lead__c,0)}" />
+                            </td>
+                        </tr>
+                    </table>
+                </div><!-- seclect_object_main_con-->
+            </div><!-- step01_main_con-->
+        </div><!--main_container -->
+        <div class="line_shadow_con">
+        </div><!-- line_shadow_con-->
+    </apex:form>
+</apex:page>

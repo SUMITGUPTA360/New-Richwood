@@ -1,0 +1,54 @@
+public class SMSHistoryTriggerHandler
+{
+    public static void onAfterInsert(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    {    
+        onAfterInsertAction(newListOfSMSHistory);            
+    }
+    
+    private static void onAfterInsertAction(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    { 
+     try{
+      String setMessage;                                         
+     
+      String[] setDetails; 
+      String setDetails1;
+     
+      // setMessage = Sumit,sumit123@test.com,12312 ;
+      tdc_tsw__Message__c objMessage = newListOfSMSHistory[0];
+             
+         if(objMessage.Name == 'Incoming' &&
+             String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Message_Text_New__c)) && 
+             String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Lead__c))){  
+             setMessage = objMessage.tdc_tsw__Message_Text_New__c ;
+           
+             setDetails = setMessage.split(',');
+       
+            if(setDetails.size() > 2 )
+               {  
+                   String regex = '[()\\-\\()]' ;
+                   String replacement = '' ;
+                
+                   Lead objLead = new Lead();
+                   objLead.id = objMessage.tdc_tsw__Lead__c;
+                   if(String.isNotBlank(String.valueOf(setDetails[0]))){
+                      objLead.Salutation = null;
+                      objLead.FirstName = null;
+                      objLead.LastName  = setDetails[0];
+                   }
+                   if(String.isNotBlank(String.valueOf(setDetails[1]))){
+                       objLead.Email = setDetails[1];
+                   }
+                   if(String.isNotBlank(String.valueOf(setDetails[2]))){
+                        objLead.PostalCode = setDetails[2].replaceAll(regex,replacement);
+                   }
+                   
+                   if(objLead != null)
+                   update objLead;
+               }                  
+         } 
+       }
+       catch(Exception e){
+           system.debug('Exception  '+e);
+         }    
+  }
+}

@@ -1,0 +1,36 @@
+<apex:page standardController="Opportunity">
+    <style type="text/css">
+        * {
+          font-family: Roboto;
+        }
+
+        div.message {
+          position: relative;
+          padding: 1px;
+          padding-left: 35px;
+          margin: 20px 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+          background: #BBB;
+          color: #FFF;
+        }
+
+        div.message.lost {
+            color: white;
+            background: red;
+        }
+        
+        div.message.won {
+            color: white;
+            background: green;
+        }
+    </style>
+
+ 
+   <div class="lost message" style="display: {!IF(Opportunity.Stagename = 'Closed Lost', '', 'none')}" >
+      <h2>Opportunity: This Opportunity is Closed Lost</h2>
+    </div>
+    
+    <div class="won message" style="display: {!IF(Opportunity.StageName = 'Closed Won', '', 'none')}" >
+      <h2>Opportunity: This Opportunity is Closed Won</h2>
+    </div>
+</apex:page>

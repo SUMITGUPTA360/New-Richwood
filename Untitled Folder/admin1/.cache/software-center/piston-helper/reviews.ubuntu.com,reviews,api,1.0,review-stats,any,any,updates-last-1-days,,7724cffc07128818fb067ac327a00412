@@ -1,0 +1,101 @@
+status: 200
+content-length: 2242
+expires: Wed, 19 Apr 2017 08:52:38 GMT
+content-location: https://reviews.ubuntu.com/reviews/api/1.0/review-stats/any/any/updates-last-1-days/
+strict-transport-security: max-age=15768000; includeSubDomains; preload
+vary: Accept,Accept-Encoding
+server: gunicorn/19.3.0
+last-modified: Wed, 19 Apr 2017 04:52:38 GMT
+-content-encoding: gzip
+x-bzr-revision-number: 321
+cache-control: max-age=14400
+date: Wed, 19 Apr 2017 05:02:04 GMT
+content-type: application/json; charset=utf-8
+-varied-accept-encoding: gzip, deflate
+
+[
+    {
+        "ratings_total": 9, 
+        "ratings_average": "5.00", 
+        "app_name": "", 
+        "package_name": "r-base-core", 
+        "histogram": "[0, 0, 0, 0, 9]"
+    }, 
+    {
+        "ratings_total": 39, 
+        "ratings_average": "4.72", 
+        "app_name": "", 
+        "package_name": "nemo", 
+        "histogram": "[0, 2, 1, 3, 33]"
+    }, 
+    {
+        "ratings_total": 53, 
+        "ratings_average": "4.04", 
+        "app_name": "", 
+        "package_name": "extremetuxracer", 
+        "histogram": "[3, 6, 5, 11, 28]"
+    }, 
+    {
+        "ratings_total": 22, 
+        "ratings_average": "3.27", 
+        "app_name": "", 
+        "package_name": "rosegarden", 
+        "histogram": "[4, 3, 5, 3, 7]"
+    }, 
+    {
+        "ratings_total": 221, 
+        "ratings_average": "4.41", 
+        "app_name": "", 
+        "package_name": "unity-tweak-tool", 
+        "histogram": "[16, 4, 11, 32, 158]"
+    }, 
+    {
+        "ratings_total": 688, 
+        "ratings_average": "3.60", 
+        "app_name": "", 
+        "package_name": "rhythmbox", 
+        "histogram": "[116, 63, 87, 133, 289]"
+    }, 
+    {
+        "ratings_total": 2178, 
+        "ratings_average": "4.76", 
+        "app_name": "", 
+        "package_name": "vlc", 
+        "histogram": "[45, 22, 53, 165, 1893]"
+    }, 
+    {
+        "ratings_total": 198, 
+        "ratings_average": "4.29", 
+        "app_name": "", 
+        "package_name": "bleachbit", 
+        "histogram": "[14, 6, 14, 38, 126]"
+    }, 
+    {
+        "ratings_total": 332, 
+        "ratings_average": "4.49", 
+        "app_name": "", 
+        "package_name": "virtualbox-qt", 
+        "histogram": "[15, 1, 25, 55, 236]"
+    }, 
+    {
+        "ratings_total": 1, 
+        "ratings_average": "4.00", 
+        "app_name": "", 
+        "package_name": "telegram-desktop", 
+        "histogram": "[0, 0, 0, 1, 0]"
+    }, 
+    {
+        "ratings_total": 1, 
+        "ratings_average": "5.00", 
+        "app_name": "", 
+        "package_name": "gnome-twitch", 
+        "histogram": "[0, 0, 0, 0, 1]"
+    }, 
+    {
+        "ratings_total": 1, 
+        "ratings_average": "3.00", 
+        "app_name": "", 
+        "package_name": "wine-stable", 
+        "histogram": "[0, 0, 1, 0, 0]"
+    }
+]

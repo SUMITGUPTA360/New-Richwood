@@ -1,0 +1,999 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Jeet Singh - Best Salesforce Trainer in India | US | UK | Australia | UAE. Salesforce Administrator and Developer Training India United States US United Kingdom UK Australia. Call +91 89612 71400 for training details.">
+        <meta name="author" content="www.jeet-singh.com">
+
+        <title>Jeet Singh - Best Salesforce Trainer in India | US | UK | Australia | UAE</title>
+    </head>
+
+    <body>
+<!-- Start LOGO Section -->
+            <!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        
+
+	<meta name="google-site-verification" content="aKxrjuBjv7nTNGrxi2RWDg9a2ox_p_a12sgN7A2G5O0" />
+
+
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+        <!-- Menu Files -->
+      
+
+        <!-- GeoPlugin -->
+        <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+
+        <!-- Contact Form Files -->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+        <script src="http://www.jeet-singh.com/js/form.js" type="text/javascript"></script>
+        
+        <link rel="icon" type="image/png" href="http://jeet-singh.com/favicon.ico">
+
+        <!-- Bootstrap Core CSS -->
+        <link href="http://www.jeet-singh.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Font Awesome CSS -->
+        <link href="http://www.jeet-singh.com/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- pinterest website confirmation -->
+<meta name="p:domain_verify" content="f4d206ec22ccb3a3987a208190a2d01a"/>
+
+	<!-- Custom CSS -->
+        <link href="http://www.jeet-singh.com/css/animate.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="http://jeet-singh.com/css/style3.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+        <!-- Accordion Files -->
+        <link rel="stylesheet" type="text/css" href="../assets-2/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Abeezee:400|Open+Sans:400,600,700|Source+Sans+Pro:400,600">
+	<link rel="stylesheet" type="text/css" href="http://www.jeet-singh.com/css/demo.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://www.jeet-singh.com/js/accordion.js"></script>
+
+        <!-- Template js -->
+        <script src="http://www.jeet-singh.com/js/jquery-2.1.1.min.js"></script>
+        <script src="http://www.jeet-singh.com/bootstrap/js/bootstrap.min.js"></script>
+        <script src="http://www.jeet-singh.com/js/jquery.appear.js"></script>
+        <script src="http://www.jeet-singh.com/js/jqBootstrapValidation.js"></script>
+        <script src="http://www.jeet-singh.com/js/modernizr.custom.js"></script>
+        <script src="http://www.jeet-singh.com/js/script.js"></script>
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+          ga('create', 'UA-72209114-1', 'auto');
+          ga('send', 'pageview');
+        
+        </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-79282318-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+        <!-- Google Analytics --> 
+
+
+<!--Start of Zendesk Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+$.src="https://v2.zopim.com/?4bdDovkOeIg3k8beaVyvpRsxKLJZTB5e";z.t=+new Date;$.
+type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+</script>
+<!--End of Zendesk Chat Script-->
+
+
+</head>
+
+<body>
+<div class="topbar">
+  <div class="container">
+   <div class="social-icons top-hide">
+    <a href="http://wikitrainings.tumblr.com/"><i class="fa fa-tumblr-square"></i></a>
+    <a href="https://plus.google.com/+Wikitrainings"><i class="fa fa-google-plus-square"></i></a>
+    <a href="https://twitter.com/jeetsingh_1"><i class="fa fa-twitter-square"></i></a>    
+    <a href="http://in.linkedin.com/in/jeetsingh7"><i class="fa fa-linkedin-square"></i></a>
+    <a href="https://www.youtube.com/channel/UCXlf6u-ApezTViVjHwhzjFw?sub_confirmation=1"><i class="fa fa-youtube-square"></i></a>
+    <a href="https://www.facebook.com/jeets007"><i class="fa fa-facebook-square"></i></a>
+   </div>  
+    <ul class="list-unstyled list-inline">
+      <li><i class="fa fa-phone"></i> +1 408 755 9120</li>
+      <li><i class="fa fa-phone"></i> +91 89612 71400</li>
+      <li class="top-hide"><i class="fa fa-envelope-o"></i> info@jeet-singh.com</li>
+    </ul>
+  </div>
+</div>
+<section id="logo-section" style="background:#0B2161;">
+
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                                        <h1 class="logo">Jeet Singh<p><i style="color: white;font-size:13px;">CRM Implementation Consultant & Trainer</i></p></h1>
+
+				</div>				
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav class="link-effect-2" id="link-effect-2">
+						<ul class="nav navbar-nav">
+							<li><a href="http://jeet-singh.com/" class="effect-3">Home</a></li>
+							<li><a href="http://www.jeet-singh.com/about-me.php" class="effect-3">About Me</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Courses <b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="http://www.jeet-singh.com/salesforce-administrator-training-certification.php">Admin Training</a></li>
+									<li><a href="http://www.jeet-singh.com/salesforce-developer-training-certification.php">Developer Training</a></li>
+									<li><a href="http://www.jeet-singh.com/salesforce-administrator-developer-training-certification.php">Admin + Developer Training</a></li>
+									<li><a href="http://www.jeet-singh.com/salesforce-sales-cloud-training-certification.php">Sales Cloud Training</a></li>
+									<li><a href="http://www.jeet-singh.com/salesforce-service-cloud-training-certification.php">Service Cloud Training</a></li>
+								</ul>
+							</li>
+							<li><a href="http://www.jeet-singh.com/salesforce-online-training.php" class="effect-3">Training Calendar</a></li>
+							<li><a href="http://www.jeet-singh.com/salesforce-webinars-and-workshops.php" class="effect-3">Webinars</a></li>
+							<li><a href="http://www.jeet-singh.com/salesforce-corporate-training.php" class="effect-3">Corporate Training</a></li>
+							<li><a href="http://www.jeet-singh.com/free-salesforce-video-tutorials.php" class="effect-3">Video Tutorials</a></li>
+							<li><a href="http://www.jeet-singh.com/contact.php" class="effect-3">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</nav>
+
+
+</div>
+
+</section>
+
+</body>
+</html><!-- End LOGO Section -->
+
+
+
+<!-- Start Carousel Section -->
+<div class="banner">
+  <div class="container text-center">
+    <div class="captions">
+      <h3>Need Salesforce Training ?</h3>
+      <p>Learn From World's #1 CRM Consultant</p> 
+      <a class="button button-trns" href="#trainings">View Training Programs</a> <!-- <a class="button button-trns" href="#">Consulting Solutions</a> -->
+    </div>
+  </div>
+</div>
+<!-- End Carousel Section -->
+<!--Instructor led training Mobile--->
+
+
+<!--//Instructor led training Mobile--->
+<!--Instructor led training--->
+<div class="project" id="trainings">
+  <div class="container">
+      <h3 class="sec-heading">Instructor-Led Live Online Training</h3> 
+<div class="mob-training">
+  <div class="col-md-12">
+
+    <table id="customers"">
+                                                <tr class="alt">
+                                                    <th>Course</th>
+                                                    <th>Date</th>                                                    
+                                                    <th>Fees</th>
+                                                    <th></th>
+                                                </tr>  
+ <tr class="alt2">                  
+                                                
+                                                    <td>Admin + Dev</td>
+                                                    <td>Apr 26</td>
+                                                    <td>
+ <i class="fa fa-inr" aria-hidden="true"></i> 19900                                                    </td>
+                                                    <td><a class="hvr-sweep-to-right more" style="float:right;" href="http://www.jeet-singh.com/salesforce-administrator-developer-training-certification.php"><b>Details</b></a></td>
+                                                </tr>
+
+ <tr class="alt">                                                     <td>Admin</td>
+                                                    <td>Apr 26</td>
+                                                    <td>
+ <i class="fa fa-inr" aria-hidden="true"></i> 14900                      
+                                                    </td>
+                                                    <td><a class="hvr-sweep-to-right more" style="float:right;" href="http://www.jeet-singh.com/salesforce-administrator-training-certification.php"><b>Details</b></a></td>
+                                                </tr>  
+
+ <tr class="alt2">                                               
+                                                    <td>Developer</td>
+                                                    <td>Apr 26</td>
+                                                    <td>
+ <i class="fa fa-inr" aria-hidden="true"></i> 14900          
+                                                    </td>
+                                                    <td><a class="hvr-sweep-to-right more" style="float:right;" href="http://www.jeet-singh.com/salesforce-developer-training-certification.php"><b>Details</b></a></td>
+                                                </tr>
+
+ <tr class="alt">                                                     <td>Integration</td>
+                                                    <td>May 6</td>
+                                                    <td>
+ <i class="fa fa-inr" aria-hidden="true"></i> 24900  
+                                                    </td>
+                                                    <td><a class="hvr-sweep-to-right more" style="float:right;" href="http://www.jeet-singh.com/salesforce-online-training.php"><b>Details</b></a></td>
+                                                </tr> 
+
+ <tr class="alt2">                                                     <td>Sales Cloud</td>
+                                                    <td>May 6</td>
+                                                    <td>
+ <i class="fa fa-inr" aria-hidden="true"></i> 29900 
+                                                    </td>
+                                                    <td><a class="hvr-sweep-to-right more" style="float:right;" href="http://www.jeet-singh.com/salesforce-sales-cloud-training-certification.php"><b>Details</b></a></td>
+                                                </tr>
+
+
+ <tr class="alt">                                                     <td>Service Cloud</td>
+                                                    <td>May 6</td>
+                                                    <td>
+ <i class="fa fa-inr" aria-hidden="true"></i> 29900 
+                                                    </td>
+                                                    <td><a class="hvr-sweep-to-right more" style="float:right;" href="http://www.jeet-singh.com/salesforce-service-cloud-training-certification.php"><b>Details</b></a></td>
+                                                </tr> 	
+
+
+ <tr class="alt2">                                                   <td>Lightning</td>
+                                                    <td>Apr 29</td>
+                                                    <td>
+ <i class="fa fa-inr" aria-hidden="true"></i> 14900                                                    </td>
+                                                    <td><a class="hvr-sweep-to-right more" style="float:right;" href="#"><b>Details</b></a></td>
+                                                </tr> 		                        
+			                    
+                                       </table>
+  </div>
+</div>
+
+    <div class="row">
+      <div class="col-md-3">
+       <div class="training-cover">
+        <a href="http://www.jeet-singh.com/salesforce-administrator-training-certification.php">
+          <img src="http://www.jeet-singh.com/images/salesforce-administrator-training.jpg" alt="Salesforce Administrator Training Jeet Singh" style="width:100%"/>
+                <div class="training-item"> 
+                  <h4>Administrator Training</h4>
+                  <div class="ratings">
+                    <div class="empty-stars"><b style="color:#000;"> 4.9</b> | <b>3,134</b> Learners</div>
+                    <div class="full-stars" style="width:90%"></div>
+                  </div>
+<hr>
+                  <div class="row">
+                   <div class="col-md-5">
+                    <p class="cost">Rs 14,900</p>
+                   </div> 
+                   <div class="col-md-7">
+                    <a class="training-button button-grey" href="http://www.jeet-singh.com/salesforce-administrator-training-certification.php">View Details</a>
+                   </div> 
+                  </div>  
+                </div>
+         </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+<div class="training-cover">
+
+        <a href="http://www.jeet-singh.com/salesforce-developer-training-certification.php">
+          <img src="http://www.jeet-singh.com/images/salesforce-developer-training.jpg" alt="Salesforce Developer Training Jeet Singh" style="width:100%"/>
+                <div class="training-item"> 
+                  <h4>Developer Training</h4>
+                  <div class="ratings">
+                    <div class="empty-stars"><b style="color:#000;"> 4.8</b> | <b>3,268</b> Learners</div>
+                    <div class="full-stars" style="width:38%"></div>
+                  </div>
+<hr>
+                  <div class="row">
+                   <div class="col-md-5">
+                    <p class="cost">Rs 14,900</p>
+                   </div> 
+                   <div class="col-md-7">
+                    <a class="training-button button-grey" href="http://www.jeet-singh.com/salesforce-developer-training-certification.php">View Details</a>
+                   </div> 
+                  </div>  
+                </div>
+        </a>   
+</div>     
+      </div>
+      <div class="col-md-3">
+<div class="training-cover">
+
+        <a href="http://www.jeet-singh.com/salesforce-administrator-developer-training-certification.php">
+          <img src="http://www.jeet-singh.com/images/salesforce-administrator-developer-training.jpg" alt="Salesforce Administrator Developer Training Jeet Singh" style="width:100%"/>
+                <div class="training-item"> 
+                  <h4>Admin + Dev Training</h4>
+                  <div class="ratings">
+                    <div class="empty-stars"><b style="color:#000;"> 4.9</b> | <b>3,271</b> Learners</div>
+                    <div class="full-stars" style="width:90%"></div>
+                  </div>
+<hr>
+                  <div class="row">
+                   <div class="col-md-5">
+                    <p class="cost">Rs 19,900</p>
+                   </div> 
+                   <div class="col-md-7">
+                    <a class="training-button button-grey" href="http://www.jeet-singh.com/salesforce-administrator-developer-training-certification.php">View Details</a>
+                   </div> 
+                  </div>  
+                </div>
+        </a>   
+</div>
+    
+      </div>
+      <div class="col-md-3">
+<div class="training-cover">
+        <a href="http://www.jeet-singh.com/salesforce-online-training.php">
+          <img src="http://www.jeet-singh.com/images/salesforce-integration-training.jpg" alt="Salesforce Integration Training Jeet Singh" style="width:100%"/>
+                <div class="training-item"> 
+                  <h4>Integration Training</h4>
+                  <div class="ratings">
+                    <div class="empty-stars"><b style="color:#000;"> 4.7</b> | <b>2,067</b> Learners</div>
+                    <div class="full-stars" style="width:90%"></div>
+                  </div>
+<hr>
+                  <div class="row">
+                   <div class="col-md-5">
+                    <p class="cost">Rs 24,900</p>
+                   </div> 
+                   <div class="col-md-7">
+                    <a class="training-button button-grey" href="http://www.jeet-singh.com/salesforce-online-training.php">View Details</a>
+                   </div> 
+                  </div>  
+                </div>
+        </a>  
+</div>
+      
+      </div>
+    </div>  
+        <div class="row">
+      <div class="col-md-3">
+       <div class="training-cover">
+        <a href="http://www.jeet-singh.com/salesforce-sales-cloud-training-certification.php">
+          <img src="http://www.jeet-singh.com/images/salesforce-sales-cloud-training.jpg" alt="Salesforce Sales Cloud Training Jeet Singh" style="width:100%"/>
+                <div class="training-item"> 
+                  <h4>Sales Cloud Training</h4>
+                  <div class="ratings">
+                    <div class="empty-stars"><b style="color:#000;"> 4.9</b> | <b>3,063</b> Learners</div>
+                    <div class="full-stars" style="width:90%"></div>
+                  </div>
+<hr>
+                  <div class="row">
+                   <div class="col-md-5">
+                    <p class="cost" style="font-size:16px;">Rs 29,900</p>
+                   </div> 
+                   <div class="col-md-7">
+                    <a class="training-button button-grey" href="http://www.jeet-singh.com/salesforce-sales-cloud-training-certification.php">View Details</a>
+                   </div> 
+                  </div>  
+                </div>
+         </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+<div class="training-cover">
+
+        <a href="http://www.jeet-singh.com/salesforce-service-cloud-training-certification.php">
+          <img src="http://www.jeet-singh.com/images/salesforce-service-cloud-training.jpg" alt="Salesforce Service Cloud Training Jeet Singh" style="width:100%"/>
+                <div class="training-item"> 
+                  <h4>Service Cloud Training</h4>
+                  <div class="ratings">
+                    <div class="empty-stars"><b style="color:#000;"> 4.9</b> | <b>2,934</b> Learners</div>
+                    <div class="full-stars" style="width:90%"></div>
+                  </div>
+<hr>
+                  <div class="row">
+                   <div class="col-md-5">
+                    <p class="cost" style="font-size:16px;">Rs 29,900</p>
+                   </div> 
+                   <div class="col-md-7">
+                    <a class="training-button button-grey" href="http://www.jeet-singh.com/salesforce-service-cloud-training-certification.php">View Details</a>
+                   </div> 
+                  </div>  
+                </div>
+        </a>   
+</div>     
+      </div>
+      <div class="col-md-3">
+<div class="training-cover">
+
+        <a href="http://www.jeet-singh.com/salesforce-online-training.php">
+          <img src="http://www.jeet-singh.com/images/salesforce-lightning-training.jpg" alt="Salesforce Lightning Component Training Jeet Singh" style="width:100%"/>
+                <div class="training-item"> 
+                  <h4 style="font-size:15px;">Lightning Training</h4>
+                  <div class="ratings">
+                    <div class="empty-stars"><b style="color:#000;"> 4.9</b> | <b>1,734</b> Learners</div>
+                    <div class="full-stars" style="width:90%"></div>
+                  </div>
+<hr>
+                  <div class="row">
+                   <div class="col-md-5">
+                    <p class="cost">Rs 14,900</p>
+                   </div> 
+                   <div class="col-md-7">
+                    <a class="training-button button-grey" href="http://www.jeet-singh.com/salesforce-online-training.php">View Details</a>
+                   </div> 
+                  </div>  
+                </div>
+        </a>   
+</div>
+    
+      </div>
+      <div class="col-md-3">
+       <div class="training-cover" style="padding-top: 106px;padding-bottom: 130px;">
+             <p><a class="training-button button-grey calender-btn" href="http://www.jeet-singh.com/salesforce-online-training.php">Training Calender</a></p>
+        </div>
+      </div>
+    </div>   
+  </div>
+</div>
+</div>
+<!--//Instructor led training--->
+
+
+
+<!-- Consulting Services -->
+<!-- <div class="project" style="background:#F5F5F5;">
+<div class="container">
+  <div class="row">
+    <h3 class="sec-heading">Consulting Services</h3>
+    <div class="col-md-3"> 
+      <div class="service-item"> 
+        <i class="fa fa-child"></i>
+        <h4>CRM Health Check</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a class="button button-grey" href="#">Know More</a>
+      </div>
+    </div>
+
+    <div class="col-md-3"> 
+      <div class="service-item"> 
+        <i class="fa fa-search"></i>
+        <h4>Salesforce Automation</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a class="button button-grey" href="#">Know More</a>
+      </div> 
+    </div>
+
+    <div class="col-md-3">  
+      <div class="service-item"> 
+        <i class="fa fa-globe"></i>
+        <h4>Marketing Automation</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a class="button button-grey" href="#">Know More</a>
+      </div>
+    </div>
+
+    <div class="col-md-3"> 
+      <div class="service-item"> 
+        <i class="fa fa-line-chart"></i>
+        <h4>CRM Implementation</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a class="button button-grey" href="#">Know More</a>
+      </div> 
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3"> 
+      <div class="service-item"> 
+        <i class="fa fa-dollar"></i>
+        <h4>Custom App Development</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a class="button button-grey" href="#">Know More</a>
+      </div>
+    </div>
+
+    <div class="col-md-3"> 
+      <div class="service-item"> 
+        <i class="fa fa-globe"></i>
+        <h4>Pardot Implementation</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a class="button button-grey" href="#">Know More</a>
+      </div> 
+    </div>
+
+    <div class="col-md-3">  
+      <div class="service-item"> 
+        <i class="fa fa-pie-chart"></i>
+        <h4>Reproting & Analytics</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a class="button button-grey" href="#">Know More</a>
+      </div>
+    </div>
+
+    <div class="col-md-3"> 
+      <div class="service-item"> 
+        <i class="fa fa-search"></i>
+        <h4>Marketo Implementation</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a class="button button-grey" href="#">Know More</a>
+      </div> 
+    </div>
+
+  </div>
+</div>
+</div> -->
+
+<!-- //Consulting Services -->
+
+<!-- Referral Program -->
+
+<div class="call-to-action" data-parallax="scroll" data-image-src="images/bg5.jpg">
+  <div class="content text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h3>Looking for a Training but do not have Money?</h3>
+          <p>Now get your training sponsored by your friends</p>
+        </div>
+        <div class="col-md-4 margin-top">
+          <a class="button button-wht" href="http://jeet-singh.com/refer/">Refer Friends Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/parallax/parallax.min.js"></script>
+<script src="js/parallax/parallax.js"></script>
+
+<!-- //Referral Program -->
+
+<!--Self Pace training--->
+<div class="project" id="trainings">
+  <div class="container">
+    <h3 class="sec-heading">Self-Paced Online Training</h3> 
+    <div class="row">
+      <div class="col-md-3">
+       <div class="training-cover">
+        <a href="http://www.jeet-singh.com/salesforce-administrator-training-certification.php">
+          <img src="http://www.jeet-singh.com/images/salesforce-administrator-training.jpg" alt="Salesforce Administrator Training Jeet Singh" style="width:100%"/>
+                <div class="training-item"> 
+                  <h4>Administrator Training</h4>
+                  <div class="ratings">
+                    <div class="empty-stars"><b style="color:#000;"> 4.9</b> | <b>3,134</b> Learners</div>
+                    <div class="full-stars" style="width:90%"></div>
+                  </div>
+<hr>
+                  <div class="row">
+                   <div class="col-md-5">
+                    <p class="cost">Rs 13,900</p>
+                   </div> 
+                   <div class="col-md-7">
+                    <a class="training-button button-grey" href="http://www.jeet-singh.com/salesforce-administrator-training-certification.php">View Details</a>
+                   </div> 
+                  </div>  
+                </div>
+         </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+<div class="training-cover">
+
+        <a href="http://www.jeet-singh.com/salesforce-developer-training-certification.php">
+          <img src="http://www.jeet-singh.com/images/salesforce-developer-training.jpg" alt="Salesforce Developer Training Jeet Singh" style="width:100%"/>
+                <div class="training-item"> 
+                  <h4>Developer Training</h4>
+                  <div class="ratings">
+                    <div class="empty-stars"><b style="color:#000;"> 4.8</b> | <b>3,268</b> Learners</div>
+                    <div class="full-stars" style="width:38%"></div>
+                  </div>
+<hr>
+                  <div class="row">
+                   <div class="col-md-5">
+                    <p class="cost">Rs 13,900</p>
+                   </div> 
+                   <div class="col-md-7">
+                    <a class="training-button button-grey" href="http://www.jeet-singh.com/salesforce-developer-training-certification.php">View Details</a>
+                   </div> 
+                  </div>  
+                </div>
+        </a>   
+</div>     
+      </div>
+      <div class="col-md-3">
+<div class="training-cover">
+
+        <a href="http://www.jeet-singh.com/salesforce-administrator-developer-training-certification.php">
+          <img src="http://www.jeet-singh.com/images/salesforce-administrator-developer-training.jpg" alt="Salesforce Administrator Training Jeet Singh" style="width:100%"/>
+                <div class="training-item"> 
+                  <h4>Admin + Developer Training</h4>
+                  <div class="ratings">
+                    <div class="empty-stars"><b style="color:#000;"> 4.9</b> | <b>3,271</b> Learners</div>
+                    <div class="full-stars" style="width:90%"></div>
+                  </div>
+<hr>
+                  <div class="row">
+                   <div class="col-md-5">
+                    <p class="cost">Rs 17,900</p>
+                   </div> 
+                   <div class="col-md-7">
+                    <a class="training-button button-grey" href="http://www.jeet-singh.com/salesforce-administrator-developer-training-certification.php">View Details</a>
+                   </div> 
+                  </div>  
+                </div>
+        </a>   
+</div>
+    
+      </div>
+  
+          
+  </div>
+</div>
+<!--//Self Pace training--->
+
+<!-- About Me -->
+<div class="content-bottom">
+		<div class="container">
+			<h3 class="sec-heading">About Me</h3>
+<div class="about-text">
+<div class="col-md-6 col-sm-6">
+                                        <ul>
+                                           <iframe width="100%" height="320" src="https://www.youtube.com/embed/lzR2Ai83wOg?rel=0" frameborder="0" allowfullscreen></iframe>  
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <ul>
+                                            <li><i class="fa fa-check-square"></i>9 Years of experience in CRM Implementations</li>
+                                            <li><i class="fa fa-check-square"></i>7 Years of Experience in SFDC Development</li>
+                                            <li><i class="fa fa-check-square"></i>More than 80 SFDC Assignments</li>
+                                            <li><i class="fa fa-check-square"></i>Trained more than 2000 students on Salesforce</li>
+                                            <li><i class="fa fa-check-square"></i>More than 12,000 + Followers on Youtube</li>
+                                            <li><i class="fa fa-check-square"></i>Corporate Trainer for companies like HP, E&Y, Deloitte, Capgemini and more</li>
+                                            <li><i class="fa fa-check-square"></i>Salesforce Certified Administrator</li>
+                                            <li><i class="fa fa-check-square"></i>Salesforce Certified Advanced Developer</li>
+                                            <li><i class="fa fa-check-square"></i>Salesforce Certified Sales Cloud Consultant </li>
+                                            <li><i class="fa fa-check-square"></i>Salesforce Certified Service Cloud Consultant    </li>
+                                            <li><i class="fa fa-check-square"></i>Expert in APEX, Visualforce, Triggers, Classes, IDE, SOQL, SOSL, Web Services, Callouts</li>
+                                            <li><i class="fa fa-check-square"></i>SFDC Implementation, Automation, Customization, Application Development</li>
+                                        </ul>
+                                    </div>
+</div>
+</div>
+</div>
+<!-- //About Me -->
+<!--test-->
+		<div class="content-bottom" style="background:#83A7C7;">
+		<div class="container">
+			<h3 class="sec-heading">What Students Said About Training</h3>
+			<div class="col-md-6">
+<div class="col-md-12">
+<div class="row boy">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>I'm happy with the fact that I got the recordings of all instructor-led live sessions for free, which will definitely help me in future. The training programs organized by Jeet Singh were more focused on practical. I got a clear and depth knowledge on every topic. Thank you Jeet.<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Shruti Ganaka</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/boy.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+<div class="row boy">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>My experience about trainings organized by Jeet Singh<br>
+1) Highly experienced trainer and salesforce consultant<br>
+2) Affordable fees<br>
+3) Friendly Nature<br>
+4) Excellent Study Materials for certifications and interviews<br>
+5) My rating 5/5
+<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Mohit Reddy</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/boy.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+<div class="row girl">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>I am very much satisfied with the training provided by Jeet Singh, as I had gone for few Salesforce training institutes in Bangalore for the demo sessions, but I did not find any better trainer than Jeet Singh. Jeet Singh clears every topic and he has lot of patience in resolving everyoneâ€™s issue.<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Payal Saini</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/girl.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+<div class="row boy">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>I did admin and developer training. After completing the course I got placed in Accenture.  I want to thank Jeet for arranging mock interviews and providing the interview questions.<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Rakesh Kumar</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/boy.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+<div class="row boy">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>Thank you Jeet for providing Admin and Developer Certification questions and Certification mock tests. I cleared the certification exam. Your sample question helped a lot. Thanks again.<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Suresh Kambli</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/boy.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+</div>
+</div>
+<div class="col-md-6">
+<div class="col-md-12">
+<div class="row boy">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>I got a job as a Salesforce Project Manager. Thanks for your support and guidance throughout the course.<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Pankaj Yadav</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/boy.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+<div class="row boy">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>Took me into practical part deeply, I am very happy with the course. Good place to learn. Happy to learn more.
+<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Jayaprakash Srivastava</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/boy.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+<div class="row girl">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>Teaching method is good. Also the ideas and tips you gave regarding the interview, was very useful to me. Thanks to you Sir.<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Harshita Agarwal</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/girl.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+<div class="row boy">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>The training is well organized and it explained the fundamentals of the Salesforce. Thanks to this Jeet Singh, I am able to take my career up to a new level.<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Yatin Tyagi</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/boy.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+<div class="row boy">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>Jeet Singh helped me in getting knowledge in the field and the teaching is mostly related to the real time scenario. Helped me a lot in getting certified with Mock Tests and Sample questions.<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Harish Upadhyay</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/boy.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+<div class="row boy">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>Affordable fees with best training materials. Had a good experience of learning Salesforce with Jeet Singh.<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Pranav Dubey</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/boy.jpg" height="90" width="90" />
+</div>
+</div>
+
+
+<div class="row girl">
+<div class="col-md-10">
+<p><span style="font-size:26px;">"</span>Jeet sir has very good subject knowledge, it was a wonderful experience for me. Now I am very much Confident to get a good job. I am really thankful to my Jeet sir.<span style="font-size:20px;">"</span></p>
+<p style="float:right;"><b>-Ankita Kurra</b></p>
+</div>
+<div class="col-md-2 rev">
+<img src="http://jeet-singh.com/images/girl.jpg" height="90" width="90" />
+</div>
+</div>
+
+<a class="hvr-sweep-to-right more" style="float:right;margin-top:10px;" href="http://jeet-singh.com/jeet-singh-salesforce-training-reviews.php"><b>Read More</b></a>
+</div>
+</div>				
+		</div>
+	</div>		
+<!--//test-->	
+<div class="content-bottom">
+		<div class="container">
+			<h3 class="sec-heading">Corporate Training Clients</h3>
+<div class="col-md-2">
+                                <img src="http://www.jeet-singh.com/images/wipro.jpg" width="170" height="75" />
+                        </div><!-- /.col-md-2 -->
+                        <div class="col-md-2">
+                                <img src="http://www.jeet-singh.com/images/accenture.jpg" width="170" height="75" />
+                        </div><!-- /.col-md-2 -->
+                        <div class="col-md-2">
+                                <img src="http://www.jeet-singh.com/images/ey.jpg" width="170" height="75" />
+                        </div><!-- /.col-md-2 -->
+                        <div class="col-md-2">
+                                <img src="http://www.jeet-singh.com/images/capgemini.jpg" width="170" height="75" />
+                        </div><!-- /.col-md-2 -->
+                        <div class="col-md-2">
+                                <img src="http://www.jeet-singh.com/images/quinnox.jpg" width="170" height="75" />
+                        </div><!-- /.col-md-2 -->
+                        <div class="col-md-2">
+                                <img src="http://www.jeet-singh.com/images/tuli.jpg" width="170" height="75" />
+                        </div><!-- /.col-md-2 -->
+<a class="hvr-sweep-to-right more" style="float:right;margin-top:10px;" href="http://www.jeet-singh.com/salesforce-corporate-training.php"><b>Know More</b></a>
+</div>
+</div> 
+
+        <!-- Start Copyright Section -->
+
+            <div class="copyright" style="background-color:#0B2161;margin-top:20px;">
+<div class="container">
+<div class="footer-top-at">
+<div class="col-md-3 amet-sed">
+<h4>Salesforce Certifications</h4>
+<ul class="nav-bottom">
+<li><a href="http://www.jeet-singh.com/salesforce-administrator-certification-exam.php" role="tab">Salesforce Administrator Certification</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-advanced-administrator-certification-exam.php">Advanced Administrator Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-platform-app-builder-certification-exam.php">Platform App  Builder Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-platform-developer-1-certification-exam.php">Platform Developer-I Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-platform-developer-2-certification-exam.php">Platform Developer-II Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-sales-cloud-consultant-certification-exam.php">Sales Cloud Consultant Certification Exam</a></li>
+
+</ul>
+</div>
+
+<div class="col-md-3 amet-sed ">
+<h4>  &nbsp;</h4>
+<ul>
+<li><a href="http://www.jeet-singh.com/salesforce-service-cloud-consultant-certification-exam.php">Service Cloud Consultant Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-marketing-cloud-email-specialist-certification-exam.php">Email Specialist Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-marketing-cloud-social-specialist-certification-exam.php">Social Specialist Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-pardot-specialist-certification-exam.php">Pardot Specialist Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-pardot-consultant-certification-exam.php">Pardot Consultant Certification Exam</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-technical-architect-certification-exam.php">Technical Architect Certification Exam</a></li>
+</ul>
+
+
+</div>
+
+<div class="col-md-3 amet-sed">
+<h4>Salesforce Training Modules</h4>
+<ul class="nav-bottom">
+<li><a href="http://www.jeet-singh.com/salesforce-administrator-developer-training-certification.php">Salesforce Admin + Developer Training</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-administrator-training-certification.php" role="tab">Salesforce Admin Training</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-developer-training-certification.php">Salesforce Developer Training</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-sales-cloud-training-certification.php">Salesforce Sales Cloud Training</a></li>
+<li><a href="http://www.jeet-singh.com/salesforce-service-cloud-training-certification.php">Salesforce Service Cloud Training</a></li>
+<li><a href="http://www.jeet-singh.com/free-salesforce-video-tutorials.php">Free Salesforce Video Tutorials</a></li>
+<li style="display:none;"><a href="http://www.jeet-singh.com/training.php">Training</a></li>
+
+
+</ul>
+<!--
+<h4>Demo Session</h4>
+<ul class="nav-bottom">
+<li><a href="http://www.jeet-singh.com/video tutorial.php">Watch Recorded Demo</a></li>
+<li><a href="http://www.jeet-singh.com/contact.php">Request Live Demo</a></li>
+<li><a href="http://www.jeet-singh.com/online training.php">Course Fees</a></li>
+<li><a href="http://www.jeet-singh.com/testimoniala.php">Training Reviews</a></li>
+</ul>
+-->
+</div>
+
+<div class="col-md-3 amet-sed ">
+<h4>Contact Us</h4>
+<ul class="nav-bottom">
+<li><a href="http://www.jeet-singh.com/contact.php">Get a Call Back</a></li>
+<li><a href="http://www.jeet-singh.com/contact.php">India: +91 89612 71400</a></li>
+<li><a href="http://www.jeet-singh.com/contact.php">USA: +1 408 755 9120</a></li>
+<li><a href="http://www.jeet-singh.com/contact.php">Email: info@jeet-singh.com</a></li>
+</ul>
+</div>
+
+<div class="clearfix"> </div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="container">
+
+<div class="col-md-8 footer-logo">
+<a href="https://www.facebook.com/jeets007"><div class="facebook-hover social-slide"></div></a>
+<a href="https://www.youtube.com/channel/UCXlf6u-ApezTViVjHwhzjFw?sub_confirmation=1"><div class="youtube-hover social-slide"></div></a>
+<a href="https://in.pinterest.com/contactjeetsing/"><div class="pinterest-hover social-slide"></div></a>
+<a href="#"><div class="blogger-hover social-slide"></div></a>
+<a href="http://wikitrainings.tumblr.com/"><div class="tumblr-hover social-slide"></div></a>
+<a href="https://plus.google.com/+Wikitrainings"><div class="google-hover social-slide"></div></a>
+<a href="http://in.linkedin.com/in/jeetsingh7"><div class="linkedin-hover social-slide"></div></a>
+<a href="https://twitter.com/jeetsingh_1"><div class="twitter-hover social-slide"></div></a>
+</div>
+<div class="col-md-4 footer-class">
+<p>Â© 2017 Jeet Singh. All Rights Reserved </p>
+</div>
+
+
+<div class="clearfix"> </div>
+</div>
+</div>
+</div>
+
+<!-- Scrolling Images JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/parallax/parallax.min.js"></script>
+<script src="js/parallax/parallax.js"></script>        <!-- End Copyright Section -->
+
+
+<!-- Youtube Video Autoplay + Mude Script -->
+<script>      
+
+// 2. This code loads the IFrame Palayers API code asynchronously.
+      var tag = document.createElement('script');
+      tag.src = "http://www.youtube.com/player_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe>
+  
+      var player;
+      function onYouTubePlayerAPIReady() {
+        player = new YT.Player('player', {
+          playerVars: { 'autoplay': 1, 'controls': 0, 'rel': 0 },
+          videoId: 'lzR2Ai83wOg',
+          events: {
+            'onReady': onPlayerReady}
+        });
+      }
+
+      // 4. Function to Mute
+      function onPlayerReady(event) {
+        event.target.mute();
+      }
+</script>
+    </body>
+
+</html>M“³Y.Ê      Xþƒ’Xþƒ–=¯¢£       :http://www.jeet-singh.com/ necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Mon, 24 Apr 2017 13:04:12 GMT
+Server: Apache
+X-Powered-By: PHP/5.6.20
+Content-Type: text/html; charset=UTF-8
+ charset UTF-8 uncompressed-len 0 predictor::resource-count 63 predictor::http://www.jeet-singh.com/js/jquery-2.1.4.min.js 1,1,1493074834,0 predictor::http://www.geoplugin.net/javascript.gp 1,1,1493074834,0 predictor::https://code.jquery.com/jquery-2.1.1.min.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/js/form.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/bootstrap/css/bootstrap.min.css 1,1,1493074834,0 predictor::http://www.jeet-singh.com/css/font-awesome.min.css 1,1,1493074834,0 predictor::https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css 1,1,1493074834,0 predictor::http://www.jeet-singh.com/css/animate.css 1,1,1493074834,0 predictor::http://jeet-singh.com/css/style3.css 1,1,1493074834,0 predictor::http://fonts.googleapis.com/css?family=Lobster 1,1,1493074834,0 predictor::http://www.jeet-singh.com/assets-2/css/reset.css 1,1,1493074834,0 predictor::https://fonts.googleapis.com/css?family=Abeezee:400|Open+Sans:400,600,700|Source+Sans+Pro:400,600 1,1,1493074834,0 predictor::http://www.jeet-singh.com/css/demo.css 1,1,1493074834,0 predictor::https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/js/accordion.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/js/jquery-2.1.1.min.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/bootstrap/js/bootstrap.min.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/js/jquery.appear.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/js/jqBootstrapValidation.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/js/modernizr.custom.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/js/script.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/salesforce-administrator-training.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/salesforce-developer-training.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/salesforce-administrator-developer-training.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/salesforce-integration-training.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/salesforce-sales-cloud-training.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/salesforce-service-cloud-training.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/salesforce-lightning-training.jpg 1,1,1493074834,0 predictor::https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/js/parallax/parallax.min.js 1,1,1493074834,0 predictor::http://www.jeet-singh.com/js/parallax/parallax.js 1,1,1493074834,0 predictor::http://jeet-singh.com/images/boy.jpg 1,1,1493074834,0 predictor::http://jeet-singh.com/images/girl.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/wipro.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/accenture.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/ey.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/capgemini.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/quinnox.jpg 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/tuli.jpg 1,1,1493074834,0 predictor::http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600 1,1,1493074834,0 predictor::http://fonts.googleapis.com/css?family=Oswald:400,300 1,1,1493074834,0 predictor::http://www.google-analytics.com/analytics.js 1,1,1493074834,0 predictor::https://www.google-analytics.com/analytics.js 1,1,1493074834,0 predictor::https://v2.zopim.com/?4bdDovkOeIg3k8beaVyvpRsxKLJZTB5e 1,1,1493074834,0 predictor::http://jeet-singh.com/images/banner.jpg 1,1,1493074834,0 predictor::http://jeet-singh.com/images/facebook.png 1,1,1493074834,0 predictor::http://jeet-singh.com/images/youtube.png 1,1,1493074834,0 predictor::http://jeet-singh.com/images/pinterest.png 1,1,1493074834,0 predictor::http://jeet-singh.com/images/blogger.png 1,1,1493074834,0 predictor::http://jeet-singh.com/images/tumblr.png 1,1,1493074834,0 predictor::http://jeet-singh.com/images/google.png 1,1,1493074834,0 predictor::http://jeet-singh.com/images/linkedin.png 1,1,1493074834,0 predictor::http://jeet-singh.com/images/twitter.png 1,1,1493074834,0 predictor::https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0 1,1,1493074834,0 predictor::http://jeet-singh.com/fonts/Montserrat-Regular.ttf 1,1,1493074834,0 predictor::https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2 1,1,1493074834,0 predictor::https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSugdm0LZdjqr5-oayXSOefg.woff2 1,1,1493074834,0 predictor::https://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzOgdm0LZdjqr5-oayXSOefg.woff2 1,1,1493074834,0 predictor::http://www.youtube.com/player_api 1,1,1493074834,0 predictor::https://www.google-analytics.com/r/collect?v=1&_v=j51&a=1198574444&t=pageview&_s=1&dl=http%3A%2F%2Fwww.jeet-singh.com%2F&ul=en-us&de=UTF-8&dt=Jeet%20Singh%20-%20Best%20Salesforce%20Trainer%20in%20India%20%7C%20US%20%7C%20UK%20%7C%20Australia%20%7C%20UAE&sd=24-bit&sr=1366x768&vp=1288x671&je=1&fl=24.0%20r0&_u=AEAAAMABI~&jid=931763119&gjid=1750591130&cid=600159770.1493074838&tid=UA-72209114-1&_r=1&z=1330716140 1,1,1493074834,0 predictor::https://www.google-analytics.com/collect?v=1&_v=j51&a=1198574444&t=pageview&_s=2&dl=http%3A%2F%2Fwww.jeet-singh.com%2F&ul=en-us&de=UTF-8&dt=Jeet%20Singh%20-%20Best%20Salesforce%20Trainer%20in%20India%20%7C%20US%20%7C%20UK%20%7C%20Australia%20%7C%20UAE&sd=24-bit&sr=1366x768&vp=1288x671&je=1&fl=24.0%20r0&_u=AEAAAMABI~&jid=&gjid=&cid=600159770.1493074838&tid=UA-72209114-1&z=1129078376 1,1,1493074834,0 predictor::http://www.jeet-singh.com/images/bg5.jpg 1,1,1493074834,0 predictor::https://s.ytimg.com/yts/jsbin/www-widgetapi-vfltcC7GW/www-widgetapi.js 1,1,1493074834,0   ¶‘

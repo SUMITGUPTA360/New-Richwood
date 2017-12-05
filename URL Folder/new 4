@@ -1,0 +1,115 @@
+public class HCMCompanyDetailTriggerHandler{
+  public static void beforeInsertHRCompanyDetail(List<SHCM__CompanyDetail__c> insertedNewListHRCompanyDetail){
+      beforeInsertHRCompanyDetailAction(insertedNewListHRCompanyDetail);
+        
+      } 
+  private Static void beforeInsertHRCompanyDetailAction(List<SHCM__CompanyDetail__c> insertedNewListHRCompanyDetail){
+    
+       Set<Id> setHRCompId = new Set<Id>();
+       Set<Id> setHRTPId = new Set<Id>();
+       Map<String, String> mapObjStr = new Map<String, String>();
+        
+       for(SHCM__CompanyDetail__c objCon : insertedNewListHRCompanyDetail){
+        
+            //if(String.isNotBlank(String.valueOf(objCon.SHCM__companyID__c))){
+            setHRCompId.add(objCon.SHCM__companyID__c);
+            setHRTPId.add(objCon.SHCM__timePeriod__c);
+            String key = objCon.SHCM__companyID__c+'||'+objCon.SHCM__timePeriod__c;
+            
+            if(!mapObjStr.containsKey(key))
+            {
+                mapObjStr.put(key, 'New');
+            }
+            else
+            {
+             objCon.addError('A Company Detail record already exists for this combination of Company Code and Time Period and there can only be one.');
+            }
+           // }   
+        }
+        for(SHCM__CompanyDetail__c objCompDetail : [ Select SHCM__companyID__c, SHCM__timePeriod__c from SHCM__CompanyDetail__c where SHCM__companyID__c IN : setHRCompId OR SHCM__timePeriod__c IN : setHRTPId])
+        {
+            String Key = objCompDetail.SHCM__companyID__c+ '||' +objCompDetail.SHCM__timePeriod__c;
+            if(mapObjStr.containsKey(key))
+            {
+            mapObjStr.remove(key);
+            }
+            mapObjStr.put(key, 'old');
+         }
+       
+        
+        for(SHCM__CompanyDetail__c HRComDetailObj:insertedNewListHRCompanyDetail){
+            
+            String key = HRComDetailObj.SHCM__companyID__c+'||'+HRComDetailObj.SHCM__timePeriod__c;
+            if(mapObjStr.containsKey(key) && mapObjStr.get(key) == 'old')
+            {
+            HRComDetailObj.addError('A Company Detail record already exists for this combination of Company Code and Time Period and there can only be one.');
+            }      
+        }     
+    }
+    
+      public static void onAfterUndelete(List<SHCM__CompanyDetail__c> listOfHRComDetail){
+        onAfterUndeleteAction(listOfHRComDetail);
+    }
+    
+    
+     private static void onAfterUndeleteAction(List<SHCM__CompanyDetail__c> listOfHRComDetail)
+        {
+            system.debug('onAfterUndeleteAction---'+listOfHRComDetail);
+            Set<Id> setHRCDId = new Set<Id>();
+            Set<Id> setHRTPId = new Set<Id>();
+            Set<Id> setCDIds  = new Set<Id>();
+            Map<String,String> mapObjStr = new Map<String,String>();
+            
+            for(SHCM__CompanyDetail__c objCD : listOfHRComDetail)
+            {
+               if(objCD.SHCM__companyID__c != null && objCD.SHCM__timePeriod__c != null){
+                 setHRCDId.add(objCD.SHCM__companyID__c) ;
+                 setHRTPId.add(objCD.SHCM__timePeriod__c);
+                 setCDIds.add(objCD.id);
+                  system.debug('setHRCDId---'+setHRCDId   +setHRTPId);
+               }
+            }
+            if(setHRCDId.size() > 0 && setHRTPId.size() > 0)
+            {
+               system.debug('setHRCDId---'+setHRCDId   +setHRTPId);
+               List<SHCM__CompanyDetail__c> listOfCD = [Select SHCM__companyID__c, SHCM__timePeriod__c from   SHCM__CompanyDetail__c where id NOT IN : setCDIds AND (SHCM__companyID__c IN : setHRCDId OR SHCM__timePeriod__c IN : setHRTPId )];
+               Set<Id> setOfTimePeriodIds = new Set<Id>();  
+               
+                for(SHCM__CompanyDetail__c cntCD : listOfCD){
+                       setOfTimePeriodIds.add(cntCD.SHCM__timePeriod__c);  
+                 }
+                
+                for(SHCM__CompanyDetail__c objCompDetails : listOfCD){
+                  
+                  if(setOfTimePeriodIds.contains(objCompDetails.SHCM__timePeriod__c))
+                  {
+                      objCompDetails.addError('A Sales Plan for this Contact HCM already exists for the selected Year Time Period.') ;
+                  }
+                }
+            
+            }    
+        }    
+		
+	 public static void beforeUpdateHRCompanyDetail(Map<Id,SHCM__CompanyDetail__c> mapOfNewValues,Map<Id,SHCM__CompanyDetail__c> mapOfOldValues ){
+       	 	beforeUpdateHRCompanyDetailAction(mapOfNewValues,mapOfOldValues);
+      }
+    
+     private Static void beforeUpdateHRCompanyDetailAction(Map<Id,SHCM__CompanyDetail__c> mapOfNewValues,Map<Id,SHCM__CompanyDetail__c> mapOfOldValues){
+        
+		List<SHCM__CompanyDetail__c> lstCompanyDetail = new List<SHCM__CompanyDetail__c>();
+        for(SHCM__CompanyDetail__c objCon : newMapOfHRCompBudget.values()){
+       
+            if(mapOfNewValues.get(objCon.Id).SHCM__companyID__c != mapOfOldValues.get(objCon.Id).SHCM__companyID__c 
+                   || mapOfNewValues.get(objCon.Id).SHCM__timePeriod__c != mapOfOldValues.get(objCon.Id).SHCM__timePeriod__c){
+                   lstCompanyDetail.add(objCon);
+              } 
+	      }  
+			  
+			if(lstCompanyDetail.size()> 0){
+			   beforeInsertHRCompanyDetailAction(lstCompanyDetail);
+			
+			}  
+			  		     
+       }
+    
+}

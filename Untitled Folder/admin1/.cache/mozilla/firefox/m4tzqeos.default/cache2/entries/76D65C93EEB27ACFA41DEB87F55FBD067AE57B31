@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="turbolinks-cache-control" content="no-cache">
+  <div data-react-class="StaticHTML" data-react-props="{&quot;html&quot;:&quot;\r\n\u003c!--\r\nCHECK IF WE NEED PICASSO RUNTIME\r\n\u003cscript type=&#39;text/javascript&#39; src=&#39;/sfsites/assets/Scripts/jquery/jquery.js?r=1.201607201918240421&#39;\u003e\r\n\u003c/script\u003e\r\n\u003cscript type=&#39;text/javascript&#39; src=&#39;/sfsites/assets/Scripts/Runtime/PicassoRuntime.js?r=1.201607201918240421&#39;\u003e\r\n\u003c/script\u003e\r\n--\u003e\r\n\u003c!--\u003cdfc-head\u003e--\u003e\r\n\r\n  \u003cmeta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1, maximum-scale=1\&quot;\u003e\r\n\r\n\u003clink rel=\&quot;icon\&quot; href=\&quot;/resources2/favicon.ico\&quot; type=\&quot;image/x-icon\&quot;\u003e\r\n\u003clink rel=\&quot;shortcut icon\&quot; href=\&quot;/resources2/favicon.ico\&quot; type=\&quot;image/x-icon\&quot;\u003e\r\n  \u003cmeta property=\&quot;og:image\&quot; content=\&quot;https://res.cloudinary.com/hy4kyit2a/image/upload/og-image.jpg\&quot; /\u003e\r\n\u003clink rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; href=\&quot;/resources2/stylesheets/dsc-default-font.css?sv=18\&quot;/\u003e\r\n\r\n  \u003clink href=\&quot;//res.cloudinary.com/hy4kyit2a/image/upload/v1428517247/iphone_3_j0mhil.png\&quot; rel=\&quot;apple-touch-icon-precomposed\&quot; type=\&quot;image/png\&quot; /\u003e\r\n  \u003clink href=\&quot;//res.cloudinary.com/hy4kyit2a/image/upload/v1428517247/iphone_3_j0mhil.png\&quot; rel=\&quot;apple-touch-icon-precomposed\&quot; sizes=\&quot;72x72\&quot; type=\&quot;image/png\&quot; /\u003e\r\n  \u003clink href=\&quot;//res.cloudinary.com/hy4kyit2a/image/upload/v1428517258/iphone-retina_ogf4ll.png\&quot; rel=\&quot;apple-touch-icon-precomposed\&quot; sizes=\&quot;114x114\&quot; type=\&quot;image/png\&quot; /\u003e\r\n  \u003clink href=\&quot;//res.cloudinary.com/hy4kyit2a/image/upload/v1428517265/ipad-retina_h8t1cu.png\&quot; rel=\&quot;apple-touch-icon-precomposed\&quot; sizes=\&quot;144x144\&quot; type=\&quot;image/png\&quot; /\u003e\r\n\r\n\r\n\t\u003clink href=&#39;/resource/stylesheets/holygrail.min.css&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;/\u003e\r\n\t\u003clink rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; href=\&quot;/resources2/stylesheets/dsc-default-font.css?sv=18\&quot;/\u003e\r\n\u003cscript type=&#39;text/javascript&#39; src=&#39;/resource/javascripts/holygrail.min.js&#39;\u003e\u003c/script\u003e\r\n\r\n\u003cstyle\u003e\r\n\t\r\n\u003c/style\u003e\r\n\r\n\u003c!--\u003c/dfc-head\u003e--\u003e\r\n\u003cscript\u003e\r\n    // CHECK IF WE NEDD THIS VARIABLE\r\n    var isSdcPage = false;\r\n    //isSdcPage = (typeof picassoRuntime !== &#39;undefined&#39;);\r\n    \r\n    var lang = getLang();\r\n    \r\n    function readCookie(name) {\r\n        return (name = new RegExp(&#39;(?:^|;\\\\s*)&#39; + (&#39;&#39; + name).replace(/[-[\\]{}()*+?.,\\\\^$|#\\s]/g, &#39;\\\\$\u0026&#39;) + &#39;=([^;]*)&#39;).exec(document.cookie)) \u0026\u0026 name[1];\r\n    }\r\n    if (readCookie(&#39;apex__dfc_locale&#39;) === null) {\r\n        document.cookie = &#39;apex__dfc_locale=&#39; + lang.code + &#39;;path=/;&#39;;\r\n        window.location.reload()\r\n    }\r\n    // check if we need this function\r\n    if (lang.code !== readCookie(&#39;apex__dfc_locale&#39;)) {\r\n        document.cookie = &#39;apex__dfc_locale=&#39; + lang.code + &#39;;path=/;&#39;;\r\n    }\r\n\u003c/script\u003e\r\n\u003cscript type=\&quot;text/javascript\&quot; src=\&quot;https://www.google.com/jsapi\&quot;\u003e\u003c/script\u003e\r\n\u003cmeta name=\&quot;Description\&quot; content=\&quot;#1 destination for learning to build mobile \u0026amp; enterprise applications in the cloud with the Salesforce1 Platform, Force.com, Heroku and ExactTarget Fuel\&quot;\u003e\r\n\u003cmeta name=\&quot;Keywords\&quot; content=\&quot;force.com, visualforce, apex, salesforce1 platform, mobile, enterprise, applications, developer, documentation, forums, tutorials\&quot;\u003e\r\n\u003clink rel=\&quot;canonical\&quot; href=\&quot;https://developer.salesforce.com\&quot; /\u003e\r\n\u003cscript type=\&quot;text/javascript\&quot;\u003e\r\n    $(function() {\r\n        $(&#39;.sdn-aside-content.quick-links li&#39;).dotdotdot({\r\n            watch: &#39;window&#39;\r\n        });\r\n    });\r\n\u003c/script\u003e\r\n\r\n\u003clink href=\&quot;/resource/stylesheets/home.min.css\&quot; rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot;\u003e\r\n\u003cscript type=\&quot;text/javascript\&quot; src=\&quot;/resource/javascripts/homeFeeds.min.js\&quot;\u003e\u003c/script\u003e\r\n\u003cscript type=\&quot;text/javascript\&quot; src=\&quot;/resource/javascripts/jquery.dotdotdot.min.js\&quot;\u003e\u003c/script\u003e\r\n\r\n\u003cstyle\u003e\r\n\r\n.sliderContainer .in-slider-content-block a h2 {\r\n    font-family: DSCDefaultFontLight !important;\r\n}\r\n\u003c/style\u003e&quot;}"><div data-reactroot="" data-reactid="1" data-react-checksum="-1039627738">
+<!--
+CHECK IF WE NEED PICASSO RUNTIME
+<script type='text/javascript' src='/sfsites/assets/Scripts/jquery/jquery.js?r=1.201607201918240421'>
+</script>
+<script type='text/javascript' src='/sfsites/assets/Scripts/Runtime/PicassoRuntime.js?r=1.201607201918240421'>
+</script>
+-->
+<!--<dfc-head>-->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="icon" href="/resources2/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/resources2/favicon.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/hy4kyit2a/image/upload/og-image.jpg" />
+<link rel="stylesheet" type="text/css" href="/resources2/stylesheets/dsc-default-font.css?sv=18"/>
+
+  <link href="//res.cloudinary.com/hy4kyit2a/image/upload/v1428517247/iphone_3_j0mhil.png" rel="apple-touch-icon-precomposed" type="image/png" />
+  <link href="//res.cloudinary.com/hy4kyit2a/image/upload/v1428517247/iphone_3_j0mhil.png" rel="apple-touch-icon-precomposed" sizes="72x72" type="image/png" />
+  <link href="//res.cloudinary.com/hy4kyit2a/image/upload/v1428517258/iphone-retina_ogf4ll.png" rel="apple-touch-icon-precomposed" sizes="114x114" type="image/png" />
+  <link href="//res.cloudinary.com/hy4kyit2a/image/upload/v1428517265/ipad-retina_h8t1cu.png" rel="apple-touch-icon-precomposed" sizes="144x144" type="image/png" />
+
+
+	<link href='/resource/stylesheets/holygrail.min.css' rel='stylesheet' type='text/css'/>
+	<link rel="stylesheet" type="text/css" href="/resources2/stylesheets/dsc-default-font.css?sv=18"/>
+<script type='text/javascript' src='/resource/javascripts/holygrail.min.js'></script>
+
+<style>
+	
+</style>
+
+<!--</dfc-head>-->
+<script>
+    // CHECK IF WE NEDD THIS VARIABLE
+    var isSdcPage = false;
+    //isSdcPage = (typeof picassoRuntime !== 'undefined');
+    
+    var lang = getLang();
+    
+    function readCookie(name) {
+        return (name = new RegExp('(?:^|;\\s*)' + ('' + name).replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '=([^;]*)').exec(document.cookie)) && name[1];
+    }
+    if (readCookie('apex__dfc_locale') === null) {
+        document.cookie = 'apex__dfc_locale=' + lang.code + ';path=/;';
+        window.location.reload()
+    }
+    // check if we need this function
+    if (lang.code !== readCookie('apex__dfc_locale')) {
+        document.cookie = 'apex__dfc_locale=' + lang.code + ';path=/;';
+    }
+</script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<meta name="Description" content="#1 destination for learning to build mobile &amp; enterprise applications in the cloud with the Salesforce1 Platform, Force.com, Heroku and ExactTarget Fuel">
+<meta name="Keywords" content="force.com, visualforce, apex, salesforce1 platform, mobile, enterprise, applications, developer, documentation, forums, tutorials">
+<link rel="canonical" href="https://developer.salesforce.com" />
+<script type="text/javascript">
+    $(function() {
+        $('.sdn-aside-content.quick-links li').dotdotdot({
+            watch: 'window'
+        });
+    });
+</script>
+
+<link href="/resource/stylesheets/home.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/resource/javascripts/homeFeeds.min.js"></script>
+<script type="text/javascript" src="/resource/javascripts/jquery.dotdotdot.min.js"></script>
+
+<style>
+
+.sliderContainer .in-slider-content-block a h2 {
+    font-family: DSCDefaultFontLight !important;
+}
+</style></div></div>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="LO0PzeK3HWSpvWAY+o1oYjSuhStWoZIKFRoainnf0/pdFAjFw+99TOsir8kP64UyWTOH9Q1KCJgax8rg8JxiVQ==" />
+<meta name="action-cable-url" content="/cable" />
+<link rel="stylesheet" media="all" href="https://developer.salesforce.com/cms-assets/application.css" digest="false" />
+<script src="https://developer.salesforce.com/cms-assets/application.js" digest="false"></script>
+  <title>404</title>
+  <div data-react-class="StaticHTML" data-react-props="{&quot;html&quot;:&quot;\u003cstyle\u003e\r\n  /*HERE 2...*/\r\n  /* FIX floating Feedback tag (This will need to be fixed in all pages that use it)  */\r\n  #oo_tab_1.oo_tab_right_1.small {\r\n    box-sizing: content-box;\r\n  }\r\n  \r\n  header .navbar .brand {\r\n    margin: 7px 0px 8px 0px;\r\n  }\r\n  \r\n  header .navbar .nav \u003e li \u003e a{\r\n    padding-bottom: 14px;\r\n  }\r\n  \r\n  header .nav.primary-nav {\r\n    margin-top: 23px;\r\n  }\r\n  \r\n  #user-info-container a {\r\n    font-size: 15px;\r\n    color: #048ec6;\r\n  }\r\n  \r\n  #user-info-text-container {\r\n    padding-left: 74px;\r\n    line-height: 20px;\r\n  }\r\n  #user-info-username a, #user-info-name a {\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    max-width: 180px;\r\n    display: inline-block;\r\n  }\r\n  \r\n  .spanButton{\r\n    margin-top: 16px;\r\n  }\r\n  \r\n  .social-search table.gsc-search-box {\r\n    float: none;\r\n    margin-top: 0px;\r\n  }\r\n  \r\n  .social-search .search-query, .social-search input.gsc-input {\r\n    margin: 0px 0 0 0;\r\n  }\r\n  \r\n  .navbar-inner .btn{\r\n    height: 28px;\r\n  }\r\n  \r\n  .navbar-inner .btn.btn-success {\r\n    height: 28px !important;\r\n    line-height: 14px;\r\n  }\r\n  \r\n  .btn-account img{\r\n    width: 28px;\r\n  }\r\n  \r\n  .homeHero ul{\r\n    margin: 0;\r\n    list-style: none;\r\n  }\r\n  \r\n  .slds-container--x-large {\r\n    max-width: 1170px;\r\n  }\r\n  \r\n  #gsc-i-id2::-moz-placeholder {\r\n    color: #000000;\r\n  }\r\n  \r\n  /*HERE*/\r\n  .social-search .search-query, .social-search input.gsc-input {\r\n    padding: 5px 27px 5px 10px;\r\n  }\r\n  \r\n  /* remove slds-col--padded from ext */\r\n  .ext-hero__navbar.slds-col--padded {\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n  }\r\n  \r\n  .hero-container {\r\n    background-color: #152134;\r\n    padding-bottom: 1px;\r\n    margin-bottom: 2.5rem !important;\r\n  }\r\n  \r\n  .slds-m-top--x-large{\r\n    margin-top: 2.2rem;\r\n  }\r\n  \r\n  .homeHero {\r\n    border-bottom: 4px solid #0f9edd;\r\n  }\r\n  \r\n  .ext-hero__slider-container {\r\n    font-family: \&quot;Salesforce Sans\&quot;, Arial, sans-serif!important;\r\n    height: 100%;\r\n  }\r\n  \r\n  .ext-hero__slider-container \u003e li{\r\n    height: 100%;\r\n  }\r\n  \r\n  .ext-hero__tab{\r\n    padding: 0.38rem;\r\n  }\r\n  \r\n  .homeHero .slds-m-top--medium {\r\n    margin-top: 0.8rem;\r\n  }\r\n  \r\n  .ext-hero__tab.--active::after {\r\n    margin-top: -0.6rem !important;\r\n    border-right-width: 0.7rem !important;\r\n    border-right-width: 14px !important;\r\n  }\r\n  \r\n  .ext-hero__tab-text {\r\n    color: #eee;\r\n  }\r\n  \r\n  .ext-hero__slider-container .slds-size--1-of-3:last-child {\r\n    padding-left: 12px;\r\n  }\r\n  \r\n  .ext-hero__content-title {\r\n    font-size: 30px;\r\n    font-family: ProximaNovaLight !important;\r\n    color: #fff;\r\n    margin-top: 10px;\r\n    margin-bottom: 11px;\r\n    line-height: 30px;\r\n  }\r\n  \r\n  .ext-hero__content-body {\r\n    font-size: 20px;\r\n    font-family: &#39;DSCDefaultFontRegular&#39; !important;\r\n    color: #fff;\r\n    line-height: 20px;\r\n  }\r\n  \r\n  .ext-hero__button{\r\n    background: #22689f;\r\n    background: -moz-linear-gradient(top, #22689f 0%, #154469 100%);\r\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#22689f), color-stop(100%,#154469));\r\n    background: -webkit-linear-gradient(top, #22689f 0%,#154469 100%);\r\n    background: -o-linear-gradient(top, #22689f 0%,#154469 100%);\r\n    background: -ms-linear-gradient(top, #22689f 0%,#154469 100%);\r\n    background: linear-gradient(to bottom, #22689f 0%,#154469 100%);\r\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&#39;#22689f&#39;, endColorstr=&#39;#154469&#39;,GradientType=0 );\r\n    padding: 14px 36px;\r\n    -webkit-border-radius: 4px;\r\n    -moz-border-radius: 4px;\r\n    border-radius: 4px;\r\n    font-family: &#39;DSCDefaultFontRegular&#39;;\r\n    font-size: 16px;\r\n    line-height: 12px;\r\n    border: 0px;\r\n    border-left: 1px solid #1a69a3;\r\n    border-bottom: 1px solid #17497e;\r\n    margin-top: 0px;\r\n    color: #ffffff !important;\r\n  }\r\n  \r\n  .navbar-inner a.btn{\r\n    height: 25px !important;\r\n  }\r\n  input.gsc-input{\r\n    height: 28px !important;\r\n    width: 150px !important;\r\n    box-sizing: border-box !important;\r\n  }\r\n  \r\n  .ext-hero__tab-text{\r\n    color: #ffffff !important;\r\n    font-size: 14px !important;\r\n    font-family: DSCDefaultFontRegular;\r\n    font-weight: 700;\r\n  }\r\n  \r\n  .ext-hero__navbar{\r\n    width: 250px;\r\n    margin-top: -320px;\r\n    margin-right: -12px;\r\n    z-index: 1;\r\n  }\r\n  \r\n  @media( max-width: 1280px ){\r\n    .ext-hero__slider-container \u003e li \u003e img {\r\n      width: 100%;\r\n      height: 100% !important;\r\n    }\r\n  }\r\n  \r\n  @media( max-width: 1199px ){\r\n    .slds-container--x-large {\r\n      max-width: 940px;\r\n    }\r\n  }\r\n  \r\n  @media screen and (max-device-width: 568px), screen and (max-width: 979px){\r\n    \r\n    .slds-container--x-large {\r\n      max-width: 724px;\r\n    }\r\n    \r\n    .ext-hero__slider-container .slds-grid{\r\n      padding-right: 0 !important;\r\n      padding-left: 0 !important;\r\n      height: auto !important;\r\n    }\r\n    \r\n    .ext-hero__slider-container \u003e li \u003e img {\r\n      width: auto;\r\n      height: 100% !important;\r\n      max-width: inherit;\r\n    }\r\n    \r\n    .ext-hero__slider-container .slds-grid \u003e div {\r\n      width: 100%;\r\n      margin-left: 0px;\r\n      margin-right: 0px;\r\n      padding-left: 0 !important;\r\n      float: none;\r\n    }\r\n    \r\n    .ext-hero__slider-container .slds-grid \u003e .slds-size--2-of-4:first-child {\r\n      display: none;\r\n    }\r\n    \r\n    .ext-hero__slider-container .slds-grid \u003e .slds-size--1-of-3:first-child {\r\n      display: none;\r\n    }\r\n    \r\n    .homeHero .slds-is-relative \u003e .slds-container--x-large.slds-container--center{\r\n      width: 100%;\r\n      max-width: 100%;\r\n      padding: 0;\r\n    }\r\n    .ext-hero__nav-container-mobile {\r\n      background-color: rgba(200, 200, 200, 0.5);\r\n    }\r\n    .ext-hero__navbar ul {\r\n      margin: 0 auto;\r\n      width: auto;\r\n      padding: 15px 0 12px 0;\r\n      display: table;\r\n    }\r\n    .ext-hero__slider-container{\r\n      position: relative;\r\n      height: 100%;\r\n    }\r\n    .ext-hero__navbar {\r\n      margin-top: -80px !important;\r\n      margin-right: 0;\r\n      position: relative;\r\n      top: inherit;\r\n      float: none;\r\n      width: 100%;\r\n      background-color: rgba(200, 200, 200, 0.5);\r\n    }\r\n    .ext-hero__navbar .ext-hero__tab-text{\r\n      display: none;\r\n    }\r\n    .ext-hero__navbar.slds-medium-size--1-of-5{\r\n      width: 100%;\r\n    }\r\n    .ext-hero__navbar ul li {\r\n      /*\r\n      background-color: rgba(0, 0, 0, 0.3) !important;\r\n      border: 1px solid #d7dde2;\r\n      */\r\n      \r\n      width: 50px !important;\r\n      height: 50px !important;\r\n\r\n      display: inline-block;\r\n      margin-left: 5px;\r\n      padding: 0px;\r\n      margin-bottom: 0;\r\n      \r\n    }\r\n    .ext-hero__tab{\r\n      background: transparent;\r\n      width: 50px;\r\n      height: 50px;\r\n      padding: 8px;\r\n      margin-left: 5px;\r\n    }\r\n    .ext-hero__tab:first-child{\r\n      margin-left: 0;\r\n    }\r\n    .ext-hero__tab.--active{\r\n      background-color: rgba(0,0,0,0.3);\r\n      border: 1px solid #d7dde2;\r\n      border-radius: 3px;\r\n      outline: none;\r\n      position: relative;\r\n    }\r\n    \r\n    .ext-hero__tab.--active:before {\r\n      width: 0;\r\n      height: 0;\r\n      border-style: solid;\r\n      border-width: 0 5px 6px 5px;\r\n      border-color: transparent transparent #ffffff transparent;\r\n      background: transparent;\r\n      top: -12px;\r\n      left: 22px;\r\n      margin-left: 0;\r\n      -ms-transform: rotate(0deg);\r\n      -webkit-transform: rotate(0deg);\r\n      transform: rotate(0deg);\r\n      display: block;\r\n    }\r\n    \r\n    .ext-hero__tab.--active:after {\r\n      display: none;\r\n    }\r\n    .ext-hero__tab-icon{\r\n      margin-right: 0;\r\n    }\r\n    .ext-hero__tab-icon img{\r\n      width: 100%;\r\n      height: 100%;\r\n    }\r\n    .ext-hero__content-title{\r\n      text-align: center;\r\n    }\r\n    .ext-hero__headline{\r\n      text-align: center;\r\n    }\r\n    .ext-hero__button {\r\n      margin: 0 auto;\r\n      display: table;\r\n    }\r\n    .ext-hero__slider-container .slds-container--x-large {\r\n      display: block;\r\n    }\r\n    .ext-hero__button {\r\n      background: #fefefe;\r\n      background: -moz-linear-gradient(top, #fefefe 0%, #d4d4d4 100%);\r\n      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(100%,#d4d4d4));\r\n      background: -webkit-linear-gradient(top, #fefefe 0%,#d4d4d4 100%);\r\n      background: -o-linear-gradient(top, #fefefe 0%,#d4d4d4 100%);\r\n      background: -ms-linear-gradient(top, #fefefe 0%,#d4d4d4 100%);\r\n      background: linear-gradient(to bottom, #fefefe 0%,#d4d4d4 100%);\r\n      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&#39;#fefefe&#39;, endColorstr=&#39;#d4d4d4&#39;,GradientType=0 );\r\n      padding: 14px 36px;\r\n      -webkit-border-radius: 2px;\r\n      -moz-border-radius: 2px;\r\n      border-radius: 2px;\r\n      color: #06223a !important;\r\n      font-family: ProximaNovaSemiBold;\r\n      border: 0 none;\r\n    }\r\n    \r\n    .mobileHeaderContainer{\r\n      box-sizing: content-box;\r\n    }\r\n  }\r\n  \r\n  @media( max-width: 767px ){\r\n    .ext-hero__slider-container .slds-grid {\r\n      padding-right: 20px !important;\r\n      padding-left: 20px !important;\r\n      height: auto !important;\r\n    }\r\n  }\r\n  footer{\r\n    clear: both;\r\n  }\r\n\u003c/style\u003e&quot;}"><div data-reactroot="" data-reactid="1" data-react-checksum="1379689419"><style>
+  /*HERE 2...*/
+  /* FIX floating Feedback tag (This will need to be fixed in all pages that use it)  */
+  #oo_tab_1.oo_tab_right_1.small {
+    box-sizing: content-box;
+  }
+  
+  header .navbar .brand {
+    margin: 7px 0px 8px 0px;
+  }
+  
+  header .navbar .nav > li > a{
+    padding-bottom: 14px;
+  }
+  
+  header .nav.primary-nav {
+    margin-top: 23px;
+  }
+  
+  #user-info-container a {
+    font-size: 15px;
+    color: #048ec6;
+  }
+  
+  #user-info-text-container {
+    padding-left: 74px;
+    line-height: 20px;
+  }
+  #user-info-username a, #user-info-name a {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 180px;
+    display: inline-block;
+  }
+  
+  .spanButton{
+    margin-top: 16px;
+  }
+  
+  .social-search table.gsc-search-box {
+    float: none;
+    margin-top: 0px;
+  }
+  
+  .social-search .search-query, .social-search input.gsc-input {
+    margin: 0px 0 0 0;
+  }
+  
+  .navbar-inner .btn{
+    height: 28px;
+  }
+  
+  .navbar-inner .btn.btn-success {
+    height: 28px !important;
+    line-height: 14px;
+  }
+  
+  .btn-account img{
+    width: 28px;
+  }
+  
+  .homeHero ul{
+    margin: 0;
+    list-style: none;
+  }
+  
+  .slds-container--x-large {
+    max-width: 1170px;
+  }
+  
+  #gsc-i-id2::-moz-placeholder {
+    color: #000000;
+  }
+  
+  /*HERE*/
+  .social-search .search-query, .social-search input.gsc-input {
+    padding: 5px 27px 5px 10px;
+  }
+  
+  /* remove slds-col--padded from ext */
+  .ext-hero__navbar.slds-col--padded {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .hero-container {
+    background-color: #152134;
+    padding-bottom: 1px;
+    margin-bottom: 2.5rem !important;
+  }
+  
+  .slds-m-top--x-large{
+    margin-top: 2.2rem;
+  }
+  
+  .homeHero {
+    border-bottom: 4px solid #0f9edd;
+  }
+  
+  .ext-hero__slider-container {
+    font-family: "Salesforce Sans", Arial, sans-serif!important;
+    height: 100%;
+  }
+  
+  .ext-hero__slider-container > li{
+    height: 100%;
+  }
+  
+  .ext-hero__tab{
+    padding: 0.38rem;
+  }
+  
+  .homeHero .slds-m-top--medium {
+    margin-top: 0.8rem;
+  }
+  
+  .ext-hero__tab.--active::after {
+    margin-top: -0.6rem !important;
+    border-right-width: 0.7rem !important;
+    border-right-width: 14px !important;
+  }
+  
+  .ext-hero__tab-text {
+    color: #eee;
+  }
+  
+  .ext-hero__slider-container .slds-size--1-of-3:last-child {
+    padding-left: 12px;
+  }
+  
+  .ext-hero__content-title {
+    font-size: 30px;
+    font-family: ProximaNovaLight !important;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 11px;
+    line-height: 30px;
+  }
+  
+  .ext-hero__content-body {
+    font-size: 20px;
+    font-family: 'DSCDefaultFontRegular' !important;
+    color: #fff;
+    line-height: 20px;
+  }
+  
+  .ext-hero__button{
+    background: #22689f;
+    background: -moz-linear-gradient(top, #22689f 0%, #154469 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#22689f), color-stop(100%,#154469));
+    background: -webkit-linear-gradient(top, #22689f 0%,#154469 100%);
+    background: -o-linear-gradient(top, #22689f 0%,#154469 100%);
+    background: -ms-linear-gradient(top, #22689f 0%,#154469 100%);
+    background: linear-gradient(to bottom, #22689f 0%,#154469 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#22689f', endColorstr='#154469',GradientType=0 );
+    padding: 14px 36px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-family: 'DSCDefaultFontRegular';
+    font-size: 16px;
+    line-height: 12px;
+    border: 0px;
+    border-left: 1px solid #1a69a3;
+    border-bottom: 1px solid #17497e;
+    margin-top: 0px;
+    color: #ffffff !important;
+  }
+  
+  .navbar-inner a.btn{
+    height: 25px !important;
+  }
+  input.gsc-input{
+    height: 28px !important;
+    width: 150px !important;
+    box-sizing: border-box !important;
+  }
+  
+  .ext-hero__tab-text{
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-family: DSCDefaultFontRegular;
+    font-weight: 700;
+  }
+  
+  .ext-hero__navbar{
+    width: 250px;
+    margin-top: -320px;
+    margin-right: -12px;
+    z-index: 1;
+  }
+  
+  @media( max-width: 1280px ){
+    .ext-hero__slider-container > li > img {
+      width: 100%;
+      height: 100% !important;
+    }
+  }
+  
+  @media( max-width: 1199px ){
+    .slds-container--x-large {
+      max-width: 940px;
+    }
+  }
+  
+  @media screen and (max-device-width: 568px), screen and (max-width: 979px){
+    
+    .slds-container--x-large {
+      max-width: 724px;
+    }
+    
+    .ext-hero__slider-container .slds-grid{
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+      height: auto !important;
+    }
+    
+    .ext-hero__slider-container > li > img {
+      width: auto;
+      height: 100% !important;
+      max-width: inherit;
+    }
+    
+    .ext-hero__slider-container .slds-grid > div {
+      width: 100%;
+      margin-left: 0px;
+      margin-right: 0px;
+      padding-left: 0 !important;
+      float: none;
+    }
+    
+    .ext-hero__slider-container .slds-grid > .slds-size--2-of-4:first-child {
+      display: none;
+    }
+    
+    .ext-hero__slider-container .slds-grid > .slds-size--1-of-3:first-child {
+      display: none;
+    }
+    
+    .homeHero .slds-is-relative > .slds-container--x-large.slds-container--center{
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+    }
+    .ext-hero__nav-container-mobile {
+      background-color: rgba(200, 200, 200, 0.5);
+    }
+    .ext-hero__navbar ul {
+      margin: 0 auto;
+      width: auto;
+      padding: 15px 0 12px 0;
+      display: table;
+    }
+    .ext-hero__slider-container{
+      position: relative;
+      height: 100%;
+    }
+    .ext-hero__navbar {
+      margin-top: -80px !important;
+      margin-right: 0;
+      position: relative;
+      top: inherit;
+      float: none;
+      width: 100%;
+      background-color: rgba(200, 200, 200, 0.5);
+    }
+    .ext-hero__navbar .ext-hero__tab-text{
+      display: none;
+    }
+    .ext-hero__navbar.slds-medium-size--1-of-5{
+      width: 100%;
+    }
+    .ext-hero__navbar ul li {
+      /*
+      background-color: rgba(0, 0, 0, 0.3) !important;
+      border: 1px solid #d7dde2;
+      */
+      
+      width: 50px !important;
+      height: 50px !important;
+
+      display: inline-block;
+      margin-left: 5px;
+      padding: 0px;
+      margin-bottom: 0;
+      
+    }
+    .ext-hero__tab{
+      background: transparent;
+      width: 50px;
+      height: 50px;
+      padding: 8px;
+      margin-left: 5px;
+    }
+    .ext-hero__tab:first-child{
+      margin-left: 0;
+    }
+    .ext-hero__tab.--active{
+      background-color: rgba(0,0,0,0.3);
+      border: 1px solid #d7dde2;
+      border-radius: 3px;
+      outline: none;
+      position: relative;
+    }
+    
+    .ext-hero__tab.--active:before {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 5px 6px 5px;
+      border-color: transparent transparent #ffffff transparent;
+      background: transparent;
+      top: -12px;
+      left: 22px;
+      margin-left: 0;
+      -ms-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+      display: block;
+    }
+    
+    .ext-hero__tab.--active:after {
+      display: none;
+    }
+    .ext-hero__tab-icon{
+      margin-right: 0;
+    }
+    .ext-hero__tab-icon img{
+      width: 100%;
+      height: 100%;
+    }
+    .ext-hero__content-title{
+      text-align: center;
+    }
+    .ext-hero__headline{
+      text-align: center;
+    }
+    .ext-hero__button {
+      margin: 0 auto;
+      display: table;
+    }
+    .ext-hero__slider-container .slds-container--x-large {
+      display: block;
+    }
+    .ext-hero__button {
+      background: #fefefe;
+      background: -moz-linear-gradient(top, #fefefe 0%, #d4d4d4 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(100%,#d4d4d4));
+      background: -webkit-linear-gradient(top, #fefefe 0%,#d4d4d4 100%);
+      background: -o-linear-gradient(top, #fefefe 0%,#d4d4d4 100%);
+      background: -ms-linear-gradient(top, #fefefe 0%,#d4d4d4 100%);
+      background: linear-gradient(to bottom, #fefefe 0%,#d4d4d4 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#d4d4d4',GradientType=0 );
+      padding: 14px 36px;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      color: #06223a !important;
+      font-family: ProximaNovaSemiBold;
+      border: 0 none;
+    }
+    
+    .mobileHeaderContainer{
+      box-sizing: content-box;
+    }
+  }
+  
+  @media( max-width: 767px ){
+    .ext-hero__slider-container .slds-grid {
+      padding-right: 20px !important;
+      padding-left: 20px !important;
+      height: auto !important;
+    }
+  }
+  footer{
+    clear: both;
+  }
+</style></div></div>
+  <link href="//developer.salesforce.com/resource/stylesheets/generic-error.min.css" rel="stylesheet" type="text/css">	
+  <style>
+    body {
+        color: #333333;
+        font-family: DFCDefaultFontRegular,ProximaNovaRegular,Lucida Grande,Lucida Sans Unicode,Arial,sans-serif;
+        font-size: 15px;
+        line-height: 17px;
+    }
+    #error-title{
+      font-weight: bold;
+    }
+    h2, h2 * {
+      font-size: 24px;
+      line-height: 26px;
+      font-weight: normal;
+    }
+    .return-button {
+      width: 290px;
+      padding: 4px 0;
+    }
+    #navigation-bar{
+      display: none;
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#sdn-docs-scroll-spy-target" itemid="body" data-turbolinks="false">
+  <div data-react-class="StaticHTML" data-react-props="{&quot;html&quot;:&quot;\u003cdiv id=\&quot;mobileSearchContainer\&quot;\u003e\u003cdiv class=\&quot;searchBar\&quot;\u003e\u003cdiv id=\&quot;newSearchContainer\&quot; data-placeholder=\&quot;Search\&quot;\u003e\u003cdiv id=\&quot;___gcse_0\&quot;\u003e\u003cdiv class=\&quot;gsc-control-searchbox-only gsc-control-searchbox-only-en\&quot; dir=\&quot;ltr\&quot;\u003e\u003cform class=\&quot;gsc-search-box\&quot; accept-charset=\&quot;utf-8\&quot;\u003e\u003ctable cellspacing=\&quot;0\&quot; cellpadding=\&quot;0\&quot; class=\&quot;gsc-search-box\&quot;\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd class=\&quot;gsc-input\&quot;\u003e\u003cinput autocomplete=\&quot;off\&quot; type=\&quot;text\&quot; size=\&quot;10\&quot; class=\&quot; gsc-input\&quot; name=\&quot;search\&quot; title=\&quot;search\&quot; id=\&quot;gsc-i-id1\&quot; dir=\&quot;ltr\&quot; spellcheck=\&quot;false\&quot; style=\&quot;outline: none;\&quot; placeholder=\&quot;Search\&quot;\u003e\u003cinput type=\&quot;hidden\&quot; name=\&quot;bgresponse\&quot; id=\&quot;bgresponse\&quot;\u003e\u003c/td\u003e\u003cdiv class=\&quot;clear-icon\&quot;\u003e\u003c/div\u003e\u003ctd class=\&quot;gsc-search-button\&quot;\u003e\u003cinput type=\&quot;button\&quot; value=\&quot;Search\&quot; class=\&quot;gsc-search-button\&quot; title=\&quot;search\&quot;\u003e\u003c/td\u003e\u003ctd class=\&quot;gsc-clear-button\&quot;\u003e\u003cdiv class=\&quot;gsc-clear-button\&quot; title=\&quot;clear results\&quot;\u003e\u0026nbsp;\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003ctable cellspacing=\&quot;0\&quot; cellpadding=\&quot;0\&quot; class=\&quot;gsc-branding\&quot;\u003e\u003ctbody\u003e\u003ctr style=\&quot;display: none;\&quot;\u003e\u003ctd class=\&quot;gsc-branding-user-defined\&quot;\u003e\u003c/td\u003e\u003ctd class=\&quot;gsc-branding-text\&quot;\u003e\u003cdiv class=\&quot;gsc-branding-text\&quot;\u003epowered by\u003c/div\u003e\u003c/td\u003e\u003ctd class=\&quot;gsc-branding-img\&quot;\u003e\u003cimg src=\&quot;https://www.google.com/uds/css/small-logo.png\&quot; class=\&quot;gsc-branding-img\&quot;\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/form\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\r\n\u003cdiv id=\&quot;mobileSearchContainerOverlay\&quot;\u003e\u003c/div\u003e&quot;}"><div data-reactroot="" data-reactid="1" data-react-checksum="-1430596149"><div id="mobileSearchContainer"><div class="searchBar"><div id="newSearchContainer" data-placeholder="Search"><div id="___gcse_0"><div class="gsc-control-searchbox-only gsc-control-searchbox-only-en" dir="ltr"><form class="gsc-search-box" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><input autocomplete="off" type="text" size="10" class=" gsc-input" name="search" title="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="outline: none;" placeholder="Search"><input type="hidden" name="bgresponse" id="bgresponse"></td><div class="clear-icon"></div><td class="gsc-search-button"><input type="button" value="Search" class="gsc-search-button" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr style="display: none;"><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="https://www.google.com/uds/css/small-logo.png" class="gsc-branding-img"></td></tr></tbody></table></form></div></div></div></div></div>
+<div id="mobileSearchContainerOverlay"></div></div></div>
+  <div data-react-class="StaticHTML" data-react-props="{&quot;html&quot;:&quot;\u003cdiv\u003e\r\n\u003cHEADER\u003e\r\n\u003c!--\u003cdfc-header\u003e--\u003e\r\n\u003c!--\u003cscript type=\&quot;text/javascript\&quot; src=\&quot;/custom.js\&quot;\u003e\u003c/script\u003e--\u003e\r\n  \u003cdiv class=\&quot;navbar navbar-static-top\&quot;\u003e\r\n    \u003cdiv class=\&quot;navbar-inner\&quot;\u003e\r\n      \u003cdiv class=\&quot;container\&quot;\u003e\r\n        \u003cdiv class=\&quot;mobileHeaderContainer\&quot;\u003e\r\n          \u003ca class=\&quot;brand clearfix\&quot; href=\&quot;/\&quot;\u003e\u003cimg src=\&quot;/resources2/images/salesforce-header-logo.png\&quot; class=\&quot;sewg314\&quot;/\u003e\u003c/a\u003e\r\n          \u003cdiv class=\&quot;headerButtonsContainer\&quot;\u003e\r\n            \u003cdiv class=\&quot;spanButton clearfix pull-right\&quot;\u003e\r\n              \u003ca class=\&quot;btn btn-success\&quot; type=\&quot;button\&quot; href=\&quot;/signup?d=70130000000td6N\&quot;\u003e\r\nSign Up \u0026rsaquo;\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n            \u003c/div\u003e\r\n            \u003cdiv style=\&quot;position: relative;\&quot; class=\&quot;spanButton clearfix pull-right\&quot;\u003e\r\n              \u003cBUTTON id=\&quot;login-button\&quot; class=\&quot;btn btn-primary\&quot; type=\&quot;button\&quot;\u003e\r\nLogin \u0026rsaquo;\t\t\t\t\t\t\t\t\u003c/BUTTON\u003e\r\n              \u003cdiv id=\&quot;user-info-container\&quot; style=\&quot;display: none;\&quot;\u003e\r\n                \u003cdiv id=\&quot;user-info-content\&quot;\u003e\r\n                  \u003cdiv id=\&quot;user-info-header\&quot; class=\&quot;clearfix\&quot;\u003e\r\n                    \u003cdiv id=\&quot;user-info-picture\&quot;\u003e\r\n\u0026nbsp;\t\t\t\t\t\t\t\t\t\t\t\u003c/div\u003e\r\n                    \u003cdiv id=\&quot;user-info-text-container\&quot;\u003e\r\n                      \u003cdiv id=\&quot;user-info-name\&quot;\u003e\r\n\u0026nbsp;\t\t\t\t\t\t\t\t\t\t\t\t\u003c/div\u003e\r\n                      \u003cdiv id=\&quot;user-info-username\&quot;\u003e\r\n\u0026nbsp;\t\t\t\t\t\t\t\t\t\t\t\t\u003c/div\u003e\r\n                      \u003cdiv class=\&quot;clearfix\&quot;\u003e\r\n\u0026nbsp;\t\t\t\t\t\t\t\t\t\t\t\t\u003c/div\u003e\r\n                    \u003c/div\u003e\r\n                  \u003c/div\u003e\r\n                  \u003cdiv id=\&quot;user-info-profile\&quot;\u003e\r\n                    \u003cul class=\&quot;unstyled\&quot;\u003e\r\n                      \u003cli id=\&quot;MyDeveloperAcc\&quot;\u003e\r\n                        \u003ca\u003e\r\nMy Developer Account \u003e\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                      \u003c/li\u003e\r\n                      \u003cli id=\&quot;CreateNewAcc\&quot;\u003e\r\n                        \u003ca\u003e\r\nCreate Account \u003e\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                      \u003c/li\u003e\r\n                      \u003cli id=\&quot;MySettings\&quot;\u003e\r\n                        \u003ca\u003e\r\nMy Settings \u003e\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                      \u003c/li\u003e\r\n                    \u003c/ul\u003e\r\n                  \u003c/div\u003e\r\n                  \u003cbutton id=\&quot;user-info-logout\&quot; onclick=\&quot;javascript:void(0);\&quot;\u003e\r\nLog out\t\t\t\t\t\t\t\t\t\t\u003c/button\u003e\r\n                \u003c/div\u003e\r\n              \u003c/div\u003e\r\n            \u003c/div\u003e\r\n          \u003c/div\u003e\r\n          \u003cdiv class=\&quot;social-search clearfix pull-right\&quot;\u003e\r\n            \u003cdiv id=\&quot;search-social-container\&quot; class=\&quot;search-social-inner clearfix\&quot; data-placeholder=\&quot;Search\&quot;\u003e\r\n              \u003cgcse:searchbox-only resultsUrl=\&quot;https://go.pardot.com/s/27572/bZmGraVP6uMckd2zJnklMehlfDezI7wZ\&quot; enableAutoComplete=\&quot;true\&quot;\u003e\r\n\u0026nbsp;\t\t\t\t\t\t\t\t\u003c/gcse:searchbox-only\u003e\r\n              \u003cdiv id=\&quot;login-logout2\&quot; class=\&quot;login-logout hidden\&quot;\u003e\r\n                \u003cA id=\&quot;sdn-login-link2\&quot; class=\&quot;login-link\&quot; href=\&quot;//org.developer.salesforce.com/forums/CommunitiesLogin?startURL=\&quot;\u003e\r\nLogin\t\t\t\t\t\t\t\t\t\u003c/A\u003e\r\n                \u003cul class=\&quot;nav nav-pills\&quot;\u003e\r\n                  \u003cli class=\&quot;dropdown\&quot;\u003e\r\n                    \u003ca class=\&quot;dropdown-toggle\&quot; data-toggle=\&quot;dropdown\&quot; href=\&quot;#link\&quot;\u003e\r\n\u003cimg src=\&quot;/resource/images/user-picture.jpg\&quot;/\u003e\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                    \u003cul class=\&quot;dropdown-menu\&quot;\u003e\r\n                      \u003cli class=\&quot;name\&quot;\u003e\r\n                        \u003ca href=\&quot;#\&quot;\u003e\r\n                          \u003cspan data-user-field=\&quot;firstname\&quot;\u003e\r\n\u0026nbsp;\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/span\u003e\r\n                          \u003cspan data-user-field=\&quot;lastname\&quot;\u003e\r\n\u0026nbsp;\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/span\u003e\r\n                        \u003c/a\u003e\r\n                      \u003c/li\u003e\r\n                      \u003cli class=\&quot;email\&quot; data-user-field=\&quot;username\&quot;\u003e\r\n\u0026nbsp;\t\t\t\t\t\t\t\t\t\t\t\t\u003c/li\u003e\r\n                      \u003cli class=\&quot;divider\&quot;\u003e\r\n\u0026nbsp;\t\t\t\t\t\t\t\t\t\t\t\t\u003c/li\u003e\r\n                      \u003cli class=\&quot;logout\&quot;\u003e\r\n                        \u003ca href=\&quot;#link\&quot;\u003e\r\nLogout\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                      \u003c/li\u003e\r\n                    \u003c/ul\u003e\r\n                  \u003c/li\u003e\r\n                \u003c/ul\u003e\r\n              \u003c/div\u003e\r\n            \u003c/div\u003e\r\n          \u003c/div\u003e\r\n          \u003cdiv style=\&quot;height: auto;\&quot; class=\&quot;nav-collapse in collapse\&quot;\u003e\r\n            \u003cul id=\&quot;nav-to-highlight-based-on-url2\&quot; class=\&quot;nav primary-nav clearfix\&quot;\u003e\r\n\r\n\r\n\r\n            \u003cli class=\&quot;dropdown\&quot;\u003e\r\n              \u003ca data-toggle=\&quot;dropdown\&quot; href=\&quot;/platform/overview\&quot;\u003e\r\n                Products\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                \u003cul class=\&quot;dropdown-menu library menu-item-medium\&quot;\u003e\r\n                  \u003cli style=&#39;overflow:hidden;&#39;\u003e\r\n                    \u003cdiv class=&#39;pull-left span&#39; style=&#39;width:190px;&#39;\u003e\r\n                      \u003cp\u003e\r\n                        \u003cem\u003ePlatform\u003c/em\u003e\r\n                      \u003c/p\u003e\r\n                      \u003cul class=&#39;unstyled&#39; style=&#39;float:left;&#39;\u003e\r\n                        \u003cli class=&#39;spaced-item&#39;\u003e\u003ca class=\&quot;medium-link\&quot; href=\&quot;/platform\&quot;\u003eApp Cloud\u003c/a\u003e\u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\u003ca class=\&quot;medium-link\&quot; href=\&quot;/platform/appexchange\&quot;\u003eAppExchange\u003c/a\u003e\u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\u003ca class=\&quot;medium-link\&quot; href=\&quot;/platform/force.com\&quot;\u003eForce.com\u003c/a\u003e\u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\u003ca class=\&quot;medium-link\&quot; href=\&quot;/platform/heroku\&quot;\u003eHeroku\u003c/a\u003e\u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\u003ca class=\&quot;medium-link\&quot; href=\&quot;/mobile\&quot;\u003eMobile\u003c/a\u003e\u003c/li\u003e\r\n                      \u003c/ul\u003e\r\n                    \u003c/div\u003e\r\n                    \u003cdiv class=&#39;pull-left span&#39; style=&#39;width:200px;&#39;\u003e\r\n                      \u003cp\u003e\u003cem\u003eSalesforce Apps\u003c/em\u003e\u003c/p\u003e\r\n                      \u003cul class=&#39;unstyled&#39; style=&#39;float:left;&#39;\u003e\r\n\r\n                        \u003cli class=&#39;spaced-item&#39;\u003e \u003ca class=&#39;medium-link&#39; href=&#39;/devcenter/wave&#39;\u003eAnalytics Cloud\u003c/a\u003e \u003c/li\u003e\r\n                        \u003cli class=&#39;spaced-item&#39;\u003e \u003ca class=&#39;medium-link&#39; href=&#39;https://help.salesforce.com/articleView?id=networks_resources.htm\u0026language=en_US&#39;\u003eCommunity Cloud\u003c/a\u003e \u003c/li\u003e\r\n                        \u003cli class=&#39;spaced-item&#39;\u003e \u003ca class=&#39;medium-link&#39; href=&#39;https://developer.salesforce.com/docs/atlas.en-us.mc-getting-started.meta/mc-getting-started/index.htm&#39;\u003eMarketing Cloud\u003c/a\u003e \u003c/li\u003e\r\n                        \u003cli class=&#39;spaced-item&#39;\u003e \u003ca class=&#39;medium-link&#39; href=&#39;http://developer.pardot.com/&#39;\u003ePardot\u003c/a\u003e \u003c/li\u003e\r\n                        \u003cli class=&#39;spaced-item&#39;\u003e \u003ca class=&#39;medium-link&#39; href=&#39;https://salesforce.quip.com/api/&#39;\u003eQuip\u003c/a\u003e \u003c/li\u003e\r\n                      \u003c/ul\u003e\r\n                    \u003c/div\u003e\r\n                    \u003cdiv class=&#39;pull-left span&#39; style=&#39;width:80%&#39;\u003e\r\n                      \u003cp\u003e\u003cem\u003eBuild Faster, Smarter \u0026 Together\u003c/em\u003e\u003c/p\u003e\r\n                      \u003cul class=&#39;unstyled&#39; style=&#39;width:50%; float:left;&#39;\u003e\r\n                        \u003cli class=&#39;spaced-item&#39;\u003e \u003ca class=&#39;medium-link&#39; href=&#39;/lightning&#39;\u003eLightning\u003c/a\u003e \u003c/li\u003e\r\n                        \u003cli class=&#39;spaced-item&#39;\u003e \u003ca class=&#39;medium-link&#39; href=&#39;/einstein&#39;\u003eEinstein\u003c/a\u003e \u003c/li\u003e\r\n                        \u003cli class=&#39;spaced-item&#39;\u003e \u003ca class=&#39;medium-link&#39; href=&#39;/platform/dx&#39;\u003eSalesforce DX\u003c/a\u003e \u003c/li\u003e\r\n                      \u003c/ul\u003e\r\n                    \u003c/div\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cdiv class=&#39;menu-image&#39;\u003e\r\n                    \u003ca class=&#39;menu-image-link&#39; href=&#39;https://trailhead.salesforce.com/&#39;\u003e\u003cimg src=&#39;https://staging.developer.salesforce.com/resources2/images/learn-with-trailhead.svg&#39;\u003e\u003c/img\u003e\u003c/a\u003e\r\n                  \u003c/div\u003e\r\n                \u003c/ul\u003e\r\n\r\n              \u003c/li\u003e\r\n\r\n\r\n                \r\n              \u003cli class=\&quot;dropdown\&quot;\u003e\r\n                \u003ca data-toggle=\&quot;dropdown\&quot; href=\&quot;/resources\&quot;\u003e\r\nResources\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                \u003cul class=\&quot;dropdown-menu library menu-item-large\&quot;\u003e\r\n                  \u003cli style=\&quot;overflow:hidden;\&quot;\u003e\r\n                    \u003cdiv style=\&quot;width:265px;\&quot; class=\&quot;pull-left span\&quot;\u003e\r\n                      \u003cp\u003e\r\n\r\n  \u003cem\u003eLearn\u003c/em\u003e\r\n                        \u003c/p\u003e\r\n                      \u003cul style=\&quot;width:50.0%;float:left;\&quot; class=\&quot;unstyled\&quot;\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003cA class=\&quot;medium-link\&quot; href=\&quot;/gettingstarted\&quot;\u003e\r\nGetting Started\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/A\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/docs\&quot;\u003e\r\nDocumentation\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;https://trailhead.salesforce.com\&quot;\u003e\r\nTrailhead\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/page/Developer_Library\&quot;\u003e\r\nBooks \u0026amp; Cheat Sheets\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/content/type/Webinar\&quot;\u003e\r\nOn-Demand Webinars\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;http://certification.salesforce.com/platform-developers\&quot; target=\&quot;_blank\&quot;\u003e\r\nCertification \u003ci class=\&quot;icon-external-link\&quot;\u003e\u003c/i\u003e\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/blogs/\&quot;\u003e\r\nBlogs\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                      \u003c/ul\u003e\r\n                    \u003c/div\u003e\r\n                    \u003cdiv style=\&quot;width:265px;\&quot; class=\&quot;pull-left span\&quot;\u003e\r\n                      \u003cp\u003e\r\n\r\n  \u003cem\u003eTools\u003c/em\u003e\r\n                        \u003c/p\u003e\r\n                      \u003cul style=\&quot;width:50.0%;float:left;\&quot; class=\&quot;unstyled\&quot;\u003e\r\n                        \u003cli class=\&quot;spaced-item medium-link\&quot;\u003e\r\n                          \u003ca href=\&quot;/page/Force.com_IDE\&quot;\u003eForce.com IDE\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item medium-link\&quot;\u003e\r\n                          \u003ca href=\&quot;/tools/forcecli\&quot;\u003eForce.com CLI\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item medium-link\&quot;\u003e\r\n                          \u003ca href=\&quot;https://www.lightningdesignsystem.com/\&quot; target=\&quot;_blank\&quot;\u003e\r\nLightning Design System \u003ci class=\&quot;icon-external-link\&quot;\u003e\u003c/i\u003e\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/page/Security_Tools\&quot;\u003e\r\nSource Code Scanner\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/page/Tools\&quot;\u003e\r\nMore Tools \u0026amp; Toolkits\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                      \u003c/ul\u003e\r\n                    \u003c/div\u003e\r\n                    \u003cdiv class=\&quot;pull-left span\&quot;\u003e\r\n                      \u003cp\u003e\r\n\r\n  \u003cem\u003eBy Topic\u003c/em\u003e\r\n                        \u003c/p\u003e\r\n                      \u003cul style=\&quot;width:50.0%;float:left;\&quot; class=\&quot;unstyled\&quot;\u003e\r\n                        \u003cli class=\&quot;spaced-item medium-link\&quot;\u003e\r\n                          \u003ca href=\&quot;/page/App_Distribution\&quot;\u003e\r\nApp Distribution\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item medium-link\&quot;\u003e\r\n                          \u003ca href=\&quot;/page/App_Logic\&quot;\u003e\r\nApp Logic\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                          \u003cli class=\&quot;spaced-item medium-link\&quot;\u003e\r\n                            \u003ca href=\&quot;/page/Architect_Core_Resources\&quot;\u003e\r\nArchitect\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                          \u003c/li\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/page/Database\&quot;\u003e\r\nDatabase\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/devcenter/lightning\&quot;\u003e\r\nLightning\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/devcenter/mobile\&quot;\u003e\r\nMobile\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/page/Integration\&quot;\u003e\r\nIntegration\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/devcenter/security\&quot;\u003e\r\nSecurity\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/page/UserInterface\&quot;\u003e\r\nUser Interface\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                                                \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/devcenter/wave\&quot;\u003e\r\nWave Analytics                            \u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                        \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                          \u003ca class=\&quot;medium-link\&quot; href=\&quot;/page/Websites\&quot;\u003e\r\nWebsites\t\t\t\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                        \u003c/li\u003e\r\n                      \u003c/ul\u003e\r\n                    \u003c/div\u003e\r\n                  \u003c/li\u003e\r\n                \u003c/ul\u003e\r\n              \u003c/li\u003e\r\n              \u003cli class=\&quot;dropdown\&quot;\u003e\r\n                \u003ca data-toggle=\&quot;dropdown\&quot; href=\&quot;//events.developerforce.com/signup?d=70130000000tgM8\&quot;\u003e\r\nCommunity\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                \u003cul class=\&quot;dropdown-menu\&quot;\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;/forums\&quot;\u003e\r\nDeveloper Forums\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;/calendar\&quot;\u003e\r\nEvents Calendar\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;/mvp\&quot;\u003e\r\nDeveloper MVPs\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;http://www.meetup.com/pro/salesforcedevs\&quot; target=\&quot;_blank\&quot;\u003e\r\nDeveloper Groups \u003ci class=\&quot;icon-external-link\&quot;\u003e\u003c/i\u003e\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;/success-stories\&quot;\u003e\r\nDeveloper Success Stories\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;/blogs/\&quot;\u003e\r\nBlogs\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                \u003c/ul\u003e\r\n              \u003c/li\u003e\r\n              \u003cli class=\&quot;dropdown\&quot;\u003e\r\n                \u003ca data-toggle=\&quot;dropdown\&quot; href=\&quot;//events.developerforce.com/signup?d=70130000000tgM8\&quot;\u003e\r\nBlog\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                \u003cul class=\&quot;dropdown-menu\&quot;\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;/blogs\&quot;\u003e\r\nAll Blogs\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;/blogs/developer-relations/\&quot;\u003e\r\nDeveloper Relations\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;/blogs/engineering\&quot;\u003e\r\nEngineering\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;/blogs/labs\&quot;\u003e\r\nForce.com Labs\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;/blogs/tech-pubs\&quot;\u003e\r\nTech Docs\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                \u003c/ul\u003e\r\n              \u003c/li\u003e\r\n              \u003cli class=\&quot;dropdown\&quot;\u003e\r\n                \u003ca data-toggle=\&quot;dropdown\&quot; href=\&quot;https://trailhead.salesforce.com\&quot;\u003e\r\nTrailhead\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                \u003cul class=\&quot;dropdown-menu\&quot;\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;https://trailhead.salesforce.com\&quot;\u003e\r\nTrailhead\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;https://trailhead.salesforce.com/trails\&quot;\u003e\r\n- Trails\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;https://trailhead.salesforce.com/modules\&quot;\u003e\r\n- Modules\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;https://trailhead.salesforce.com/projects\&quot;\u003e\r\n- Projects\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;https://trailhead.salesforce.com/super_badges\&quot;\u003e\r\n- Superbadges\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;https://trailhead.salesforce.com/trailblazers\&quot;\u003e\r\n- Trailblazers\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;https://developer.salesforce.com/forums?communityId=09aF00000004HMGIA2#!/feedtype=RECENT\u0026amp;dc=Trailhead\u0026amp;criteria=ALLQUESTIONS\&quot; target=\&quot;_blank\&quot;\u003e\r\nGet Help\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                  \u003cli class=\&quot;spaced-item\&quot;\u003e\r\n                    \u003ca class=\&quot;medium-link\&quot; href=\&quot;https://success.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F9300000009Nek\&quot; target=\&quot;_blank\&quot;\u003e\r\nJoin the Community \u003ci class=\&quot;icon-external-link\&quot;\u003e\u003c/i\u003e\t\t\t\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n                  \u003c/li\u003e\r\n                \u003c/ul\u003e\r\n              \u003c/li\u003e\r\n            \u003c/ul\u003e\r\n          \u003c/div\u003e\r\n        \u003c/div\u003e\r\n        \u003cdiv class=\&quot;mobile mobileHeader\&quot;\u003e\r\n          \u003ca id=\&quot;mobileMenu\&quot;\u003e\r\n\u003cimg src=\&quot;/resource/images/MenuMobile.png\&quot;/\u003e \t\t\t\t\t\t\u003c/a\u003e\r\n          \u003ca class=\&quot;mobileLogo\&quot; href=\&quot;/\&quot;\u003e\r\n\u003cimg src=\&quot;/resource/images/salesforce-developer-network-logo_1.png\&quot; class=\&quot;sewg314\&quot; style=\&quot;width:118px;\&quot;/\u003e \t\t\t\t\t\t\u003c/a\u003e\r\n          \u003ca id=\&quot;mobileSearch\&quot;\u003e\r\n\u003cimg src=\&quot;/resource/images/SearchMobile.png\&quot;/\u003e \t\t\t\t\t\t\u003c/a\u003e\r\n        \u003c/div\u003e\r\n      \u003c/div\u003e\r\n    \u003c/div\u003e\r\n  \u003c/div\u003e\r\n\u003cscript src=\&quot;/resource/javascripts/afterheader.min.js\&quot;\u003e\u003c/script\u003e\r\n\r\n\u003cscript\u003e\r\n  function call_campaigns_cookie(){\r\n      var params = document.location.search.substring(1);\r\n      var utm_source = &#39;&#39;;\r\n      var utm_medium = &#39;&#39;;\r\n      var utm_campaign = &#39;&#39;;\r\n      var dr = &#39;&#39;;\r\n      params_array = params.split(&#39;\u0026&#39;);\r\n      for(i=0;i\u003cparams_array.length;i++){\r\n          param_array = params_array[i].split(&#39;=&#39;);\r\n          if(param_array[0]==&#39;utm_source&#39;){\r\n              utm_source = param_array[1];\r\n          }else if(param_array[0]==&#39;utm_medium&#39;){\r\n              utm_medium = param_array[1];\r\n          }else if(param_array[0]==&#39;utm_campaign&#39;){\r\n              utm_campaign = param_array[1];\r\n          }else if(param_array[0]==&#39;dr&#39;){\r\n              dr = param_array[1];\r\n          }\r\n      }\r\n\r\n      if(utm_source!=null \u0026\u0026 utm_source!=&#39;&#39; \u0026\u0026\r\n          utm_medium!=null \u0026\u0026 utm_medium!=&#39;&#39; \u0026\u0026\r\n          utm_campaign!=null \u0026\u0026 utm_campaign!=&#39;&#39;){\r\n          //do call\r\n          $.get( \&quot;/events/campaigns_cookie\&quot;, { utm_source: utm_source, utm_medium: utm_medium, utm_campaign: utm_campaign, dr: dr } );\r\n      }\r\n  }\r\n  function animateSearchIn() {\r\n      $(&#39;#mobileSearchContainerOverlay&#39;).fadeIn();\r\n      $(&#39;#mobileSearchContainer&#39;).fadeIn();\r\n      $(&#39;.gsc-input&#39;).focus();\r\n      $(\&quot;#mobileSearchContainer .searchBar\&quot;).animate({\r\n        top: &#39;0px&#39;,\r\n      }, 500, function() {\r\n\r\n          $(\&quot;#mobileSearchContainer .searchBar\&quot;).animate({\r\n            top: &#39;-20px&#39;,\r\n          }, 300);\r\n\r\n      });\r\n  }\r\n\r\n  function animateSearchOut() {\r\n      $(\&quot;#mobileSearchContainer .searchBar\&quot;).animate({\r\n        top: &#39;0px&#39;,\r\n      }, 300, function() {\r\n          $(\&quot;#mobileSearchContainer .searchBar\&quot;).animate({\r\n            top: &#39;-80px&#39;,\r\n          }, 500, function() {\r\n              $(&#39;#mobileSearchContainer&#39;).fadeOut();\r\n              $(&#39;#mobileSearchContainerOverlay&#39;).fadeOut();\r\n              $(&#39;.gsc-input&#39;).val(&#39;&#39;);\r\n          });\r\n      });\r\n  }\r\n\r\n  var intval_placeholder_search;\r\n\r\n  function checkPlaceholderSearch(){\r\n    if( jQuery(\&quot;#newSearchContainer\&quot;).find(&#39;input[name=\&quot;search\&quot;]&#39;).length == 1 ){\r\n        var a=jQuery(\&quot;#newSearchContainer\&quot;);\r\n        a.find(&#39;input[name=\&quot;search\&quot;]&#39;).attr(\&quot;placeholder\&quot;,a.attr(\&quot;data-placeholder\&quot;));\r\n\r\n          $(&#39;#newSearchContainer td.gsc-input&#39;).after($(&#39;\u003cdiv class=\&quot;clear-icon\&quot;\u003e\u003c/div\u003e&#39;));\r\n\r\n          $(&#39;.clear-icon&#39;).click(function(){\r\n              $(&#39;#newSearchContainer input.gsc-input&#39;).val(&#39;&#39;);\r\n          });\r\n          clearInterval(intval_placeholder_search);\r\n      }\r\n  }\r\n\r\n  function makeNewSearch(){\r\n    var newMobileSearchOverlay = $(&#39;\u003cdiv\u003e\u003c/div\u003e&#39;).attr(&#39;id&#39;, &#39;mobileSearchContainerOverlay&#39;);\r\n    var newMobileSearch = $(&#39;\u003cdiv\u003e\u003c/div\u003e&#39;).attr(&#39;id&#39;, &#39;mobileSearchContainer&#39;);\r\n    var searchBar = $(&#39;\u003cdiv\u003e\u003c/div\u003e&#39;).addClass(&#39;searchBar&#39;);\r\n\r\n    var newSearchContainer = $(&#39;\u003cdiv\u003e\u003c/div\u003e&#39;).attr({\r\n      id: &#39;newSearchContainer&#39;,\r\n      &#39;data-placeholder&#39;:&#39;Search&#39;\r\n    });\r\n\r\n    var newSearch = $(&#39;\u003cgcse:searchbox-only\u003e\u003c/gcse:searchbox-only\u003e&#39;).attr({\r\n        resultsUrl : &#39;//go.pardot.com/s/27572/bZmGraVP6uMckd2zJnklMehlfDezI7wZ&#39;,\r\n        enableAutoComplete : true\r\n    });\r\n\r\n    $(newSearchContainer).append(newSearch);\r\n\r\n    $(searchBar).append(newSearchContainer);\r\n    $(newMobileSearch).append($(searchBar));\r\n\r\n    $(&#39;body&#39;).prepend(newMobileSearchOverlay);\r\n    $(&#39;body&#39;).prepend(newMobileSearch);\r\n\r\n    $(newMobileSearchOverlay).click(function(){\r\n        animateSearchOut();\r\n    });\r\n\r\n\r\n    if( jQuery(\&quot;#newSearchContainer\&quot;).find(&#39;input[name=\&quot;search\&quot;]&#39;).length == 0 ){\r\n        intval_placeholder_search = setInterval(function(){ checkPlaceholderSearch() }, 100);\r\n    }\r\n  }\r\n\r\n  var intervalBtn;\r\n\r\n  function placeMobileSearchCancelBtn(){\r\n      if( $(&#39;#mobileSearchContainer td.gsc-clear-button&#39;).length \u003e 0 ){\r\n\r\n          clearInterval(intervalBtn);\r\n\r\n          $(&#39;#mobileSearchContainer .gsc-search-button&#39;).remove();\r\n\r\n          var cancelBtn = $(&#39;\u003cbutton\u003e\u003c/button\u003e&#39;);\r\n\r\n          $(cancelBtn).text(&#39;Cancel&#39;).attr(&#39;type&#39;, &#39;button&#39;).click(function(){\r\n              hideMobileSearchContainer();\r\n          });\r\n\r\n\r\n\r\n          $(&#39;#mobileSearchContainer div.gsc-clear-button&#39;).remove();\r\n          $(&#39;#mobileSearchContainer td.gsc-clear-button&#39;).append(cancelBtn);\r\n      }\r\n  }\r\n\r\n  function showMobileSearchContainer(){\r\n\r\n      if( $(&#39;#mobileSearchContainer .gsc-clear-button button&#39;).length == 0 ){\r\n        placeMobileSearchCancelBtn();\r\n      }\r\n\r\n      if( $(&#39;#mobileSearchContainer td.gsc-clear-button&#39;).length == 0 ){\r\n        intervalBtn = setInterval(function(){placeMobileSearchCancelBtn()}, 500);\r\n      }\r\n      animateSearchIn();\r\n\r\n  }\r\n\r\n  function hideMobileSearchContainer(){\r\n  animateSearchOut();\r\n  }\r\n\r\n  function mobileSidebarFix(){\r\n      if( $(&#39;body&#39;).width() \u003c= 979 ){\r\n        $(&#39;.mobileHeaderContainer&#39;).addClass(&#39;on-mobile&#39;);\r\n      }else{\r\n        $(&#39;.mobileHeaderContainer&#39;).removeClass(&#39;on-mobile&#39;);\r\n      }\r\n  }\r\n\r\n  var hideMobileHeaderContainer = true;\r\n\r\n\r\n  $(document).ready(function(){\r\n\r\n      /*!\r\n      * jquery.scrollto.js 0.0.1 - https://github.com/yckart/jquery.scrollto.js\r\n      * Scroll smooth to any element in your DOM.\r\n      *\r\n      * Copyright (c) 2012 Yannick Albert (http://yckart.com)\r\n      * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php).\r\n      * 2013/02/17\r\n      **/\r\n      $.scrollTo = $.fn.scrollTo = function(x, y, options){\r\n          if (!(this instanceof $)) return $.fn.scrollTo.apply($(&#39;html, body&#39;), arguments);\r\n\r\n          options = $.extend({}, {\r\n              gap: {\r\n                  x: 0,\r\n                  y: 1\r\n              },\r\n              animation: {\r\n                  easing: &#39;swing&#39;,\r\n                  duration: 600,\r\n                  complete: $.noop,\r\n                  step: $.noop\r\n              }\r\n          }, options);\r\n\r\n          return this.each(function(){\r\n              var elem = $(this);\r\n              elem.stop().animate({\r\n                  scrollLeft: !isNaN(Number(x)) ? x : $(y).offset().left + options.gap.x,\r\n                  scrollTop: !isNaN(Number(y)) ? y : $(y).offset().top + options.gap.y\r\n              }, options.animation);\r\n          });\r\n      };\r\n\r\n      makeNewSearch();\r\n      mobileSidebarFix();\r\n\r\n      $(&#39;#mobileSearch&#39;).unbind(&#39;click&#39;);\r\n\r\n      $(&#39;#mobileSearch&#39;).click(function(){\r\n        showMobileSearchContainer();\r\n      });\r\n\r\n\r\n\r\n      $(window).scroll(function() {\r\n\r\n          if( hideMobileHeaderContainer == true \u0026\u0026 $(window).scrollLeft() \u003e ($(&#39;.mobileHeaderContainer&#39;).outerWidth()/2) ){\r\n              hideMobileHeaderContainer = false;\r\n\r\n              setTimeout(function(){hideMobileHeaderContainer=true;}, 600);\r\n              //$(&#39;html,body&#39;).scrollTo(0, 0, function(){});\r\n              $(&#39;header&#39;).removeClass(&#39;showMobile&#39;);\r\n              $(&#39;#SDNmaintemplate&#39;).removeClass(&#39;showMobile&#39;);\r\n              $(&#39;footer&#39;).removeClass(&#39;showMobile&#39;);\r\n          }\r\n      });\r\n\r\n      $(window).resize(function(){\r\n        mobileSidebarFix();\r\n      });\r\n      call_campaigns_cookie();\r\n  });\r\n\r\n\u003c/script\u003e\r\n\r\n\u003clink href=&#39;/resources2/stylesheets/dsc-header.css&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;/\u003e\r\n\r\n\u003c!--\u003c/dfc-header\u003e--\u003e\r\n\r\n\r\n\u003c/HEADER\u003e\r\n\u003c/div\u003e&quot;}"><div data-reactroot="" data-reactid="1" data-react-checksum="-1986906254"><div>
+<HEADER>
+<!--<dfc-header>-->
+<!--<script type="text/javascript" src="/custom.js"></script>-->
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="mobileHeaderContainer">
+          <a class="brand clearfix" href="/"><img src="/resources2/images/salesforce-header-logo.png" class="sewg314"/></a>
+          <div class="headerButtonsContainer">
+            <div class="spanButton clearfix pull-right">
+              <a class="btn btn-success" type="button" href="/signup?d=70130000000td6N">
+Sign Up &rsaquo;								</a>
+            </div>
+            <div style="position: relative;" class="spanButton clearfix pull-right">
+              <BUTTON id="login-button" class="btn btn-primary" type="button">
+Login &rsaquo;								</BUTTON>
+              <div id="user-info-container" style="display: none;">
+                <div id="user-info-content">
+                  <div id="user-info-header" class="clearfix">
+                    <div id="user-info-picture">
+&nbsp;											</div>
+                    <div id="user-info-text-container">
+                      <div id="user-info-name">
+&nbsp;												</div>
+                      <div id="user-info-username">
+&nbsp;												</div>
+                      <div class="clearfix">
+&nbsp;												</div>
+                    </div>
+                  </div>
+                  <div id="user-info-profile">
+                    <ul class="unstyled">
+                      <li id="MyDeveloperAcc">
+                        <a>
+My Developer Account >													</a>
+                      </li>
+                      <li id="CreateNewAcc">
+                        <a>
+Create Account >													</a>
+                      </li>
+                      <li id="MySettings">
+                        <a>
+My Settings >													</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <button id="user-info-logout" onclick="javascript:void(0);">
+Log out										</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="social-search clearfix pull-right">
+            <div id="search-social-container" class="search-social-inner clearfix" data-placeholder="Search">
+              <gcse:searchbox-only resultsUrl="https://go.pardot.com/s/27572/bZmGraVP6uMckd2zJnklMehlfDezI7wZ" enableAutoComplete="true">
+&nbsp;								</gcse:searchbox-only>
+              <div id="login-logout2" class="login-logout hidden">
+                <A id="sdn-login-link2" class="login-link" href="//org.developer.salesforce.com/forums/CommunitiesLogin?startURL=">
+Login									</A>
+                <ul class="nav nav-pills">
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#link">
+<img src="/resource/images/user-picture.jpg"/>											</a>
+                    <ul class="dropdown-menu">
+                      <li class="name">
+                        <a href="#">
+                          <span data-user-field="firstname">
+&nbsp;														</span>
+                          <span data-user-field="lastname">
+&nbsp;														</span>
+                        </a>
+                      </li>
+                      <li class="email" data-user-field="username">
+&nbsp;												</li>
+                      <li class="divider">
+&nbsp;												</li>
+                      <li class="logout">
+                        <a href="#link">
+Logout													</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div style="height: auto;" class="nav-collapse in collapse">
+            <ul id="nav-to-highlight-based-on-url2" class="nav primary-nav clearfix">
+
+
+
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="/platform/overview">
+                Products									</a>
+                <ul class="dropdown-menu library menu-item-medium">
+                  <li style='overflow:hidden;'>
+                    <div class='pull-left span' style='width:190px;'>
+                      <p>
+                        <em>Platform</em>
+                      </p>
+                      <ul class='unstyled' style='float:left;'>
+                        <li class='spaced-item'><a class="medium-link" href="/platform">App Cloud</a></li>
+                        <li class="spaced-item"><a class="medium-link" href="/platform/appexchange">AppExchange</a></li>
+                        <li class="spaced-item"><a class="medium-link" href="/platform/force.com">Force.com</a></li>
+                        <li class="spaced-item"><a class="medium-link" href="/platform/heroku">Heroku</a></li>
+                        <li class="spaced-item"><a class="medium-link" href="/mobile">Mobile</a></li>
+                      </ul>
+                    </div>
+                    <div class='pull-left span' style='width:200px;'>
+                      <p><em>Salesforce Apps</em></p>
+                      <ul class='unstyled' style='float:left;'>
+
+                        <li class='spaced-item'> <a class='medium-link' href='/devcenter/wave'>Analytics Cloud</a> </li>
+                        <li class='spaced-item'> <a class='medium-link' href='https://help.salesforce.com/articleView?id=networks_resources.htm&language=en_US'>Community Cloud</a> </li>
+                        <li class='spaced-item'> <a class='medium-link' href='https://developer.salesforce.com/docs/atlas.en-us.mc-getting-started.meta/mc-getting-started/index.htm'>Marketing Cloud</a> </li>
+                        <li class='spaced-item'> <a class='medium-link' href='http://developer.pardot.com/'>Pardot</a> </li>
+                        <li class='spaced-item'> <a class='medium-link' href='https://salesforce.quip.com/api/'>Quip</a> </li>
+                      </ul>
+                    </div>
+                    <div class='pull-left span' style='width:80%'>
+                      <p><em>Build Faster, Smarter & Together</em></p>
+                      <ul class='unstyled' style='width:50%; float:left;'>
+                        <li class='spaced-item'> <a class='medium-link' href='/lightning'>Lightning</a> </li>
+                        <li class='spaced-item'> <a class='medium-link' href='/einstein'>Einstein</a> </li>
+                        <li class='spaced-item'> <a class='medium-link' href='/platform/dx'>Salesforce DX</a> </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <div class='menu-image'>
+                    <a class='menu-image-link' href='https://trailhead.salesforce.com/'><img src='https://staging.developer.salesforce.com/resources2/images/learn-with-trailhead.svg'></img></a>
+                  </div>
+                </ul>
+
+              </li>
+
+
+                
+              <li class="dropdown">
+                <a data-toggle="dropdown" href="/resources">
+Resources									</a>
+                <ul class="dropdown-menu library menu-item-large">
+                  <li style="overflow:hidden;">
+                    <div style="width:265px;" class="pull-left span">
+                      <p>
+
+  <em>Learn</em>
+                        </p>
+                      <ul style="width:50.0%;float:left;" class="unstyled">
+                        <li class="spaced-item">
+                          <A class="medium-link" href="/gettingstarted">
+Getting Started														</A>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/docs">
+Documentation														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="https://trailhead.salesforce.com">
+Trailhead														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/page/Developer_Library">
+Books &amp; Cheat Sheets														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/content/type/Webinar">
+On-Demand Webinars														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="http://certification.salesforce.com/platform-developers" target="_blank">
+Certification <i class="icon-external-link"></i>														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/blogs/">
+Blogs														</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="width:265px;" class="pull-left span">
+                      <p>
+
+  <em>Tools</em>
+                        </p>
+                      <ul style="width:50.0%;float:left;" class="unstyled">
+                        <li class="spaced-item medium-link">
+                          <a href="/page/Force.com_IDE">Force.com IDE</a>
+                        </li>
+                        <li class="spaced-item medium-link">
+                          <a href="/tools/forcecli">Force.com CLI</a>
+                        </li>
+                        <li class="spaced-item medium-link">
+                          <a href="https://www.lightningdesignsystem.com/" target="_blank">
+Lightning Design System <i class="icon-external-link"></i>														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/page/Security_Tools">
+Source Code Scanner														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/page/Tools">
+More Tools &amp; Toolkits														</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="pull-left span">
+                      <p>
+
+  <em>By Topic</em>
+                        </p>
+                      <ul style="width:50.0%;float:left;" class="unstyled">
+                        <li class="spaced-item medium-link">
+                          <a href="/page/App_Distribution">
+App Distribution														</a>
+                        </li>
+                        <li class="spaced-item medium-link">
+                          <a href="/page/App_Logic">
+App Logic														</a>
+                          <li class="spaced-item medium-link">
+                            <a href="/page/Architect_Core_Resources">
+Architect															</a>
+                          </li>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/page/Database">
+Database														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/devcenter/lightning">
+Lightning														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/devcenter/mobile">
+Mobile														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/page/Integration">
+Integration														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/devcenter/security">
+Security														</a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/page/UserInterface">
+User Interface														</a>
+                        </li>
+                                                <li class="spaced-item">
+                          <a class="medium-link" href="/devcenter/wave">
+Wave Analytics                            </a>
+                        </li>
+                        <li class="spaced-item">
+                          <a class="medium-link" href="/page/Websites">
+Websites														</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a data-toggle="dropdown" href="//events.developerforce.com/signup?d=70130000000tgM8">
+Community									</a>
+                <ul class="dropdown-menu">
+                  <li class="spaced-item">
+                    <a class="medium-link" href="/forums">
+Developer Forums											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="/calendar">
+Events Calendar											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="/mvp">
+Developer MVPs											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="http://www.meetup.com/pro/salesforcedevs" target="_blank">
+Developer Groups <i class="icon-external-link"></i>											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="/success-stories">
+Developer Success Stories											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="/blogs/">
+Blogs											</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a data-toggle="dropdown" href="//events.developerforce.com/signup?d=70130000000tgM8">
+Blog									</a>
+                <ul class="dropdown-menu">
+                  <li class="spaced-item">
+                    <a class="medium-link" href="/blogs">
+All Blogs											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="/blogs/developer-relations/">
+Developer Relations											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="/blogs/engineering">
+Engineering											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="/blogs/labs">
+Force.com Labs											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="/blogs/tech-pubs">
+Tech Docs											</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a data-toggle="dropdown" href="https://trailhead.salesforce.com">
+Trailhead									</a>
+                <ul class="dropdown-menu">
+                  <li class="spaced-item">
+                    <a class="medium-link" href="https://trailhead.salesforce.com">
+Trailhead											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="https://trailhead.salesforce.com/trails">
+- Trails											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="https://trailhead.salesforce.com/modules">
+- Modules											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="https://trailhead.salesforce.com/projects">
+- Projects											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="https://trailhead.salesforce.com/super_badges">
+- Superbadges											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="https://trailhead.salesforce.com/trailblazers">
+- Trailblazers											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="https://developer.salesforce.com/forums?communityId=09aF00000004HMGIA2#!/feedtype=RECENT&amp;dc=Trailhead&amp;criteria=ALLQUESTIONS" target="_blank">
+Get Help											</a>
+                  </li>
+                  <li class="spaced-item">
+                    <a class="medium-link" href="https://success.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F9300000009Nek" target="_blank">
+Join the Community <i class="icon-external-link"></i>											</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mobile mobileHeader">
+          <a id="mobileMenu">
+<img src="/resource/images/MenuMobile.png"/> 						</a>
+          <a class="mobileLogo" href="/">
+<img src="/resource/images/salesforce-developer-network-logo_1.png" class="sewg314" style="width:118px;"/> 						</a>
+          <a id="mobileSearch">
+<img src="/resource/images/SearchMobile.png"/> 						</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="/resource/javascripts/afterheader.min.js"></script>
+
+<script>
+  function call_campaigns_cookie(){
+      var params = document.location.search.substring(1);
+      var utm_source = '';
+      var utm_medium = '';
+      var utm_campaign = '';
+      var dr = '';
+      params_array = params.split('&');
+      for(i=0;i<params_array.length;i++){
+          param_array = params_array[i].split('=');
+          if(param_array[0]=='utm_source'){
+              utm_source = param_array[1];
+          }else if(param_array[0]=='utm_medium'){
+              utm_medium = param_array[1];
+          }else if(param_array[0]=='utm_campaign'){
+              utm_campaign = param_array[1];
+          }else if(param_array[0]=='dr'){
+              dr = param_array[1];
+          }
+      }
+
+      if(utm_source!=null && utm_source!='' &&
+          utm_medium!=null && utm_medium!='' &&
+          utm_campaign!=null && utm_campaign!=''){
+          //do call
+          $.get( "/events/campaigns_cookie", { utm_source: utm_source, utm_medium: utm_medium, utm_campaign: utm_campaign, dr: dr } );
+      }
+  }
+  function animateSearchIn() {
+      $('#mobileSearchContainerOverlay').fadeIn();
+      $('#mobileSearchContainer').fadeIn();
+      $('.gsc-input').focus();
+      $("#mobileSearchContainer .searchBar").animate({
+        top: '0px',
+      }, 500, function() {
+
+          $("#mobileSearchContainer .searchBar").animate({
+            top: '-20px',
+          }, 300);
+
+      });
+  }
+
+  function animateSearchOut() {
+      $("#mobileSearchContainer .searchBar").animate({
+        top: '0px',
+      }, 300, function() {
+          $("#mobileSearchContainer .searchBar").animate({
+            top: '-80px',
+          }, 500, function() {
+              $('#mobileSearchContainer').fadeOut();
+              $('#mobileSearchContainerOverlay').fadeOut();
+              $('.gsc-input').val('');
+          });
+      });
+  }
+
+  var intval_placeholder_search;
+
+  function checkPlaceholderSearch(){
+    if( jQuery("#newSearchContainer").find('input[name="search"]').length == 1 ){
+        var a=jQuery("#newSearchContainer");
+        a.find('input[name="search"]').attr("placeholder",a.attr("data-placeholder"));
+
+          $('#newSearchContainer td.gsc-input').after($('<div class="clear-icon"></div>'));
+
+          $('.clear-icon').click(function(){
+              $('#newSearchContainer input.gsc-input').val('');
+          });
+          clearInterval(intval_placeholder_search);
+      }
+  }
+
+  function makeNewSearch(){
+    var newMobileSearchOverlay = $('<div></div>').attr('id', 'mobileSearchContainerOverlay');
+    var newMobileSearch = $('<div></div>').attr('id', 'mobileSearchContainer');
+    var searchBar = $('<div></div>').addClass('searchBar');
+
+    var newSearchContainer = $('<div></div>').attr({
+      id: 'newSearchContainer',
+      'data-placeholder':'Search'
+    });
+
+    var newSearch = $('<gcse:searchbox-only></gcse:searchbox-only>').attr({
+        resultsUrl : '//go.pardot.com/s/27572/bZmGraVP6uMckd2zJnklMehlfDezI7wZ',
+        enableAutoComplete : true
+    });
+
+    $(newSearchContainer).append(newSearch);
+
+    $(searchBar).append(newSearchContainer);
+    $(newMobileSearch).append($(searchBar));
+
+    $('body').prepend(newMobileSearchOverlay);
+    $('body').prepend(newMobileSearch);
+
+    $(newMobileSearchOverlay).click(function(){
+        animateSearchOut();
+    });
+
+
+    if( jQuery("#newSearchContainer").find('input[name="search"]').length == 0 ){
+        intval_placeholder_search = setInterval(function(){ checkPlaceholderSearch() }, 100);
+    }
+  }
+
+  var intervalBtn;
+
+  function placeMobileSearchCancelBtn(){
+      if( $('#mobileSearchContainer td.gsc-clear-button').length > 0 ){
+
+          clearInterval(intervalBtn);
+
+          $('#mobileSearchContainer .gsc-search-button').remove();
+
+          var cancelBtn = $('<button></button>');
+
+          $(cancelBtn).text('Cancel').attr('type', 'button').click(function(){
+              hideMobileSearchContainer();
+          });
+
+
+
+          $('#mobileSearchContainer div.gsc-clear-button').remove();
+          $('#mobileSearchContainer td.gsc-clear-button').append(cancelBtn);
+      }
+  }
+
+  function showMobileSearchContainer(){
+
+      if( $('#mobileSearchContainer .gsc-clear-button button').length == 0 ){
+        placeMobileSearchCancelBtn();
+      }
+
+      if( $('#mobileSearchContainer td.gsc-clear-button').length == 0 ){
+        intervalBtn = setInterval(function(){placeMobileSearchCancelBtn()}, 500);
+      }
+      animateSearchIn();
+
+  }
+
+  function hideMobileSearchContainer(){
+  animateSearchOut();
+  }
+
+  function mobileSidebarFix(){
+      if( $('body').width() <= 979 ){
+        $('.mobileHeaderContainer').addClass('on-mobile');
+      }else{
+        $('.mobileHeaderContainer').removeClass('on-mobile');
+      }
+  }
+
+  var hideMobileHeaderContainer = true;
+
+
+  $(document).ready(function(){
+
+      /*!
+      * jquery.scrollto.js 0.0.1 - https://github.com/yckart/jquery.scrollto.js
+      * Scroll smooth to any element in your DOM.
+      *
+      * Copyright (c) 2012 Yannick Albert (http://yckart.com)
+      * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php).
+      * 2013/02/17
+      **/
+      $.scrollTo = $.fn.scrollTo = function(x, y, options){
+          if (!(this instanceof $)) return $.fn.scrollTo.apply($('html, body'), arguments);
+
+          options = $.extend({}, {
+              gap: {
+                  x: 0,
+                  y: 1
+              },
+              animation: {
+                  easing: 'swing',
+                  duration: 600,
+                  complete: $.noop,
+                  step: $.noop
+              }
+          }, options);
+
+          return this.each(function(){
+              var elem = $(this);
+              elem.stop().animate({
+                  scrollLeft: !isNaN(Number(x)) ? x : $(y).offset().left + options.gap.x,
+                  scrollTop: !isNaN(Number(y)) ? y : $(y).offset().top + options.gap.y
+              }, options.animation);
+          });
+      };
+
+      makeNewSearch();
+      mobileSidebarFix();
+
+      $('#mobileSearch').unbind('click');
+
+      $('#mobileSearch').click(function(){
+        showMobileSearchContainer();
+      });
+
+
+
+      $(window).scroll(function() {
+
+          if( hideMobileHeaderContainer == true && $(window).scrollLeft() > ($('.mobileHeaderContainer').outerWidth()/2) ){
+              hideMobileHeaderContainer = false;
+
+              setTimeout(function(){hideMobileHeaderContainer=true;}, 600);
+              //$('html,body').scrollTo(0, 0, function(){});
+              $('header').removeClass('showMobile');
+              $('#SDNmaintemplate').removeClass('showMobile');
+              $('footer').removeClass('showMobile');
+          }
+      });
+
+      $(window).resize(function(){
+        mobileSidebarFix();
+      });
+      call_campaigns_cookie();
+  });
+
+</script>
+
+<link href='/resources2/stylesheets/dsc-header.css' rel='stylesheet' type='text/css'/>
+
+<!--</dfc-header>-->
+
+
+</HEADER>
+</div></div></div>
+  <div class="contentArea">
+    <div data-react-class="ExtRichTextContent" data-react-props="{&quot;html&quot;:&quot;\u003cstyle type=\&quot;text/css\&quot;\u003e\r\n#navigation-bar{\r\n    display: none;\r\n  }\r\n\u003c/style\u003e\r\n\u003cdiv class=\&quot;contentArea\&quot; id=\&quot;SDNmaintemplate\&quot;\u003e\r\n\t\u003cdiv\u003e\r\n\t\t\u003cscript type=\&quot;text/javascript\&quot;\u003e\r\n        // JavaScript to convert url to all lowercase\r\n        // if it isn&#39;t already\r\n        var URL=document.location;\r\n        URL+=\&quot;\&quot;;\r\n    \r\n        if(URL.toLowerCase() != URL){\r\n            document.location.replace(URL.toLowerCase());\r\n        }\r\n    \u003c/script\u003e\r\n\t\u003c/div\u003e\r\n\r\n\t\u003cdiv\u003e\r\n\t\t\u003cdiv class=\&quot;error-page contentArea\&quot;\u003e\r\n\t\t\t\u003cdiv class=\&quot;generic-error\&quot;\u003e\r\n\t\t\t\t\u003cdiv class=\&quot;error_container clearfix\&quot;\u003e\r\n\t\t\t\t\t\u003cdiv class=\&quot;error-content\&quot;\u003e\r\n\t\t\t\t\t\t\u003cdiv id=\&quot;error-description\&quot;\u003e\r\n\t\t\t\t\t\t\t\u003ch1 id=\&quot;error-title\&quot;\u003e\r\n\t\t\t\t\t\t\t\t404\r\n\t\t\t\t\t\t\t\u003c/h1\u003e\r\n\r\n\t\t\t\t\t\t\t\u003ch2\u003e\r\n\t\t\t\t\t\t\t\tLOST IN SPACE\r\n\t\t\t\t\t\t\t\u003c/h2\u003e\r\n\r\n\t\t\t\t\t\t\t\u003cp id=\&quot;note\&quot;\u003e\r\n\t\t\t\t\t\t\t\tSorry, that page doesn\u0026rsquo;t exist. Try searching for the correct page.\r\n\t\t\t\t\t\t\t\u003c/p\u003e\r\n\t\t\t\t\t\t\t\u003ca class=\&quot;btn return-button\&quot; href=\&quot;/\&quot;\u003e\u003cspan\u003eReturn to home\u003c/span\u003e\u003c/a\u003e\r\n\r\n\t\t\t\t\t\t\t\u003cdiv id=\&quot;help-link\&quot;\u003e\r\n\t\t\t\t\t\t\t\tNeed help? Click here\r\n\t\t\t\t\t\t\t\u003c/div\u003e\r\n\r\n\t\t\t\t\t\t\t\u003cdiv class=\&quot;floating\&quot; id=\&quot;astro\&quot;\u003e\r\n\t\t\t\t\t\t\t\t\u0026nbsp;\r\n\t\t\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\u003c/div\u003e\r\n\t\t\t\u003c/div\u003e\r\n\t\t\u003c/div\u003e\r\n\t\u003c/div\u003e\r\n\u003c/div\u003e\r\n&quot;}"><div data-reactroot="" data-reactid="1" data-react-checksum="2125023035"><style type="text/css">
+#navigation-bar{
+    display: none;
+  }
+</style>
+<div class="contentArea" id="SDNmaintemplate">
+	<div>
+		<script type="text/javascript">
+        // JavaScript to convert url to all lowercase
+        // if it isn't already
+        var URL=document.location;
+        URL+="";
+    
+        if(URL.toLowerCase() != URL){
+            document.location.replace(URL.toLowerCase());
+        }
+    </script>
+	</div>
+
+	<div>
+		<div class="error-page contentArea">
+			<div class="generic-error">
+				<div class="error_container clearfix">
+					<div class="error-content">
+						<div id="error-description">
+							<h1 id="error-title">
+								404
+							</h1>
+
+							<h2>
+								LOST IN SPACE
+							</h2>
+
+							<p id="note">
+								Sorry, that page doesn&rsquo;t exist. Try searching for the correct page.
+							</p>
+							<a class="btn return-button" href="/"><span>Return to home</span></a>
+
+							<div id="help-link">
+								Need help? Click here
+							</div>
+
+							<div class="floating" id="astro">
+								&nbsp;
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div></div>
+  </div>
+  <div data-react-class="StaticHTML" data-react-props="{&quot;html&quot;:&quot;\u003cdiv\u003e\r\n \u003c!--\u003cdfc-footer\u003e--\u003e\r\n  \u003cfooter\u003e\r\n\t\t\u003cdiv class=\&quot;footer-top\&quot;\u003e\r\n\t\t\t\u003cdiv class=\&quot;container\&quot;\u003e\r\n\t\t\t\t\u003cdiv class=\&quot;row small\&quot;\u003e\r\n\t\t\t\t\t\u003cdiv class=\&quot;footerCols1\&quot;\u003e\r\n\t\t\t\t\t\t\u003ch3\u003e\r\nGet started\t\t\t\t\t\t\u003c/h3\u003e\r\n\t\t\t\t\t\t\u003cul class=\&quot;unstyled\&quot;\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/platform\&quot;\u003e\r\nSalesforce App Cloud\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/gettingstarted\&quot;\u003e\r\nForce.com\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;https://devcenter.heroku.com/start\&quot;\u003e\r\nHeroku\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\u003c/ul\u003e\r\n\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\t\u003cdiv class=\&quot;footerCols1\&quot;\u003e\r\n\t\t\t\t\t\t\u003ch3\u003e\r\nSalesforce Dev Centers\t\t\t\t\t\t\u003c/h3\u003e\r\n\t\t\t\t\t\t\u003cul class=\&quot;unstyled\&quot;\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/devcenter/lightning\&quot;\u003e\r\nLightning Developer Center\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/devcenter/mobile\&quot;\u003e\r\nMobile Developer Center\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;http://devcenter.heroku.com/\&quot;\u003e\r\nHeroku Dev Center\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;http://dev.desk.com/\&quot;\u003e\r\nDesk.com \u0026lt;/developers\u0026gt;\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;http://developer.pardot.com/\&quot;\u003e\r\nPardot Developer Site\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\u003c/ul\u003e\r\n\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\t\u003cdiv class=\&quot;footerCols1\&quot;\u003e\r\n\t\t\t\t\t\t\u003ch3\u003e\r\nDeveloper resources\t\t\t\t\t\t\u003c/h3\u003e\r\n\t\t\t\t\t\t\u003cul class=\&quot;unstyled\&quot;\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/mobile\&quot;\u003e\r\nMobile Services\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;javascript:window.location = &#39;/docs/?service=Force.com\u0026amp;sort=title&#39;\&quot;\u003e\r\nForce.com Docs\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/page/Tools\&quot;\u003e\r\nForce.com Downloads\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;javascript:window.location = &#39;/docs/?service=Heroku&#39;\&quot;\u003e\r\nHeroku Docs\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;http://toolbelt.heroku.com/\&quot;\u003e\r\nHeroku Downloads\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/trailhead?utm_campaign=trailhead\u0026amp;utm_source=website\u0026amp;utm_medium=dsc_footer\&quot;\u003e\r\nLearn Salesforce with Trailhead\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\u003c/ul\u003e\r\n\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\t\u003cdiv class=\&quot;footerCols1\&quot;\u003e\r\n\t\t\t\t\t\t\u003ch3\u003e\r\nCommunity\t\t\t\t\t\t\u003c/h3\u003e\r\n\t\t\t\t\t\t\u003cul class=\&quot;unstyled\&quot;\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/forums\&quot;\u003e\r\nDeveloper Forums\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/calendar\&quot;\u003e\r\nSalesforce Developer Events\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/content/type/Webinar\&quot;\u003e\r\nWebinars\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\u003c/ul\u003e\r\n\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\t\u003cdiv class=\&quot;footerCols1\&quot;\u003e\r\n\t\t\t\t\t\t\u003ch3\u003e\r\nLearn more\t\t\t\t\t\t\u003c/h3\u003e\r\n\t\t\t\t\t\t\u003cul class=\&quot;unstyled\&quot;\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;/appexchange\&quot;\u003e\r\nSalesforce AppExchange\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;//admin.salesforce.com\&quot;\u003e\r\nSalesforce Administrators\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;//help.salesforce.com/\&quot;\u003e\r\nSalesforce.com Help Portal\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\u003c/ul\u003e\r\n\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\u003cdiv class=\&quot;row\&quot;\u003e\r\n\t\t\t\t\t\u003cdiv class=\&quot;span9\&quot;\u003e\r\n\u003c!--\u003cdfc-footer-copyright\u003e--\u003e\t\t\t\t\t\t\u003cspan class=\&quot;footer-copyright\&quot;\u003e\r\n¬© Copyright 2000-2017 salesforce.com, inc. All rights reserved. Various trademarks held by their respective owners.\u003cbr\u003eSalesforce.com, inc. The Landmark @ One Market, Suite 300, San Francisco, CA 94105, United States\t\t\t\t\t\t\u003c/span\u003e\r\n\u003c!--\u003c/dfc-footer-copyright\u003e--\u003e\t\t\t\t\t\t\u003cdiv class=\&quot;footer-links small\&quot;\u003e\r\n\t\t\t\t\t\t\t\u003ca href=\&quot;//www.salesforce.com/company/privacy.jsp\&quot;\u003e\r\nPrivacy Statement\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003ca href=\&quot;//www.salesforce.com/company/security.jsp\&quot;\u003e\r\nSecurity Statement\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003ca href=\&quot;/files/tos/Developerforce_TOU_20101119.pdf\&quot;\u003e\r\nTerms of Use\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003ca class=\&quot;feedback\&quot; href=\&quot;#\&quot; itemid=\&quot;ebd396c9-3b7c-43bd-8223-419bc8a1cbeb\&quot;\u003e\r\n\u003cimg src=\&quot;//developer.salesforce.com/resource/images/opinionlab-orange.gif\&quot; alt=\&quot;Feedback\&quot;\u003eFeedback\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003ca href=\&quot;http://www.salesforce.com/company/\&quot;\u003e\r\nAbout Us\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003ca class=\&quot;language-switcher\&quot; href=\&quot;javascript:void(0);\&quot;\u003e\r\nLanguage:\t\t\t\t\t\t\t\t\u003cspan class=\&quot;current-language\&quot;\u003e\r\nEnglish\t\t\t\t\t\t\t\t\t\u003c/span\u003e\r\n\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003cdiv class=\&quot;language-switcher-popup hidden\&quot;\u003e\r\n\t\t\t\t\t\t\t\t\u003ch4 class=\&quot;language-popup-title\&quot;\u003e\r\nChoose a Language\t\t\t\t\t\t\t\t\u003c/h4\u003e\r\n\t\t\t\t\t\t\t\t\u003cul class=\&quot;unstyled language-list\&quot;\u003e\r\n\t\t\t\t\t\t\t\t\t\u003cli class=\&quot;active\&quot; data-language=\&quot;en\&quot;\u003e\r\nEnglish\t\t\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\t\t\u003cli data-language=\&quot;ja\&quot;\u003e\r\nÊó•Êú¨Ë™û\t\t\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\t\t\u003cli data-language=\&quot;fr\&quot;\u003e\r\nFran√ßais\t\t\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\t\t\u003cli data-language=\&quot;de\&quot;\u003e\r\nDeutsch\t\t\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\t\u003c/ul\u003e\r\n\t\t\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\t\u003cdiv class=\&quot;span3\&quot;\u003e\r\n\t\t\t\t\t\t\u003cul class=\&quot;social-icons unstyled\&quot;\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;https://www.facebook.com/salesforcedevs\&quot;\u003e\r\n\u003cimg src=\&quot;//developer.salesforce.com/resource/images/facebook.png\&quot;\u003e\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;https://twitter.com/#!/salesforcedevs\&quot;\u003e\r\n\u003cimg src=\&quot;//developer.salesforce.com/resource/images/twitter.png\&quot;\u003e\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;https://plus.google.com/118327959233932983591\&quot;\u003e\r\n\u003cimg src=\&quot;//developer.salesforce.com/resource/images/g.png\&quot;\u003e\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;https://www.linkedin.com/groups/Developer-Force-Forcecom-Community-3774731\&quot;\u003e\r\n\u003cimg src=\&quot;//developer.salesforce.com/resource/images/linkedIn.png\&quot;\u003e\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\t\u003cli\u003e\r\n\t\t\t\t\t\t\t\t\u003ca href=\&quot;https://www.youtube.com/user/DeveloperForce\&quot;\u003e\r\n\u003cimg src=\&quot;//developer.salesforce.com/resource/images/youTube.png\&quot;\u003e\t\t\t\t\t\t\t\t\u003c/a\u003e\r\n\t\t\t\t\t\t\t\u003c/li\u003e\r\n\t\t\t\t\t\t\u003c/ul\u003e\r\n\t\t\t\t\t\u003c/div\u003e\r\n\t\t\t\t\u003c/div\u003e\r\n\t\t\t\u003c/div\u003e\r\n\t\t\u003c/div\u003e\r\n\t\u003c/footer\u003e\r\n\u003cscript type=\&quot;text/javascript\&quot; src=\&quot;//developer.salesforce.com/resource/javascripts/footerbottom.min.js\&quot;\u003e\u003c/script\u003e\r\n\u003cscript type=\&quot;text/javascript\&quot; src=\&quot;/resource/javascripts/addthisconfig.min.js\&quot;\u003e\u003c/script\u003e\r\n\u003cscript type=\&quot;text/javascript\&quot; src=\&quot;//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5329fb0d17e1f4da\&quot;\u003e\u003c/script\u003e\r\n\u003c!--\u003c/dfc-footer\u003e--\u003e\r\n\t\u003c/div\u003e&quot;}"><div data-reactroot="" data-reactid="1" data-react-checksum="-361010210"><div>
+ <!--<dfc-footer>-->
+  <footer>
+		<div class="footer-top">
+			<div class="container">
+				<div class="row small">
+					<div class="footerCols1">
+						<h3>
+Get started						</h3>
+						<ul class="unstyled">
+							<li>
+								<a href="/platform">
+Salesforce App Cloud								</a>
+							</li>
+							<li>
+								<a href="/gettingstarted">
+Force.com								</a>
+							</li>
+							<li>
+								<a href="https://devcenter.heroku.com/start">
+Heroku								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footerCols1">
+						<h3>
+Salesforce Dev Centers						</h3>
+						<ul class="unstyled">
+							<li>
+								<a href="/devcenter/lightning">
+Lightning Developer Center								</a>
+							</li>
+							<li>
+								<a href="/devcenter/mobile">
+Mobile Developer Center								</a>
+							</li>
+							<li>
+								<a href="http://devcenter.heroku.com/">
+Heroku Dev Center								</a>
+							</li>
+							<li>
+								<a href="http://dev.desk.com/">
+Desk.com &lt;/developers&gt;								</a>
+							</li>
+							<li>
+								<a href="http://developer.pardot.com/">
+Pardot Developer Site								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footerCols1">
+						<h3>
+Developer resources						</h3>
+						<ul class="unstyled">
+							<li>
+								<a href="/mobile">
+Mobile Services								</a>
+							</li>
+							<li>
+								<a href="javascript:window.location = '/docs/?service=Force.com&amp;sort=title'">
+Force.com Docs								</a>
+							</li>
+							<li>
+								<a href="/page/Tools">
+Force.com Downloads								</a>
+							</li>
+							<li>
+								<a href="javascript:window.location = '/docs/?service=Heroku'">
+Heroku Docs								</a>
+							</li>
+							<li>
+								<a href="http://toolbelt.heroku.com/">
+Heroku Downloads								</a>
+							</li>
+							<li>
+								<a href="/trailhead?utm_campaign=trailhead&amp;utm_source=website&amp;utm_medium=dsc_footer">
+Learn Salesforce with Trailhead								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footerCols1">
+						<h3>
+Community						</h3>
+						<ul class="unstyled">
+							<li>
+								<a href="/forums">
+Developer Forums								</a>
+							</li>
+							<li>
+								<a href="/calendar">
+Salesforce Developer Events								</a>
+							</li>
+							<li>
+								<a href="/content/type/Webinar">
+Webinars								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footerCols1">
+						<h3>
+Learn more						</h3>
+						<ul class="unstyled">
+							<li>
+								<a href="/appexchange">
+Salesforce AppExchange								</a>
+							</li>
+							<li>
+								<a href="//admin.salesforce.com">
+Salesforce Administrators								</a>
+							</li>
+							<li>
+								<a href="//help.salesforce.com/">
+Salesforce.com Help Portal								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span9">
+<!--<dfc-footer-copyright>-->						<span class="footer-copyright">
+¬© Copyright 2000-2017 salesforce.com, inc. All rights reserved. Various trademarks held by their respective owners.<br>Salesforce.com, inc. The Landmark @ One Market, Suite 300, San Francisco, CA 94105, United States						</span>
+<!--</dfc-footer-copyright>-->						<div class="footer-links small">
+							<a href="//www.salesforce.com/company/privacy.jsp">
+Privacy Statement							</a>
+							<a href="//www.salesforce.com/company/security.jsp">
+Security Statement							</a>
+							<a href="/files/tos/Developerforce_TOU_20101119.pdf">
+Terms of Use							</a>
+							<a class="feedback" href="#" itemid="ebd396c9-3b7c-43bd-8223-419bc8a1cbeb">
+<img src="//developer.salesforce.com/resource/images/opinionlab-orange.gif" alt="Feedback">Feedback							</a>
+							<a href="http://www.salesforce.com/company/">
+About Us							</a>
+							<a class="language-switcher" href="javascript:void(0);">
+Language:								<span class="current-language">
+English									</span>
+							</a>
+							<div class="language-switcher-popup hidden">
+								<h4 class="language-popup-title">
+Choose a Language								</h4>
+								<ul class="unstyled language-list">
+									<li class="active" data-language="en">
+English									</li>
+									<li data-language="ja">
+Êó•Êú¨Ë™û									</li>
+									<li data-language="fr">
+Fran√ßais									</li>
+									<li data-language="de">
+Deutsch									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="span3">
+						<ul class="social-icons unstyled">
+							<li>
+								<a href="https://www.facebook.com/salesforcedevs">
+<img src="//developer.salesforce.com/resource/images/facebook.png">								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/#!/salesforcedevs">
+<img src="//developer.salesforce.com/resource/images/twitter.png">								</a>
+							</li>
+							<li>
+								<a href="https://plus.google.com/118327959233932983591">
+<img src="//developer.salesforce.com/resource/images/g.png">								</a>
+							</li>
+							<li>
+								<a href="https://www.linkedin.com/groups/Developer-Force-Forcecom-Community-3774731">
+<img src="//developer.salesforce.com/resource/images/linkedIn.png">								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/DeveloperForce">
+<img src="//developer.salesforce.com/resource/images/youTube.png">								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+<script type="text/javascript" src="//developer.salesforce.com/resource/javascripts/footerbottom.min.js"></script>
+<script type="text/javascript" src="/resource/javascripts/addthisconfig.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5329fb0d17e1f4da"></script>
+<!--</dfc-footer>-->
+	</div></div></div>
+  <div data-react-class="StaticHTML" data-react-props="{&quot;html&quot;:&quot;\u003c!--\u003cdfc-metrics\u003e--\u003e\r\n\u003cscript type=\&quot;text/javascript\&quot;\u003e\r\n  // Google analytics \r\n  var _curLocationQuery = window.location.search.toLowerCase();\r\n  if (!(\r\n    _curLocationQuery.indexOf(\&quot;un%3d\&quot;) \u003e -1 || \r\n    _curLocationQuery.indexOf(\&quot;pw%3d\&quot;) \u003e -1 || \r\n    _curLocationQuery.indexOf(\&quot;un=\&quot;) \u003e -1 || \r\n    _curLocationQuery.indexOf(\&quot;pw=\&quot;) \u003e -1\r\n  )) {\r\n   var dataLayer = [];\r\n   (function(w,d,s,l,i){\r\n    w[l]=w[l]||[];w[l].push({&#39;gtm.start&#39;:\r\n   new Date().getTime(),event:&#39;gtm.js&#39;});\r\n    var f=d.getElementsByTagName(s)[0],\r\n      j=d.createElement(s),\r\n      dl=l!==&#39;dataLayer&#39;?&#39;\u0026l=&#39;+l:&#39;&#39;;\r\n      \r\n    j.async=true;\r\n    j.src=&#39;//www.googletagmanager.com/gtm.js?id=&#39;+i+dl;\r\n    f.parentNode.insertBefore(j,f);\r\n   })(window,document,&#39;script&#39;,&#39;dataLayer&#39;,&#39;GTM-MWZCN8&#39;);\r\n  }\r\n  \r\n  // Adroll \r\n  adroll_adv_id = \&quot;KHANGVX5FNHJFGIKX7U7K5\&quot;;\r\n  adroll_pix_id = \&quot;ZDMR3ICVVVCZPHFRE3X6IU\&quot;;\r\n  (function () {\r\n  var oldonload = window.onload;\r\n  window.onload = function(){\r\n     __adroll_loaded=true;\r\n     var scr = document.createElement(\&quot;script\&quot;);\r\n     var host = ((\&quot;https:\&quot; == document.location.protocol) ? \&quot;https://s.adroll.com\&quot; : \&quot;http://a.adroll.com\&quot;);\r\n     scr.setAttribute(&#39;async&#39;, &#39;true&#39;);\r\n     scr.type = \&quot;text/javascript\&quot;;\r\n     scr.src = host + \&quot;/j/roundtrip.js\&quot;;\r\n     ((document.getElementsByTagName(&#39;head&#39;) || [null])[0] ||\r\n      document.getElementsByTagName(&#39;script&#39;)[0].parentNode).appendChild(scr);\r\n     if(oldonload){oldonload()}};\r\n  }());\r\n\u003c/script\u003e\r\n\r\n\u003c!--\u003c/dfc-metrics\u003e--\u003e&quot;}"><div data-reactroot="" data-reactid="1" data-react-checksum="-1456285145"><!--<dfc-metrics>-->
+<script type="text/javascript">
+  // Google analytics 
+  var _curLocationQuery = window.location.search.toLowerCase();
+  if (!(
+    _curLocationQuery.indexOf("un%3d") > -1 || 
+    _curLocationQuery.indexOf("pw%3d") > -1 || 
+    _curLocationQuery.indexOf("un=") > -1 || 
+    _curLocationQuery.indexOf("pw=") > -1
+  )) {
+   var dataLayer = [];
+   (function(w,d,s,l,i){
+    w[l]=w[l]||[];w[l].push({'gtm.start':
+   new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),
+      dl=l!=='dataLayer'?'&l='+l:'';
+      
+    j.async=true;
+    j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+   })(window,document,'script','dataLayer','GTM-MWZCN8');
+  }
+  
+  // Adroll 
+  adroll_adv_id = "KHANGVX5FNHJFGIKX7U7K5";
+  adroll_pix_id = "ZDMR3ICVVVCZPHFRE3X6IU";
+  (function () {
+  var oldonload = window.onload;
+  window.onload = function(){
+     __adroll_loaded=true;
+     var scr = document.createElement("script");
+     var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+     scr.setAttribute('async', 'true');
+     scr.type = "text/javascript";
+     scr.src = host + "/j/roundtrip.js";
+     ((document.getElementsByTagName('head') || [null])[0] ||
+      document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+     if(oldonload){oldonload()}};
+  }());
+</script>
+
+<!--</dfc-metrics>--></div></div>
+</body>
+
+<!-- DfcCms on dfc-cms-production. Environment: production. Version: v0.0.23. Deployed: Mon Mar 20 22:55:35 UTC 2017. -->
+<!-- Rendered: 2017-05-01 21:52:12 -0700. -->
+
+
+</html>
+èN9À“¯      YúRYúR=∂£       4:https://developer.salesforce.com/images/favicon.ico security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8F+O2DZM7ZTG6GukivU8OT5gAAAAAAAAgIMIIIBDCCBuygAwIBAgIMe76S/QSV9bCdvV1zMA0GCSqGSIb3DQEBCwUAMFcxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMS0wKwYDVQQDEyRHbG9iYWxTaWduIENsb3VkU1NMIENBIC0gU0hBMjU2IC0gRzMwHhcNMTYwOTA3MDAwMzAyWhcNMTcwOTA3MjAzMDI4WjBzMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzEVMBMGA1UECgwMRmFzdGx5LCBJbmMuMSAwHgYDVQQDDBdkZXZmb3JjZS5tYXAuZmFzdGx5Lm5ldDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMIAM/79bYYn5oubh22mw37yjuwaVCCSUomsbx0DRybBGZJz+09yCEhAHlqZ+BeHHDYZR0dI1vBkdYXUQzlX0a0bOSn0ayT79gUCziYT3XFnBp+1yAJr8P+ArtZC4tIOlmVUQUjgu7UXeE/TxgbQGFuDYUJuPPPvxL7wi9KQoVm4o0IuU+kmDTLCuA3rRBW35O7sMKNwgWSdg6JhHhdbIGeJ3n/Wd7nkVs9cvaZido8tm2V25t/ApoSDS+USdJvubzm0WmMRsHa/Cx/Vtxo8k7f7JGkY8NtFaqPAdrz+t1kz+Juxuo3xYGarNSvnU6o9yaMT5NO+UskP5oUJBnS52U0CAwEAAaOCBLIwggSuMA4GA1UdDwEB/wQEAwIFoDCBigYIKwYBBQUHAQEEfjB8MEIGCCsGAQUFBzAChjZodHRwOi8vc2VjdXJlLmdsb2JhbHNpZ24uY29tL2NhY2VydC9jbG91ZHNzbHNoYTJnMy5jcnQwNgYIKwYBBQUHMAGGKmh0dHA6Ly9vY3NwMi5nbG9iYWxzaWduLmNvbS9jbG91ZHNzbHNoYTJnMzBWBgNVHSAETzBNMEEGCSsGAQQBoDIBFDA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzAIBgZngQwBAgIwCQYDVR0TBAIwADCCA0sGA1UdEQSCA0IwggM+ghdkZXZmb3JjZS5tYXAuZmFzdGx5Lm5ldIIWKi5hZG1pbi5zYWxlc2ZvcmNlLmNvbYIWKi5ibG9vbS5zYWxlc2ZvcmNlLmNvbYIWKi5idXR0b25jbGlja2FkbWluLmNvbYIaKi5kZXZlbG9wZXIuc2FsZXNmb3JjZS5jb22CFCouZGV2ZWxvcGVyZm9yY2UuY29tgiYqLmRldmVsb3BtZW50LmRldmVsb3Blci5zYWxlc2ZvcmNlLmNvbYImKi5kZXZlbG9wbWVudC50cmFpbGhlYWQuc2FsZXNmb3JjZS5jb22CHyouZG9jcy5kZXZlbG9wZXIuc2FsZXNmb3JjZS5jb22CHSoucWEuZGV2ZWxvcGVyLnNhbGVzZm9yY2UuY29tghcqLnFhLmRldmVsb3BlcmZvcmNlLmNvbYIdKi5xYS50cmFpbGhlYWQuc2FsZXNmb3JjZS5jb22CHiouc3RhZ2luZy5hZG1pbi5zYWxlc2ZvcmNlLmNvbYIeKi5zdGFnaW5nLmJsb29tLnNhbGVzZm9yY2UuY29tgh4qLnN0YWdpbmcuYnV0dG9uY2xpY2thZG1pbi5jb22CIiouc3RhZ2luZy5kZXZlbG9wZXIuc2FsZXNmb3JjZS5jb22CHCouc3RhZ2luZy5kZXZlbG9wZXJmb3JjZS5jb22CISouc3RhZ2luZy5zdGFydHVwcy5zYWxlc2ZvcmNlLmNvbYIiKi5zdGFnaW5nLnRyYWlsaGVhZC5zYWxlc2ZvcmNlLmNvbYIZKi5zdGFydHVwcy5zYWxlc2ZvcmNlLmNvbYIaKi50cmFpbGhlYWQuc2FsZXNmb3JjZS5jb22CHioud29ya2JlbmNoLmRldmVsb3BlcmZvcmNlLmNvbYIUYWRtaW4uc2FsZXNmb3JjZS5jb22CFGJsb29tLnNhbGVzZm9yY2UuY29tghRidXR0b25jbGlja2FkbWluLmNvbYIYZGV2ZWxvcGVyLnNhbGVzZm9yY2UuY29tghJkZXZlbG9wZXJmb3JjZS5jb22CF3N0YXJ0dXBzLnNhbGVzZm9yY2UuY29tghh0cmFpbGhlYWQuc2FsZXNmb3JjZS5jb20wHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMB0GA1UdDgQWBBS2E3ayqL/4TdSaRFSnncZvTAql1zAfBgNVHSMEGDAWgBSpK4fhziRHOxu/z4U3AlWdDZRY5jANBgkqhkiG9w0BAQsFAAOCAQEAQOFGpYfrk0CCBi8xevyufBm8PswC5zCUOPl3f+PEnzu+/K0t1fySj5Dqzq1i1eAMvLeqsK49zSTtEYfSY+Yscdfd5QShnom2XkF5TErs05bJedTJyAAcq1w16+TQbTkcKDR1lLi4vLzap5mfATWwyKaQFBsMuwkPZV03FtEjnxAjAnN2e118LXueQgzvpjNhyav/JeaMCFbn+Ju0N0zVG0POP7zcZPJqJN7uUgoyxBFHKASwIZW1Ru4g3pGXwttRxLQlLS1tsljEPl4vi3E+OUPmd1BK4506wzlWOdxX3BNCHq5DDYL/uhdrH7txG1JF7YzqaNviWxk/ugXHImorQMAvAAMAAAAAAQEAAA== request-method GET response-head HTTP/1.1 404 Not Found
+Server: Cowboy
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+x-content-type-options: nosniff
+Content-Type: text/html; charset=utf-8
+Cache-Control: max-age=600, public, s-maxage=3600
+X-Runtime: 0.027209
+Via: 1.1 vegur, 1.1 varnish
+Accept-Ranges: bytes
+Date: Tue, 02 May 2017 04:52:12 GMT
+x-request-id: cdba82e1e5c71ca29cab532e2e54bce7bb8e03c2
+X-Served-By: cache-ams4445-AMS
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1493700732.270177,VS0,VE393
+ uncompressed-len 0 necko:classified 1  …

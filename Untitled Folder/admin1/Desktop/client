@@ -1,0 +1,24 @@
+
+
+sms app:
+
+
+Call forwarding link:
+
+1) <?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Dial>
+    +1-205-444-5555
+  </Dial>
+</Response>
+
+
+say message setup:
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+     <Say>Hello World</Say>
+</Response>
+
+
+

@@ -1,0 +1,641 @@
+/* IE6 specific css */
+* html .cal_date h2{padding-bottom:0px;}
+* html .cal_event h2 {position:relative; left:-2px;}
+
+/* more button */
+* html .more_button .container {padding-right:1px;}
+
+/* multi button */
+* html .multi_button .container {padding-right:1px;}
+* html .multi_button .container .item {background-position:0 2px;}	
+
+/* blue button */
+* html .blue_button {top:11px;}
+* html .blue_button .container .rightside {width:127px;}
+
+/* black button */
+* html .black_button {top:11px;}
+* html .black_button .container .rightside {width:127px;}
+
+/* Homepage vertical positioning of Blog Posts and Calendar */
+* html #blog_cal_wrap {margin-top:-20px;}
+* html #blog_cal_wrap #calendar, * html #blog_cal_wrap #blogposts{
+/*	background-color:aqua;*/
+	margin-top:0px;
+	padding-top:20px;
+	height: 100%;
+}
+
+/* BEGIN Release Page */
+* html #toplevelsidebar {overflow:hidden;}
+* html #release_links li {height:28px;}
+* html #release_links li a {padding-top:6px; padding-bottom:6px; font-weight:bold;}
+* html #release_desc {padding-top:7px;} 
+/* END Release Page */
+
+/* BEGIN Wrapper Pages */
+
+* html 	#discussionboard #pagewrap {width:975px;}
+* html 	#discussionboard .sidenav li {padding-bottom:10px; height:1px;} 
+* html 	#discussionboard .sidenav li a {height:1px;}
+		
+* html 	#wrapper #bodycontent #signin h1.tweak {top:20px; margin-top:0;}		
+* html 	#wrapper .form .row input.checkbox {margin-right:5px;}		
+
+* html 	#wrapper .sidenav li {padding-bottom:10px; height:1px;} 
+* html 	#wrapper .sidenav ul.additional {margin-top:12px; }
+
+* html 	#blogcontent .pager-bottom div.pager-inner{margin-right:20px;}
+* html 	#blogcontent .pager-bottom div.pager-inner span.pager-right a {padding-right:1px;}
+
+/* END  Wrapper Pages */
+
+/* BEGIN png fix */
+ /* BEGIN sidenav */
+* html 	#sidenav .inner {
+		width:232px;
+		background-image:none;
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_top.png', sizingMethod='crop');	
+	}
+	
+* html 	#sidenav ul.links {
+		width:226px;
+		background-image:none;
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_middle.png', sizingMethod='scale');		
+	}
+* html 	#sidenav ul.links li a {position:relative; width:100%;}	
+* html 	#sidenav .bottom {
+		background-image:none;
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_bottom.png', sizingMethod='crop');		
+	}
+ /* END sidenav */
+ /* BEGIN startbuilding */
+* html 	#startbuilding {
+		background-image:none;
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/startbuilding/startbuilding_top.png', sizingMethod='crop');		
+	}
+* html 	.green_arrow_list a {
+		position:relative;
+	}
+* html 	#startbuilding_bottom {
+		background-image:none;
+		height:25px;
+		margin-bottom:9px;
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/startbuilding/startbuilding_bottom.png', sizingMethod='crop');		
+	}
+ /* END startbuilding */
+/* BEGIN homepage Latest Blog Posts */
+* html 	#blog_cal_wrap #blogposts{padding-right:17px; }
+/* END homepage Latest Blog Posts */
+
+/* BEGIN Release Page */
+* html 	#release_links .top {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/release_links_top.png', sizingMethod='crop');		
+	}
+* html 	#release_links ul {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/release_links_middle.png', sizingMethod='scale');		
+	}
+* html 	#release_links ul a {position:relative;}
+* html 	#release_links .bottom {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/release_links_bottom.png', sizingMethod='crop');		
+	}
+
+* html 	#resource_links .top {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/resources_top.png', sizingMethod='crop');		
+	}
+* html 	#resource_links .middle {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/resources_middle.png', sizingMethod='scale');		
+	}
+* html 	#resource_links .middle a {position:relative;}	
+* html 	#resource_links .bottom {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/resources_bottom.png', sizingMethod='crop');		
+	}
+	
+* html 	#release_highlights .top {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight721_top.png', sizingMethod='crop');		
+	}		
+* html 	#release_highlights .bottom {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight721_bottom.png', sizingMethod='crop');		
+	}		
+	
+* html 	#release_notes .top {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/white292_top.png', sizingMethod='crop');		
+	}		
+* html 	#release_notes .bottom {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/white292_bottom.png', sizingMethod='crop');		
+	}			
+	
+	/* on two release page */
+* html 	.release_highlights .top {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight426_top.png', sizingMethod='crop');		
+	}			
+* html 	.release_highlights .bottom {
+		background:none; 
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight426_bottom.png', sizingMethod='crop');		
+	}			
+
+/* END Release Page */
+/* BEGIN Wrapper Page */
+* html 		#wrapper .sidenav .top {
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_top_narrow.png', sizingMethod='crop');		
+		}
+* html 		#wrapper .sidenav .middle {
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_middle_narrow.png', sizingMethod='scale');		
+		}
+* html 		#wrapper .sidenav .middle a {
+			position:relative;
+		}		
+* html 		#wrapper .sidenav .bottom {			
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_bottom_narrow.png', sizingMethod='crop');					
+		}		
+					
+* html 		#wrapper #content .corner_nw { 
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/wrap/corner-nw.png', sizingMethod='crop');		
+		}	
+		
+* html 		#wrapper .formtop { 
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight738_top.png', sizingMethod='crop');		
+		}		
+		
+* html 		#wrapper .form { 
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight738_middle.png', sizingMethod='scale');		
+		}		
+* html 		#wrapper .form a, * html #wrapper .form input {
+			position:relative;
+		}		
+* html 		#wrapper .formbottom { 
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight738_bottom.png', sizingMethod='crop');		
+		}			
+/* END Wrapper Page */
+/* BEGIN Discussion Board */
+* html 		#discussionboard .sidenav .top {
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_top_narrow.png', sizingMethod='crop');		
+		}			
+* html 		#discussionboard .sidenav .middle {
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_middle_narrow.png', sizingMethod='scale');		
+		}			
+* html 		#discussionboard .sidenav .middle a {position:relative;}
+* html 		#discussionboard .sidenav .bottom {
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_bottom_narrow.png', sizingMethod='crop');		
+		}			
+/* END Discussion Board */
+/* END png fix */	
+	
+
+/* BEGIN nav */
+* html #nav ul.sf-menu li:hover ul,
+* html #nav ul.sf-menu li.sfHover ul {
+	left:			0;
+	top:			35px; /* match top ul list item height */
+	z-index:		-1;
+}
+
+* html #nav ul.sf-menu li li span.nav_top_right{
+	background:transparent url(images/nav/nav_top_right.gif) no-repeat scroll 100% -12px;
+
+}
+* html #nav ul.sf-menu li li span.ieadjust_top{
+	right:-9px;	
+}
+* html #nav ul.sf-menu li li span.nav_bot_left{
+	background:transparent url(images/nav/nav_bot_left.gif) no-repeat scroll -11px -9px;
+	left:0px;
+}
+
+* html #nav ul.sf-menu li li span.nav_bot_right{
+	background:transparent url(images/nav/nav_bot_right.gif) no-repeat scroll 100% -9px;
+	right:-9px;
+}
+* html #nav ul.sf-menu li li span.ieadjust_bot{
+	right:-10px;	
+}
+
+* html #nav ul.sf-menu li li a.firsta, 
+* html #nav ul.sf-menu li li a.firsta:visited{
+	border-top:1px solid #ccc;
+}
+
+* html #nav ul.sf-menu li li a.lasta, 
+* html #nav ul.sf-menu li li a.lasta:visited{
+	background:transparent url(images/nav/nav_bot_mid.gif) repeat-x scroll 0 -9px;
+}
+* html #nav ul.sf-menu ul .firstli {
+	border-right:	none;
+	padding-right: 2px;
+}
+	
+* html #nav ul.sf-menu ul .lastli {
+	border-left:	none;
+	border-right:	none;
+	padding-left:	1px;
+	padding-right:	2px;	
+}
+
+* html #nav ul.sf-menu li:hover, 
+* html #nav ul.sf-menu li.sfHover,
+* html #nav ul.sf-menu li a.primary:focus, 
+* html #nav ul.sf-menu li a.primary:hover, 
+* html #nav ul.sf-menu li a.primary:active{
+	background:transparent url(images/nav/nav_top_left.gif) no-repeat scroll -11px -4px;
+	
+}
+
+* html #nav ul.sf-menu li:hover .nav_primary_top_right, 
+* html #nav ul.sf-menu li.sfHover .nav_primary_top_right,
+* html #nav ul.sf-menu li a.primary:hover .nav_primary_top_right{
+	background:transparent url(images/nav/nav_primary_top_right.gif) no-repeat scroll 100% -12px;
+	right:-1px;
+}
+
+* html #nav ul.sf-menu li:hover .nav_text, 
+* html #nav ul.sf-menu li.sfHover .nav_text,
+* html 	#nav ul.sf-menu li a.primary:hover .nav_text{
+		height:100%;
+		width:100%;
+		background:#fff;
+		color:#000;	
+		padding-bottom:10px;
+	}
+* html 	#nav ul.sf-menu li li span.nav_top_left{
+		height:25px;
+		
+		top:-1px;
+	}
+
+
+/* fix jiggle on hover */
+* html #nav ul.sf-menu li,
+* html #nav ul.sf-menu li li:hover{
+	/*border-left:	0px solid transparent;
+	border-right:	0px solid transparent; GL: the new style from launch had this commented */	
+}
+
+/* fix border size */
+* html #nav ul.sf-menu li {border-right:2px solid #ECF3F8; border-left:1px solid #ECF3F8;}
+* html #nav ul.sf-menu li ul {padding-right:2px;}
+* html #nav ul.sf-menu li li {border-left:1px solid #ABABAB;border-right:2px solid #ABABAB;padding-right:1px}
+
+/*IE hover stay*/
+* html body #nav .sf-menu .sfHover a,
+* html body #nav .sf-menu .sfHover a:hover {color:#000;}
+* html body #nav .sf-menu .sfHover li a {color:#99908C;}
+* html body #nav .sf-menu .sfHover .sfHover a {color:#000;}
+* html body #nav .sf-menu .sfHover .sfHover li a {color:#99908C;}
+* html body #nav .sf-menu .sfHover .sfHover a:hover {color:#000;}
+
+/* END nav */
+
+/* BEGIN search */
+* html #header .nav {margin-right:16px;}
+* html #header .nav .search #searchresults .preview {margin-left:2px;}
+* html #header .nav .search #searchresults li.wicon .title {margin-left:48px; width:151px;}
+* html #header .nav .search #searchresults li.wicon .desc {margin-left:48px; width:151px;} 
+* html #header .nav .search #searchresults {
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/search/popup-top.png', sizingMethod='crop');
+}
+
+* html #searchresults #searchresultslist {
+	background:none; 
+	width:210px;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/search/popup-middle.png', sizingMethod='scale');		
+}
+* html #header .nav .search #searchresults li {padding-bottom:0px;}
+* html #searchresults #searchresultslist a {position:relative; width:210px;}
+* html #searchresults .bottom {
+	height:41px;
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/search/popup-bottomie6.png', sizingMethod='crop');
+	
+}
+/* END search */
+
+/* BEGIN Best Practices */
+* html #wrapper .mostrecent .premote, * html #wrapper .mostrecent .demote {padding:0 0 0 2px; width:66px;}
+* html #wrapper .mostrecent .premote span, * html #wrapper .mostrecent .demote span {margin-left:1px;}
+/* * html #wrapper .mostrecent h1 select {top:-2px;}*/
+/* END Best Practices */
+
+/* BEGIN Consultant Pages */
+		* html .consultsidenav .top {
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_top_narrow.png', sizingMethod='crop');		
+		}
+		* html .consultsidenav .middle {
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_middle_narrow.png', sizingMethod='scale');		
+		}
+		* html .consultsidenav .middle a {
+			position:relative;
+		}		
+		* html .consultsidenav .bottom {			
+			background:none; 
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/sidenav/sidenav_bottom_narrow.png', sizingMethod='crop');					
+		}
+		
+* html .consultsidenav a {height:20px;}
+* html .consult .orgdesign .firstul {margin-left:10px;}
+/* END Consultant Pages */
+
+/* BEGIN SEM Form Page */
+* html .colprimary {margin-left:18px;}
+* html #semform input {height:18px; padding-top:1px;}
+* html #semform select {position:relative; left:-3px;}
+* html #semform .error select {left:0; width:220px;}
+* html .colsecondary .top {			
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/white365_top.png', sizingMethod='crop');		
+}
+* html .colsecondary .middle {
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/white365_middle.png', sizingMethod='scale');	
+}
+* html .colsecondary .middle input {position:relative;}
+
+* html .colsecondary .bottom {			
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/white365_bottom.png', sizingMethod='crop');		
+}
+
+/* END SEM Form Page */
+
+/* BEGIN Core Resources page */
+* html #colsmain div.colprimary {margin-left:35px;}
+* html #colsmain div.colprimary .top,
+* html #colsmain div.colsecondary .top,
+* html #colsmain div.colprimary .bottom, 
+* html #colsmain div.colsecondary .bottom {
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/white282_top.png', sizingMethod='scale');
+
+}
+* html #colsmain div.colprimary .bottom,
+* html #colsmain div.colsecondary .bottom {
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/white282_bottom.png', sizingMethod='scale');
+}
+* html #colsmain div.colprimary .middle,
+* html #colsmain div.colsecondary .middle {
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/white282_middle.png', sizingMethod='scale');
+}
+
+/*END Core Resources page */
+/* BEGIN short Form */
+* html .shortformpage .colprimary {margin:0 0 0 20px; width:365px;}
+* html .shortformpage .colsecondary .sidenav .top {
+	background-image:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/white500_top.png', sizingMethod='crop');
+
+}
+* html .shortformpage #semform .doublewide{padding-left:20px;}
+* html .shortformpage #semform .doublewide .middle{ width: 900px;}
+* html .shortformpage .colsecondary .sidenav .bottom {
+	background-image:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/white500_bottom.png', sizingMethod='crop');
+
+}
+* html .shortformpage #semform label.checkbox{padding-top:0px;}
+/* END short Form */
+
+/* BEGIN Reg Form */
+* html .regformpage .colprimary {margin-left:19px;}
+* html .doublewide .formcol {height:290px;}
+* html #regformnewuser input {position:relative; height:18px; padding-top:1px;}
+* html #regformnewuser select {position:relative; left:-3px;}
+* html #regformnewuser .error select {left:0; width:220px;}
+* html #regformnewuser .webinarselection input {top:2px;}
+* html #regformtab2 input {position:relative; display:none;}
+* html #regformtab2 .ie6visible input {display:block;}
+
+* html .regformpage .colsecondary .sidenav .top {
+	background-image:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight207_top.png', sizingMethod='crop');		
+}
+* html .regformpage .colsecondary .sidenav .middle {background-image:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight207_middle.png', sizingMethod='scale');
+}
+* html .regformpage .colsecondary .sidenav .bottom {
+	background-image:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight207_bottom.png', sizingMethod='crop');		
+}
+
+
+* html .doublewide .top {			
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight920_top.png', sizingMethod='crop');		
+}
+* html .doublewide .middle {
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight920_middle.png', sizingMethod='scale');	
+}
+* html .doublewide .middle a {position:relative;}
+* html .doublewide .bottom {			
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight920_bottom.png', sizingMethod='crop');		
+}
+
+/* tooltip */
+* html .tooltip .top {			
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/tooltip/246top.png', sizingMethod='crop');		
+}
+* html .tooltip .middle {
+	padding-bottom:15px;
+	background-image:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/tooltip/246middle.png', sizingMethod='scale');	
+}
+* html .tooltip .middle a {position:relative;}
+
+* html .tooltip .bottom {			
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/tooltip/246bottom.png', sizingMethod='crop');	
+}
+
+
+/* END Reg Form */
+
+* html #nav a.primary .nav_text {font-weight:bold;}
+
+/* BEGIN archive-featured*/
+* html #wrapper .archive-page #intro {float:left;padding:20px 15px 0 25px;width:525px;}
+* html #thick_dotted_line{ 
+	height: 2px;margin:35px 35px 20px 25px;
+	background:transparent url(images/thick_dotted_line.gif) no-repeat scroll 0 0;
+}
+* html #wrapper .archive-page #select_row{
+	margin:35px 35px 20px 25px;
+}
+* html #wrapper .archive-page #select_row select{
+	width: 220px;
+	margin-right: 17px;
+}
+* html #wrapper .archive-page #linkmosaic{
+	margin:0px 35px 0px 25px;
+}
+* html #wrapper .archive-page #linkmosaic li {
+	float:left; width:670px; margin:0 7px 10px 0; padding:8px 0 36px;
+	background:transparent url(images/pnav_hr.gif) repeat-x scroll 0 100%;
+}
+* html #wrapper .archive-page #linkmosaic li img {
+	float:left;
+	margin:9px 0 0 0;
+}
+* html #wrapper .archive-page #linkmosaic li h2, #wrapper .archive-page #linkmosaic li .txt {
+	margin-left:32px;
+}
+* html #prev_next_row{margin:0 auto;padding:30px;text-align:center;}
+* html #prev_next_row a, #prev_next_row a:visited{
+	color:#326DB5;
+	font-size:12px;
+	font-weight:bold;
+	line-height:17px;
+	text-decoration: none;
+}
+* html #prev_next_row a:hover{text-decoration: underline;}
+
+/* END archive-featured*/
+
+
+
+
+/* Accordionpage */
+* html .accordionpage #billboard {margin-left:6px}
+* html .accordionpage .colprimary {padding-top:18px;}
+* html .accordionpage .videobutton {
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/buttons/video_button.png', sizingMethod='crop');	
+}
+/* added LDM 20091020 */
+* html .accordionpage .videobutton:hover {
+	background:none; 
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='http://www.developerforce.com/assets/developerforcesite/common/css/images/buttons/video_button_ie6-ro.png', sizingMethod='crop');	
+}
+* html .accordionpage #accordion ul {width:640px;}
+* html .accordionpage #accordion li {width:620px;}
+* html .accordionpage #accordion .acctrigger {width:640px;}
+* html .accordionpage #accordion .acchidereveal {width:640px;}
+* html #accordion .acctrigger .indicator {background-image:url(images/buttons/red_dropdown_arrow.gif);}
+
+/* BEGIN FORCE ZONE */
+* html    .forcezonepage .colprimary {margin-left:5px;}
+* html    .forcezonepage .bcrumbnav {padding-top:19px;}
+* html    .forcezonepagesession .bcrumbnav {padding-top:29px;}
+* html    .forcezonepage .bcrumbnav .backto .icon {
+        padding-right:6px;
+        position:relative;
+        top:3px;
+        background-image:none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+            src='http://www.developerforce.com/assets/developerforcesite/common/css/images/buttons/red_arrow_left.png', sizingMethod='crop');		
+    }
+* html    .sidebubble207 .top {
+        background-image:none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+            src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight207_top.png', sizingMethod='crop');		
+    }
+* html    .sidebubble207 .middle {background-image:none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+            src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight207_middle.png', sizingMethod='scale');
+    }
+* html    .sidebubble207 .bottom {
+        background-image:none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+            src='http://www.developerforce.com/assets/developerforcesite/common/css/images/highlight_bk/highlight207_bottom.png', sizingMethod='crop');		
+    }
+
+
+    #sessionnav #secondarynav li {height:28px;}
+/* END FORCE ZONE */
+$”7!      Yù†Yù©=≥+ÌYnQ^   N:https://www.developerforce.com/assets/developerforcesite/common/css/ie6_2.css necko:classified 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8F+O2DZM7ZTG6GukivU8OT5gAAAAAAAAgIMIIIBDCCBuygAwIBAgIMe76S/QSV9bCdvV1zMA0GCSqGSIb3DQEBCwUAMFcxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMS0wKwYDVQQDEyRHbG9iYWxTaWduIENsb3VkU1NMIENBIC0gU0hBMjU2IC0gRzMwHhcNMTYwOTA3MDAwMzAyWhcNMTcwOTA3MjAzMDI4WjBzMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzEVMBMGA1UECgwMRmFzdGx5LCBJbmMuMSAwHgYDVQQDDBdkZXZmb3JjZS5tYXAuZmFzdGx5Lm5ldDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMIAM/79bYYn5oubh22mw37yjuwaVCCSUomsbx0DRybBGZJz+09yCEhAHlqZ+BeHHDYZR0dI1vBkdYXUQzlX0a0bOSn0ayT79gUCziYT3XFnBp+1yAJr8P+ArtZC4tIOlmVUQUjgu7UXeE/TxgbQGFuDYUJuPPPvxL7wi9KQoVm4o0IuU+kmDTLCuA3rRBW35O7sMKNwgWSdg6JhHhdbIGeJ3n/Wd7nkVs9cvaZido8tm2V25t/ApoSDS+USdJvubzm0WmMRsHa/Cx/Vtxo8k7f7JGkY8NtFaqPAdrz+t1kz+Juxuo3xYGarNSvnU6o9yaMT5NO+UskP5oUJBnS52U0CAwEAAaOCBLIwggSuMA4GA1UdDwEB/wQEAwIFoDCBigYIKwYBBQUHAQEEfjB8MEIGCCsGAQUFBzAChjZodHRwOi8vc2VjdXJlLmdsb2JhbHNpZ24uY29tL2NhY2VydC9jbG91ZHNzbHNoYTJnMy5jcnQwNgYIKwYBBQUHMAGGKmh0dHA6Ly9vY3NwMi5nbG9iYWxzaWduLmNvbS9jbG91ZHNzbHNoYTJnMzBWBgNVHSAETzBNMEEGCSsGAQQBoDIBFDA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzAIBgZngQwBAgIwCQYDVR0TBAIwADCCA0sGA1UdEQSCA0IwggM+ghdkZXZmb3JjZS5tYXAuZmFzdGx5Lm5ldIIWKi5hZG1pbi5zYWxlc2ZvcmNlLmNvbYIWKi5ibG9vbS5zYWxlc2ZvcmNlLmNvbYIWKi5idXR0b25jbGlja2FkbWluLmNvbYIaKi5kZXZlbG9wZXIuc2FsZXNmb3JjZS5jb22CFCouZGV2ZWxvcGVyZm9yY2UuY29tgiYqLmRldmVsb3BtZW50LmRldmVsb3Blci5zYWxlc2ZvcmNlLmNvbYImKi5kZXZlbG9wbWVudC50cmFpbGhlYWQuc2FsZXNmb3JjZS5jb22CHyouZG9jcy5kZXZlbG9wZXIuc2FsZXNmb3JjZS5jb22CHSoucWEuZGV2ZWxvcGVyLnNhbGVzZm9yY2UuY29tghcqLnFhLmRldmVsb3BlcmZvcmNlLmNvbYIdKi5xYS50cmFpbGhlYWQuc2FsZXNmb3JjZS5jb22CHiouc3RhZ2luZy5hZG1pbi5zYWxlc2ZvcmNlLmNvbYIeKi5zdGFnaW5nLmJsb29tLnNhbGVzZm9yY2UuY29tgh4qLnN0YWdpbmcuYnV0dG9uY2xpY2thZG1pbi5jb22CIiouc3RhZ2luZy5kZXZlbG9wZXIuc2FsZXNmb3JjZS5jb22CHCouc3RhZ2luZy5kZXZlbG9wZXJmb3JjZS5jb22CISouc3RhZ2luZy5zdGFydHVwcy5zYWxlc2ZvcmNlLmNvbYIiKi5zdGFnaW5nLnRyYWlsaGVhZC5zYWxlc2ZvcmNlLmNvbYIZKi5zdGFydHVwcy5zYWxlc2ZvcmNlLmNvbYIaKi50cmFpbGhlYWQuc2FsZXNmb3JjZS5jb22CHioud29ya2JlbmNoLmRldmVsb3BlcmZvcmNlLmNvbYIUYWRtaW4uc2FsZXNmb3JjZS5jb22CFGJsb29tLnNhbGVzZm9yY2UuY29tghRidXR0b25jbGlja2FkbWluLmNvbYIYZGV2ZWxvcGVyLnNhbGVzZm9yY2UuY29tghJkZXZlbG9wZXJmb3JjZS5jb22CF3N0YXJ0dXBzLnNhbGVzZm9yY2UuY29tghh0cmFpbGhlYWQuc2FsZXNmb3JjZS5jb20wHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMB0GA1UdDgQWBBS2E3ayqL/4TdSaRFSnncZvTAql1zAfBgNVHSMEGDAWgBSpK4fhziRHOxu/z4U3AlWdDZRY5jANBgkqhkiG9w0BAQsFAAOCAQEAQOFGpYfrk0CCBi8xevyufBm8PswC5zCUOPl3f+PEnzu+/K0t1fySj5Dqzq1i1eAMvLeqsK49zSTtEYfSY+Yscdfd5QShnom2XkF5TErs05bJedTJyAAcq1w16+TQbTkcKDR1lLi4vLzap5mfATWwyKaQFBsMuwkPZV03FtEjnxAjAnN2e118LXueQgzvpjNhyav/JeaMCFbn+Ju0N0zVG0POP7zcZPJqJN7uUgoyxBFHKASwIZW1Ru4g3pGXwttRxLQlLS1tsljEPl4vi3E+OUPmd1BK4506wzlWOdxX3BNCHq5DDYL/uhdrH7txG1JF7YzqaNviWxk/ugXHImorQMAvAAMAAAAAAQEAAA== request-method GET response-head HTTP/1.1 200 OK
+x-amz-id-2: 1aaLgnteFMZnDiJQr4rXSMRztgZCSZi+n3H4GUyzsD7+ztTDS7Sd6xJl46nLOdJUDDhJNzvnrSU=
+x-amz-request-id: D1F6F45015F9B4E9
+Last-Modified: Wed, 04 Feb 2015 22:00:29 GMT
+Etag: "a92bfced8ecf29c400663e9971b9bafe"
+Content-Type: text/css
+Server: AmazonS3
+Access-Control-Allow-Origin: *
+Content-Length: 25418
+Accept-Ranges: bytes
+Date: Fri, 28 Apr 2017 09:56:40 GMT
+Via: 1.1 varnish
+Age: 0
+x-request-id: f567950b2506defa3cab7d33f49ada5320e1180a
+X-Served-By: cache-ams4424-AMS
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1493373400.963174,VS0,VE361
+ uncompressed-len 0   cJ

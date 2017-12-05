@@ -1,0 +1,2146 @@
+
+(unity-panel-service:1706): Indicator-Appmenu-WARNING **: Already have a menu for window ID 71303347 with path /com/canonical/menu/44000B3 from :1.92, unregistering that one
+
+(unity-panel-service:1706): Indicator-Appmenu-WARNING **: Already have a menu for window ID 71317381 with path /com/canonical/menu/4403785 from :1.92, unregistering that one
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-WARNING **: Already have a menu for window ID 71983680 with path /com/canonical/menu/44A6240 from :1.92, unregistering that one
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-WARNING **: Already have a menu for window ID 72612274 with path /com/canonical/menu/453F9B2 from :1.92, unregistering that one
+
+(unity-panel-service:1706): Indicator-Appmenu-WARNING **: Already have a menu for window ID 72631133 with path /com/canonical/menu/454435D from :1.92, unregistering that one
+
+(unity-panel-service:1706): Indicator-Appmenu-WARNING **: Already have a menu for window ID 72631947 with path /com/canonical/menu/454468B from :1.92, unregistering that one
+
+** (unity-panel-service:1706): WARNING **: Failed to fetch property `_GTK_UNIQUE_BUS_NAME': Timeout was reached
+
+(unity-panel-service:1706): Indicator-Appmenu-WARNING **: Already have a menu for window ID 71303347 with path /com/canonical/menu/44000B3 from :1.92, unregistering that one
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): GLib-GObject-WARNING **: g_object_weak_unref: couldn't find weak ref 0x7fc0703fc5f0(0x1220230)
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1706): LIBDBUSMENU-GLIB-WARNING **: Unable to get menu proxy: Operation was cancelled
+
+(unity-panel-service:1706): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:1706): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:15401): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:15401): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:15401): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:15401): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:15401): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:15401): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:15401): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:15401): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/scale-horizontal-trough.png': Unrecognised image file format
+
+(unity-panel-service:15401): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:15401): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:15401): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:15401): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:15401): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:15401): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:15401): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:15401): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:15401): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:15401): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:15401): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:15401): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:15401): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+
+(unity-panel-service:16195): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:16195): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:16195): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:16195): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:16195): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:16195): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:16195): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:16195): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:16195): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:16195): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:16195): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:16195): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:16195): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/scale-horizontal-trough.png': Unrecognised image file format
+
+(unity-panel-service:16195): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:16195): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:16195): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:16195): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:16195): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:16195): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:16195): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:16195): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:16195): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:16195): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+(unity-panel-service:1783): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1783): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1783): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1783): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1783): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1783): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1783): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1783): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1783): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1783): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1783): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1783): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1783): libindicator-WARNING **: Could not activate service 'indicator-datetime': The connection is closed
+
+(unity-panel-service:1783): GLib-GIO-CRITICAL **: g_dbus_connection_call_finish_internal: assertion 'G_IS_DBUS_CONNECTION (connection)' failed
+
+(unity-panel-service:1783): libindicator-WARNING **: Could not activate service 'indicator-session': The connection is closed
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:1783): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:1783): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+(unity-panel-service:1791): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1791): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1791): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1791): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1791): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1791): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): libindicator-WARNING **: Could not activate service 'indicator-sound': GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.canonical.indicator.sound was not provided by any .service files
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1791): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1791): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1791): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1791): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1791): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1791): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1791): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1791): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1791): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1791): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:4753): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:4753): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:4753): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:4753): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:4753): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:4753): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:4753): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:4753): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:4753): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:4753): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:4753): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:4753): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:4753): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:4753): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:4753): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:4753): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:4753): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:4753): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:4753): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:4753): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:4753): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+
+(unity-panel-service:5905): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:5905): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:5905): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:5905): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:5905): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:5905): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:5905): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:5905): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:5905): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:5905): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:5905): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:5905): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:5905): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:5905): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:5905): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:5905): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:5905): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:5905): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:5905): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:5905): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:5905): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:5905): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:5905): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:5905): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:5905): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:5905): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:5905): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:5905): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:5905): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:5905): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+
+(unity-panel-service:7287): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:7287): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7287): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7287): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7287): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7287): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7287): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7287): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7287): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7287): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7287): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7287): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:7287): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7287): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7287): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7287): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7287): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7287): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7287): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7287): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7287): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7287): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7287): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7287): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7287): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:7287): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:18214): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:18214): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:18214): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:18214): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:18214): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:18214): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:18214): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/scale-horizontal-trough.png': Unrecognised image file format
+
+(unity-panel-service:18214): libindicator-WARNING **: Could not activate service 'indicator-sound': GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.canonical.indicator.sound was not provided by any .service files
+
+(unity-panel-service:18214): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:18214): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:18214): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:18214): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:18214): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:18214): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:18214): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:18214): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:18214): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:18214): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:18214): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:18214): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+
+(unity-panel-service:19424): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:19424): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:19424): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:19424): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:19424): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:19424): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:19424): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:19424): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:19424): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:19424): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:19424): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:19424): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:19424): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:19424): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:19424): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:19424): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:19424): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:19424): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:19424): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:19424): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:19424): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+
+(unity-panel-service:20611): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:20611): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:20611): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:20611): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:20611): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:20611): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:20611): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:20611): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:20611): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:20611): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:20611): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:20611): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:20611): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:20611): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:20611): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:20611): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:20611): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+
+(unity-panel-service:21799): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:21799): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:21799): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:21799): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:21799): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:21799): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:21799): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:21799): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:21799): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:21799): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:21799): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:21799): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:21799): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:21799): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:21799): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:21799): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:21799): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:21799): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:21799): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:21799): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:21799): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:21799): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:21799): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:21799): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:21799): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:21799): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:21799): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:21799): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:21799): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:21799): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:21799): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:21799): GLib-GIO-CRITICAL **: Error while sending AddMatch() message: The connection is closed
+
+(unity-panel-service:21799): GLib-GIO-CRITICAL **: Error while sending AddMatch() message: The connection is closed
+
+** (unity-panel-service:21799): ERROR **: Unable to get org.ayatana.bamf window: Error calling StartServiceByName for org.ayatana.bamf: The connection is closed
+
+(unity-panel-service:23116): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:23116): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:23116): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:23116): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:23116): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:23116): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:23116): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:23116): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/scale-horizontal-trough.png': Unrecognised image file format
+
+(unity-panel-service:23116): libindicator-WARNING **: Could not activate service 'indicator-sound': GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.canonical.indicator.sound was not provided by any .service files
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:23116): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:23116): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:23116): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:23116): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:23116): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:23116): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:23116): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:23116): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:23116): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:23116): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:23116): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:23116): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:23116): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:23116): libindicator-WARNING **: Could not activate service 'indicator-datetime': The connection is closed
+
+(unity-panel-service:23116): libindicator-WARNING **: Could not activate service 'indicator-session': The connection is closed
+
+(unity-panel-service:23116): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:23116): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:24511): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:24511): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:24511): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:24511): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:24511): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:24511): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:24511): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:24511): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:24511): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:24511): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:24511): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:24511): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:24511): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:24511): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:24511): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:24511): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:24511): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:24511): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:24511): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:24511): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:24511): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:24511): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:24511): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:24511): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:24511): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:24511): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:24511): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:24511): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:24511): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:24511): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+
+(unity-panel-service:25712): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:25712): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:25712): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:25712): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:25712): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:25712): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:25712): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:25712): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/scale-horizontal-trough.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:25712): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:25712): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:25712): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:25712): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:25712): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:25712): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:25712): libindicator-WARNING **: Could not activate service 'indicator-sound': GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.canonical.indicator.sound was not provided by any .service files
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:25712): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:25712): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:25712): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:25712): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:25712): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:25712): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:25712): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:25712): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+g_dbus_connection_real_closed: Remote peer vanished with error: Error sending message: Broken pipe (g-io-error-quark, 44). Exiting.
+
+** (unity-panel-service:25712): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:25712): libindicator-WARNING **: Could not activate service 'indicator-datetime': The connection is closed
+
+(unity-panel-service:25712): GLib-GIO-CRITICAL **: g_dbus_connection_call_finish_internal: assertion 'G_IS_DBUS_CONNECTION (connection)' failed
+
+(unity-panel-service:25712): libindicator-WARNING **: Could not activate service 'indicator-session': The connection is closed
+
+(unity-panel-service:27056): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:27056): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:27056): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:27056): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:27056): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:27056): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:27056): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:27056): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/scale-horizontal-trough.png': Unrecognised image file format
+
+(unity-panel-service:27056): libindicator-WARNING **: Could not activate service 'indicator-sound': GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.canonical.indicator.sound was not provided by any .service files
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:27056): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:27056): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:27056): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:27056): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:27056): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:27056): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:27056): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:27056): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:27056): libindicator-WARNING **: The indicator 'indicator-sound' vanished too quickly after appearing. It won't be respawned anymore, as it could be crashing repeatedly.
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:27056): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+g_dbus_connection_real_closed: Remote peer vanished with error: Error sending message: Broken pipe (g-io-error-quark, 44). Exiting.
+
+** (unity-panel-service:27056): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:27056): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+
+(unity-panel-service:29598): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:29598): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:29598): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:29598): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:29598): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:29598): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:29598): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:29598): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:29598): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:29598): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:29598): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:29598): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:29598): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:29598): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:29598): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:29598): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:29598): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:29598): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:29598): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:29598): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:29598): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:29598): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:29598): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:29598): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:29598): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:29598): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:29598): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:29598): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+(unity-panel-service:1871): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1871): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1871): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1871): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1871): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1871): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1871): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1871): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1871): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1871): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1871): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1871): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1871): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1871): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1871): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1871): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1871): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1871): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1871): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1871): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1871): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1871): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:1871): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1871): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1871): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+
+(unity-panel-service:7011): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7011): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7011): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7011): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7011): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7011): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7011): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7011): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:7011): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7011): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7011): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7011): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7011): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7011): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7011): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:7011): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:7011): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:7011): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:7011): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:7011): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:7011): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:7011): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:7011): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:7011): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:7011): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+** (unity-panel-service:7011): WARNING **: Failed to fetch xid: The connection is closed
+
+** (unity-panel-service:7011): WARNING **: Failed to fetch type: The connection is closed
+
+** (unity-panel-service:7011): WARNING **: Failed to fetch monitor: The connection is closed
+
+** (unity-panel-service:7011): WARNING **: Failed to fetch maximized state: The connection is closed
+
+** (unity-panel-service:7011): WARNING **: Failed to fetch xid: The connection is closed
+
+** (unity-panel-service:7011): WARNING **: Failed to fetch xid: The connection is closed
+
+** (unity-panel-service:7011): WARNING **: Failed to fetch type: The connection is closed
+
+** (unity-panel-service:7011): WARNING **: Failed to fetch xid: The connection is closed
+
+(unity-panel-service:7011): GLib-GIO-CRITICAL **: Error while sending AddMatch() message: The connection is closed
+
+(unity-panel-service:7011): GLib-GIO-CRITICAL **: Error while sending AddMatch() message: The connection is closed
+
+** (unity-panel-service:7011): CRITICAL **: Unable to get org.ayatana.bamf view: Error calling StartServiceByName for org.ayatana.bamf: The connection is closed
+
+(unity-panel-service:7011): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+
+(unity-panel-service:8246): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:8246): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:8246): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:8246): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:8246): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:8246): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:8246): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:8246): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:8246): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:8246): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:8246): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:8246): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:8246): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:8246): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:8246): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:8246): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:8246): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:8246): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:8246): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:8246): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:8246): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:8246): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:8246): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:8246): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:8246): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:8246): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:8246): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:8246): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+(unity-panel-service:1916): GdkPixbuf-WARNING **: Cannot open pixbuf loader module file '/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache': No such file or directory
+
+This likely means that your installation is broken.
+Try running the command
+  gdk-pixbuf-query-loaders > /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
+to make things work again for the time being.
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1916): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1916): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1916): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1916): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1916): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1916): libindicator-WARNING **: Unable to load icon from data: Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1916): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1916): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1916): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1916): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_height: assertion 'GDK_IS_PIXBUF (pixbuf)' failed
+
+(unity-panel-service:1916): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry.png': Unrecognised image file format
+
+(unity-panel-service:1916): Gtk-WARNING **: Error loading image 'file:///usr/share/themes/Ambiance/gtk-3.0/assets/entry-disabled.png': Unrecognised image file format
+
+(unity-panel-service:1916): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1916): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1916): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1916): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1916): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1916): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+
+(unity-panel-service:1916): Indicator-Appmenu-CRITICAL **: menus_destroyed: assertion 'wm != NULL' failed
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+
+** (unity-panel-service:1916): WARNING **: Unable to emit ReSync signal: The connection is closed
+
+(unity-panel-service:1916): Indicator-Appmenu-CRITICAL **: OMG! Unable to get a connection to DBus

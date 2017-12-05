@@ -1,0 +1,88 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 15.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:India Standard Time
+BEGIN:STANDARD
+DTSTART:16010101T000000
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+ATTENDEE;CN=kasie.mills@fairwaymc.com;RSVP=TRUE:mailto:kasie.mills@fairwaym
+	c.com
+ATTENDEE;CN=mohd.ashhar@360degreecloud.co.in;RSVP=TRUE:mailto:mohd.ashhar@3
+	60degreecloud.co.in
+ATTENDEE;CN=Support;RSVP=TRUE:mailto:support@360degreeapps.com
+CLASS:PUBLIC
+CREATED:20170426T140526Z
+DESCRIPTION:Hello Kasie\,\n\nTrust you are doing good!\nPlease use the foll
+	owing meeting details to connect over screenshare at 7.30 AM Pst.\nJoin fr
+	om PC\, Mac\, Linux\, iOS or Android: https://zoom.us/j/6757884305\n\nOr i
+	Phone one-tap (US Toll):  +16465588656\,6757884305# or +14086380968\,67578
+	84305#\n\nOr Telephone:\n    Dial: +1 646 558 8656 (US Toll) or +1 408 638
+	 0968 (US Toll)\n    Meeting ID: 675 788 4305\n    International numbers a
+	vailable: https://zoom.us/zoomconference?m=EuTlbUL6v2MOib86QmuL67S9nBqiF5-
+	y\n\nThanks and Regards\nSonam Malhotra\n
+DTEND;TZID="India Standard Time":20170426T203000
+DTSTAMP:20170426T140526Z
+DTSTART;TZID="India Standard Time":20170426T200000
+LAST-MODIFIED:20170426T140526Z
+ORGANIZER;CN="sonam malhotra":mailto:sonam.malhotra@360degreecloud.in
+PRIORITY:5
+SEQUENCE:0
+SUMMARY;LANGUAGE=en-in:360 SMS App Process Builder
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000E0824041C4BED201000000000000000
+	0100000000FBFBCDBE8FEFC48963C6299990B3DEF
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
+	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
+	rsion rmj.rmm.rup.rpr">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted 
+	from text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="en-in"></SPAN><SPAN LAN
+	G="en-in"><FONT COLOR="#1F497D" FACE="Calibri">Hello Kasie\,</FONT></SPAN>
+	</P>\n\n<P DIR=LTR><SPAN LANG="en-in"><FONT COLOR="#1F497D" FACE="Calibri"
+	>Trust you are doing good!</FONT></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="en-
+	in"><FONT COLOR="#1F497D" FACE="Calibri">Please use the following meeting 
+	details to connect over screenshare at 7.30 AM Pst.</FONT></SPAN></P>\n\n<
+	P DIR=LTR><SPAN LANG="en-in"></SPAN><SPAN LANG="en-in"><FONT COLOR="#1F497
+	D" FACE="Calibri">Join from PC\, Mac\, Linux\, iOS or Android:</FONT></SPA
+	N><SPAN LANG="en-in"> </SPAN><A HREF="https://zoom.us/j/6757884305"><SPAN 
+	LANG="en-in"></SPAN><SPAN LANG="en-in"><U><FONT COLOR="#0563C1" FACE="Cali
+	bri">https://zoom.us/j/6757884305</FONT></U></SPAN><SPAN LANG="en-in"></SP
+	AN></A><SPAN LANG="en-in"></SPAN><SPAN LANG="en-in"></SPAN></P>\n\n<P DIR=
+	LTR><SPAN LANG="en-in"><FONT COLOR="#1F497D" FACE="Calibri">Or iPhone one-
+	tap (US Toll):&nbsp\; +16465588656\,6757884305# or +14086380968\,675788430
+	5#</FONT></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="en-in"><FONT COLOR="#1F497D
+	" FACE="Calibri">Or Telephone:</FONT></SPAN></P>\n\n<P DIR=LTR><SPAN LANG=
+	"en-in"><FONT COLOR="#1F497D" FACE="Calibri">&nbsp\;&nbsp\;&nbsp\; Dial: +
+	1 646 558 8656 (US Toll) or +1 408 638 0968 (US Toll)</FONT></SPAN></P>\n\
+	n<P DIR=LTR><SPAN LANG="en-in"><FONT COLOR="#1F497D" FACE="Calibri">&nbsp\
+	;&nbsp\;&nbsp\; Meeting ID: 675 788 4305</FONT></SPAN></P>\n\n<P DIR=LTR><
+	SPAN LANG="en-in"><FONT COLOR="#1F497D" FACE="Calibri">&nbsp\;&nbsp\;&nbsp
+	\; International numbers available:</FONT></SPAN><SPAN LANG="en-in"> </SPA
+	N><A HREF="https://zoom.us/zoomconference?m=EuTlbUL6v2MOib86QmuL67S9nBqiF5
+	-y"><SPAN LANG="en-in"></SPAN><SPAN LANG="en-in"><U><FONT COLOR="#0563C1" 
+	FACE="Calibri">https://zoom.us/zoomconference?m=EuTlbUL6v2MOib86QmuL67S9nB
+	qiF5-y</FONT></U></SPAN><SPAN LANG="en-in"></SPAN></A><SPAN LANG="en-in"><
+	/SPAN><SPAN LANG="en-in"></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="en-in"><FON
+	T COLOR="#1F497D" FACE="Calibri">Thanks and Regards</FONT></SPAN></P>\n\n<
+	P DIR=LTR><SPAN LANG="en-in"><FONT COLOR="#1F497D" FACE="Calibri">Sonam Ma
+	lhotra</FONT></SPAN><SPAN LANG="en-in"></SPAN><SPAN LANG="en-in"></SPAN></
+	P>\n\n</BODY>\n</HTML>
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-AUTOSTARTCHECK:FALSE
+X-MS-OLK-CONFTYPE:0
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+

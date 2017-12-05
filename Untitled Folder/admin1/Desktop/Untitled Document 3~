@@ -1,0 +1,115 @@
+
+Is there any way to create something like "for loop'" inside a formula field  so that if i select single value from multiselect picklist then single record should be created and if i select multiple values then multiple opportunites should be created
+
+
+
+
+
+
+
+IF(OR(ISPICKVAL(PRIORVALUE(StageName),"Closed Won"),ISPICKVAL(PRIORVALUE(StageName),"Closed Lost")) , PICKVAL( StageName ,"closed won"), false)
+
+
+
+
+IF(ISPICKVAL(RATING,'HOT'),OR(PRIORVALUE(ACCOUNTNUMBER)!ACCOUNTNUMBER,PRIORVALUE(NAME)!=NAME),FALSE)
+
+IF(ISPICKVAL(RATING,'HOT'),OR(PRIORVALUE(ACCOUNTNUMBER)!ACCOUNTNUMBER,PRIORVALUE(NAME)!=NAME),FALSE)
+
+If the Account Rating is 'Hot' you cannot change the Account Number and Name.
+
+
+
+
+
+
+IF(ISPICKVAL( StageName ,'Closed Won'),OR(PRIORVALUE(StageName)!='Closed Won',PRIORVALUE(StageName)='Closed Won'),FALSE)
+
+
+IF(ISPICKVAL( StageName ,'Closed Won'),OR(PRIORVALUE(StageName)!='Closed Won',PRIORVALUE(StageName)='Prospecting'qualification,need Analysis,Value Proposition,Id. Decision Maker,Perception Analysis,Proposal/Price Quote,Negotiation/Review,Closed Lost'),FALSE)
+
+
+
+
+IF(ISPICKVAL( StageName ,'Closed Won'),OR(PRIORVALUE(StageName)!='Closed Won',PRIORVALUE(StageName)='Prospecting' || PRIORVALUE(StageName)='Qualification'|| PRIORVALUE(StageName)='Need Analysis' ||PRIORVALUE(StageName)='Value Proposition'|| PRIORVALUE(StageName)='Id. Decision Maker'|| PRIORVALUE(StageName)='Perception Analysis'||
+PRIORVALUE(StageName)='Proposal/Price Quote'||
+PRIORVALUE(StageName)='Negotiation/Review'||PRIORVALUE(StageName)='Closed Lost'),FALSE)
+
+
+
+IF((PRIORVALUE(StageName)!='Closed Won',StageName='Prospecting' || StageName='Qualification'|| StageName='Need Analysis' ||StageName='Value Proposition'||StageName='Id. Decision Maker'|| StageName='Perception Analysis'||
+StageName='Proposal/Price Quote'||
+StageName='Negotiation/Review'||StageName='Closed Lost',FALSE))
+
+
+
+
+
+IF((PRIORVALUE(StageName)!='Closed Won'),'StageName'='Prospecting' || 'StageName'='Qualification'|| 'StageName'='Need Analysis' ||'StageName'='Value Proposition'||'StageName'='Id. Decision Maker'|| 'StageName'='Perception Analysis'||
+'StageName'='Proposal/Price Quote'||
+'StageName'='Negotiation/Review'||'StageName'='Closed Lost',FALSE)
+
+
+
+WORKING LOGIC:
+
+AND(IF((PRIORVALUE(StageName)!='Closed Won'),'StageName'!='Closed Won',FALSE),ISCHANGED(StageName))
+
+
+
+
+OR(AND(IF((PRIORVALUE(StageName)!='Closed Won'),'StageName'!='Closed Won',FALSE),ISCHANGED(StageName)),AND(IF(PRIORVALUE(StageName)='Closed Won'),'StageName'='Closed Won'||'Qualification'||'Need Analysis' ||'Value Proposition'||'Id. Decision Maker'||'Perception Analysis'||'Proposal/Price Quote'||'Negotiation/Review'||'Negotiation/Review'||'Closed Lost'))
+
+
+LATEST:-----
+
+
+OR(AND((PRIORVALUE(StageName)!='Closed Won'),'StageName'!='Closed Won'),ISCHANGED(StageName)),AND((PRIORVALUE(StageName)='Closed Won'),'StageName'='Closed Won'||'StageName'='Qualification'||'StageName'='Need Analysis' ||'StageName'='Value Proposition'||'StageName'='Id. Decision Maker'||'StageName'='Perception Analysis'||'StageName'='Proposal/Price Quote'||'StageName'='Negotiation/Review'||'StageName'='Negotiation/Review'||'StageName'='Closed Lost'))
+
+
+L1 MOD:
+
+
+
+
+OR(AND((PRIORVALUE(StageName)!='Closed Won'),ISCHANGED(StageName)),AND((PRIORVALUE(StageName)='Closed Won'),ISCHANGED(StageName)!=(PRIORVALUE(StageName)))
+
+OR(AND((PRIORVALUE(StageName)!='Closed Won'),ISCHANGED(StageName)),AND((PRIORVALUE(StageName)='Closed Won'),(PRIORVALUE(StageName))=(PRIORVALUE(StageName))))
+
+OR(AND((PRIORVALUE(StageName)='Closed Won'),NOT(ISCHANGED(StageName))),AND((PRIORVALUE(StageName)='Closed Won'),(PRIORVALUE(StageName))=(PRIORVALUE(StageName))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pb formula trial:
+
+
+IF(AND(IF((PRIORVALUE([Opportunity].StageName )!='Closed Won'),"Closed Won"," "),ISCHANGED([Opportunity].StageName)))),"Closed Won"," ")
+
+
+
+
+
+
+
+
+
+
+

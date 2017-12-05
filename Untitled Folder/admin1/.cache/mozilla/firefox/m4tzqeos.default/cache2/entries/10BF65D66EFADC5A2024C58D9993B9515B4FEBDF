@@ -1,0 +1,346 @@
+$(function(){$("#dailyIntervalComboBox").on("click",function(B){B.preventDefault();
+B.stopPropagation()
+});
+$("#weeklyIntervalCombobox").on("click",function(B){B.preventDefault();
+B.stopPropagation()
+});
+$("#monthlyIntervalCombobox").on("click",function(B){B.preventDefault();
+B.stopPropagation()
+});
+$("#endTimesCombobox").on("click",function(B){B.preventDefault();
+B.stopPropagation()
+});
+function h(C,B){var D=$("#"+C).val();
+if(D!=""&&D!=undefined&&D!=null){if(parseInt(D)<=B){l();
+f()
+}}}function g(){if($("#dailyInterval").val()>90){$("#dailyInterval").val(90);
+$(".interval-error").hide()
+}if($("#weeklyInterval").val()>12){$("#weeklyInterval").val(12);
+$(".interval-error").hide()
+}if($("#monthlyInterval").val()>3){$("#monthlyInterval").val(3);
+$(".interval-error").hide()
+}if($("#endTimes").val()>50){$("#endTimes").val(50);
+$(".times-error").hide()
+}}new ComboBox("dailyInterval",{onChange:function(){h("dailyInterval",90)
+}});
+new ComboBox("weeklyInterval",{onChange:function(){h("weeklyInterval",12)
+}});
+new ComboBox("monthlyInterval",{onChange:function(){h("monthlyInterval",3)
+}});
+new ComboBox("endTimes",{onChange:function(){f()
+}});
+$("#recurrenceType").select2({width:180,minimumResultsForSearch:-1});
+$("#monthlyByDay").select2({width:70,minimumResultsForSearch:-1});
+$("#montlyByWeekdayIndex").select2({width:100,minimumResultsForSearch:-1});
+$("#montlyByWeekday").select2({width:100,minimumResultsForSearch:-1});
+function j(B){return(((B%4===0)&&(B%100!==0))||(B%400===0))
+}function e(B,C){return[31,(j(B)?29:28),31,30,31,30,31,31,30,31,30,31][C]
+}function z(B,C){var D=new Date(B);
+var E=D.getDate();
+D.setDate(1);
+D.setMonth(D.getMonth()+C);
+D.setDate(Math.min(E,e(D.getFullYear(),D.getMonth())));
+return D
+}function l(){var H=$("#recurrenceType").val();
+var C=$("#start_date").val();
+var G=new Date();
+var F=new Date();
+var E=1;
+if(H==="DAILY"){E=$("#dailyInterval").val();
+F=new Date(new Date(C).getTime()+86400000*50*E);
+G=new Date(new Date(C).getTime()+86400000*6*E);
+$("#endDate").datepicker("option","maxDate",F);
+$("#endDate").datepicker("setDate",G)
+}else{if(H==="WEEKLY"){E=$("#weeklyInterval").val();
+F=new Date(new Date(C).getTime()+86400000*50*7*E);
+G=new Date(new Date(C).getTime()+86400000*7*6*E);
+$("#endDate").datepicker("option","maxDate",F);
+$("#endDate").datepicker("setDate",G);
+var D=new Date(C).getDay()+1;
+$("input[type='checkbox'][name='weeklyWeekDays'][value="+D+"]").prop("checked",true)
+}else{if(H==="MONTHLY"){E=$("#monthlyInterval").val();
+F=z(C,E*50);
+G=z(C,E*6);
+$("#endDate").datepicker("option","maxDate",F);
+$("#endDate").datepicker("setDate",G);
+var B=new Date(C).getDate();
+$("#monthlyByDay").select2("val",B)
+}}}}function u(){var B=$("#recurrenceType").val();
+if(B==="DAILY"){$(".daily").removeClass("hideme");
+$(".weekly").addClass("hideme");
+$(".monthly").addClass("hideme");
+$(".classic").addClass("hideme");
+$(".custom").addClass("hideme");
+$(".notclassic").removeClass("hideme")
+}else{if(B==="WEEKLY"){$(".daily").addClass("hideme");
+$(".weekly").removeClass("hideme");
+$(".monthly").addClass("hideme");
+$(".classic").addClass("hideme");
+$(".custom").addClass("hideme");
+$(".notclassic").removeClass("hideme")
+}else{if(B==="MONTHLY"){$(".daily").addClass("hideme");
+$(".weekly").addClass("hideme");
+$(".monthly").removeClass("hideme");
+$(".classic").addClass("hideme");
+$(".custom").addClass("hideme");
+$(".notclassic").removeClass("hideme")
+}else{if(B==="CLASSIC"){$(".daily").addClass("hideme");
+$(".weekly").addClass("hideme");
+$(".monthly").addClass("hideme");
+$(".classic").removeClass("hideme");
+$(".custom").addClass("hideme");
+$(".notclassic").addClass("hideme")
+}else{if(B==="CUSTOM"){$(".daily").addClass("hideme");
+$(".weekly").addClass("hideme");
+$(".monthly").addClass("hideme");
+$(".classic").addClass("hideme");
+$(".custom").removeClass("hideme");
+$(".notclassic").addClass("hideme")
+}}}}}l();
+f();
+g()
+}$("#recurrenceType").on("change",function(B){u()
+});
+function v(B){B.startTime=$("#start_date").val()+" "+A($("#start_time").val(),$("#start_time_2").val())
+}function m(B){var C=$("input[name='endBy']:checked").val();
+B.endType=C;
+if(C=="END_DATETIME"){B.endTime=$("#endDate").val()+" 23:59"
+}else{if(C=="END_TIMES"){B.times=Math.min(50,$("#endTimes").val());
+if($("#endTimes").val()>50){$("#endTimes").val(50)
+}}}}function x(B){var D=[];
+var C={type:"INTERVAL",value:$("#dailyInterval").val()};
+D.push(C);
+B.recurrenceValues=D
+}function i(B){var E=[];
+var C={type:"INTERVAL",value:$("#weeklyInterval").val()};
+E.push(C);
+var F="";
+$("#recurrenceDialog").find("input[name='weeklyWeekDays']").each(function(){var G=$(this);
+if(G.prop("checked")){F=F+","+G.val()
+}});
+var D={type:"BYDAY",value:F.substring(1)};
+E.push(D);
+B.recurrenceValues=E
+}function q(B){var D=[];
+var C={type:"INTERVAL",value:$("#monthlyInterval").val()};
+D.push(C);
+var E=$("input[name='monthlyBy']:checked").val();
+if(E==="BYMONTHDAY"){D.push({type:"BYMONTHDAY",value:$("#monthlyByDay").val()})
+}else{D.push({type:"BYDAY",value:$("#montlyByWeekday").val()});
+D.push({type:"BYSETPOS",value:$("#montlyByWeekdayIndex").val()})
+}B.recurrenceValues=D
+}function A(B,E){if(E==="AM"){var D=B.split(":");
+var C=parseInt(D[0]);
+if(C<10){return"0"+C+":"+D[1]
+}else{if(C==12){return"00:"+D[1]
+}}return B
+}else{if(B.indexOf("12:")==0){return B
+}else{var D=B.split(":");
+var C=12+parseInt(D[0]);
+return C+":"+D[1]
+}}}function o(){var D=$("input[name='endBy']:checked").val();
+if(D=="END_DATETIME"){var C=new Date($("#endDate").val());
+var B=new Date($("#start_date").val());
+if(C.getTime()<=B.getTime()){return false
+}}else{if(D=="END_TIMES"){return true
+}}return true
+}function k(){var B="";
+$("#recurrenceDialog").find("input[name='weeklyWeekDays']").each(function(){var C=$(this);
+if(C.prop("checked")){B=B+","+C.val()
+}});
+if(B.length<=1){return false
+}return true
+}function f(){var C=$("#option_rm").prop("checked");
+if(!C){return
+}if(!o()){l()
+}var E=$("#recurrenceType").val();
+var D=$("#timezone").select2("val");
+var B={type:E,timezone:D};
+if(E==="DAILY"){if(!o()){$("#endDate").focus();
+return
+}v(B);
+x(B);
+m(B)
+}else{if(E==="WEEKLY"){if(!o()){$("#endDate").focus();
+return
+}if(!k()){$("input[name='weeklyWeekDays']").get(0).focus();
+return
+}v(B);
+i(B);
+m(B)
+}else{if(E==="MONTHLY"){if(!o()){$("#endDate").focus();
+return
+}v(B);
+q(B);
+m(B)
+}}}SB.post3({url:"/meeting/checkRecurrence",data:{recurrence:JSON.stringify(B)},success:function(F){$("#recurrence").val(JSON.stringify(B));
+c(F);
+$("#recurrenceDialog").find(".alert-danger").hide()
+},errorNode:$("#recurrenceDialog").find(".alert-danger")})
+}function s(){var B=$("#recurrence").val();
+if(B===""){l()
+}}function y(B){if(B){$("#recurrenceDialog").removeClass("hideme")
+}else{$("#recurrenceDialog").addClass("hideme")
+}}function w(){if($("#recurrence").attr("data-s")===undefined||$("#recurrence").attr("data-s")===""||$("#recurrence").attr("data-s")==="null"){return
+}var M=JSON.parse($("#recurrence").attr("data-s"));
+s();
+$("#recurrenceType").select2("val",M.type);
+u();
+if(M.type==="CLASSIC"){return
+}var C=M.startTime;
+var D=new Date(C);
+$("#start_date").datepicker("setDate",D);
+var E=D.getHours();
+var K=D.getMinutes()>10?D.getMinutes():"0"+D.getMinutes()+"";
+if(E==0){$("#start_time").val("12:"+K);
+$("#start_time2").select2("val","AM")
+}else{if(E>=12){var J=(E-12)+":"+K;
+$("#start_time").val(J);
+$("#start_time2").select2("val","PM")
+}else{var J=E+":"+K;
+$("#start_time").val(J);
+$("#start_time2").select2("val","AM")
+}}var I=d(M.recurrenceValues,"INTERVAL");
+if(M.type==="DAILY"){$("#dailyInterval").val(I);
+l()
+}if(M.type==="WEEKLY"){$("#weeklyInterval").val(I);
+l();
+var L=d(M.recurrenceValues,"BYDAY");
+$("input[name='weeklyWeekDays']").each(function(N){if(L.indexOf($(this).val())>=0){$(this).prop("checked",true)
+}})
+}if(M.type==="MONTHLY"){$("#monthlyInterval").val(I);
+l();
+var G=d(M.recurrenceValues,"BYMONTHDAY");
+if(G!=""){$($("input[type=radio][name=monthlyBy]")[0]).prop("checked",true);
+$("#monthlyByDay").select2("val",G)
+}else{$($("input[type=radio][name=monthlyBy]")[1]).prop("checked",true);
+var F=d(M.recurrenceValues,"BYSETPOS");
+$("#montlyByWeekdayIndex").select2("val",F);
+var B=d(M.recurrenceValues,"BYDAY");
+$("#montlyByWeekday").select2("val",B)
+}l()
+}if(M.endType==="END_TIMES"){$($("input[type=radio][name=endBy]")[1]).prop("checked",true);
+$("#endTimes").val(M.times)
+}else{$($("input[type=radio][name=endBy]")[0]).prop("checked",true);
+var H=new Date(M.endTime);
+$("#endDate").datepicker("setDate",H)
+}if(!o()){l()
+}f()
+}function d(D,E){for(var C=0;
+C<D.length;
+C++){var B=D[C];
+if(B.type===E){return B.value
+}}return""
+}function a(B){if(B){$("#withPMI").removeClass("hideme")
+}else{$("#withPMI").addClass("hideme")
+}}function p(B){if(B){$("#mt_time").show()
+}else{$("#mt_time").hide()
+}}function t(){if($("#recurrence").attr("data-s")===undefined||$("#recurrence").attr("data-s")===""||$("#recurrence").attr("data-s")==="null"){return false
+}else{return true
+}}function n(B){if(B){$(".registrationRequiredType").removeClass("hideme")
+}else{$(".registrationRequiredType").addClass("hideme")
+}}function c(B){var C=$("#option_registration").prop("checked");
+var D=$("#recurrenceType").val();
+if(D==="CLASSIC"){p(false);
+n(false);
+a(true);
+$("#recurrence_desc").html("")
+}else{p(true);
+n(C);
+a(false);
+$("#recurrence_desc").html(B.result)
+}$("#option_rm").prop("checked",true);
+r(true);
+if(C&&D!="CLASSIC"){if($("input[name='registrationRequiredType']:checked").length<=0){$($("input[name='registrationRequiredType']").get(0)).prop("checked",true)
+}}}function r(B){if($("#recurrence_desc").length>0){if(B){if($("#recurrence").val()!=""){$(".recurrence_desc").removeClass("hideme")
+}}else{$(".recurrence_desc").addClass("hideme")
+}}}function b(){var B=$("#meeting_number").val();
+return parseInt(B)>0
+}$("#option_rm").on("change",function(D){var C=$("#option_registration").prop("checked");
+var E=false;
+var B=$(this);
+if(B.prop("checked")){E=true
+}else{n(false);
+y(false);
+g()
+}if(E){if($("#recurrence").val()!=""){n(E&&C);
+r(true)
+}s();
+y(true)
+}else{p(true);
+a(true);
+r(false)
+}f();
+return
+});
+$("#option_registration").on("change",function(D){var B=$(this);
+var E=false;
+if(B.prop("checked")){E=true
+}else{n(false)
+}if(E){$("#option_withpmi").prop("checked",false);
+if($("input[name='registrationRequiredType']:checked").length<=0){$($("input[name='registrationRequiredType']").get(0)).prop("checked",true)
+}if($("#recurrence").val()===""){n(false)
+}else{var C=JSON.parse($("#recurrence").val());
+if($("#option_rm").prop("checked")&&C.type!="CLASSIC"){n(true)
+}else{n(false)
+}}}else{n(false)
+}});
+$("#option_withpmi").on("change",function(C){var B=$(this);
+if(B.prop("checked")){$("#option_registration").prop("checked",false)
+}});
+if($("#m_classicRecurrence").val()==="on"){$("input[name='registrationRequiredType']").removeAttr("disabled");
+p(false);
+a(true);
+$("#option_rm").prop("checked",true);
+y(true);
+s();
+$("#recurrenceType").select2("val","CLASSIC");
+u()
+}else{p(true)
+}if($("#m_newRecurrence").val()==="on"){p(true);
+a(false);
+$("#option_rm").prop("checked",true);
+if($("#responseToSingleOccurrence").val()==="false"){y(true)
+}$("#option_withpmi").prop("checked",false);
+w();
+if($("#responseToSingleOccurrence").val()==="true"){$("#start_date").datepicker("setDate",$("#m_start_date").val());
+$("#duration_hr").val($("#m_duration_hr").val());
+$("#duration_min").val($("#m_duration_min").val());
+$("#start_time").val($("#m_start_time").val());
+$("#start_time_2").val($("#m_start_time_2").val())
+}}$("#endDate").on("change",function(B){f()
+});
+$("#monthlyByDay").on("change",function(B){f()
+});
+$("#montlyByWeekdayIndex").on("change",function(B){f()
+});
+$("#montlyByWeekday").on("change",function(B){f()
+});
+$("input[type='checkbox'][name='weeklyWeekDays']").on("change",function(B){f()
+});
+$("input[name='endBy']").on("change",function(B){f()
+});
+$("input[name='monthlyBy']").on("change",function(B){f()
+});
+$("#start_date").on("change",function(B){f()
+});
+$("#start_time_2").on("change",function(B){f()
+});
+$("#timezone").on("change",function(B){f()
+});
+new ComboBox("start_time",{onChange:function(){f()
+}})
+});Öñ!ÇŒV      YcYd=²pYd   T:https://d24cgw3uvb9a9h.cloudfront.net/static/90093/js/app/meeting/recurrence.min.js necko:classified 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8F+O2DZM7ZTG6GukivU8OT5gAAAAAAAAX2MIIF8jCCBNqgAwIBAgIQNprHPWcGOqJ1gw38ZoQcHjANBgkqhkiG9w0BAQsFADB+MQswCQYDVQQGEwJVUzEdMBsGA1UEChMUU3ltYW50ZWMgQ29ycG9yYXRpb24xHzAdBgNVBAsTFlN5bWFudGVjIFRydXN0IE5ldHdvcmsxLzAtBgNVBAMTJlN5bWFudGVjIENsYXNzIDMgU2VjdXJlIFNlcnZlciBDQSAtIEc0MB4XDTE2MTAyNjAwMDAwMFoXDTE3MTIxNzIzNTk1OVowajELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xEDAOBgNVBAcMB1NlYXR0bGUxGTAXBgNVBAoMEEFtYXpvbi5jb20sIEluYy4xGTAXBgNVBAMMECouY2xvdWRmcm9udC5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQChpPv4xi2gfIzISFUwD0T0nOmHT57BRWpLUMSoMzO15llcM4NX6aa4bkPWnSKJhTDBtitGFWbIkmNDzAi0OdLgRXZ9Uc9E0wCeqvSQiZjbA2afj3rSY5vzlqcRNZi3LGSvUk5oGANJ49zFuq1Kp7ztb89cE9C5xykC6Gpt8JnCWcli3UGEOhvP+c4QId9i77BRbXM2PzyoXoQj2ZO0U+poC2xDH0FobpZQ0qXp3m4nWcbLpLyS7Kr89fBHknMa7NR/bTSbaB1tYBih3eOxkdemAtiQUDOGFpQJFwUiyhoFx0DSFukr6ixE5XYWKCYhEHh3LkjSS4gOIStMsQsQNyWjAgMBAAGjggJ+MIICejArBgNVHREEJDAigg5jbG91ZGZyb250Lm5ldIIQKi5jbG91ZGZyb250Lm5ldDAJBgNVHRMEAjAAMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwYQYDVR0gBFowWDBWBgZngQwBAgIwTDAjBggrBgEFBQcCARYXaHR0cHM6Ly9kLnN5bWNiLmNvbS9jcHMwJQYIKwYBBQUHAgIwGQwXaHR0cHM6Ly9kLnN5bWNiLmNvbS9ycGEwHwYDVR0jBBgwFoAUX2DPYZBV34RDFIpgKrL1evRDGO8wKwYDVR0fBCQwIjAgoB6gHIYaaHR0cDovL3NzLnN5bWNiLmNvbS9zcy5jcmwwVwYIKwYBBQUHAQEESzBJMB8GCCsGAQUFBzABhhNodHRwOi8vc3Muc3ltY2QuY29tMCYGCCsGAQUFBzAChhpodHRwOi8vc3Muc3ltY2IuY29tL3NzLmNydDCCAQUGCisGAQQB1nkCBAIEgfYEgfMA8QB2AN3rHSt6DU+mIIuBrYFocH4ujp0B1VyIjT0RxM227L7MAAABWALRQC0AAAQDAEcwRQIgeCVkvKl/N1gsfUz1Gfg2CFNn+hrCfA5KsmYuPfSDLBgCIQCGNucpxGWWhFSTyezAzkJ90ejiNLD14F4Hq/i2NuQFuQB3AGj2mPgfZIK+OozuuSgdTPxxUV1nk9RE0QpnrLtPT/vEAAABWALRQFMAAAQDAEgwRgIhAKXrATo/ZDTiIMDxzgttXdUtB93bvqBUyP7h/1jErvXZAiEArA/jgfN9R7STG6GiI8tfNvB32STDjZk1c10rVnzUDmowDQYJKoZIhvcNAQELBQADggEBAF5AGSyrKxdm4TcOy7kQbkYLWF5QSlXIIZS8P8vGQUkba0EFrkv4LIsdTPVAH6Tzf0J9VbeemahhrGAWYWKyzN7Fm+IeJ+ScYaUu91mkeOqzq1zN/2XJ4z2F5BrW6PNUBuh4FSRy738ErjOKY612noMLm24DUTs552TaT66QSZoDYiSF5ALyPrtZvyy0SXeYx3PXas04Tl6pp1nFKMXe5VaeCqTwqyPG57Z0BEmqzzkIqxYCHLv2H5+OKQMg7lrKtu+pjYuwnVURQ/PQyFJ9fkQWr95KKqrxdKfks0J0II5sXpvizyMyYySwsQ6tb3z0OX94k0NkStOGOFMySKPojhXALwADAAAAAAEBAAA= request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Content-Length: 12069
+Date: Mon, 24 Apr 2017 07:12:46 GMT
+Last-Modified: Mon, 24 Apr 2017 07:06:25 GMT
+Etag: "979cb04749d9872a163b97084484e0c9"
+x-amz-meta-s3cmd-attrs: uid:496/gname:nginx/uname:nginx/gid:496/mode:33204/mtime:1493016269/atime:1493017284/md5:979cb04749d9872a163b97084484e0c9/ctime:1493017285
+Accept-Ranges: bytes
+Server: AmazonS3
+Age: 82318
+X-Cache: Hit from cloudfront
+Via: 1.1 289241c3af05a479dc26e3b6a8f02210.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: ksrKDdaAbvzfxoqL-e639fnAmNfwO8Ifs_7j3jLHZZOJ7QTJl6Rc1Q==
+ uncompressed-len 0   /%

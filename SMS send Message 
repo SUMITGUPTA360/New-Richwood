@@ -1,0 +1,65 @@
+public class SMSHistoryTriggerHandler
+{
+    public static void onAfterInsert(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    {
+        system.debug('newListOfSMSHistory -------'+newListOfSMSHistory);  
+        onAfterInsertAction(newListOfSMSHistory);            
+    }
+    
+    private static void onAfterInsertAction(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    {
+      String setMessage;
+      set<String> setLeadID = new set<String>();
+      list<Lead> listlead = new list<Lead>();
+      
+      for(tdc_tsw__Message__c objMessage :newListOfSMSHistory){
+             system.debug('setMessage -------'+objMessage.tdc_tsw__Lead__c); 
+             system.debug('setLeadID -------'+objMessage.Name);  
+             system.debug('objMessage==========='+objMessage);
+           //  setMessage = objMessage.tdc_tsw__Message_Text_New__c ;
+         if(objMessage.Name == 'Incoming' &&
+             String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Message_Text_New__c)) && 
+             String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Lead__c))){
+             
+             setLeadID.add(objMessage.tdc_tsw__Lead__c);
+             setMessage = objMessage.tdc_tsw__Message_Text_New__c ;
+             system.debug('setMessage -------'+setMessage); 
+             system.debug('setLeadID -------'+setLeadID);            
+         }
+      }
+      //  setMessage = '"{Sumit ; sumit123@test.com; 12312 }" '; 
+      String[] setDetails;  
+      if(setMessage.startswith('"{') && setMessage.endsWith('}"') && String.isNotBlank(String.valueOf(setMessage))){
+           setDetails = setMessage.split(';');
+           
+           system.debug('setDetails -------'+setDetails[0] +setDetails[1] +setDetails[2]);   
+         }
+         
+     for(tdc_tsw__Message__c objMes :[select id,tdc_tsw__Lead__c,tdc_tsw__Message_Text_New__c from tdc_tsw__Message__c where tdc_tsw__Lead__c =: setLeadID  limit 1]){   
+     system.debug('objMes---32'+objMes);
+     system.debug('objMes---32'+objMes.tdc_tsw__Lead__c);
+     system.debug('objMes---32'+objMes.tdc_tsw__Message_Text_New__c);
+         if(setDetails.size() > 2)
+           {  
+           String regex = '[()\\-\\s{}""]' ;
+           String replacement = '' ;
+            system.debug('setDetails---44'+setDetails[0].replaceAll(regex,replacement) );
+            system.debug('setDetails---44'+setDetails[1]);
+            system.debug('setDetails---44'+setDetails[2].replaceAll(regex,replacement));
+            system.debug('setDetails---45'+setDetails);
+            
+           
+            
+               Lead objLead = new Lead();
+               objLead.id = objMes.tdc_tsw__Lead__c;
+               objLead.LastName  = setDetails[0].replaceAll(regex,replacement); // setDetails[0].subStringBetween('SMS_= [', ',');
+               objLead.Email = setDetails[1];
+               objLead.SICCode__c = setDetails[2].replaceAll(regex,replacement); // setDetails[2].subStringBetween(',', ']'); 
+               listlead.add(objLead);
+           }   
+           system.debug('listlead======'+listlead);
+           update listlead;
+             
+    }
+  }
+}

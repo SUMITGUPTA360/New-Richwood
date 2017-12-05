@@ -1,0 +1,2 @@
+/usr/lib/jvm/java-8-oracle:1:8:0:64:true:1488288218000
+/usr/lib/jvm/java-8-oracle/jre:1:8:0:64:false:1488288222000

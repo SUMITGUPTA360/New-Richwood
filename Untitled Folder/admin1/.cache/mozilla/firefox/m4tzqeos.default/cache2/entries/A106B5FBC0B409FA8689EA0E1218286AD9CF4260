@@ -1,0 +1,821 @@
+.searchbanner {
+	position:relative;
+	width:917px; height:75px;
+	margin:0 0 0 19px;
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/bannerbase.png) no-repeat scroll 0 0;
+}
+.searchbanner .subheading {
+	color:#fff;
+	height:25px;
+	padding:52px 10px 0 23px;
+	font-size:13px; line-height:16px;
+	font-weight:bold;
+}
+.searchbanner .searchbar {
+	position:absolute;
+	width:395px; height:35px;
+	top:80px; left:13px;
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/banner-searchbox.jpg) no-repeat scroll 0 0;
+}
+.searchbanner .searchbar .searchbox {
+	width:337px;
+	margin:10px 0 0 17px; padding:0;
+	border:0px solid #fff;
+	border:none;
+	-webkit-appearance: none; 
+	color:#999;
+	font-size:12px; line-height:14px;
+	vertical-align:top;
+}
+.searchbanner .searchbar .submit {
+	margin:0; padding:0;
+	border:none;
+	width:34px; height:35px;
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/banner-submit.jpg) no-repeat scroll 0 0;
+	overflow:hidden;
+	text-indent:-998em; 
+	cursor:pointer;
+}
+.searchbanner .searchhelp {
+	position:absolute;
+	left:409px; top:88px;
+	color:#ffffff !important;
+	font-weight:bold;
+	cursor: pointer;
+}
+#content .cookbook a {
+	text-decoration:none;
+	/* color:#0E8686; */
+    color:#0041AA; /* modified 20100805 */
+}
+#content .cookbook a:hover {
+	text-decoration: underline;
+}
+#content .cookbook .addrecipe {
+	display:block;
+	width:179px; height:45px;
+    color:#0041AA; /* modified 20100810 */
+	margin:21px 0 19px;
+	padding:19px 0 0 75px;
+	font-size:20px; line-height:23px;
+	text-decoration:none;
+	font-weight: bold;
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/addbutton.gif) no-repeat scroll 0 0; 
+}
+
+.cookbook .addrecipe:hover { /* modified 20100810 */
+    text-decoration:underline;
+}
+.cookbookhomepage #mainhomepage {
+	overflow:hidden;
+}
+#content .cookbookhomepage .twobubble {
+	width:638px;
+	margin:0 0 32px 7px;
+}
+.cookbookhomepage .twobubble .col {
+	display:inline;
+	float:left;
+	width:270px;
+	padding-top:10px;
+	padding-top:11px;
+}
+.cookbookhomepage .twobubble .col1 {
+	margin-right:64px;
+	margin-left:18px;
+}
+.cookbookhomepage .twobubble .topbubble {
+	width:638px;
+	color:#fff;
+	font-size:18px; line-height:22px;
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/2bubble-top.gif) no-repeat scroll 0 0;
+}
+
+.cookbookhomepage .twobubble .topbubble .col {
+	padding-bottom:7px;
+}
+.cookbookhomepage .twobubble .topbubble span {display:block;} /* for ie6 */
+.cookbookhomepage .twobubble .middlebubble {
+	width:638px;
+	font-size:12px; line-height:16px;
+	padding:2px 0 0;
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/2bubble-middle.gif) repeat-y scroll 0 0;
+}
+.cookbookhomepage .twobubble .bottombubble {
+	display:block;
+	width:638px; height:24px;
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/2bubble-bottom.gif) no-repeat scroll 0 0;
+}
+
+.cookbookhomepage .rss {
+	float:right;
+	width:16px; height:16px;
+	overflow:hidden;
+	text-indent:-998em;
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/2bubble-rss.gif) no-repeat scroll 0 0;
+}
+
+.cookbookhomepage .twobubble .middlebubble li {
+	padding-bottom:11px;
+}
+.cookbookhomepage .more_button {
+	min-width:63px;
+}
+.cookbookhomepage .twobubble .middlebubble .more_button {
+	margin-top:-4px;
+	position:relative;
+	top:12px;
+}
+/* hack for ie6 */
+.cookbookhomepage .twobubble .middlebubble .more_button .container .rightside {
+	_position:relative; /* ie6 */
+}
+/*.cookbook a.more_button .rightside {
+	background-image: none;
+	cursor: pointer;
+	padding-left: 20px;
+}*/
+/*.cookbook a.more_button .rightside{
+	color: #626262;
+	font-size: 14px;
+}*/		
+.more_button .container{
+	margin: 0 0 0 0 !important;
+}
+/*.cookbook a.more_button .container {
+	background:url("//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/more_button.gif") no-repeat scroll 0 5px transparent;
+}*/
+.cookbook .recentupcoming {
+	margin:10px 0 0;
+	/*background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/vr-3col.gif) repeat-y scroll 214px 0;*/
+	font-size:12px; line-height:16px;
+}
+.cookbook .recentupcoming li {
+	padding-bottom:11px;
+}
+
+.cookbook .recentupcoming .col {
+	width:190px;
+	float:left;
+	padding-right:32px;
+}
+.cookbook .recentupcoming .widecol {
+	width:412px;
+	float:left;
+	padding-right:32px;
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/vr-3col.gif) repeat-y scroll 412px 0;
+}
+.cookbook .recentupcoming .col1 {
+	padding-left:9px;
+}
+.cookbook .recentupcoming .col3 {
+	padding-right:0;
+}
+.cookbookhomepage .recentupcoming .rss {
+	background-image:url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/recentupcoming-rss.gif);
+	top:1px;
+}
+.cookbook .recentupcoming h1 {
+	margin-top:-5px;
+	margin-bottom:7px;
+}
+.cookbook .recentupcoming .col1 .more_button {
+	margin-top:2px;
+}
+.cookbook .recentupcoming .col2 h1 {
+	margin-bottom:9px;
+}
+.cookbook .recentupcoming .col2 ul {
+	/* width:400px; */
+}
+.cookbook .recentupcoming .col2 li {
+/*	width:190px;
+	float: left;
+	height: 135px;*/
+}
+.cookbook .recentupcoming .col2 img{
+	float:left;
+	margin-top:3px;
+}
+.cookbook .recentupcoming .col2 li span {
+/*	float:left; 
+	width:390px; */
+}
+
+.cookbook .recentupcoming .col2 li span .recipeDate{
+	width: auto;
+	float: none;
+}
+
+#sidenav {font-size: 12px;}
+#sidenav .top {display:block; height: 30px; width: 226px; background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/sidenav_top.png) no-repeat scroll 0 0; padding: 15px 15px 0px;}
+#sidenav .innerside {background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/sidenav_middle2.png) repeat-y scroll 0 0; padding:0 9px;}
+#sidenav .innerside .browseresources {margin:10px 0 0 0; display:block;}
+#sidenav .innerside .linkbundle a{
+	color:#326DB5;
+	font-weight:bold;
+	text-decoration:none;
+}
+#sidenav .innerside .linkbundle a:hover{ text-decoration: underline; }
+#sidenav .innerside .linkbundle .vert_separator{
+	width: 1px;
+	height: 18px;
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/vert_sep.gif) no-repeat scroll 5px 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	
+}
+*:first-child+html #sidenav .innerside .linkbundle .vert_separator { padding-left: 4px; padding-right: 4px; } /* ie7 */
+
+
+
+#sidenav .links {
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/sidenav_middle.png) repeat-y scroll 0 0; 
+	padding:0px 15px 0 15px;
+}
+#sidenav .links {
+	/*line-height: 15px;
+	height: 88px; */
+	background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/pnav_hr.gif) repeat-x scroll 10px 100%;
+	margin:0;
+	padding:0 0 1px 0;
+	clear:both;
+	overflow:hidden;
+	display:block;
+}
+#sidenav .links a {
+	text-decoration:none; 
+	color:#808080; 
+	display:block; 
+	overflow:hidden;
+	padding:6px 0;		
+	font-size:12px; line-height:17px;
+}
+#sidenav .links a:hover {
+	background-color:#F2F6F9;
+}
+#sidenav .links a .icon {		
+	display:block;
+	width:55px; height:55px;
+	background:transparent url(../../images/icons/appframework_icon.png) no-repeat scroll 0 0;
+	float: left;
+	margin-right:5px; 
+}
+#sidenav .links a:hover .icon {background-position:-55px 0;}
+#sidenav .links a .h3 {
+	display:block;
+	color:#000;
+	font-size:13px;
+	line-height:15px;
+	font-weight:bold;
+	padding-top:5px;
+}
+#sidenav .bottom {display:block; height:25px; background:transparent url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/sidenav_bottom.png) no-repeat scroll 0 100%;}
+
+.taggingComponentWrapper{
+	margin-left: 27px;
+	display: block;
+	margin-top: 12px;
+}
+
+#sidenav h1{
+	margin-bottom:20px;
+}
+
+/*Here starts old cookbook css*/
+	
+	#cookbookContent .top{
+		display:none;
+	}
+	#cookbookContent .bottom{
+		display:none;
+	}
+
+	/*#cookbookContent a{
+		color: #326DB5 !important;
+		text-decoration:none !important;
+	}*/
+	 a:hover{
+		text-decoration: underline !important;
+	}
+	
+	 #content {
+		padding:0 15px;
+		width:auto;
+	}
+	 .errorHolder .warningM3{
+		display:none;
+	}
+	 #sidenav{
+		float:left;
+		margin:-41px 0px 0 0;
+		padding:0 10px 0 0;
+		width:255px;
+	}
+	 #sidenav .box{
+		width:100%;
+		padding:10px 0;
+	}
+	#cookbookContent{
+		float:left;
+		margin-top: 28px;
+		width: 625px;
+	}
+	 .box{
+		padding:10px;
+		float:left;
+	}
+	 .box h2{
+		display:block;
+		padding-top:0;
+	}
+	
+	
+	 #sidenav .rwLink{
+		display:block;
+		color:#000000 !important;
+		font-size:13px;
+		font-weight:bold;
+		line-height:15px;
+		padding-top:5px;
+	}
+	
+	 .box2, .box3,  .box4 {
+		width: auto;
+		margin: 10px 0;
+		float:left;
+	}
+	 .box2, .box3{
+		width:330px;
+	}
+	 .box2 h2, .box3 h2,  .box4 h2{
+		border-bottom:1px dotted #DDDDDD;
+		display:block;
+		margin:0 0 5px;
+		padding:0 0 6px;
+	}
+	
+	 .box4{
+		width:680px;
+	}
+	 .voteButton {
+		background:url("//www.developerforce.com/assets/developerforcesite/ideas/images/promote_demote.gif") no-repeat scroll 0 0 transparent;
+		display:block;
+		height:40px;
+		margin:0 0 0 3px;
+		text-indent:-998em;
+		width:60px;
+	}
+	 .voteUpButton {
+		background-position: 0 0;
+	}
+	 a.voteUpButton:hover {
+		background-position: 0 -40px;
+	}
+	 .voteDownButton {
+		background-position: -60px 0;
+		height:20px;
+		margin-top:4px;
+	}
+	 a.voteDownButton:hover {
+		background-position: -60px -40px;
+		height:20px;
+		margin-top:4px;
+	}
+	 .votedUpButton {
+		background-position: 0 -116px;
+	}
+	 .votedDownButton {
+		background-position: 0 -155px;
+		height:20px;
+		margin-top:4px;
+	}
+	 .ibtButtonPostComment {
+		background:url("//www.developerforce.com/assets/developerforcesite/ideas/images/SubmitButton.gif") no-repeat scroll 0 0 transparent;
+		width:132px;
+		border:0 none;
+		height:38px;
+	}
+	 .ibtButtonPostComment:hover {
+		background:url("//www.developerforce.com/assets/developerforcesite/ideas/images/SubmitButton.gif") no-repeat scroll 0 0 transparent;
+		background-position: 0 -37px;
+	}
+	 .voteTotal {
+		display:block;
+		font-size:10px;
+		line-height:11px;
+		text-align:center;
+		width:63px;
+	}
+
+	 .votedDownButton {
+		height: 39px !important;
+	}
+	 .baseVoteButton {
+		float:left;
+	}
+	 .ideaContainer  {
+		margin-left:80px;
+	}
+	 ul.recipeList li{
+		padding:0;
+	}
+	 ul.recipeList li .txt{
+		padding: 0;
+	}
+	 div.recipe  {
+		float:left;
+		padding:0 0 0 10px;
+		width:800px;
+	}
+	 .recipeItem{
+		padding: 8px 0;
+	}
+	 .recipeItem h2 {
+		padding:0;
+	}
+	.recipeItem.zebra {
+		background: #E7F4F9;
+	}
+	
+	 div.promotedemote{
+		float:left;
+	}
+	 .promoteDemoteDiv{
+		width: 63px !important;
+	}
+	
+	 .baseVoteButton{
+		width: 63px !important;
+	}
+	
+	 .baseVoteContainer{
+		width: 63px !important;
+	}
+	
+	.ideaContainer{
+		width: auto !important;
+	}
+	
+	/*#paginationControls a{
+		padding: 2px 4px;
+	}
+	 #paginationControls a:hover{
+		cursor: pointer;
+		background: red;
+		color: white;
+	}*/
+	
+	.innerNav{
+		margin: 0 0 20px 0;
+	}
+	.orderByControls{
+		float:right;
+	}
+	
+	#paginationControls  {
+		text-align:right;
+		width:100%;
+		border-top: dotted 1px #808080;
+	}
+	.NumericalPaginationControls,.NumericalPaginationControls ul, .NumericalPaginationControls li{
+		display:inline;
+		padding: 0 0 0 4px;
+		
+	}
+	.pageCount{
+		margin: 20px 0 0 0;
+		width: 100%;
+		text-align:right;
+	}
+	.pageCount b{
+		font-weight:bold;
+		color: red;
+	}
+	
+		
+	.commentsSection .commentsTitle{
+		border-bottom:1px solid #51638A !important;
+		display:block;
+		margin:0 0 16px;
+		padding:20px 0 1px !important;
+	}
+	.commentsSection .commentItem{
+		background:none repeat scroll 0 0 #EEEEEE;
+		clear:both;
+		padding:10px;
+	}
+	.commentsSection .commentItem.zebra{
+		background:none;
+	}
+	.commentsSection .commentInfo{
+		font-size:9px;
+		border-top:1px solid #CCCCCC;
+		display:block;
+		margin: 10px 0 0 0;
+	}
+	.commentsSection .commentLogIn{
+		font-weight:normal;
+	}
+	
+	/* recipeDetails */
+	#cookbookContent h1{
+		margin:0 0 12px ;
+		margin:0;
+		display:block;
+	}
+	
+	
+	#cookbookContent h2, #cookbookContent h3{
+		padding:20px 0 12px;
+		margin:0;
+		display:block;
+		clear:both;
+	}
+	
+	#cookbookContent .info h2{
+		color:#808080;
+		font-weight:normal;
+		padding:5px 0;
+	}
+	
+	#cookbookContent .info h2 .recipeQuality{
+		color: #326DB5;
+	}
+	#cookbookContent .info .recipeTaggedIn h2{
+		display:inline;
+		font-size: 12px;
+	}
+	
+	#cookbookContent .recipesList .info .aTag{
+		padding:0 10px 0 3px;
+	}
+	
+	#cookbookContent .info .recipeTaggedIn a{
+		padding: 0 0 0 4px;
+	}
+	 .recipesList div.recipe {
+		float:left;
+		padding:0 0 0 10px;
+		width:620px;
+	} 
+	
+	 .info .recipeTaggedIn .aTag .tagIcon {
+		height:20px;
+		vertical-align:top;
+	}
+	 #sidenav h2{
+		padding: 0 0 10px;
+	}
+	 #sidenav .aTag{
+		display:block;
+		cursor: pointer;
+		width: 222px;
+		margin-left: 7px;
+		padding: 5px 1px 19px 0px;
+		background-position: bottom;
+		background:url("//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/pnav_hr.gif") repeat-x scroll center bottom transparent;
+	}
+	 #sidenav .aTag .tagIcon{
+		display:block;
+		float:left;
+		width:55px;
+		height: 55px;
+		margin: 0 10px 0 0;
+	}
+	
+	 #sidenav .aTag .tagDescription{
+		display:block;
+		font-size:11px;
+		line-height:16px;
+		padding:0 0 0 40px;
+	}
+	
+	 .cookbookHome h2 a{
+		float:left;
+		margin:0 10px 0 0;
+		padding:0;
+	}
+	
+	 .cookbookHome h2 a img{
+		display:block;
+	}
+	 .cookbookHome h2{
+		color:#000000;
+		font-size:18px;
+		font-weight:normal;
+		line-height:16px;
+	}
+	 .cookbookHome .box1 {
+		padding-top:0;
+	}
+	 .cookbookHome .box1 {
+		padding-top:0;
+		font-size:24px;
+		line-height:auto;
+	}
+	 .imageBanner {
+		margin:0 0 14px;
+	}
+
+	
+	 .newRecipeBtn{
+		display:block;
+		background: url('//www.developerforce.com/assets/developerforcesite/cookbook/ctaNewRecipe2.png') no-repeat;
+		width:180px;
+		height:65px;
+		text-indent:300px;
+		overflow:hidden;
+		font-size:0px;
+		color:transparent;
+	}
+	 .newRecipeBtn:hover{
+		background-position: 0 -65px;
+		text-decoration: none !important;
+	}
+
+	#cookbookSearchForm input.text{
+		width:108px;
+	}
+	#recipeDetail div.recipe {
+		float:left;
+		padding:0;
+		width:100%;
+	}
+	 h1.recipeTitle {
+		/*padding-bottom:3px;
+		border-bottom: solid 1px #EEE;*/
+	}
+	#recipeDetail .info{
+		padding: 0 0 20px 0;
+	}
+	
+	.taggingComponentHolder{
+		padding: 20px;
+	}
+	
+	.navbarBottom{
+		display: block;
+		clear: both;
+		height: 1px;"
+	}
+	
+	.cookbookContentContainer{
+		padding:0 0 0 8px;
+		width:642px;
+	}
+	
+	#header .nav .button_list .login .cookbookLoginButton{
+		background-image:url("//www.developerforce.com/assets/developerforcesite/common/css/images/buttons/bk_black_button.png");
+		background-repeat:no-repeat;
+		display:block;
+		margin:0 -1px 0 0;
+		min-width:144px;
+		padding:0;
+	}
+	
+	#header .nav .button_list .login .cookbookLoginRightside{
+		background-image:url("//www.developerforce.com/assets/developerforcesite/common/css/images/buttons/bk_black_button_right.png");
+		width:auto;
+		height: 12px;
+		background-position:100% 0;
+		background-repeat:no-repeat;
+		display:block;
+		min-width:115px;
+		padding:9px 16px 12px 13px;
+	}
+	
+	#header .nav .button_list .login .menuOptions{
+		z-index: 9999;
+		position: absolute;
+		margin: -12px 0px 0px 3px;
+		height: auto;
+		width: 132px;
+		border: solid 1px #000000;
+		border-top: solid 6px #000000;
+		background-color: #ffffff;
+		display: none;
+		-moz-border-radius-bottomleft: 15px;
+		-moz-border-radius-bottomright: 15px;
+		-webkit-border-bottom-left-radius: 15px;
+		-webkit-border-bottom-right-radius: 15px;
+		
+	}
+	
+	#header .nav .button_list .login .menuOptions a{
+		color: #000000;
+	}
+	
+	#header .nav .button_list .login .menuOptions .optionsList h2{
+		font-family: arial;
+		font-size: 12px;
+		color: #000000;
+	}
+	
+	#header .nav .button_list .login .menuOptions .optionsList a{
+		color: #0041BB;
+	}
+	
+	#header .nav .button_list .login .menuOptions .optionsList{
+		float: left;
+		margin: 5px 0px 0px 15px;
+	}
+	
+	#header .nav .button_list .login .menuOptions .optionsList ul li{
+		height: 19px !important;
+	}
+	.recipe .recipeTitle .recipeStatus{
+		position: relative;
+		float: right;
+		width: 50px;
+		height: 50px;
+		background: url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/iconlabel-white.gif) transparent no-repeat;
+	}
+	
+	.recipe .recipeTitle .recipeStatusUnverified{
+	}
+	
+	.recipe .recipeTitle .recipeStatusVerified{
+		position: relative;
+		width: 42px;
+		height: 42px;
+		margin: 4px 0 0 4px;
+		background: url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/iconlabel-verified.gif) transparent no-repeat;
+	}
+	
+	.recipe .recipeTitle .recipeStatusCertified{
+		position: relative;
+		width: 42px;
+		height: 42px;
+		margin: 4px 0 0 4px;
+		background: url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/iconlabel-certified.gif) transparent no-repeat;
+	}
+	.recipe .info{
+		font-size: 11px !important;	
+		padding: 4px 0 0 0;
+	}
+	.recipe h2{
+		padding: 8px 0 13px 0 !important;
+		clear: none !important;
+		font-size: 12px;
+		color: #464646;
+	}
+	
+	#paginationControls{
+		padding: 16px;
+	}
+	
+	#paginationControls .prevButton{
+		position: relative;
+		display: block;
+		margin: 4px 0 0 8px;
+		float: right;
+		width: 19px;
+		height: 12px;
+		background: url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/pagination-left.gif) transparent no-repeat;
+	}
+	
+	#paginationControls .nextButton{
+		position: relative;
+		display: block;
+		margin: 4px 0 0 4px;
+		float: right;
+		width: 19px;
+		height: 12px;
+		background: url(//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/pagination-right.gif) transparent no-repeat;
+	}
+	
+	h1 {
+		color:#464646;
+	}
+	#cookbookContent h1{
+		color: #0041AA !important;
+	}
+	.recipeForm .tagAutocompleteResults{
+		color: #0041AA !important;
+	}
+	ul.categories li.category{
+		color: #0041AA !important;
+	}
+	.editrecipeButton {
+		background:url("//www.developerforce.com/assets/developerforcesite/cookbook/newDesign/images/btneditrecipe.gif") no-repeat scroll 0 0 transparent !important;
+	}
+yêXı      Yù†Yù¢=≥+ÌYnQL   b:http://www.developerforce.com/assets/developerforcesite/cookbook/newDesign/css/cookbookStyles.css necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+x-amz-id-2: KDmOuU60Bog2GlVDSVRZzEmfwfOdEJvir25fOKVrHBuwnYsuykYLIqIeX9Pcn28L09B6jYcJe+I=
+x-amz-request-id: 438EB4E338394413
+Last-Modified: Wed, 04 Feb 2015 22:03:33 GMT
+Etag: "20b02faa6f1b87fd6150874fefad5065"
+Content-Type: text/css
+Server: AmazonS3
+Access-Control-Allow-Origin: *
+Content-Length: 19045
+Accept-Ranges: bytes
+Date: Fri, 28 Apr 2017 09:56:39 GMT
+Age: 0
+x-request-id: 71c9435c7294a58c586103b5542fd1375abea4d3
+X-Served-By: cache-ams4144-AMS
+X-Cache: MISS, MISS from nl9
+X-Cache-Hits: 0
+X-Timer: S1493373399.763206,VS0,VE383
+Via: 1.1 varnish, 1.1 nl9 (squid/3.5.20)
+ uncompressed-len 0   Je

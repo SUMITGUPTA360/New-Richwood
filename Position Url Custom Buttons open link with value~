@@ -1,0 +1,54 @@
+https://na10.salesforce.com/a0B/e?CF00NA0000005JzZX=Master1&CF00NA0000005JzZX_lkid=a0AA0000002CtHk&retURL=/a0AA0000002CtHk
+
+https://{org}/{object prepend}/e?{some ID field}={some value}&{some ID field}_lkid={some other ID field}&retURL=/{some third ID field}
+https://careerlightningdev-dev-ed.my.salesforce.com/a1T/e?CF00N7F000002e5eB=harsh+mathur&CF00N7F000002e5eB_lkid=a1I7F000000xmzM&retURL=%2Fa1I7F000000xmzM/
+
+
+                                                             App.
+https://careerlightningdev-dev-ed.my.salesforce.com/a1T/e?CF00N7F000002e5eB=harsh+mathur&CF00N7F000002e5eB_lkid=CF00N7F000002d4a1={!SHCM__Interview__r.SHCM__job__c}&CF00N7F000002d4a1_lkid={!SHCM__Interview__r.SHCM__job__c}=a1I7F000000xmzM&retURL=%2Fa1I7F000000xmzM
+
+https://{org}/{object prepend}/e?{some ID field}={some value}&{some ID field}_lkid={some other ID field}&retURL=/{some third ID field}
+
+/a08/e?CF00NA0000002h0MI={!Contact.Name}&CF00NA0000002h0MI_lkid={!Contact.Id}
+
+https://careerlightningdev-dev-ed.my.salesforce.com/a1T/e?CF00N7F000002e5eB=harsh+mathur&CF00N7F000002e5eB_lkid==a1I7F000000xmzM&retURL=%2Fa1I7F000000xmzM/CF00N7F000002d4a1={!SHCM__Job__c.Name}&CF00N7F000002d4a1_lkid=a1I7F000000xmzM=a1I7F000000xmzM&retURL=%2Fa1I7F000000xmzM
+
+
+https://{org}/{object prepend}/e?{some ID field}={some value}&{some ID field}_lkid={some other ID field}&retURL=/{some third ID field}
+
+https://na10.salesforce.com/a0B/e?CF00NA0000005JzZX=Master1&CF00NA0000005JzZX_lkid=a0AA0000002CtHk&retURL=/a0AA0000002CtHk&00NF00000082xeJ=Test+Text
+
+https://careerlightningdev-dev-ed.my.salesforce.com/a1T/e?CF00N7F000002e5eB=harsh+mathur&CF00N7F000002e5eB_lkid=a1I7F000000xmzM&retURL=%2Fa1I7F000000xmzM&CF00N7F000002d4a1={!SHCM__Job__c.Id}
+
+
+
+/a0B/e?CF00NA0000005JzZX={!ObjectMaster__c.Name}&CF00NA0000005JzZX_lkid={!ObjectMaster__c.Id}&00NF00000082xeJ={!ObjectMaster__c.TextField__c}&retURL=/{!ObjectMaster__c.Id}
+
+
+(1)
+https://careerlightningdev-dev-ed.my.salesforce.com/a1T/e?CF00N7F000002d4Jt={!SHCM__Job__c.Name}&CF00N7F000002d4Jt_lkid={!SHCM__Job__c.Id}&01I7F000000HmBF={!SHCM__Job__c.Name}&retURL=/{!SHCM__Job__c.Id}
+
+
+Main URL
+https://careerlightningdev-dev-ed.my.salesforce.com/a1T/e?CF00N7F000002e5eB=harsh+mathur&CF00N7F000002e5eB_lkid=a1I7F000000xmzM&retURL=%2Fa1I7F000000xmzM&CF00N7F000002d4Jt={!SHCM__Job__c.Name}&CF00N7F000002d4Jt_lkid={!SHCM__Job__c.Id}&01I7F000000HmBF={!SHCM__Job__c.Name}&retURL=/{!SHCM__Job__c.Id}&
+
+CF00N7F000001mTw2={!SHCM__jobFamily__c.Name}&CF00N7F000001mTw2_lkid={!SHCM__Job__c.Id}&01I7F000000gPj5={!SHCM__jobFamily__c.Name}&retURL=/{!SHCM__jobFamily__c.Id}
+
+
+main URL using 
+
+https://careerlightningdev-dev-ed.my.salesforce.com/a1T/e?CF00N7F000002e5eB=harsh+mathur&CF00N7F000002e5eB_lkid=a1I7F000000xmzM&retURL=%2Fa1I7F000000xmzM&
+CF00N7F000002d4Jt={!SHCM__Job__c.Name}&CF00N7F000002d4Jt_lkid={!SHCM__Job__c.Id}&01I7F000000HmBF={!SHCM__Job__c.Name}&retURL=/{!SHCM__Job__c.Id}&CF00N7F000002d4Jy={!SHCM__jobFamily__c.Name}&CF00N7F000002d4Jy_lkid={!SHCM__Job__c.Id}&01I7F000000gPj5={!SHCM__jobFamily__c.Name}&retURL=/{!SHCM__jobFamily__c.Id}
+
+
+https://careerlightningdev-dev-ed.my.salesforce.com/a1T/e?CF00N7F000002e5eB=harsh+mathur&CF00N7F000002e5eB_lkid=a1I7F000000xmzM&retURL=%2Fa1I7F000000xmzM&
+CF00N7F000002d4Jt={!SHCM__Job__c.Name}&CF00N7F000002d4Jt_lkid={!SHCM__Job__c.Id}&01I7F000000HmBF={!SHCM__Job__c.Name}&retURL=/{!SHCM__Job__c.Id}&
+CF00N7F000002d4Jy={!SHCM__jobFamily__c.Name}&CF00N7F000002d4Jy_lkid={!SHCM__Job__c.Id}&01I7F000000gPj5={!SHCM__jobFamily__c.Name}&retURL=/{!SHCM__jobFamily__c.Id}
+
+
+
+Button link URL 
+https://careerlightningdev-dev-ed.my.salesforce.com/a1T/e?CF00N7F000002e5eB=harsh+mathur&CF00N7F000002e5eB_lkid=a1I7F000000xmzM&retURL=%2Fa1I7F000000xmzM&CF00N7F000002d4Jt={!SHCM__Job__c.Name}&CF00N7F000002d4Jt_lkid={!SHCM__Job__c.Id}&CF00N7F000002d4Jy={!SHCM__Job_Family__c.Name}&CF00N7F000002d4Jy_lkid={!SHCM__Job_Family__c.SHCM__JobFamilyID__c}
+
+USED URL Done
+https://careerlightningdev-dev-ed.my.salesforce.com/a1T/e?CF00N7F000002e5eB=harsh+mathur&CF00N7F000002e5eB_lkid=a1I7F000000xmzM&retURL=%2Fa1I7F000000xmzM&CF00N7F000002d4Jt={!SHCM__Position_Application__c.SHCM__job__c}&CF00N7F000002d4Jt_lkid={!SHCM__Job__c.Id}&CF00N7F000002d4Jy={!SHCM__Position_Application__c.SHCM__jobFamily__c}&CF00N7F000002d4Jy_lkid={!SHCM__Job_Family__c.SHCM__JobFamilyID__c}

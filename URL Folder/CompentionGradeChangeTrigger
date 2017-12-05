@@ -1,0 +1,108 @@
+/**
+*This is the trigger Handler of Compensation Grade Change copy to Compensation Grade  when after Approval Update Compensation Grade records is 
+used to   after Update  field (SHCM__ Status__c = Approved) and before update field (SHCM__active__c = false) 
+*Created By : Sumit Gupta
+*Date       : 22-09-2017
+**/
+
+public with sharing class CompensationGradeChangeTriggerHandler {
+  
+  public static void beforeUpdate(map<id, SHCM__Compensation_Grade_Change__c> newMapOfValues, map<id, SHCM__Compensation_Grade_Change__c> oldMapOfValues){
+     beforeUpdateAction(newMapOfValues, oldMapOfValues);
+  }
+  
+  public static void afterUpdate(map<id, SHCM__Compensation_Grade_Change__c> newMapOfValues, map<id, SHCM__Compensation_Grade_Change__c> oldMapOfValues){
+     afterUpdateAction(newMapOfValues, oldMapOfValues);
+  }                   
+    
+  private static void  beforeUpdateAction(map<id, SHCM__Compensation_Grade_Change__c> newMapOfValues, map<id, SHCM__Compensation_Grade_Change__c> oldMapOfValues){
+    set<String> setcompensationGradeId = new set<String>();
+    set<String> setChanged = new set<String>();
+    list<SHCM__Compensation_Grade__c> listCGrade = new list<SHCM__Compensation_Grade__c>();
+    list<SHCM__Compensation_Grade_Change__c> listCGradeChange = new list<SHCM__Compensation_Grade_Change__c>();
+     try{
+    for(SHCM__Compensation_Grade_Change__c objCGradeChange : newMapOfValues.values()){
+      if(String.isNotBlank(objCGradeChange.SHCM__status__c)){
+       if(String.isNotBlank(objCGradeChange.SHCM__compensationGrade__c) && newMapOfValues.get(objCGradeChange.id).SHCM__status__c == 'Approved' && newMapOfValues.get(objCGradeChange.id).SHCM__status__c != oldMapOfValues.get(objCGradeChange.id).SHCM__status__c){
+        setcompensationGradeId.add(objCGradeChange.SHCM__compensationGrade__c);
+        setChanged.add(objCGradeChange.SHCM__changeType__c);
+       }
+      } 
+    }
+    for(SHCM__Compensation_Grade_Change__c objCGC : [select id, SHCM__changeType__c, SHCM__active__c, SHCM__compensationGrade__c from SHCM__Compensation_Grade_Change__c where SHCM__compensationGrade__c =: setcompensationGradeId and  SHCM__active__c = true  ]){
+         objCGC.SHCM__active__c = false;
+         listCGradeChange.add(objCGC);
+    }
+    
+     if(listCGradeChange.size() > 0){
+         Database.update(listCGradeChange, false);
+     }
+    for(SHCM__Compensation_Grade_Change__c objCGradeChange : newMapOfValues.values()){
+      if(objCGradeChange.SHCM__active__c == true && objCGradeChange.SHCM__status__c == 'Saved' ){
+        objCGradeChange.addError('Compensation Grade Change needs to be Approved first before it is set to Active = True');
+      }
+      if(String.isNotBlank(objCGradeChange.SHCM__compensationGrade__c) && newMapOfValues.get(objCGradeChange.id).SHCM__status__c == 'Approved' && newMapOfValues.get(objCGradeChange.id).SHCM__status__c != oldMapOfValues.get(objCGradeChange.id).SHCM__status__c ){
+      
+        SHCM__Compensation_Grade__c objCGrade = new SHCM__Compensation_Grade__c();
+        objCGrade.Name                               = objCGradeChange.Name;
+            objCGrade.Id                                 = objCGradeChange.SHCM__compensationGrade__c;
+            objCGrade.SHCM__approvalDate__c              = objCGradeChange.SHCM__approvalDate__c;  
+            objCGrade.SHCM__compensationPlan__c          = objCGradeChange.SHCM__compensationPlan__c;
+            objCGrade.SHCM__defaultBaseCompensation__c   = objCGradeChange.SHCM__defaultBaseCompensation__c;
+            objCGrade.SHCM__description__c               = objCGradeChange.SHCM__description__c;
+            objCGrade.SHCM__gradeStep__c                 = objCGradeChange.SHCM__gradeStep__c;
+            objCGrade.SHCM__maximum__c                   = objCGradeChange.SHCM__maximum__c;
+            objCGrade.SHCM__midpoint__c                  = objCGradeChange.SHCM__midpoint__c;
+            objCGrade.SHCM__minimum__c                   = objCGradeChange.SHCM__minimum__c;
+            objCGrade.SHCM__status__c                    = objCGradeChange.SHCM__status__c; 
+            objCGrade.SHCM__targetVariablePayPercent__c  = objCGradeChange.SHCM__targetVariablePayPercent__c;
+            objCGrade.SHCM__targetMeritPercent__c        = objCGradeChange.SHCM__targetMeritPercent__c;
+            objCGrade.SHCM__targetVariablePayPercent__c  = objCGradeCHange.SHCM__targetVariablePayPercent__c;
+            listCGrade.add(objCGrade);    
+        }
+      }
+      if(listCGrade.size() > 0){
+         Database.update(listCGrade, false);
+      }   
+    }catch(Exception e){
+     system.debug('Exception occurs'+e);
+       errorHandlingUtility.sendErrorEmail(e);
+     }  
+  }
+  
+  private static void  afterUpdateAction(map<id, SHCM__Compensation_Grade_Change__c> newMapOfValues, map<id, SHCM__Compensation_Grade_Change__c> oldMapOfValues){
+   try{
+     /*  
+    list<SHCM__Compensation_Grade__c> listCGrade = new list<SHCM__Compensation_Grade__c>();
+    
+    for(SHCM__Compensation_Grade_Change__c objCGradeChange : newMapOfValues.values()){
+      if(String.isNotBlank(objCGradeChange.SHCM__compensationGrade__c) && newMapOfValues.get(objCGradeChange.id).SHCM__status__c == 'Approved' && newMapOfValues.get(objCGradeChange.id).SHCM__status__c != oldMapOfValues.get(objCGradeChange.id).SHCM__status__c ){
+      
+        SHCM__Compensation_Grade__c objCGrade = new SHCM__Compensation_Grade__c();
+        objCGrade.Name                               = objCGradeChange.Name;
+            objCGrade.Id                                 = objCGradeChange.SHCM__compensationGrade__c;
+            objCGrade.SHCM__approvalDate__c              = objCGradeChange.SHCM__approvalDate__c;  
+            objCGrade.SHCM__compensationPlan__c          = objCGradeChange.SHCM__compensationPlan__c;
+            objCGrade.SHCM__defaultBaseCompensation__c   = objCGradeChange.SHCM__defaultBaseCompensation__c;
+            objCGrade.SHCM__description__c               = objCGradeChange.SHCM__description__c;
+            objCGrade.SHCM__gradeStep__c                 = objCGradeChange.SHCM__gradeStep__c;
+            objCGrade.SHCM__maximum__c                   = objCGradeChange.SHCM__maximum__c;
+            objCGrade.SHCM__midpoint__c                  = objCGradeChange.SHCM__midpoint__c;
+            objCGrade.SHCM__minimum__c                   = objCGradeChange.SHCM__minimum__c;
+            objCGrade.SHCM__status__c                    = objCGradeChange.SHCM__status__c; 
+            objCGrade.SHCM__targetVariablePayPercent__c  = objCGradeChange.SHCM__targetVariablePayPercent__c;
+            objCGrade.SHCM__targetMeritPercent__c        = objCGradeChange.SHCM__targetMeritPercent__c;
+            objCGrade.SHCM__targetVariablePayPercent__c  = objCGradeCHange.SHCM__targetVariablePayPercent__c;
+            listCGrade.add(objCGrade);   
+      }
+    }
+    
+     if(listCGrade.size() > 0){
+         Database.update(listCGrade, false);
+     } */
+    }catch(Exception e){
+    system.debug('Exception occurs'+e);
+    errorHandlingUtility.sendErrorEmail(e);
+    }
+  }
+}

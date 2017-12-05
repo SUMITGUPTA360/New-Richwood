@@ -1,0 +1,55 @@
+* Contact and Account records will no longer be
+created/updated, and managed from the Bizzabo
+application directly and instead determined by the Ticket
+object details
+
+*The account name (clean) will be used as a secondary
+qualifier for matching a contact to an account record
+
+
+*The website will be the third level of matching used to fian existing Account/Contact match. Additionally, a  field
+will be created within the Bizzabo form (required) to house
+the website
+
+*Any non-matching contact records to be created and
+associated to a default account record defined through a
+custom setting
+
+*Email domain will be used as the initial qualifier for
+matching a contact to an account
+
+
+
+Apex will be used for both existing and new account
+records to update the Account Domain field with all email
+domains separated by commas
+
+
+A domain exception list custom setting will be created to
+determine which email domains should be excluded from
+the above automation
+
+
+
+1.3
+
+Apex will be used to determine if the matched contact is
+already a campaign member
+
+The campaign member will be created and/or updated to
+the appropriate status based on the transaction made and
+any check ins recorded through Bizzabo
+
+Apex will be used to create an opportunity with contact
+role(s) and products based on the details of the
+transaction passed to the ticket object
+
+There will be a default product to be used for any
+undefined transactions tied to an opportunity
+
+The purchaser and any other represented members will
+be included as contact roles on the opportunity record
+with the primary contact being the purchaser with a role of
+purchaser. Any other represented members will be
+included as contact roles with a role of registrant
+

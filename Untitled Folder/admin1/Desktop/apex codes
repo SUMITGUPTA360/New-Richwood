@@ -1,0 +1,36 @@
+public class Contacts{
+
+public List<SelectOption> getListOfContacts()
+{
+           List<Contact> ContactList =[select id,Name from Contact where Name!=NULL] ;
+           List<SelectOption> ContactOptionList = new List<SelectOption>();
+           ContactOptionList .add(new SelectOption( ' ' ,'---Select---'));
+           for(Contact con : ContactList )
+           {
+                      ContactOptionList .add(new SelectOption(con.id , con.Name));
+           }
+          return ContactOptionList ;
+}
+
+
+
+public List<SelectOption> getListOfAccounts()
+{
+           List<Account> AccountList =[select id,Name from Account where Name!=NULL] ;
+           List<SelectOption> AccountOptionList = new List<SelectOption>();
+           AccountOptionList .add(new SelectOption( ' ' ,'---Select---'));
+           for(Account con : AccountList )
+           {
+                      AccountOptionList .add(new SelectOption(acc.id , acc.Name));
+           }
+          return AccountOptionList ;
+}
+
+
+    public String selectedContactId { get; set; }
+     public String selectedAccountId { get; set; }
+
+    public Contacts() {
+
+    }
+}

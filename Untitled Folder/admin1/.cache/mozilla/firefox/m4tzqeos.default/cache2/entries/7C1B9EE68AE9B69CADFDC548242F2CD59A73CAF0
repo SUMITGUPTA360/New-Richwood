@@ -1,0 +1,934 @@
+// code to execute when document loads
+jQuery(document).ready(function(){
+	// BEGIN initialize nav
+	jQuery('ul#home')
+		.supersubs({ 
+			minWidth:    10,   // minimum width of sub-menus in em units 
+			maxWidth:    25,   // maximum width of sub-menus in em units 
+			extraWidth:  1     // extra width can ensure lines don't sometimes turn over
+		})
+		.superfish({
+			animation	: {opacity:'show'},
+			speed		: 1,
+			dropShadows : true,
+			delay		: 500
+		});  
+	// END initialize nav
+	
+	// BEGIN search 
+	var searchbox = jQuery('input#searchtext').blur().attr('autocomplete', 'off');
+	var searchbk = jQuery('#header .nav .search .searchbox');
+	var resultsbox = jQuery('#searchresults');
+	var resultslist = jQuery('#searchresultslist');
+	var allsearchresults = jQuery('#allsearchresults');
+	var selectedresult = -1;
+	
+	var focusflag = false;
+	jQuery(searchbox).focus(function() {
+		focusflag = true; 
+		jQuery(searchbk).addClass('searchboxactive');
+		ldm_performsearch();
+	});
+	jQuery(searchbox).blur(function() {
+		focusflag = false; 
+		jQuery(searchbk).removeClass('searchboxactive');
+		selectedresult = -1;
+		setTimeout(function() {jQuery(resultsbox).hide();}, 200); // delay before closing search results, this is needed to allow the links to be followed		
+	});		
+
+	//$(document).bind('keyup', 'alt+s', function() { jQuery(searchbox).focus();}); // setup shortcut alt+s for search
+	
+	jQuery(searchbox).keyup(function(e) {
+		e.stopPropagation();
+		e.stopImmediatePropagation();
+		// keyup b/c we want the last typed character included
+		var code = (e.keyCode ? e.keyCode : e.which);
+		if (code != 38 && code != 40 && code != 27 && code != 13) {
+			// keyup is not up arrow, down arrow, esc, nor enter
+			ldm_performsearch();
+		}				
+	}); //jQuery(searchbox).keyup
+
+	jQuery(searchbox).keypress(function(e) {
+		// keypress does not capture arrow keys (outside of firefox)
+		var code = (e.keyCode ? e.keyCode : e.which);		
+		if (code == 13 && selectedresult!=-1) {
+			// enter pressed while a selection is selected go to the page
+            var lilist = jQuery('#searchresultslist li');       // create list of search results AND
+            lilist.push(jQuery('#allsearchresults').parent());  // 'All Search Results' parent 20090831 SRF
+			window.location = jQuery(lilist[selectedresult]).find('a').attr('href');
+			e.preventDefault();			
+		}
+	}); // jQuery(searchbox).keypress
+	jQuery(searchbox).keydown(function(e) {
+		// keydown does NOT capture ENTER (keycode 13)
+		var code = (e.keyCode ? e.keyCode : e.which);		
+		if (code == 40) {
+			// arrow down
+			if (selectedresult < jQuery('#searchresultslist li').length) {  // allow selected result to get to length (rather than 1 less)
+                                                                            // this allows selection of "All Search Results" 20090831 SRF
+				ldm_exploresearchresults(1);
+			}
+			e.preventDefault();
+		}
+		else if (code == 38) {
+			// arrow up
+			if (selectedresult>0) {
+				ldm_exploresearchresults(-1);		
+			}
+			//alert("arrow up");			
+			e.preventDefault();
+		}
+		else if (code == 27) {
+			// esc
+			jQuery(this).blur();
+			focusflag = false; 
+			jQuery(searchbk).removeClass('searchboxactive');						
+			selectedresult = -1;
+		} 
+	});// jQuery(searchbox).down(function 
+	
+	jQuery('#searchxbutton').click(function(e) {
+		// close search area (clicking this link fires the blur event bound to the searchbox)
+		e.preventDefault();
+	});
+		
+	function ldm_exploresearchresults(offset) {
+		var lilist = jQuery('#searchresultslist li');
+        lilist.push(jQuery('#allsearchresults').parent());  // add 'All Search Results' link parent to the list 20090831 SRF
+		jQuery(lilist[selectedresult]).find('a').removeClass('searchhover');
+		selectedresult += offset;
+		jQuery(lilist[selectedresult]).find('a').addClass('searchhover');		
+	} //	function ldm_exploresearchresults(offset)
+
+	function ldm_performsearch() {
+		if (focusflag) {
+			var query = jQuery(searchbox).val();
+			if (query.length ==0) {
+				jQuery(resultsbox).hide();
+			}
+			else {
+				jQuery(resultsbox).show();
+				jQuery(allsearchresults).attr('href', "http://www.developerforce.com/search/search.php?q="+query);
+				sf_performsearch(query, function(data){
+					jQuery(resultslist).html(''); // empty result list
+					// determine if there any results (top hit or results array)
+					if ( (typeof(data.results) == 'undefined' || data.results.length == 0) && (typeof(data.top) == 'undefined') ) { 
+						jQuery(resultslist).html('<li class="msg">There are no quick links matching your search.<br /><br />Please search all results.</li>');
+						selectedresult = -1;
+					} else {
+						// there is at lest one search result
+						
+						// check for and deal with top hit					
+						 if (typeof(data.top) != 'undefined') {
+							var item = data.top;
+							var li = jQuery('<li></li>');
+							var a = jQuery('<a href=' + item.URL + '></a>').addClass('searchhover');
+							if (typeof item.icon == 'undefined' || item.icon == '') {
+								// no icon							
+							}
+							else {
+								// icon
+								jQuery(li).addClass('wicon');
+								jQuery(a).append("<span class='preview' style='background-image:url(" + item.icon + ");'><!-- icon --></span>");
+								
+							}
+							jQuery(a).append(jQuery("<span class='title'>" + item.Title+ "</span>"));
+							jQuery(a).append(jQuery("<span class='desc'>" + item.Description+ "</span>"));
+							jQuery(li).append(jQuery(a));
+							jQuery(resultslist).append(jQuery(li));
+							selectedresult = -1;
+						}
+						else {
+							selectedresult = -1;					
+						} 
+						//Fixed 20111206
+						// end top hit			
+	
+						// check for and deal with other results
+						if (typeof(data.results) != 'undefined' && data.results.length > 0) {
+							jQuery.each(data.results, function(i, item){
+								if(item !="" && i<4){
+									var li = jQuery('<li></li>');							
+									var a = jQuery('<a href=' + item.URL + '></a>');
+									if (typeof item.icon == 'undefined' || item.icon == '') {
+										// no icon							
+									}
+									else {
+										// icon
+										jQuery(li).addClass('wicon');
+										jQuery(a).append("<span class='preview' style='background-image:url(" + item.icon + ");'><!-- icon --></span>");
+										
+									}							
+									jQuery(a).append(jQuery("<span class='title'>" + item.Title+ "</span>"));
+									jQuery(a).append(jQuery("<span class='desc'>" + item.Description+ "</span>"));
+									jQuery(li).append(jQuery(a));
+									jQuery(resultslist).append(jQuery(li));
+								}
+							}); // jQuery.each						
+						} // end results array
+					} // else / if (are they any results - top hit or results array)
+					// highlight all occurrences of query string
+					jQuery(resultslist).highlight(query);
+				});
+
+			} // else / if (query.length == 0)
+		} // if (focusflag)			
+	} // function ldm_performsearch()
+
+		function sf_performsearch(query, fn) {
+			var query = query.replace(/\s/g,'_').replace(/\./g,'_').replace(/\'/g,'');
+			window.shortcut_queries = window.shortcut_queries || {};
+			if (typeof(window.shortcut_queries['q_'+query])=='object'){
+				fn(window.shortcut_queries['q_'+query]);
+			}else{
+				// if current domain is different than search location
+				//if (document.domain !== 'developer.force.com') { // version for live site
+			    if (document.domain !== 'developer.force.com') {  // testing version
+					// different domain code
+					window.shortcut_queries['q_' + query] = function(data){
+						window.shortcut_queries['q_' + query] = data;
+						fn(data)
+					}
+					jQuery('body').append('<script src="http://developer.force.com/Search_Shortcuts_JSON?query=' + query + '&callback=' + encodeURIComponent('shortcut_queries.q_' + query) + '"></script>');
+				} else {
+					// same domain code		
+				    
+					/*jQuery.ajax({
+						url: 'http://developer.force.com/Search_Shortcuts_JSON', // version for live site
+						//url: 'Search_Shortcuts_JSON.php', // testing version
+						dataType: 'text',
+						data: 'query=' + query,
+						type: 'GET',
+						success: function(data){
+							var lastpos = data.length-1;
+							data = eval("("+(data.charAt(lastpos)==';' ? data.substring(0, lastpos) : data)+")");
+							fn(data);
+						}
+					}); //jQuery.getJSON({
+					*/
+					
+					jQuery.get(
+						'http://developer.force.com/Search_Shortcuts_JSON', 
+						'query=' + query + '&param=newjs',
+						function(data){
+							var lastpos = data.length-1;
+							data = eval("("+(data.charAt(lastpos)==';' ? data.substring(0, lastpos) : data)+")");
+							fn(data);
+						}
+					);
+					
+					
+				} // if (different domain)
+			} // if (typeof(window.shortcut_queries['q_'+query])=='object')
+		} // function sf_performsearch
+	
+		// Search Results page 
+		
+			jQuery('#searchtextnotheader').focus(function() {
+				jQuery(this).parent().addClass('searchboxactive');
+			});
+			jQuery('#searchtextnotheader').blur(function() {
+				jQuery(this).parent().removeClass('searchboxactive');
+			});		
+
+		// END Search Results page 
+	
+	// END search
+	
+	// BEGIN ie6 rollover for submit button (all other browsers are css driven) using sprite
+	if(jQuery.browser.msie && jQuery.browser.version.substr(0,2)=="6.") {		
+		// if ie6
+		jQuery('#commentsubmitbutton').hover(
+			function() {
+				jQuery(this).css('background-position','0 -25px');		
+			},
+			function() {
+				jQuery(this).css('background-position','0 0');				
+			}
+		);
+
+		jQuery('#inputbuttonrollover').hover(
+			function() {
+				jQuery(this).addClass('ie6hover');		
+			},
+			function() {
+				jQuery(this).removeClass('ie6hover');		
+			}
+		);
+		jQuery('#inputbuttonrollover2').hover(
+			function() {
+				jQuery(this).addClass('ie6hover');		
+			},
+			function() {
+				jQuery(this).removeClass('ie6hover');		
+			}
+		);
+
+	}	
+	// END ie6 rollover for submit button
+	
+	// BEGIN Hide/Reveal Menu on Consulting Pages
+	jQuery('.trigger', '#hiderevealmenu').toggle(
+		function(e) {
+			e.preventDefault();
+			if (jQuery.browser.msie) {
+				// straight show/hide for ie
+				jQuery(this).blur().parent().find('ul').show();
+			} else {
+				// slide effect for other browsers
+				jQuery(this).blur().parent().find('ul').slideDown();
+			}
+		},
+		function(e) {
+			e.preventDefault();
+			if (jQuery.browser.msie) {
+				// straight show/hide for ie
+				jQuery(this).blur().parent().find('ul').hide();
+			} else {
+				// slide effect for other browsers
+			jQuery(this).blur().parent().find('ul').slideUp();			
+			}
+		}
+	);//
+	jQuery('.trigger', '#hiderevealmenu2').toggle(
+		function(e) {
+			e.preventDefault();
+			if (jQuery.browser.msie) {
+				// straight show/hide for ie
+				jQuery(this).blur().parent().find('ul').show();
+			} else {
+				// slide effect for other browsers
+				jQuery(this).blur().parent().find('ul').slideDown();
+			}
+		},
+		function(e) {
+			e.preventDefault();
+			if (jQuery.browser.msie) {
+				// straight show/hide for ie
+				jQuery(this).blur().parent().find('ul').hide();
+			} else {
+				// slide effect for other browsers
+			jQuery(this).blur().parent().find('ul').slideUp();			
+			}
+		}
+	);//	
+	// END Hide/Reveal Menu on Consulting Pages
+	
+	// Reg Form (member shortcut)
+	var ldm_regform_height = jQuery('#regformtab1').height();
+	jQuery('#regformmembershortcut, #regformmembershortcutlink').click(function(e) {
+		e.preventDefault();
+		/* 
+			ie6 - b/c of png fixed background, input tags require position:relative
+			this cause a problem with the hidden tag.
+			Extra code added to hide these input tags
+			to undo this "extra-hide" code we will add the class "ie6visible"			
+		*/
+		if (jQuery.browser.msie && jQuery.browser.version.substr(0, 2) == "6.") {
+			jQuery("#regformmember").addClass('ie6visible');
+		}
+		
+		
+		
+		/*if (jQuery.browser.msie && jQuery.browser.version.substr(0, 2) == "6.") {
+			jQuery('#regformtab1').parent().parent().addClass('ie6toggle');
+			
+		} else {*/
+			
+			//***jQuery("html,body").animate({scrollTop: 100}, 'fast', 'linear', function(){
+				jQuery("#regformtab1mask").animate({height: ldm_regform_height+'px'}, 'slow');
+				jQuery("#regformtab1").animate({height: '0px'}, 'slow');
+				jQuery(".doublewide > .middle, .shortcutcol, .formcol, #regformtab1mask").animate({height: '155px'}, 'slow');
+				jQuery("#regformtab2").css("display","block");
+				if (!jQuery.browser.msie) {
+					jQuery(".sidecolmsg").animate({
+						margin: '40px 0 0 10px'
+					}, 'slow');//109px 0 0 10px
+				}
+				jQuery("#regformtab2mask").animate({height: '0px'}, 'slow');
+				
+			//***});
+			
+			/*jQuery('#regformtab1mask').slideDown('slow',function(){
+				jQuery('#regformtab1').slideUp('slow', function(){
+					jQuery('#regformtab2').slideDown('slow',function(){
+						jQuery('#regformtab2mask').slideUp('slow');
+					});		
+					
+				});
+			});*/
+			
+		//}
+		jQuery('#sidecolmsg1').hide();
+		jQuery('#sidecolmsg2').show();
+	});
+	if (jQuery.browser.msie && jQuery.browser.version.substr(0, 2) == "6.") {
+		jQuery(".doublewide > .middle, .shortcutcol, .formcol, #regformtab1mask").animate({height: ldm_regform_height+'px'}, 'slow');
+			jQuery("#regformtab1").animate({height: ldm_regform_height+'px'}, 'slow');
+			jQuery("#regformtab1mask").animate({height: '0px'}, 'slow');
+		}
+	jQuery('#notmembershortcut').click(function(e){
+		e.preventDefault();
+
+		/* 
+			ie6 - b/c of png fixed background, input tags require position:relative
+			this cause a problem with the hidden tag.
+			Extra code added to hide these input tags
+			to undo this "extra-hide" code we will add the class "ie6visible"			
+		*/
+		if (jQuery.browser.msie && jQuery.browser.version.substr(0, 2) == "6.") {
+			jQuery("#regformmember").removeClass('ie6visible');
+		}
+
+		/*if (jQuery.browser.msie && jQuery.browser.version.substr(0, 2) == "6.") {
+			jQuery('#regformtab1').parent().parent().removeClass('ie6toggle');
+		} else {*/
+			
+			
+			
+			jQuery("#regformtab2mask").animate({height: '0px'}, 'fast');
+			jQuery(".doublewide > .middle, .shortcutcol, .formcol").animate({height: ldm_regform_height+'px'}, 'fast');
+			jQuery("#regformtab1").animate({height: ldm_regform_height+'px'}, 'slow');
+			jQuery("#regformtab1mask").animate({height: '0px'}, 'fast');
+			
+			if (!jQuery.browser.msie) {
+				jQuery(".sidecolmsg").animate({
+					margin: '109px 0 0 10px'
+				}, 'slow');//109px 0 0 10px
+			}
+			/*jQuery('#regformtab2').slideUp('slow',function(){
+				jQuery('#regformtab1').slideDown('slow', function(){
+					jQuery('#regformtab1mask').slideUp('slow');		
+					
+				});
+			});*/			
+		//}
+		jQuery('#sidecolmsg2').hide();
+		jQuery('#sidecolmsg1').show();		
+	});
+	
+	// reg form username popup
+	jQuery('#usernametooltiptrigger').focus(function() {jQuery(this).nextAll('.tooltipcontainer').eq(0).find('.tooltip').addClass('tooltipvisible');});
+	jQuery('#usernametooltiptrigger').blur(function() {jQuery(this).nextAll('.tooltipcontainer').eq(0).find('.tooltip').removeClass('tooltipvisible');});
+
+    /* BEGIN Accordion Hide/Reveal */
+    jQuery('#accordion>ul')
+        .addClass('accordionjs')
+        .find('.acctrigger').toggle(
+            function(e) {
+                e.preventDefault();
+                jQuery(this)
+                    .addClass('activeacctrigger')
+                    .blur();
+                if(jQuery.browser.msie && (jQuery.browser.version.substr(0,2)=="6." || jQuery.browser.version.substr(0,2)=="7.")) {
+                    // ie6 and ie7
+                    jQuery(this).parent().find('>.acchidereveal').show();
+                } else {
+                    // all other browsers
+                    jQuery(this).parent().find('>.acchidereveal').slideDown();
+                } // if
+            },
+            function(e) {
+                e.preventDefault();
+                jQuery(this)
+                    .removeClass('activeacctrigger')
+                    .blur();
+                if(jQuery.browser.msie && (jQuery.browser.version.substr(0,2)=="6." || jQuery.browser.version.substr(0,2)=="7.")) {
+                    // ie6 and ie7
+                    jQuery(this).parent().find('>.acchidereveal').hide();
+                } else {
+                    // all other browsers
+                    jQuery(this).parent().find('>.acchidereveal').slideUp();
+                } // if
+            }
+        ).end() // end find ('acctrigger')
+        .find('.acctrigger:first').trigger('click'); // jQuery('#accordion>ul)
+    /* END Accordion Hide/Reveal */
+
+    /* BEGIN Initiliaze Lightbox */
+    jQuery('#lbimg1, #lbimg2').fancybox({
+        'overlayShow'	:true, 
+        'overlayOpacity':0.8, 
+        'zoomSpeedIn'	:500, 
+        'zoomSpeedOut'	:500,
+        'padding'		:0,
+        'hideOnContentClick': false,
+        'centerOnScroll' : false
+    }); // .fancybox
+    jQuery('#videotrigger1').fancybox({
+        'overlayShow'	:true, 
+        'overlayOpacity':0.8, 
+        'zoomSpeedIn'	:500, 
+        'zoomSpeedOut'	:500,
+        'padding'		:0,
+        'hideOnContentClick': false,
+        'centerOnScroll' : false,
+        'frameWidth'         :858,
+        'frameHeight'        :505
+    }); // .fancybox
+    /* END Initiliaze Lightbox */
+
+    /* BEGIN Mini Slideshow */
+    if (jQuery('#minislideshow').length>0) {
+        jQuery('#minislideshow a').fancybox({
+            'overlayShow'	:true, 
+            'overlayOpacity':0.8, 
+            'zoomSpeedIn'	:500, 
+            'zoomSpeedOut'	:500,
+            'padding'		:0,
+            'hideOnContentClick': false,
+            'centerOnScroll' : false
+        }); // .fancybox
+
+        // #minislideshow exists
+        var slideshow_links = jQuery('#minislideshow li');
+        var slideshow_pos = slideshow_links.length-1;
+        setInterval(function() {
+            jQuery(slideshow_links[slideshow_pos]).fadeOut(); // fadeout current
+            var fadein_pos = (slideshow_pos == 0 ? slideshow_links.length-1 : slideshow_pos-1);
+            jQuery(slideshow_links[fadein_pos]).fadeIn();
+            slideshow_pos = fadein_pos;
+        }, 5000);
+    } // if (#minislideshow exists)
+    /* END Mini Slideshow */
+
+    /* BEGIN Twitter Widget */
+       
+        if (jQuery('#twitterwidget').length>0) {
+            // #twitterwidget exists
+      
+            function ldm_addtweet(ultarget, tweet) {
+                var newli = jQuery("<li></li>").css({
+                    height:'1px',
+                    opacity:'0'
+                });
+                jQuery(ultarget).prepend(newli);
+                jQuery(newli).html(
+                    jQuery("<img alt='' src='"+
+                        tweet['image']+
+                        "' alt='' width='39' height='39' /><div class='desc'><h4>"+
+                        tweet['name']+
+                        "</h4><p>"+
+                        tweet['msg']+
+                        "</p></div>")
+                    )
+                    .animate({
+                        height:'85px'
+                    }, 'normal', function() {
+                        //callback
+                        jQuery(this).animate({opacity:'1'});
+                    });
+            }; //function ldm_addtweet
+            
+
+            
+            // example tweet object
+            //var tweet = {
+            //    image: 'images/twitter/img1.jpg',
+            //    name: 'joedreamforce',
+            //    msg: 'dreamforce lorem ipsum dolor site amet, consecteur adipiscing elit. Donec accumsan portitor pulvinar.'
+            //}; 
+
+            // BEGIN CREATE fake tweets array
+                var new_tweets = [
+                    {
+                        image: 'images/twitterdemo/img2.png',
+                        name: 'launchdm',
+                        msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan porttitor.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan porttitor.' 
+                    },
+                    {
+                        image: 'images/twitterdemo/img4.png',
+                        name: 'ldm',
+                        msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan porttitor.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan porttitor.' 
+                    },
+                    {
+                        image: 'images/twitterdemo/img5.png',
+                        name: 'launchDM',
+                        msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan porttitor.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan porttitor.' 
+                    }
+                ];
+            // END CREATE fake tweets array
+        
+            setInterval(function() {
+                // after delay 
+                // add to twitterwidget list
+                for (i=0; i<new_tweets.length; i++) {
+                    ldm_addtweet('#twitterwidgetul', new_tweets[i]);
+                }
+                
+                // remove extra tweets that have scrolled offscreen
+                jQuery('#twitterwidgetul li:gt(3)').remove();
+
+            }, 7000); // setInterval - add new tweets after 7 secs
+        } // if (#twitterwidget exists)
+
+    /* END Twitter Widget */
+
+    /* BEGIN Force Zone Session Tooltip */
+    if (jQuery('body>div.forcezonepagesession').length>0) {
+       jQuery('a.tooltiptrigger').ldmtooltip({
+            delay:100,
+            offsetleft:105,
+            offsettop:8,
+            showcallback : function(tooltip) {
+                // showcallback uneeded in this situation
+            },
+            hidecallback : function(tooltip) {
+                // hidecallback unneeded in this situation
+            }
+}); // jQuery .ldmtooltip({
+
+    } // if (forcezonepagesession)
+    
+
+    /* END Force Zone Session Tooltip */
+
+    /* BEGIN Force Zone Session Nav */
+    var fz_body = jQuery('#pagewrap');
+    if (jQuery(fz_body).hasClass('forcezonepage')) {
+        if (jQuery(fz_body).hasClass('forcezonepagesession')) {
+            // force zone session page
+            jQuery('#sessionnav').superfish({
+                autoArrows:false, 
+                dropShadows:false,
+                pathClass: 'current'
+            });
+        } else {
+            // force zone home page
+            jQuery('#sessionnav>.choosetrack').toggle(
+                function(e) {
+                    jQuery('#secondarynav').show();
+                    jQuery(this).blur();
+                    var that = this;
+                    jQuery('body').click(function() {
+                        jQuery(that).trigger('click');
+                    });
+                    e.preventDefault();
+                },
+                function(e) {
+                    jQuery('#secondarynav').hide();
+                    jQuery(this).blur();
+                    jQuery('body').unbind('click');
+                    e.preventDefault();
+                }
+            );
+            jQuery('#sessionnav #secondarynav').superfish({
+                autoArrows:false, 
+                dropShadows:false,
+                pathClass: 'current',
+                onShow: function() {
+                },
+                onHide: function() {
+                }
+            });
+ 
+        } // if (session forcezone page) / else forcezone home
+    } // if (one of the forcezone pages) 
+
+    /* END Force Zone Session Nav */
+
+    /* BEGIN Calendar Page */
+    if (jQuery('#upcomingcalendar-control').length) {
+        var upcomingcalendar = jQuery('#upcomingcalendar');
+        jQuery('#calendar-control-event').click(function() {
+            if (jQuery(this).attr('checked')) {
+                jQuery(upcomingcalendar).find('.event').show();
+            } else {
+                jQuery(upcomingcalendar).find('.event').hide();
+            }
+        }); // calendar-control-event
+
+        jQuery('#calendar-control-webinar').click(function() {
+            if (jQuery(this).attr('checked')) {
+                jQuery(upcomingcalendar).find('.webinar').show();
+            } else {
+                jQuery(upcomingcalendar).find('.webinar').hide();
+            }
+        }); // calendar-control-webinar
+
+        jQuery('#calendar-control-release').click(function() {
+            if (jQuery(this).attr('checked')) {
+                jQuery(upcomingcalendar).find('.release').show();
+            } else {
+                jQuery(upcomingcalendar).find('.release').hide();
+            }
+        }); // calendar-control-release
+
+        jQuery('#calendar-control-training').click(function() {
+            if (jQuery(this).attr('checked')) {
+                jQuery(upcomingcalendar).find('.training').show();
+            } else {
+                jQuery(upcomingcalendar).find('.training').hide();
+            }
+        }); // calendar-control-training
+    } // if calendar controls exists
+
+	
+	//Commented by Ignacio Muino.
+	//This javascript didn't work properly
+	//so it was implemented on the page (Calendar.page)
+	/*
+    var prevlist = jQuery('#prevlist a');
+    var prevlistcontent = jQuery('#prevlistcontent li');
+    if (jQuery(prevlist).length) {
+        // highlight the first article link
+        jQuery(prevlist[0]).addClass('activelink');
+        // hide all content with the exception of the first article
+			jQuery(prevlistcontent).each(function(k) { 
+            if (k) { jQuery(this).fadeOut();}
+        });
+			jQuery(prevlist).each(function(i) {
+            jQuery(this).click(function(e) {
+                e.preventDefault();
+                jQuery(prevlistcontent).each(function(j) {
+                    if (i != j) {
+                        jQuery(this).fadeOut();
+                    } else {
+                        jQuery(this).fadeIn('slow');
+                    }
+                }); // each content
+                jQuery(prevlist).removeClass('activelink');
+                jQuery(this).addClass('activelink');
+            }); // click
+        }); // each link
+    } // prev calendar events exists
+	*/
+    /* END Calendar Page */
+	
+    // BEGIN png fix banner on homepage (ie6 only)
+    if (jQuery.browser.msie && jQuery.browser.version.substr(0, 2) == "6.") {
+        // ie6
+        var banner_png24 = jQuery('#main_homepage #billboard img');
+        jQuery(banner_png24)
+                .css('filter',"progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='"+jQuery(banner_png24).attr('src')+"')")
+                .attr('src', 'images/blank.gif');
+    }
+    // END png fix banner on homepage (ie6 only)
+
+    // BEGIN Doc Landing Page Filtering
+    var docwidget = jQuery('#docwidget');
+    if (docwidget.length) {
+        var docwidget_list = jQuery('#documentation li');
+        var docwidget_filter = function(classname, show) {
+            jQuery(docwidget_list).each(function(i) {
+                if (jQuery(this).hasClass(classname)) {
+                    if (show) {
+                        // show
+                        if (jQuery(this).css('display')=='none') { // hidden
+                            //jQuery(this).show();
+                            jQuery(this).slideDown();
+                        }
+                    } else {
+                        // hide
+                        if (jQuery(this).css('display')=='block') { // visible
+                            //jQuery(this).hide();
+                            jQuery(this).slideUp();
+                        }
+                    }
+                } // if hasClass
+            }); // .each docwidget_list
+        }; // funciton docwidget_filter
+
+        jQuery('#filtercontrols_book')
+            .attr('checked', 'checked')
+            .click(function() {
+                docwidget_filter('book', jQuery(this).attr('checked'));
+            });
+        jQuery('#filtercontrols_tipsheet')
+            .attr('checked', 'checked')
+            .click(function() {
+                docwidget_filter('tipsheet', jQuery(this).attr('checked'));
+            });
+        jQuery('#filtercontrols_refguide')
+            .attr('checked', 'checked')
+            .click(function() {
+                docwidget_filter('refguide', jQuery(this).attr('checked'));
+            });
+    } // docwidget exists
+    // END Doc Landing Page Filtering
+
+    // BEGIN 20100224 Wide Banner Page JS
+    if (jQuery('body').hasClass('widebanpage')) {
+        // add more links where necessary
+        jQuery('div.iconblock').each(function() {
+            if (jQuery(this).find('.extra').length) {
+                var morelink = jQuery('<a class="more" href="###">More</a>');
+                jQuery(morelink).click(function(e) {
+                    e.preventDefault();
+                    jQuery(this).parent().find('.extra').slideDown();
+                    jQuery(this).hide();
+                });
+                jQuery(this).append(morelink);
+            } // if has .extra in it
+        }); // each
+
+        // png fix banner
+        if (jQuery.browser.msie && jQuery.browser.version.substr(0, 2) == "6.") {
+            // ie6
+            var banner_png24 = jQuery('#content img.banner917_135');
+            jQuery(banner_png24)
+                .css('filter',"progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='"+jQuery(banner_png24).attr('src')+"')")
+                .attr('src', 'images/blank.gif');
+        } // if ie6
+ 
+    } // if Wide Banner Page
+    // END 20100224 Wide Banner Page JS
+   
+    // BEGIN 20100225 
+    // codeconsult_widget 
+    /*var codeconsult_widget = jQuery('#codeconsult_widget');
+    if (jQuery(codeconsult_widget).length) {
+        //timeslot scroller
+        var timeslot_scroller = jQuery('#timeslot_scroller');
+        var timeslot_scroller_slider = jQuery(timeslot_scroller).find('ul.slider');
+        var timeslot_scroller_cells = jQuery(timeslot_scroller_slider).find('>li');
+        var timeslot_scroller_pos = 0;
+        var timeslot_scroller_forward = jQuery(timeslot_scroller).find('a.slidercontrol_forward');
+        var timeslot_scroller_back = jQuery(timeslot_scroller).find('a.slidercontrol_back');
+        jQuery('#timeslot_scroller a.slidercontrol_back').click(function(e) {
+            if (timeslot_scroller_pos > 0) {
+                timeslot_scroller_pos--;
+                jQuery(timeslot_scroller_forward).removeClass('slidercontrol_forward_unavailable');
+                jQuery(timeslot_scroller_slider).stop().animate({
+                    left: (-timeslot_scroller_pos*269)+'px'
+                });
+                if (timeslot_scroller_pos==0) {
+                    jQuery(timeslot_scroller_back).addClass('slidercontrol_back_unavailable');
+                }
+            } // if not already at beginning
+            jQuery(this).blur();
+            e.preventDefault();
+        }); // click back
+
+        jQuery(timeslot_scroller).find('a.slidercontrol_forward').click(function(e) {
+            if (timeslot_scroller_pos < jQuery(timeslot_scroller_cells).length-3) {
+                timeslot_scroller_pos++;
+                jQuery(timeslot_scroller_back).removeClass('slidercontrol_back_unavailable');
+                jQuery(timeslot_scroller_slider).stop().animate({
+                    left: (-timeslot_scroller_pos*269)+'px'
+                });
+                if (timeslot_scroller_pos >= timeslot_scroller_cells.length-3) {
+                    jQuery(timeslot_scroller_forward).addClass('slidercontrol_forward_unavailable');
+                }
+            } // if not at end 
+            jQuery(this).blur();
+            e.preventDefault();
+        }); // click forward
+  
+        // next step button
+        jQuery(codeconsult_widget).find('a.next_step').click(function(e) {
+            e.preventDefault();
+            var checked = jQuery(codeconsult_widget).find('input:checked');
+            if (jQuery(checked).length) {
+                // at least one box is checked
+                jQuery(checked).each(function() {
+                    jQuery(this).parent().find('label').css('color','#000');
+                });
+                jQuery(codeconsult_widget).find('div.choosetopic').slideDown();
+                jQuery(this).hide();
+                jQuery(this).parent().find('div.next_step_error').hide();  
+                jQuery(codeconsult_widget).addClass('timealready_selected');
+            } else {
+                // no boxes are checked
+                jQuery(this).parent().find('div.next_step_error').show();  
+            }
+        });
+
+        // in field label
+        jQuery('#techlib_question').labelify();
+
+    } // if codeconsult_widget exists
+    // END 20100225 
+	*/
+	// BEGIN meganav hover
+
+	//On Hover Over
+	function megaHoverOver(){
+		jQuery(this).addClass('mhover');
+		jQuery(this).find(".sub").stop().css('opacity', 1).show(); //Find sub and fade it in
+		//$(this).find(".sub").stop().fadeTo('fast', 1).show(); //Find sub and fade it in
+		(function($) {
+			//Function to calculate total width of all ul's
+			jQuery.fn.calcSubWidth = function() {
+				rowWidth = 0;
+				//Calculate row
+				jQuery(this).find("ul").each(function() { //for each ul...
+					var marginright = parseInt($(this).css('margin-right')); // read margin-right on ul and store as number
+					marginright = (marginright>0 ? marginright+2 : marginright); // increment by 2 (if val != 0)
+					rowWidth += $(this).width(); //Add each ul's width together
+					rowWidth += marginright; // add marginright
+				});
+			};
+		})(jQuery); 
+
+		if ( jQuery(this).find(".row").length > 0 ) { //If row exists...
+
+			var biggestRow = 0;	
+
+			jQuery(this).find(".row").each(function() {	//for each row...
+				jQuery(this).calcSubWidth(); //Call function to calculate width of all ul's
+				//Find biggest row
+				if(rowWidth > biggestRow) {
+					biggestRow = rowWidth;
+				}
+			});
+
+			jQuery(this).find(".sub").css({'width' :biggestRow}); //Set width
+			jQuery(this).find(".row:last").css({'margin':'0'});  //Kill last row's margin
+
+		} else { //If row does not exist...
+
+			jQuery(this).calcSubWidth();  //Call function to calculate width of all ul's
+			jQuery(this).find(".sub").css({'width' : rowWidth}); //Set Width
+
+		}
+	}
+	//On Hover Out
+	function megaHoverOut(){
+	  jQuery(this).removeClass('mhover');
+
+	  jQuery(this).find(".sub").stop().css('opacity', 0).hide();
+	  //$(this).find(".sub").stop().fadeTo('fast', 0, function() { //Fade to 0 opactiy
+	  //    $(this).hide();  //after fading, hide it
+	  //});
+	}
+
+	//Set custom configurations
+	var config = {
+		 sensitivity: 2, // number = sensitivity threshold (must be 1 or higher)
+		 interval: 0, // number = milliseconds for onMouseOver polling interval
+		 over: megaHoverOver, // function = onMouseOver callback (REQUIRED)
+		 timeout: 0, // number = milliseconds delay before onMouseOut
+		 out: megaHoverOut // function = onMouseOut callback (REQUIRED)
+	};
+
+	var topnav_subs = jQuery("ul#topnav li .sub");
+	jQuery(topnav_subs).css({'opacity':'0'}); //Fade sub nav to 0 opacity on default
+	if(jQuery.browser.msie && jQuery.browser.version.substr(0,2)=="6.") {		
+		// for ie6 only add span to clear float
+		jQuery(topnav_subs).append("<span class='endofinner'><!-- .endofinner --></span>");
+	}
+	jQuery("ul#topnav li").hoverIntent(config); //Trigger Hover intent with custom configurations
+	// END meganav hover
+});  // jQuery(document).ready(function(){
+
+Ô Â`¶(      Yù†Yùß=≥+ÌYnQM   I:https://www.developerforce.com/assets/developerforcesite/common/js/sf.js necko:classified 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8F+O2DZM7ZTG6GukivU8OT5gAAAAAAAAgIMIIIBDCCBuygAwIBAgIMe76S/QSV9bCdvV1zMA0GCSqGSIb3DQEBCwUAMFcxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMS0wKwYDVQQDEyRHbG9iYWxTaWduIENsb3VkU1NMIENBIC0gU0hBMjU2IC0gRzMwHhcNMTYwOTA3MDAwMzAyWhcNMTcwOTA3MjAzMDI4WjBzMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzEVMBMGA1UECgwMRmFzdGx5LCBJbmMuMSAwHgYDVQQDDBdkZXZmb3JjZS5tYXAuZmFzdGx5Lm5ldDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMIAM/79bYYn5oubh22mw37yjuwaVCCSUomsbx0DRybBGZJz+09yCEhAHlqZ+BeHHDYZR0dI1vBkdYXUQzlX0a0bOSn0ayT79gUCziYT3XFnBp+1yAJr8P+ArtZC4tIOlmVUQUjgu7UXeE/TxgbQGFuDYUJuPPPvxL7wi9KQoVm4o0IuU+kmDTLCuA3rRBW35O7sMKNwgWSdg6JhHhdbIGeJ3n/Wd7nkVs9cvaZido8tm2V25t/ApoSDS+USdJvubzm0WmMRsHa/Cx/Vtxo8k7f7JGkY8NtFaqPAdrz+t1kz+Juxuo3xYGarNSvnU6o9yaMT5NO+UskP5oUJBnS52U0CAwEAAaOCBLIwggSuMA4GA1UdDwEB/wQEAwIFoDCBigYIKwYBBQUHAQEEfjB8MEIGCCsGAQUFBzAChjZodHRwOi8vc2VjdXJlLmdsb2JhbHNpZ24uY29tL2NhY2VydC9jbG91ZHNzbHNoYTJnMy5jcnQwNgYIKwYBBQUHMAGGKmh0dHA6Ly9vY3NwMi5nbG9iYWxzaWduLmNvbS9jbG91ZHNzbHNoYTJnMzBWBgNVHSAETzBNMEEGCSsGAQQBoDIBFDA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzAIBgZngQwBAgIwCQYDVR0TBAIwADCCA0sGA1UdEQSCA0IwggM+ghdkZXZmb3JjZS5tYXAuZmFzdGx5Lm5ldIIWKi5hZG1pbi5zYWxlc2ZvcmNlLmNvbYIWKi5ibG9vbS5zYWxlc2ZvcmNlLmNvbYIWKi5idXR0b25jbGlja2FkbWluLmNvbYIaKi5kZXZlbG9wZXIuc2FsZXNmb3JjZS5jb22CFCouZGV2ZWxvcGVyZm9yY2UuY29tgiYqLmRldmVsb3BtZW50LmRldmVsb3Blci5zYWxlc2ZvcmNlLmNvbYImKi5kZXZlbG9wbWVudC50cmFpbGhlYWQuc2FsZXNmb3JjZS5jb22CHyouZG9jcy5kZXZlbG9wZXIuc2FsZXNmb3JjZS5jb22CHSoucWEuZGV2ZWxvcGVyLnNhbGVzZm9yY2UuY29tghcqLnFhLmRldmVsb3BlcmZvcmNlLmNvbYIdKi5xYS50cmFpbGhlYWQuc2FsZXNmb3JjZS5jb22CHiouc3RhZ2luZy5hZG1pbi5zYWxlc2ZvcmNlLmNvbYIeKi5zdGFnaW5nLmJsb29tLnNhbGVzZm9yY2UuY29tgh4qLnN0YWdpbmcuYnV0dG9uY2xpY2thZG1pbi5jb22CIiouc3RhZ2luZy5kZXZlbG9wZXIuc2FsZXNmb3JjZS5jb22CHCouc3RhZ2luZy5kZXZlbG9wZXJmb3JjZS5jb22CISouc3RhZ2luZy5zdGFydHVwcy5zYWxlc2ZvcmNlLmNvbYIiKi5zdGFnaW5nLnRyYWlsaGVhZC5zYWxlc2ZvcmNlLmNvbYIZKi5zdGFydHVwcy5zYWxlc2ZvcmNlLmNvbYIaKi50cmFpbGhlYWQuc2FsZXNmb3JjZS5jb22CHioud29ya2JlbmNoLmRldmVsb3BlcmZvcmNlLmNvbYIUYWRtaW4uc2FsZXNmb3JjZS5jb22CFGJsb29tLnNhbGVzZm9yY2UuY29tghRidXR0b25jbGlja2FkbWluLmNvbYIYZGV2ZWxvcGVyLnNhbGVzZm9yY2UuY29tghJkZXZlbG9wZXJmb3JjZS5jb22CF3N0YXJ0dXBzLnNhbGVzZm9yY2UuY29tghh0cmFpbGhlYWQuc2FsZXNmb3JjZS5jb20wHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMB0GA1UdDgQWBBS2E3ayqL/4TdSaRFSnncZvTAql1zAfBgNVHSMEGDAWgBSpK4fhziRHOxu/z4U3AlWdDZRY5jANBgkqhkiG9w0BAQsFAAOCAQEAQOFGpYfrk0CCBi8xevyufBm8PswC5zCUOPl3f+PEnzu+/K0t1fySj5Dqzq1i1eAMvLeqsK49zSTtEYfSY+Yscdfd5QShnom2XkF5TErs05bJedTJyAAcq1w16+TQbTkcKDR1lLi4vLzap5mfATWwyKaQFBsMuwkPZV03FtEjnxAjAnN2e118LXueQgzvpjNhyav/JeaMCFbn+Ju0N0zVG0POP7zcZPJqJN7uUgoyxBFHKASwIZW1Ru4g3pGXwttRxLQlLS1tsljEPl4vi3E+OUPmd1BK4506wzlWOdxX3BNCHq5DDYL/uhdrH7txG1JF7YzqaNviWxk/ugXHImorQMAvAAMAAAAAAQEAAA== request-method GET response-head HTTP/1.1 200 OK
+x-amz-id-2: GRMXxwrYJDx+EVDbauIRBwQAHly5FMK6nAvS4tKDeQAw2eAw6ylQT/JN2k/mao0b8f5dSHKzAcs=
+x-amz-request-id: 00E44AC36C3BF18F
+Last-Modified: Wed, 04 Feb 2015 22:03:13 GMT
+Etag: "7bf6614f116404316cdd700d054ee9b6"
+Content-Type: text/javascript
+Server: AmazonS3
+Access-Control-Allow-Origin: *
+Content-Length: 34966
+Accept-Ranges: bytes
+Date: Fri, 28 Apr 2017 09:56:41 GMT
+Via: 1.1 varnish
+Age: 0
+x-request-id: 1ca77082c18981b2311ed879dd7f09e1e25984fc
+X-Served-By: cache-ams4139-AMS
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1493373401.904071,VS0,VE377
+ uncompressed-len 0   àñ

@@ -1,0 +1,3 @@
+<apex:page controller="tdc_tma.SendMMSController" docType="html-5.0" standardStylesheets="false" sidebar="false" showHeader="false">
+  <c:SendMMS_Component />
+</apex:page>

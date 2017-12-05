@@ -1,0 +1,94 @@
+ WARN [2017-04-21 04:01:49,121] (ProjectAddEvaluator.java:runInWorkspace:120) - No credentials found for project 'New Force Project' - removing online nature
+ WARN [2017-04-21 04:01:57,868] (ComponentResource.java:loadFromFile:430) - File 'src/package.xml' does not exist
+ WARN [2017-04-21 04:03:25,719] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Setup_Page_Setting__c
+ WARN [2017-04-21 04:03:25,721] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Manage__c
+ WARN [2017-04-21 04:03:25,724] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Converbase__c
+ WARN [2017-04-21 04:03:25,725] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Manage__c
+ WARN [2017-04-21 04:03:25,726] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Converbase__c
+ WARN [2017-04-21 04:03:25,726] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Setup_Page_Setting__c
+ WARN [2017-04-21 04:03:25,727] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: OrgSMSConfig__c
+ WARN [2017-04-21 04:03:25,727] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: SMSGeneralSettings__c
+ WARN [2017-04-21 04:03:25,728] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: UserSMSConfig__c
+ WARN [2017-04-21 04:03:25,728] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Incoming_SMS_360.
+ WARN [2017-04-21 04:03:25,729] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: OrgSMSConfig__c
+ WARN [2017-04-21 04:03:25,729] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: SMSGeneralSettings__c
+ WARN [2017-04-21 04:03:25,745] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: UserSMSConfig__c
+ WARN [2017-04-21 04:03:25,746] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce1_for_Windows.
+ WARN [2017-04-21 04:03:25,747] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_iOS.
+ WARN [2017-04-21 04:03:25,747] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_BlackBerry.
+ WARN [2017-04-21 04:03:25,748] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_Android.
+ WARN [2017-04-21 04:03:25,748] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:SalesforceA.
+ WARN [2017-04-21 04:03:25,749] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Chatterbox.
+ WARN [2017-04-21 04:03:25,754] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_Desktop.
+ WARN [2017-04-21 04:14:46,592] (ComponentFactory.java:getCompositeComponentFromComponent:975) - Unable to load existing 'classes/LeadClass.cls-meta.xml' from project - associated component's file resource is null.  Assuming new.
+ WARN [2017-04-21 04:14:47,102] (ComponentController.java:deploy:443) - Remote save aborted - project is not online enabled
+ WARN [2017-04-21 04:14:47,324] (Utils.java:loadDocument:807) - Unable to load document: /home/admin1/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/New Force Project/com.salesforce.ide.core/packageCache.xml (No such file or directory)
+ WARN [2017-04-21 04:14:47,325] (ComponentController.java:run:421) - Unable to update cache with new component Apex Class - cache is not found
+ WARN [2017-04-21 04:14:47,553] (DefaultBuilder.java:applyDirtyMarkers:93) - TODO: apply 'Save locally only...' markers on each resource
+ WARN [2017-04-21 04:20:35,340] (DefaultBuilder.java:applyDirtyMarkers:93) - TODO: apply 'Save locally only...' markers on each resource
+ WARN [2017-04-21 04:25:51,007] (DefaultBuilder.java:applyDirtyMarkers:93) - TODO: apply 'Save locally only...' markers on each resource
+ WARN [2017-04-21 04:27:49,273] (Component.java:hasRemoteChanged:970) - Conflict found! Attribute compare of local and remote ApexClass 'classes/LeadClass.cls' [unpackaged] are NOT equal
+ WARN [2017-04-21 04:27:49,274] (ProjectService.java:evaluateLocalAndRemote:2667) - Project package 'unpackaged' does not jive with remote package - assuming project is out of sync
+ WARN [2017-04-21 04:28:03,887] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls-meta.xml'
+ WARN [2017-04-21 04:28:03,956] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls'
+ WARN [2017-04-21 04:28:16,973] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls-meta.xml'
+ WARN [2017-04-21 04:28:16,994] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls'
+ WARN [2017-04-21 04:30:53,447] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls-meta.xml'
+ WARN [2017-04-21 04:30:53,460] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls'
+ WARN [2017-04-21 04:31:13,067] (ProjectService.java:handleDeployResult:1942) - Save failed!
+ WARN [2017-04-21 04:31:13,085] (ProjectService.java:handleRetrieveResult:2129) - Nothing to save to project - retrieve result is empty
+ WARN [2017-04-21 04:31:13,087] (SyncController.java:saveToServer:759) - Failed to apply saves to server
+ WARN [2017-04-21 04:31:16,996] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls-meta.xml'
+ WARN [2017-04-21 04:31:17,018] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/LeadClass.cls'
+ WARN [2017-04-21 04:45:00,740] (BaseRetryAspect.java:isLoginExceptionRetryable:124) - Login evaluation deemed exception not retry-able:
+ LoginFault: Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+ WARN [2017-04-21 04:45:00,798] (BaseRetryAspect.java:isConnectionExceptionRetryable:159) - Connection evaluation deemed exception not retry-able:
+ LoginFault: Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+ WARN [2017-04-21 04:45:00,826] (ProjectController.java:getRemotePackageNames:862) - Unable to get project packages for project 'New Project': Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+ WARN [2017-04-21 04:45:00,847] (ProjectOrganizationPage.java:prepareNextPage:263) - Unable to login: Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+ WARN [2017-04-21 04:46:04,735] (Utils.java:loadDocument:807) - Unable to load document: /home/admin1/workspace/.metadata/.plugins/com.salesforce.ide.core/packageCache.xml (No such file or directory)
+ WARN [2017-04-21 04:47:26,156] (ComponentResource.java:loadFromFile:430) - File 'src/package.xml' does not exist
+ WARN [2017-04-21 04:48:42,746] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:AppMenu and file name:AppSwitcher.
+ WARN [2017-04-21 04:49:14,389] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Setup_Page_Setting__c
+ WARN [2017-04-21 04:49:14,390] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Manage__c
+ WARN [2017-04-21 04:49:14,390] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Converbase__c
+ WARN [2017-04-21 04:49:14,392] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Manage__c
+ WARN [2017-04-21 04:49:14,394] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Converbase__c
+ WARN [2017-04-21 04:49:14,394] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 Merge Duplicates/package.xml': Can't retrieve non-customizable CustomObject named: Setup_Page_Setting__c
+ WARN [2017-04-21 04:49:14,394] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: OrgSMSConfig__c
+ WARN [2017-04-21 04:49:14,395] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: SMSGeneralSettings__c
+ WARN [2017-04-21 04:49:14,395] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: UserSMSConfig__c
+ WARN [2017-04-21 04:49:14,396] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Incoming_SMS_360.
+ WARN [2017-04-21 04:49:14,396] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: OrgSMSConfig__c
+ WARN [2017-04-21 04:49:14,396] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: SMSGeneralSettings__c
+ WARN [2017-04-21 04:49:14,397] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: '360 SMS/package.xml': Can't retrieve non-customizable CustomObject named: UserSMSConfig__c
+ WARN [2017-04-21 04:49:14,400] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce1_for_Windows.
+ WARN [2017-04-21 04:49:14,401] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_iOS.
+ WARN [2017-04-21 04:49:14,401] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_BlackBerry.
+ WARN [2017-04-21 04:49:14,402] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_Android.
+ WARN [2017-04-21 04:49:14,402] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:SalesforceA.
+ WARN [2017-04-21 04:49:14,403] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Chatterbox.
+ WARN [2017-04-21 04:49:14,403] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_Desktop.
+ERROR [2017-04-21 04:49:18,176] (SyncServiceListenerBroadcaster.java:handleException:59) - Error executing a contributed ISyncServiceListener
+java.lang.NullPointerException
+	at com.salesforce.ide.core.model.ComponentList.getComponentFactory(ComponentList.java:59)
+	at com.salesforce.ide.core.model.ComponentList.getComponentListForComponentType(ComponentList.java:261)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.collectDebuggerElements(SyncActionListener.java:145)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.collectApexDebuggerElementsWithOpenedEditors(SyncActionListener.java:120)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.projectSync(SyncActionListener.java:113)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster$1.run(SyncServiceListenerBroadcaster.java:54)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster.executeExtension(SyncServiceListenerBroadcaster.java:62)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster.broadcast(SyncServiceListenerBroadcaster.java:40)
+	at com.salesforce.ide.core.model.ProjectPackageList.saveResources(ProjectPackageList.java:1066)
+	at com.salesforce.ide.core.model.ProjectPackageList.saveResources(ProjectPackageList.java:996)
+	at com.salesforce.ide.core.services.ForceProjectRefreshJob$ForceProjectRefreshProject.doSaveResources(ForceProjectRefreshJob.java:62)
+	at com.salesforce.ide.core.services.ForceProjectRefreshJob.runInWorkspace(ForceProjectRefreshJob.java:42)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ WARN [2017-04-21 04:55:37,690] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for '.settings/com.salesforce.ide.core.prefs'
+ WARN [2017-04-21 04:58:33,493] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+ WARN [2017-04-21 04:58:33,578] (DescribeObjectRegistry.java:clearCache:663) - Clearing cached describes
+ WARN [2017-04-21 04:58:33,578] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs

@@ -1,0 +1,337 @@
+<apex:page controller="Search" showHeader="true" sidebar="false">
+    
+    <apex:form >
+           
+        <apex:actionStatus id="status" startText="Fetching..." stopText=""  >
+        </apex:actionStatus> 
+        <apex:pageBlock id="theblock" >
+            <apex:pageBlockSection >
+                <apex:inputField value="{!con.FirstName}"  />
+                <apex:inputField value="{!con.LastName}" required="false" />
+                <apex:inputField value="{!con.AccountId}" />
+                <apex:inputField value="{!con.Phone}" />
+                <apex:inputField value="{!con.Email}" />
+                <apex:pageMessages ></apex:pageMessages>
+            </apex:pageBlockSection>           
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Search" action="{!search}" status="status" reRender="theblock" />
+                 <apex:commandButton status="status" value="Save" action="{!save}" reRender="theblock,thetable"/> 
+                 <apex:actionStatus id="status" startText="Fetching..." stopText=""  >
+                 </apex:actionStatus> 
+             </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection columns="1" rendered="{!wrapConLst.size > 0}">
+            
+            
+            
+            
+                <apex:pageBlockTable value="{!wrapConLst}" var="v" id="thetable" >
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:commandLink value="First Name" action="{!toggleSort}" rerender="theblock"  status="status">
+                                <apex:param name="sortField" value="FirstName" assignTo="{!sortField}"/>
+                            </apex:commandLink>
+                        </apex:facet>
+                        <apex:inputField value="{!v.cont.FirstName}" rendered="{!v.check}"/>
+                        <apex:outputField value="{!v.cont.FirstName}" rendered="{!!v.check}"/>
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:commandLink value="Last Name" action="{!toggleSort}" rerender="theblock"  status="status">
+                                <apex:param name="sortField" value="LastName" assignTo="{!sortField}"/>
+                            </apex:commandLink>
+                        </apex:facet>
+                        <apex:inputField value="{!v.cont.LastName}" rendered="{!v.check}"/> 
+                        <apex:outputField value="{!v.cont.LastName}" rendered="{!!v.check}"/>
+                    </apex:column>                        
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:commandLink value="Account Name" action="{!toggleSort}" rerender="theblock"  status="status">
+                                <apex:param name="sortField" value="AccountId" assignTo="{!sortField}"/>
+                            </apex:commandLink>
+                        </apex:facet>
+                        <apex:inputField value="{!v.cont.AccountId}" rendered="{!v.check}"/> 
+                        <apex:outputField value="{!v.cont.AccountId}" rendered="{!!v.check}"/>
+                    </apex:column>                        
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:commandLink value="Phone" action="{!toggleSort}" rerender="theblock" status="status">
+                                <apex:param name="sortField" value="Phone" assignTo="{!sortField}"/>
+                            </apex:commandLink>
+                        </apex:facet>
+                        <apex:inputField value="{!v.cont.Phone}" rendered="{!v.check}"/>
+                        <apex:outputField value="{!v.cont.Phone}" rendered="{!!v.check}"/>
+                    </apex:column>                        
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:commandLink value="Email" action="{!toggleSort}" rerender="theblock"  status="status">
+                                <apex:param name="sortField" value="Email" assignTo="{!sortField}"/>
+                            </apex:commandLink>
+                        </apex:facet>
+                        <apex:inputField value="{!v.cont.Email}" rendered="{!v.check}"/> 
+                        <apex:outputField value="{!v.cont.Email}" rendered="{!!v.check}"/>
+                    </apex:column>                                                             
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom" rendered="{!wrapConLst.size >0}">
+                <apex:commandButton value="Previous" action="{!previous}" disabled="{!prev}" rerender="theblock" status="status" />
+                <apex:commandButton value="Search" action="{!search}" status="status" reRender="theblock" />
+                <apex:commandButton value="Next" action="{!next}" disabled="{!nxt}" rerender="theblock" status="status" />
+                <apex:commandButton value="Last Page" action="{!LastPage}" disabled="{!nxt}" rerender="theblock" status="status" />
+                <apex:commandButton status="status" value="Sort Table" action="{!toggleSort}" reRender="theblock,thetable"/> 
+            </apex:pageBlockButtons>
+        </apex:pageBlock> 
+    </apex:form>
+ 
+</apex:page>
+
+
+
+
+
+=============================================================================controller ======================
+
+
+
+
+public class Search {
+    public contact con{get;set;}
+    public list<contact> conlist{get;set;}
+    public Integer CountTotalRecords=0;
+    public Integer OffsetSize = 0;
+    private Integer QueryLimit;
+    public String soqlsort {get;set;}
+    public List<wrapCon> wrapConLst {get; set;}
+    public integer totalnum             {set;get;}
+    private set<id> totalid;
+    public List<contact> strcon    {set;get;}
+   
+    
+    
+  
+    
+    public Search(){
+        con=new contact();  
+        QueryLimit = 10;
+        conlist=new list<contact>();
+        totalid = new set<id>();
+        strcon = new List<contact>();
+        CountTotalRecords= [select count() from Contact];
+      
+        wrapConLst = new List<wrapCon>();      
+    }
+    
+    
+   // system.debug('**'+CountTotalRecords);
+    public pageReference save() {
+        if (con.lastname == null && con.email==null){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please enter Last Name and Email'));
+            return null;
+        } 
+        insert con;
+        pageReference pg=new pageReference('/'+con.id).setRedirect(true);
+        return pg;
+    }
+    public PageReference search() {
+      //  wrapConLst.clear();
+      system.debug('------>>>'+CountTotalRecords);
+       wrapConLst = new List<wrapCon>();
+        String Query='select FirstName, LastName, Email, Phone,AccountId,Account.Name from contact';
+        boolean whereflag=false;
+        system.debug('------>>>'+Query);
+        if(con.firstname !=null){
+            Query+=' where firstname like \''+String.escapeSingleQuotes(con.firstName)+'%\'';
+            conlist = Database.query(Query);
+            system.debug('------>>>'+Query);
+            if(conlist.size()==0)
+            {
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Data Not Exist'));
+                return null;
+            }
+            whereFlag=true;
+        }
+        if(con.lastname !=null){
+            if(whereFlag){
+                Query+=' and ';
+            }
+            else{
+                Query+=' where ';
+                whereFlag=true;
+             }
+             Query+=' lastname like \''+String.escapeSingleQuotes(con.lastName)+'%\'';
+             conlist = Database.query(Query);
+             system.debug('------>>>'+conlist);
+              if(conlist.size()==0)
+            {
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Data Not Exist'));
+                return null;
+            }
+         }
+         if(con.email !=null) {
+            if(whereFlag){
+                Query+=' and ';
+            }
+            else {
+                Query+=' where ';
+                whereFlag=true;
+             }
+             Query+=' email like \''+String.escapeSingleQuotes(con.email)+'%\'';
+             conlist = Database.query(Query);
+             system.debug('------>>>'+conlist);
+              if(conlist.size()==0)
+            {
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Data Not Exist'));
+                return null;
+            }
+          
+             
+         }
+          if(con.phone !=null) {
+            if(whereFlag){
+                Query+=' and ';
+            }
+            else {
+                Query+=' where';
+                whereFlag=true;
+             }
+             Query+=' phone like \''+String.escapeSingleQuotes(con.phone)+'%\'';
+             conlist = Database.query(Query);
+             system.debug('------>>>'+conlist);
+              if(conlist.size()==0)
+            {
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Data Not Exist'));
+                return null;
+            }
+           
+         }
+         if(con.Account.Name !=null) {
+            if(whereFlag){
+                Query+=' and ';
+            }
+            else {
+                Query+=' where ';
+                whereFlag=true;
+             }
+             Query+=' Account.Name like \''+String.escapeSingleQuotes(con.Account.Name)+'%\'';
+             conlist = Database.query(Query);
+             system.debug('------>>>'+conlist);
+              if(conlist.size()==0)
+            {
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Data Not Exist'));
+                return null;
+            }
+         }
+         conlist=Database.query(Query);
+         system.debug('------>>>'+conlist);
+          if(conlist != Null && conlist.size() >0 ){
+            integer i = 0;
+            for(Contact con: conlist)
+            {
+                wrapCon wrpCon = New wrapCon();
+                wrpCon.cont = con;
+                wrpCon.check = false;
+                wrapConLst.add(wrpCon);
+                system.debug('------>>>'+conlist);
+            }
+            system.debug('------>>>'+conlist);
+        }
+        return null;
+    }
+    
+    public String sortDir {
+        // To set a Direction either in ascending order or descending order.
+        get { 
+            if (sortDir == null) {
+                sortDir = 'asc'; 
+                }
+                return sortDir;
+        }
+        set;
+    }
+    public String sortField {
+        // To set a Field for sorting. soqlSort
+        get {
+            if (sortField == null) {
+            sortField = 'FirstName'; 
+            } return sortField;
+        }
+        set;
+    }    
+    public PageReference toggleSort() {
+       //  wrapConLst.clear();
+        sortDir = sortDir.equals('asc') ? 'desc' : 'asc';  
+        wrapConLst = new List<wrapCon>();
+        
+        search();   
+      
+        // run the query again for sorting other columns
+        soqlSort = 'select FirstName,LastName,email,Phone,AccountId,Account.Name from Contact'; 
+
+        // Adding String array to a List array
+        conlist = Database.query(  soqlSort +' order by ' + sortField + ' ' + sortDir + ' limit :QueryLimit');
+         system.debug('----->>> : '+conlist);
+        for(Contact con:conlist){
+                system.debug('----->>> : '+con);
+                wrapCon wrpCon = New wrapCon();
+                wrpCon.cont = con;
+                wrpCon.check = false;      
+                wrapConLst.add(wrpCon);
+                system.debug('------>>>'+con);
+        }
+      
+      
+      
+        return null;
+    }
+    
+    //wraper class of Contacts and check box
+    public class wrapCon
+    {
+        public boolean check {get; set;}
+        public Contact cont {get; set;}
+        public wrapCon()
+        {
+            cont = new Contact();
+             system.debug('------>>>'+cont);
+        }
+    }
+    
+    public PageReference LastPage() {
+    
+        OffsetSize = CountTotalRecords - math.mod(CountTotalRecords, QueryLimit);
+        if(OffsetSize == CountTotalRecords){
+            OffsetSize = OffsetSize - QueryLimit;
+            system.debug('------>>>'+offsetSize);
+        }
+        system.debug(OffsetSize);
+        search();
+        return null;
+    }
+    public PageReference next() {
+        OffsetSize = OffsetSize + QueryLimit;
+        system.debug('------>>>'+offsetSize);
+        search(); 
+        return null;
+    }
+    public PageReference previous() {
+        OffsetSize = OffsetSize - QueryLimit;
+        system.debug('------>>>'+offsetSize);
+        search();
+        return null;
+    }    
+    public boolean getnxt(){
+        if((OffsetSize + QueryLimit) >=CountTotalRecords  )
+            return true;
+        else
+            return false;
+            
+    }
+    public boolean getprev(){
+        
+        if(OffsetSize <= 0)
+            return true;
+        else
+            return false;
+            
+    }
+}

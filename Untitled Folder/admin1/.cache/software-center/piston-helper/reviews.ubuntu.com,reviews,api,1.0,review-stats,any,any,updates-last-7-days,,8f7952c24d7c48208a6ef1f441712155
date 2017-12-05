@@ -1,0 +1,150 @@
+status: 200
+content-length: 3549
+expires: Mon, 10 Apr 2017 11:52:13 GMT
+content-location: https://reviews.ubuntu.com/reviews/api/1.0/review-stats/any/any/updates-last-7-days/
+strict-transport-security: max-age=15768000; includeSubDomains; preload
+vary: Accept,Accept-Encoding
+server: gunicorn/19.3.0
+last-modified: Mon, 10 Apr 2017 07:52:13 GMT
+-content-encoding: gzip
+x-bzr-revision-number: 321
+cache-control: max-age=14400
+date: Mon, 10 Apr 2017 07:52:13 GMT
+content-type: application/json; charset=utf-8
+-varied-accept-encoding: gzip, deflate
+
+[
+    {
+        "ratings_total": 12, 
+        "ratings_average": "2.33", 
+        "app_name": "", 
+        "package_name": "quake", 
+        "histogram": "[7, 0, 1, 2, 2]"
+    }, 
+    {
+        "ratings_total": 13, 
+        "ratings_average": "4.08", 
+        "app_name": "", 
+        "package_name": "pasaffe", 
+        "histogram": "[2, 1, 0, 1, 9]"
+    }, 
+    {
+        "ratings_total": 5, 
+        "ratings_average": "4.80", 
+        "app_name": "", 
+        "package_name": "taskcoach", 
+        "histogram": "[0, 0, 0, 1, 4]"
+    }, 
+    {
+        "ratings_total": 121, 
+        "ratings_average": "3.79", 
+        "app_name": "", 
+        "package_name": "gnome-tweak-tool", 
+        "histogram": "[15, 6, 19, 31, 50]"
+    }, 
+    {
+        "ratings_total": 3, 
+        "ratings_average": "5.00", 
+        "app_name": "", 
+        "package_name": "ibus-libpinyin", 
+        "histogram": "[0, 0, 0, 0, 3]"
+    }, 
+    {
+        "ratings_total": 356, 
+        "ratings_average": "3.27", 
+        "app_name": "", 
+        "package_name": "minitube", 
+        "histogram": "[99, 35, 26, 62, 134]"
+    }, 
+    {
+        "ratings_total": 25, 
+        "ratings_average": "2.32", 
+        "app_name": "", 
+        "package_name": "gnome-font-viewer", 
+        "histogram": "[12, 3, 3, 4, 3]"
+    }, 
+    {
+        "ratings_total": 94, 
+        "ratings_average": "3.76", 
+        "app_name": "", 
+        "package_name": "minetest", 
+        "histogram": "[8, 6, 21, 25, 34]"
+    }, 
+    {
+        "ratings_total": 37, 
+        "ratings_average": "3.11", 
+        "app_name": "", 
+        "package_name": "subtitleeditor", 
+        "histogram": "[10, 5, 5, 5, 12]"
+    }, 
+    {
+        "ratings_total": 13, 
+        "ratings_average": "3.77", 
+        "app_name": "", 
+        "package_name": "fwbuilder", 
+        "histogram": "[2, 0, 3, 2, 6]"
+    }, 
+    {
+        "ratings_total": 14, 
+        "ratings_average": "3.14", 
+        "app_name": "", 
+        "package_name": "pangzero", 
+        "histogram": "[3, 3, 0, 5, 3]"
+    }, 
+    {
+        "ratings_total": 222, 
+        "ratings_average": "4.41", 
+        "app_name": "", 
+        "package_name": "gedit", 
+        "histogram": "[11, 5, 20, 32, 154]"
+    }, 
+    {
+        "ratings_total": 367, 
+        "ratings_average": "4.66", 
+        "app_name": "", 
+        "package_name": "k3b", 
+        "histogram": "[15, 6, 8, 32, 306]"
+    }, 
+    {
+        "ratings_total": 2177, 
+        "ratings_average": "4.76", 
+        "app_name": "", 
+        "package_name": "vlc", 
+        "histogram": "[45, 22, 53, 164, 1893]"
+    }, 
+    {
+        "ratings_total": 220, 
+        "ratings_average": "4.41", 
+        "app_name": "", 
+        "package_name": "unity-tweak-tool", 
+        "histogram": "[16, 4, 11, 32, 157]"
+    }, 
+    {
+        "ratings_total": 154, 
+        "ratings_average": "4.73", 
+        "app_name": "", 
+        "package_name": "classicmenu-indicator", 
+        "histogram": "[5, 1, 3, 13, 132]"
+    }, 
+    {
+        "ratings_total": 81, 
+        "ratings_average": "2.33", 
+        "app_name": "", 
+        "package_name": "gnome-software", 
+        "histogram": "[37, 15, 7, 9, 13]"
+    }, 
+    {
+        "ratings_total": 1495, 
+        "ratings_average": "4.34", 
+        "app_name": "", 
+        "package_name": "chromium-browser", 
+        "histogram": "[94, 65, 84, 246, 1006]"
+    }, 
+    {
+        "ratings_total": 10, 
+        "ratings_average": "5.00", 
+        "app_name": "", 
+        "package_name": "hexchat", 
+        "histogram": "[0, 0, 0, 0, 10]"
+    }
+]
