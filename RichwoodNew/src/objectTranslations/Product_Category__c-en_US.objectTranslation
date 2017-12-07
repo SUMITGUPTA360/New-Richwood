@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Category</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Categories</value>
+    </caseValues>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sort --></label>
+        <name>Sort__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>1-Belt Cleaners</masterLabel>
+            <translation><!-- 1-Belt Cleaners --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2-Replacement Blades</masterLabel>
+            <translation><!-- 2-Replacement Blades --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3-Plows</masterLabel>
+            <translation><!-- 3-Plows --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Parts</masterLabel>
+            <translation><!-- 4-Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5-Impact Bed Components</masterLabel>
+            <translation><!-- 5-Impact Bed Components --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-Material Containment</masterLabel>
+            <translation><!-- 6-Material Containment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7-Wear Liners</masterLabel>
+            <translation><!-- 7-Wear Liners --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8-Other</masterLabel>
+            <translation><!-- 8-Other --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Product Category Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

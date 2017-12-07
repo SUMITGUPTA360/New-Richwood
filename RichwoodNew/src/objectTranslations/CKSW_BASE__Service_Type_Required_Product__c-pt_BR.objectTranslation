@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Produto necessário de tipo de serviço</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Produtos necessários de tipos de serviços</value>
+    </caseValues>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Número do produto necessário</nameFieldLabel>
+</CustomObjectTranslation>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Device</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Devices</value>
+    </caseValues>
+    <fields>
+        <help><!-- Input as ten digits, without the leading &quot;1&quot; --></help>
+        <label><!-- Cellular Number --></label>
+        <name>Cellular_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cellular Provider --></label>
+        <name>Cellular_Provider__c</name>
+        <picklistValues>
+            <masterLabel>AT&amp;T</masterLabel>
+            <translation><!-- AT&amp;T --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Appalachian Wireless</masterLabel>
+            <translation><!-- Appalachian Wireless --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rogers</masterLabel>
+            <translation><!-- Rogers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verizon</masterLabel>
+            <translation><!-- Verizon --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Device Make --></label>
+        <name>Device_Make__c</name>
+        <picklistValues>
+            <masterLabel>Apple</masterLabel>
+            <translation><!-- Apple --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cisco</masterLabel>
+            <translation><!-- Cisco --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dell</masterLabel>
+            <translation><!-- Dell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grandstream</masterLabel>
+            <translation><!-- Grandstream --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HP</masterLabel>
+            <translation><!-- HP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lenovo</masterLabel>
+            <translation><!-- Lenovo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meraki</masterLabel>
+            <translation><!-- Meraki --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Motorola</masterLabel>
+            <translation><!-- Motorola --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Netgear</masterLabel>
+            <translation><!-- Netgear --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nokia</masterLabel>
+            <translation><!-- Nokia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Novatel</masterLabel>
+            <translation><!-- Novatel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pantech</masterLabel>
+            <translation><!-- Pantech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RIM</masterLabel>
+            <translation><!-- RIM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ricoh</masterLabel>
+            <translation><!-- Ricoh --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Samsung</masterLabel>
+            <translation><!-- Samsung --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra Wireless</masterLabel>
+            <translation><!-- Sierra Wireless --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vizio</masterLabel>
+            <translation><!-- Vizio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZTE</masterLabel>
+            <translation><!-- ZTE --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Device Model --></label>
+        <name>Device_Model__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 1st Gen - A1219 (Wifi)</masterLabel>
+            <translation><!-- iPad 1st Gen - A1219 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 1st Gen - A1337 (3G)</masterLabel>
+            <translation><!-- iPad 1st Gen - A1337 (3G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 2nd Gen - A1395 (Wifi)</masterLabel>
+            <translation><!-- iPad 2nd Gen - A1395 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 2nd Gen - A1396 (GSM)</masterLabel>
+            <translation><!-- iPad 2nd Gen - A1396 (GSM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 2nd Gen - A1397 (CDMA)</masterLabel>
+            <translation><!-- iPad 2nd Gen - A1397 (CDMA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 3rd Gen - A1403 (4G VZ)</masterLabel>
+            <translation><!-- iPad 3rd Gen - A1403 (4G VZ) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 3rd Gen - A1416 (Wifi)</masterLabel>
+            <translation><!-- iPad 3rd Gen - A1416 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 3rd Gen - A1440 (4G)</masterLabel>
+            <translation><!-- iPad 3rd Gen - A1440 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 4th Gen - A1458 (Wifi)</masterLabel>
+            <translation><!-- iPad 4th Gen - A1458 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 4th Gen - A1459 (4G MM)</masterLabel>
+            <translation><!-- iPad 4th Gen - A1459 (4G MM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad 4th Gen - A1459 (4G)</masterLabel>
+            <translation><!-- iPad 4th Gen - A1459 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Air 2 6th Gen - A1566 (Wifi)</masterLabel>
+            <translation><!-- iPad Air 2 6th Gen - A1566 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Air 2 6th Gen - A1667 (4G)</masterLabel>
+            <translation><!-- iPad Air 2 6th Gen - A1667 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Air 5th Gen - A1474 (Wifi)</masterLabel>
+            <translation><!-- iPad Air 5th Gen - A1474 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Air 5th Gen - A1475 (4G)</masterLabel>
+            <translation><!-- iPad Air 5th Gen - A1475 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Mini 1st Gen - A1432 (Wifi)</masterLabel>
+            <translation><!-- iPad Mini 1st Gen - A1432 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Mini 1st Gen - A1454 (4G)</masterLabel>
+            <translation><!-- iPad Mini 1st Gen - A1454 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Mini 1st Gen - A1455 (4G MM)</masterLabel>
+            <translation><!-- iPad Mini 1st Gen - A1455 (4G MM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Mini 2nd Gen - A1489 (Wifi)</masterLabel>
+            <translation><!-- iPad Mini 2nd Gen - A1489 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Mini 2nd Gen - A1490 (4G)</masterLabel>
+            <translation><!-- iPad Mini 2nd Gen - A1490 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Mini 3rd Gen - A1599 (Wifi)</masterLabel>
+            <translation><!-- iPad Mini 3rd Gen - A1599 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Mini 3rd Gen - A1600 (4G)</masterLabel>
+            <translation><!-- iPad Mini 3rd Gen - A1600 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Mini 4th Gen - A1538 (Wifi)</masterLabel>
+            <translation><!-- iPad Mini 4th Gen - A1538 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Mini 4th Gen - A1550 (4G)</masterLabel>
+            <translation><!-- iPad Mini 4th Gen - A1550 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Pro - A1584 (Wifi)</masterLabel>
+            <translation><!-- iPad Pro - A1584 (Wifi) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPad Pro - A1652 (4G)</masterLabel>
+            <translation><!-- iPad Pro - A1652 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone - A1203</masterLabel>
+            <translation><!-- iPhone - A1203 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 3G - A1241 (3G)</masterLabel>
+            <translation><!-- iPhone 3G - A1241 (3G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 3GS - A1303 (3G)</masterLabel>
+            <translation><!-- iPhone 3GS - A1303 (3G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 4 - A1332 (GSM)</masterLabel>
+            <translation><!-- iPhone 4 - A1332 (GSM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 4 - A1349 (CDMA)</masterLabel>
+            <translation><!-- iPhone 4 - A1349 (CDMA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 4S - A1387 (4G)</masterLabel>
+            <translation><!-- iPhone 4S - A1387 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 5 - A1428 (4G)</masterLabel>
+            <translation><!-- iPhone 5 - A1428 (4G) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 5 - A1429 (4G VZ)</masterLabel>
+            <translation><!-- iPhone 5 - A1429 (4G VZ) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 5c - CDMA</masterLabel>
+            <translation><!-- iPhone 5c - CDMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 5c - GSM</masterLabel>
+            <translation><!-- iPhone 5c - GSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 5s - CDMA</masterLabel>
+            <translation><!-- iPhone 5s - CDMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 5s - GSM</masterLabel>
+            <translation><!-- iPhone 5s - GSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 6 - CDMA</masterLabel>
+            <translation><!-- iPhone 6 - CDMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 6 - GSM</masterLabel>
+            <translation><!-- iPhone 6 - GSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 6 Plus - CDMA</masterLabel>
+            <translation><!-- iPhone 6 Plus - CDMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 6 Plus - GSM</masterLabel>
+            <translation><!-- iPhone 6 Plus - GSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 6S - CDMA</masterLabel>
+            <translation><!-- iPhone 6S - CDMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 6S - GSM</masterLabel>
+            <translation><!-- iPhone 6S - GSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 6S Plus - CDMA</masterLabel>
+            <translation><!-- iPhone 6S Plus - CDMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone 6S Plus - GSM</masterLabel>
+            <translation><!-- iPhone 6S Plus - GSM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Hostname --></label>
+        <name>Hostname__c</name>
+    </fields>
+    <fields>
+        <label><!-- IMEI --></label>
+        <name>IMEI__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter in Gigabytes --></help>
+        <label><!-- Internal Storage --></label>
+        <name>Internal_Storage__c</name>
+    </fields>
+    <fields>
+        <label><!-- MEID --></label>
+        <name>MEID__c</name>
+    </fields>
+    <fields>
+        <label><!-- OS Version --></label>
+        <name>OS_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prontoforms Username --></label>
+        <name>Prontoforms_Username__c</name>
+    </fields>
+    <fields>
+        <help><!-- Input letters and numbers with no spaces or separators (eg, &quot;:&quot; or &quot;.&quot;) --></help>
+        <label><!-- Wireless Mac Address --></label>
+        <name>Wireless_Mac_Address__c</name>
+    </fields>
+    <layouts>
+        <layout>Device Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

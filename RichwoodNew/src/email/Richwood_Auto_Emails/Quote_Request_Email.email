@@ -1,0 +1,17 @@
+Quote Request
+
+Opportunity Name: {!Opportunity.Name}
+Account Name: {!Opportunity.Account}
+Sales Rep: {!Opportunity.OwnerFullName}
+Manager: {!User.Manager}
+{!Contact_Role__c.Name}: {!Contact_Role__c.Contact__c} 
+Type: {!Opportunity.Type}
+Quote Type: {!Opportunity.Quote_Type__c}
+Belt Designation: {!Opportunity_Asset__c.Customer_Asset__c}
+Link to Opportunity: {!Opportunity.Link}
+
+Description: {!Opportunity.Description}
+
+Quote Requests: https://richwood.lightning.force.com/one/one.app?source=aloha#/sObject/Opportunity/list?filterName=00B36000007eYRPEA2&a:t=1491228011003
+
+Please review and prepare the quote, then update the stage of the opportunity to "Customer Service Quote Sent"

@@ -1,0 +1,729 @@
+<apex:page controller="SF1_Opportunity_ctrl" id="pg" tabStyle="contact" showHeader="false" >
+   <link rel="stylesheet" href="/resource/1458911286000/lightningCSS"/>
+    <apex:form styleClass="slds-form--stacked">
+        <style>
+            .headerRow{
+                border: 1px solid black !important;
+            }
+            .dateFormat{
+                display:none;
+            }
+        </style>
+        <script type="text/javascript">
+            function doSearch() {
+                searchServer(document.getElementById("firstName").value);
+            }
+            function forAccountDetailPage(idx){
+                forAccountDetailFunction(idx);
+                return true;
+            }
+            function forProduct2DetailPage(idx,sr){
+                forProduct2DetailFunction(idx,sr);
+                return true;
+            }
+            function forContact(){
+                var abc=document.getElementById("contactId").options[document.getElementById("contactId").selectedIndex].value;
+                forContactDetailFunction(abc);
+            }
+            function forOpportunity(){
+                var abc=document.getElementById("opportuntiyId").options[document.getElementById("opportuntiyId").selectedIndex].value;
+                forOpportuntiyDetailFunction(abc);
+            }
+          function productSearch(){
+              productSearchFunction(document.getElementById("productName").value);    
+          }
+          function oppCloseEditpagejs(){
+              if(document.getElementById("oppCloseEditpage").value.length===0){
+                  alert("Please Enter Close Date");
+                  return false;
+              }else{
+                  oppCloseEditpagejsFunction(document.getElementById("oppCloseEditpage").value);
+                  
+               }
+              return true;
+           }
+          function oppCloseEditpagejstwo(){
+              if(document.getElementById("oppCloseEditpageTwo").value.length===0){
+                  alert("Please Enter Close Date");
+                  return false;
+              }else{
+                  oppCloseEditpagejsFunction(document.getElementById("oppCloseEditpageTwo").value);
+               }
+              return true;
+           }
+  
+        </script>     
+        <apex:actionFunction name="oppCloseEditpagejsFunction" action="{!saveopp}" rerender="conDetail,isoppCreated_id,oppDetail">
+             <apex:param name="oppCloseDateOne" value="" />
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="searchServer" action="{!forAccountSearch}" rerender="pb,accDetail" status="status">
+            <apex:param name="account_name" value="" />
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="forAccountDetailFunction" action="{!forAccountDetail}" reRender="pb,accDetail,isAccountSelect">
+            <apex:param name="account_idx" value=""></apex:param>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="forProduct2DetailFunction" action="{!forProduct2Detail}" reRender="proudctEditPage,proDetail,sbox_pro">
+            <apex:param name="product2_idx" value=""></apex:param>
+            <apex:param name="orgin" value=""></apex:param>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="forContactDetailFunction" action="{!forContactDetail}" reRender="accDetail,conDetail">
+            <apex:param name="contact_idx" value=""></apex:param>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="forOpportuntiyDetailFunction" action="{!forOpportuntiyDetail}" reRender="conDetail,oppDetail">
+            <apex:param name="opp_idx" value=""></apex:param>
+        </apex:actionFunction>
+  
+        <apex:actionFunction name="productSearchFunction" action="{!forProductSearch}" reRender="proDetail">
+            <apex:param name="pro_idx" value=""></apex:param>
+        </apex:actionFunction>
+        
+        <apex:outputPanel id="isAccountSelect" styleClass="slds-form-element__control" >
+            <div style="display:{!if(isAccountSelected,'none','block')}" class="centerdiv">
+                <center style="background-color:#8370C2; font-size:1.2em; color:white; heigth:15%;border-radius: 25px;margin:5px;padding: 15px;" class="slds-text-heading--label">
+                    <b>Select Account OR Create New Account </b>
+                </center>
+                <table  style="background-color:#FFFFFF;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;" >
+                    <tr width="100%">
+                        <td width="75%" style="background-color:#FFFFFF;font-size:1.2em;">
+                            <b>Search Account by Name: </b>
+                            <input type="text" id="firstName" onkeyup="doSearch();" class="slds-input" size="20" />
+                        </td>
+                        
+                        <td  align="right" style="background-color:#FFFFFF;font-size:102%;" valign="bottom">
+                            <apex:commandButton style="color:#0000FF;" value="New Account" action="{!accountCreate}" reRender="isAccountSelect,isAccountCreated_id,pb" styleClass="slds-button slds-button--neutral"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>   
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="isAccountCreated_id">
+            <apex:outputPanel rendered="{!isAccountCreated}">
+                <apex:outputPanel >
+                    <center style="background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px; color:white;padding: 15px;" class="slds-text-heading--label">
+                        <b>Enter New Account Details</b>
+                    </center>
+                    <table  style="background-color:#FFFFFF;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;" >
+                        <tr width="100%">
+                            <td width="5%" style="background-color:#FFFFFF;">
+                                <b class="slds-form-element__label" style="font-size:1.2em;">Name: </b>
+                            </td>
+
+                            <td width="95%" align="left" style="background-color:#FFFFFF;" >
+                                <apex:inputField value="{!account_Obj.name}" styleClass="slds-input"/>
+                            </td>
+                        </tr>
+                    </table>
+    
+                    <center style=" font-size:105%;heigth:15%;border-radius: 25px;margin:5px;     padding: 10px;">
+                        <apex:commandButton value="Save" action="{!saveAccount}" rerender="isAccountSelect,isAccountCreated_id,pb,accDetail" style="color:#0000FF;" styleClass="slds-button slds-button--neutral" />
+                        <apex:commandbutton value="Cancel" action="{!cancelAccount}" immediate="true" rerender="isAccountSelect,isAccountCreated_id,pb,accDetail" style="color:#0000FF;" styleClass="slds-button slds-button--neutral"/>
+                    </center>
+                </apex:outputPanel>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="pb">
+            <apex:actionStatus id="status" >
+                      <apex:facet name="start" ><br/><br/><br/><br/>
+                                    <center><img src="/img/loading.gif" /> </center>                    
+                                </apex:facet>
+                      <apex:facet name="stop">
+            <apex:pageBlock rendered="{!account_List.size!=0&&not(isAccountSelected)}">
+                <apex:variable value="{!0}" var="idx"/>
+                    <apex:pageBlockTable value="{!account_List}" var="acc" style="border: 1px solid black;border-collapse: collapse; margin-left:1%;margin-right:1%; width:98%;font-size:20px;">
+                        <apex:column style="border: 1px solid black;" value="{!acc.Name}" onclick="forAccountDetailPage('{!idx}'); return false"/>
+                            <apex:column style="border: 1px solid black;" onclick="forAccountDetailPage('{!idx}'); return false">
+                                <apex:facet name="header">Phone </apex:facet>
+                                    {!acc.Phone}
+                                    <apex:variable var="idx" value="{!idx+1}"/>
+                            </apex:column>
+                    </apex:pageBlockTable>
+            </apex:pageBlock>
+                </apex:facet>
+            </apex:actionStatus>
+        </apex:outputPanel>
+
+
+        <apex:outputPanel id="accDetail">
+            <apex:pageBlock rendered="{!account_Obj.id!=null&&not(isContactSelected)}">
+                <center style="background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;  color:white;   padding: 15px;display:{!if(isAccountDisplayMode,'block','none')}" class="slds-text-heading--label">
+                    <b>Account Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;font-size:1.4em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;display:{!if(isAccountDisplayMode,'block','none')}" >
+                    <tr >
+                        <th width="10%" align="center">Name:</th>
+                            <td align="center" width="90%">&nbsp;&nbsp;{!account_Obj.Name}</td>
+                    </tr>
+                </table>
+                <center style="font-size:105%;display:{!if(isAccountDisplayMode,'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Edit "  action="{!EditAccount}" rerender="conEditMode_Acc,condisMode_Acc,accDetail" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;display:{!if(not(isAccountDisplayMode),'block','none')}">
+                    <b>Edit Account Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;font-size:1.4em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;display:{!if(not(isAccountDisplayMode),'block','none')}" >
+                    <tr >
+                        <td align="center">
+                            <b>Name:</b>&nbsp;&nbsp;</td>
+                                <td align="center">
+                                    <apex:inputField value="{!account_Obj.Name}" styleClass="slds-input"/>
+                                </td>
+                    </tr>
+                </table>
+                <center style="display:{!if(not(isAccountDisplayMode),'block','none')}">
+                    <apex:commandButton style="color:#0000FF;font-size:105%;" value=" Save " action="{!saveAccount}" rerender="accdisMode_Acc,accEditMode_Acc,accDetail" styleClass="slds-button slds-button--neutral"/>
+                    <apex:commandButton style="color:#0000FF;font-size:105%;" value="Cancel" action="{!cancelAccount_Mode}" rerender="accdisMode_Acc,accEditMode_Acc,accDetail" immediate="true" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;padding: 15px;">
+                    <b>Select Contact OR Create New Contact</b>
+                </center>
+                <table style="background-color:#FFFFFF;margin-top:15px;font-size:1.2em;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%; ">
+                    <tr>
+                        <td style="border: 0px solid black;display:{!if(contact_List.size!=0,'block','none')}" width="50%">
+                            <b>Select Contact: </b>
+                                <select id="contactId" onchange="forContact();" Class="slds-input">
+                                    <option value=""></option>
+                                        <apex:repeat value="{!contact_List}" var="con">
+                                            <option value="{!con.id}">{!con.firstName} {!con.LastName}
+                                            </option>
+                                        </apex:repeat>
+                                </select> 
+                        </td>
+                        <td style="display:{!if(contact_List.size==0,'block','none')}" width="50%"></td>
+                        <td style="border: 0px solid black;font-size:105%; " valign="bottom" align="right" width="50%">
+                            <apex:commandButton style="color:#0000FF;" value="New Contact" action="{!contactCreate}" reRender="accDetail,isContactCreated_id" styleClass="slds-button slds-button--neutral"/>
+                        </td>
+                    </tr>
+                </table>
+            </apex:pageBlock>
+        </apex:outputPanel>
+            
+        <apex:outputPanel id="isContactCreated_id">
+            <apex:outputPanel rendered="{!isContactCreated}">
+                <apex:outputPanel >
+                            <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;padding: 15px;">
+                                <b>Enter New Contact Details</b>
+                            </center>
+                            <table  style="background-color:#FFFFFF;font-size:1.2em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;" >
+                                <tr width="100%">
+                                    <td width="25%" style="background-color:#FFFFFF;">
+                                        <b>First Name: </b>
+                                    </td>
+                                            <td width="75%" align="left" style="background-color:#FFFFFF;" >
+                                                <apex:inputField value="{!contact_Obj.firstName}" styleClass="slds-input"/>
+                                            </td>
+                                </tr> 
+                                <tr width="100%">
+                                    <td width="25%" style="background-color:#FFFFFF;">
+                                        <b>Last Name: </b>
+                                    </td>
+                                    <td width="75%" align="left" style="background-color:#FFFFFF;" >
+                                        <apex:inputField value="{!contact_Obj.LastName}" styleClass="slds-input"/>
+                                    </td>
+                                </tr>
+                                <tr width="100%">
+                                    <td width="25%" style="background-color:#FFFFFF;">
+                                        <b>Phone: </b>
+                                    </td>
+                                    <td width="75%" align="left" style="background-color:#FFFFFF;" >
+                                        <apex:inputField value="{!contact_Obj.Phone}" styleClass="slds-input"/>
+                                    </td>
+                                </tr>
+                                <tr width="100%">
+                                    <td width="25%" style="background-color:#FFFFFF;">
+                                        <b>Email: </b>
+                                    </td>
+                                    <td width="75%" align="left" style="background-color:#FFFFFF;" >
+                                        <apex:inputField value="{!contact_Obj.Email}" styleClass="slds-input"/>
+                                    </td>
+                                </tr>
+                        </table>
+                        <center style=" font-size:1.3em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 10px;">
+                            <apex:commandButton style="color:#0000FF;" value="Save" action="{!saveContact}" rerender="accDetail,isContactCreated_id,conDetail" styleClass="slds-button slds-button--neutral"/>
+                            <apex:commandbutton style="color:#0000FF;" value="Cancel" action="{!cancelContact}" immediate="true" rerender="accDetail,isContactCreated_id" styleClass="slds-button slds-button--neutral"/>    
+                        </center>
+                    </apex:outputPanel> 
+                </apex:outputPanel>
+        </apex:outputPanel>
+        <apex:outputPanel id="conDetail">
+            <apex:pageBlock rendered="{!contact_Obj.id!=null&&not(isOpportunitySelected)}">
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;padding: 15px;display:{!if(isAccountDisplayMode,'block','none')}">
+                    <b>Account Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;font-size:1.4em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;display:{!if(isAccountDisplayMode,'block','none')}" >
+                    <tr >
+                        <th width="10%" align="center">Name:</th>
+                            <td align="center" width="90%">&nbsp;&nbsp;{!account_Obj.Name}</td>
+                    </tr>
+                </table>
+                <center style="font-size:105%;display:{!if(isAccountDisplayMode,'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Edit "  action="{!EditAccount}" rerender="conEditMode_Acc,condisMode_Acc,conDetail" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;display:{!if(not(isAccountDisplayMode),'block','none')}">
+                    <b>Edit Account Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;margin-top:15px;margin-bottom:15px;margin-left:1%;font-size:1.4em;margin-right:1%; width:98%;display:{!if(not(isAccountDisplayMode),'block','none')}" >
+                    <tr >
+                        <td align="center">
+                            <b>Name:</b>&nbsp;&nbsp;</td>
+                                <td align="center">
+                                    <apex:inputField value="{!account_Obj.Name}" styleClass="slds-input"/>
+                                </td>
+                    </tr>
+                </table>
+                <center style="font-size:105%;display:{!if(not(isAccountDisplayMode),'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Save " action="{!saveAccount}" rerender="accdisMode_Acc,accEditMode_Acc,conDetail" styleClass="slds-button slds-button--neutral"/>
+                    <apex:commandButton style="color:#0000FF;" value="Cancel" action="{!cancelAccount_Mode}" rerender="accdisMode_Acc,accEditMode_Acc,conDetail" immediate="true" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;display:{!if(isContactDisplayMode,'block','none')}">
+                    <b>Contact Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; font-size:1.4em;width:98%;display:{!if(isContactDisplayMode,'block','none')}" >
+                    <tr >
+                        <td width="30%">
+                            <b>First Name: </b>
+                        </td>
+                        <td width="70%">&nbsp;&nbsp;{!contact_Obj.FirstName}</td>
+                    </tr>
+                    <tr >
+                        <td width="30%">
+                            <b>Last Name: </b>
+                        </td>
+                        <td width="70%">&nbsp;&nbsp;{!contact_Obj.LastName}
+                        </td>
+                    </tr>
+                    <tr >
+                        <td width="30%">
+                            <b>Phone: </b>
+                                </td>
+                        <td width="70%">&nbsp;&nbsp;{!contact_Obj.Phone}</td>
+                    </tr>
+                    <tr >
+                        <td width="30%">
+                            <b>Email: </b>
+                        </td>
+                        <td width="70%">&nbsp;&nbsp;{!contact_Obj.Email}</td>
+                    </tr>
+                </table>
+                <center style="font-size:105%;display:{!if(isContactDisplayMode,'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Edit "  action="{!EditContact}" rerender="conDetail" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;display:{!if(not(isContactDisplayMode),'block','none')}">
+                    <b>Edit Contact Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;margin-top:15px;margin-bottom:15px;font-size:1.4em;margin-left:1%;margin-right:1%; width:98%;display:{!if(not(isContactDisplayMode),'block','none')}" >
+                    <tr >
+                        <td align="center">
+                            <b>First Name: </b>&nbsp;&nbsp;
+                        </td>
+                                <td align="center">
+                                    <apex:inputField styleClass="slds-input" value="{!contact_Obj.FirstName}" />
+                                </td>
+                    </tr>
+                    <tr >
+                        <td align="center">
+                            <b>Last Name: </b>&nbsp;&nbsp;
+                        </td>
+                        <td align="center">
+                            <apex:inputField styleClass="slds-input" value="{!contact_Obj.LastName}" />
+                        </td>
+                    </tr>
+                    <tr >
+                        <td align="center">
+                            <b>Phone: </b></td>&nbsp;&nbsp;<td align="center">
+                            <apex:inputField styleClass="slds-input" value="{!contact_Obj.Phone}" />
+                        </td>
+                    </tr>
+                    <tr >
+                        <td align="center">
+                            <b>Email: </b>
+                        </td>&nbsp;&nbsp;<td align="center">
+                            <apex:inputField styleClass="slds-input" value="{!contact_Obj.Email}" />
+                        </td>
+                    </tr>
+                </table>
+                <center style="font-size:105%;display:{!if(not(isContactDisplayMode),'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Save " action="{!saveContact}" rerender="conDetail" styleClass="slds-button slds-button--neutral"/>
+                    <apex:commandButton style="color:#0000FF;" value="Cancel" immediate="true" action="{!cancelContact_Mode}" rerender="conDetail" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.1em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;">
+                    <b>Select Opportunity OR Create New Opportunity</b>
+                </center>
+                <table style="background-color:#FFFFFF;font-size:1.2em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;"  >
+                    <tr>
+                        <td style="border: 0px solid black;display:{!if(Opportunity_List.size!=0,'block','none')}" width="70%">
+                            <b>Select Opportunity: </b>
+                                <select id="opportuntiyId" onchange="forOpportunity();" style=" width: 10.5em" Class="slds-input">
+                                    <option value=""></option>
+                                        <apex:repeat value="{!Opportunity_List}" var="opp">
+                                            <option value="{!opp.id}">{!opp.Name}</option>
+                                        </apex:repeat>
+                                </select>
+                        </td>
+                        <td style="display:{!if(Opportunity_List.size==0,'block','none')}" width="50%"></td>
+                        <td style="font-size:105%;border: 0px solid black;" valign="bottom" align="right" width="50%">
+                            <apex:commandButton style="color:#0000FF;" value="New Opportunity" action="{!oppCreate}" reRender="conDetail,isoppCreated_id" styleClass="slds-button slds-button--neutral"/>        
+                        </td>
+                    </tr>
+                </table>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:outputPanel id="isoppCreated_id">
+            <apex:outputPanel rendered="{!isOppCreated}">
+                <apex:outputPanel >
+                    <apex:variable var="opppppdate" value="{!opportunity_Obj.CloseDate}"/>
+                    <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;">
+                        <b>Enter New Opportunity Details</b>
+                    </center>
+                    <table  style="background-color:#FFFFFF;font-size:1.2em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;" >
+                        <tr width="100%">
+                            <td width="25%" style="background-color:#FFFFFF;">
+                                <b>Name: </b>
+                            </td>
+                            <td width="75%" align="left" style="background-color:#FFFFFF;" >
+                                <apex:inputField value="{!opportunity_Obj.Name}" styleClass="slds-input"/>
+                            </td>
+                        </tr>
+                        <tr width="100%">
+                            <td width="25%" style="background-color:#FFFFFF;">
+                                <b>Close Date:  </b>
+                            </td>
+                            <td width="75%" align="left" style="background-color:#FFFFFF;" >
+                                <input type="date" id="oppCloseEditpageTwo" value="{!opp_closeDate}"  Class="slds-input" required="true"/> 
+                            </td>
+                        </tr>
+                        <tr width="100%">
+                            <td width="25%" style="background-color:#FFFFFF;">
+                                <b>Stage Name: </b>
+                            </td>
+                            <td width="75%" align="left" style="background-color:#FFFFFF;" >
+                                <apex:inputField value="{!opportunity_Obj.StageName}" styleClass="slds-input"/>
+                            </td>
+                        </tr>
+                        <tr width="100%">
+                            <td width="25%" style="background-color:#FFFFFF;">
+                                <b>Description:</b>
+                            </td>
+                            <td width="75%" align="left" style="background-color:#FFFFFF;" >
+                                <apex:inputField value="{!opportunity_Obj.Description}" styleClass="slds-input"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <center style=" font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 10px;">
+                        <apex:commandButton style="color:#0000FF;" value="Save" onclick="oppCloseEditpagejstwo(); return false" rerender="conDetail,isoppCreated_id,oppDetail" styleClass="slds-button slds-button--neutral"/>
+                        <apex:commandbutton style="color:#0000FF;" value="Cancel" action="{!cancelopp}" immediate="true" rerender="conDetail,isoppCreated_id" styleClass="slds-button slds-button--neutral"/>
+                    </center>
+                </apex:outputPanel>
+            </apex:outputPanel>
+        </apex:outputPanel>
+
+        <apex:outputPanel id="oppDetail">
+            <apex:pageblock rendered="{!opportunity_Obj.id!=null&&isOpportunitySelected&&not(isProduct_btn_Selected)}">
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;display:{!if(isAccountDisplayMode,'block','none')}">
+                    <b>Account Details</b>
+                </center>
+                <table style="font-size:105%;background-color:#FFFFFF;font-size:1.4em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;display:{!if(isAccountDisplayMode,'block','none')}" >
+                    <tr >
+                        <th width="10%" align="center">Name:</th>
+                            <td align="center" width="90%">&nbsp;&nbsp;{!account_Obj.Name}</td>
+                    </tr>
+                </table>
+                <center style="font-size:105%;display:{!if(isAccountDisplayMode,'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Edit "  action="{!EditAccount}" rerender="conEditMode_Acc,condisMode_Acc,oppDetail" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;display:{!if(not(isAccountDisplayMode),'block','none')}">
+                    <b>Edit Account Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;margin-top:15px;font-size:1.4em;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;display:{!if(not(isAccountDisplayMode),'block','none')}" >
+                    <tr >
+                        <td align="center">
+                            <b>Name:</b>&nbsp;&nbsp;</td>
+                        <td align="center">
+                            <apex:inputField value="{!account_Obj.Name}" styleClass="slds-input"/></td></tr>
+                </table>
+                <center style="font-size:105%;display:{!if(not(isAccountDisplayMode),'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Save " action="{!saveAccount}" rerender="accdisMode_Acc,accEditMode_Acc,oppDetail" styleClass="slds-button slds-button--neutral"/>
+                    <apex:commandButton style="color:#0000FF;" value="Cancel" action="{!cancelAccount_Mode}" rerender="accdisMode_Acc,accEditMode_Acc,oppDetail" immediate="true" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;padding: 15px;display:{!if(isContactDisplayMode,'block','none')}">
+                    <b>Contact Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;font-size:1.4em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;display:{!if(isContactDisplayMode,'block','none')}" >
+                    <tr >
+                        <td width="30%">
+                            <b>First Name: </b>
+                        </td>
+                        <td width="70%">&nbsp;&nbsp;{!contact_Obj.FirstName}</td>
+                    </tr>
+                    <tr>
+                        <td width="30%">    
+                            <b>Last Name:</b>
+                        </td>
+                        <td width="70%">&nbsp;&nbsp;{!contact_Obj.LastName}</td>
+                    </tr>
+                    <tr >
+                        <td width="30%">
+                            <b>Phone: </b>
+                        </td>
+                        <td width="70%">&nbsp;&nbsp;{!contact_Obj.Phone}</td>
+                    </tr>
+                    <tr >
+                        <td width="30%">
+                            <b>Email: </b>
+                        </td>
+                        <td width="70%">&nbsp;&nbsp;{!contact_Obj.Email}</td>
+                    </tr>
+                </table>
+                <center style="font-size:105%;display:{!if(isContactDisplayMode,'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Edit "  action="{!EditContact}" rerender="oppDetail" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;display:{!if(not(isContactDisplayMode),'block','none')}">
+                    <b>Edit Contact Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;font-size:1.4em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;display:{!if(not(isContactDisplayMode),'block','none')}" >
+                    <tr >
+                        <td  align="center">
+                            <b>First Name: </b>&nbsp;&nbsp;</td>
+                        <td align="center" >
+                            <apex:inputField value="{!contact_Obj.FirstName}" styleClass="slds-input" />
+                        </td>
+                    </tr>
+                    <tr >
+                        <td align="center">
+                            <b>Last Name: </b>&nbsp;&nbsp;</td>
+                        <td align="center" ><apex:inputField value="{!contact_Obj.LastName}" styleClass="slds-input" /></td>
+                    </tr>
+                    <tr >
+                        <td align="center">
+                            <b>Phone: </b>&nbsp;&nbsp;</td>
+                        <td align="center">
+                            <apex:inputField value="{!contact_Obj.Phone}" styleClass="slds-input"/></td>
+                    </tr>
+                    <tr >
+                        <td align="center">
+                            <b>Email: </b>&nbsp;&nbsp;</td>
+                        <td align="center">
+                            <apex:inputField value="{!contact_Obj.Email}" styleClass="slds-input"/>
+                        </td>
+                    </tr>
+                </table>
+                <center style="font-size:105%;display:{!if(not(isContactDisplayMode),'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Save " action="{!saveContact}" rerender="oppDetail" styleClass="slds-button slds-button--neutral"/>
+                    <apex:commandButton style="color:#0000FF;" value="Cancel" action="{!cancelContact_Mode}" rerender="oppDetail" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;padding: 15px;display:{!if(isOpportunityDisplayMode,'block','none')}">
+                    <b>Opportunity Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;font-size:1.4em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;display:{!if(isOpportunityDisplayMode,'block','none')}" >
+                    <tr >
+                        <td width="10%">
+                            <b>Name:</b>
+                        </td>
+                        <td width="90%">&nbsp;&nbsp;{!opportunity_Obj.Name}</td>
+                    </tr>
+                    <tr >
+                        <td width="10%">
+                            <b>Stage Name:</b>
+                        </td>
+                        <td width="90%">&nbsp;&nbsp;{!opportunity_Obj.stagename}</td>
+                    </tr>
+                    <tr >
+                        <td width="10%">
+                            <b>Close Date:</b>
+                        </td>
+                        <td width="90%">&nbsp;&nbsp;<apex:outputfield value="{!opportunity_Obj.closedate}"/></td>
+                    </tr>
+                    <tr >
+                        <td width="10%">
+                            <b>Description:</b>
+                        </td>
+                        <td width="90%">&nbsp;&nbsp;{!opportunity_Obj.Description}</td>
+                    </tr>
+                </table>
+                <center style="font-size:105%;display:{!if(isOpportunityDisplayMode,'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Edit "  action="{!EditOpp}" rerender="oppDetail" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;padding: 15px;display:{!if(not(isOpportunityDisplayMode),'block','none')}">
+                    <b>Edit Opportunity Details</b>
+                </center>
+                <table style="background-color:#FFFFFF;font-size:1.4em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;display:{!if(not(isOpportunityDisplayMode),'block','none')}" >
+                    <tr >
+                        <td align="center">
+                            <b>Name:</b>&nbsp;&nbsp;</td>
+                                <td align="center">
+                                    <apex:inputfield value="{!opportunity_Obj.Name}" styleClass="slds-input"/>
+                                </td>
+                    </tr>
+                    <tr >
+                        <td align="center">
+                            <b>Stage Name:</b>&nbsp;&nbsp;</td>
+                        <td align="center">
+                            <apex:inputfield value="{!opportunity_Obj.stagename}" styleClass="slds-input"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td align="center">
+                            <b>Close Date:</b>&nbsp;&nbsp;</td>
+                        <td align="center">
+                            <input type="date" id="oppCloseEditpage" value="{!opp_closeDate}"  Class="slds-input" required="true"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td align="center">
+                            <b>Description:</b>&nbsp;&nbsp;</td>
+                        <td align="center">
+                            <apex:inputfield value="{!opportunity_Obj.Description}" styleClass="slds-input"/> 
+                        </td>
+                    </tr>
+                </table>
+                <center style="font-size:105%;display:{!if(not(isOpportunityDisplayMode),'block','none')}">
+                    <apex:commandButton style="color:#0000FF;" value=" Save "  onclick="oppCloseEditpagejs(); return false" rerender="oppDetail" styleClass="slds-button slds-button--neutral"/>
+                    <apex:commandButton style="color:#0000FF;" value="Cancel" immediate="true" action="{!cancelOPP_Mode}" rerender="oppDetail" styleClass="slds-button slds-button--neutral"/>
+                </center>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;padding: 15px;">
+                    <b>List of Opportunity Line Items</b>
+                </center>
+                <apex:pageblocktable value="{!OpportunityLineItem_list}" var="oli" style="border: 1px solid black;border-collapse: collapse; margin-left:1%;margin-right:1%;margin-top:2%; width:98%;font-size:20px;">    
+                    <apex:column style="border: 1px solid black;" value="{!oli.Product2.Name}">
+                        <apex:facet name="header">Name</apex:facet>
+                    </apex:column>
+                    <apex:column style="border: 1px solid black;" value="{!oli.ProductCode }">
+                        <apex:facet name="header">Product Code</apex:facet>
+                    </apex:column>
+                    <apex:column style="border: 1px solid black;"> 
+                        <apex:facet name="header">Description</apex:facet>
+                            <apex:outputField value="{!oli.Description }" rendered="{!opp_pro_lineItemID_Mode_Map[oli.id]}" />
+                            <apex:inputField styleClass="slds-input" value="{!oli.Description }"  rendered="{!not(opp_pro_lineItemID_Mode_Map[oli.id])}"/>
+                    </apex:column>
+                    <apex:column style="border: 1px solid black;"> 
+                        <apex:facet name="header">Quantity</apex:facet>
+                            <apex:outputField value="{!oli.Quantity }" rendered="{!opp_pro_lineItemID_Mode_Map[oli.id]}" />
+                            <apex:inputField styleClass="slds-input"  value="{!oli.Quantity }"  rendered="{!not(opp_pro_lineItemID_Mode_Map[oli.id])}"/>
+                    </apex:column>
+                    <apex:column style="border: 1px solid black;"> 
+                        <apex:facet name="header">List Price</apex:facet>
+                            <apex:outputField value="{!oli.ListPrice }" rendered="{!opp_pro_lineItemID_Mode_Map[oli.id]}" />
+                            <apex:inputField styleClass="slds-input" value="{!oli.ListPrice }"  rendered="{!not(opp_pro_lineItemID_Mode_Map[oli.id])}"/>
+                    </apex:column>
+                    <apex:column style="border: 1px solid black;font-size:20px;">
+                        <apex:commandButton style="color:#0000FF;" value="Edit" action="{!EditOppLineItem}" rendered="{!opp_pro_lineItemID_Mode_Map[oli.id]}" rerender="oppDetail" styleClass="slds-button slds-button--neutral">
+                            <apex:param name="ediOliId" value="{!oli.id}" assignTo="{!opp_LineItem_id}"/>
+                        </apex:commandButton> 
+                        <apex:commandButton style="color:#0000FF;" value="Save" action="{!saveOppLineItem}" rendered="{!not(opp_pro_lineItemID_Mode_Map[oli.id])}" rerender="oppDetail" styleClass="slds-button slds-button--neutral">
+                            <apex:param name="saveOliId" value="{!oli.id}" assignTo="{!opp_LineItem_id}"/>
+                        </apex:commandButton>  
+                    </apex:column>
+                    <apex:column style="border: 1px solid black;font-size:20px;">  
+                        <apex:commandButton style="color:#0000FF;" value="Delete" action="{!DelOppLineItem}" rendered="{!opp_pro_lineItemID_Mode_Map[oli.id]}" rerender="oppDetail" styleClass="slds-button slds-button--neutral">
+                            <apex:param name="delOliId" value="{!oli.id}" assignTo="{!opp_LineItem_id}"/>
+                        </apex:commandButton>    
+                        <apex:commandButton style="color:#0000FF;" value="Cancel" action="{!cancelOppLineItem}" rendered="{!not(opp_pro_lineItemID_Mode_Map[oli.id])}" rerender="oppDetail" styleClass="slds-button slds-button--neutral">
+                            <apex:param name="cancelOliId" value="{!oli.id}" assignTo="{!opp_LineItem_id}"/>
+                        </apex:commandButton>    
+                    </apex:column>
+                </apex:pageblocktable>
+                <center style=" font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 17px;"><apex:commandButton style="color:#0000FF;" value="Add Product" reRender="sbox_pro,proDetail,oppDetail" action="{!showProductDetails}" styleClass="slds-button slds-button--neutral"/></center>
+            </apex:pageblock>
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="sbox_pro" >
+            <apex:outputPanel rendered="{!isProduct_btn_Selected&&not(isProduct_Selected)}">
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;">
+                    <b>Search for Product to Create new Opportuntiy Line Item</b>
+                </center>
+                <table  style="background-color:#FFFFFF;font-size:1.2em;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;" >
+                    <tr width="100%">
+                        <td width="75%" style="background-color:#FFFFFF;font-size:1.3em;">
+                            <b>Search for Product : </b>
+                                <input type="text" id="productName" onkeyup="productSearch();" Class="slds-input" size="20"/>
+                        </td>
+                        <td width="25%" align="right" style="background-color:#FFFFFF;font-size:105%" valign="bottom">
+                            <apex:commandButton style="color:#0000FF;" value="Back" immediate="true" action="{!cancelOpportunityLineItem}" reRender="sbox_pro,proDetail,oppDetail,proudctEditPage" styleClass="slds-button slds-button--neutral"/></td>
+                    </tr>
+                </table>
+            </apex:outputPanel>
+        </apex:outputPanel>
+
+        <apex:outputPanel id="proDetail">
+            <apex:pageblock rendered="{!isProduct_btn_Selected&&not(isProduct_Selected)&&Product2_list.size!=0}">
+                <apex:variable var="pIndex" value="{!0}"/>
+                    <apex:pageBlockTable value="{!Product2_list}" style="background-color:#FFFFFF;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;font-size:20px;" var="pl" >
+                        <apex:column style="border: 1px solid black;" value="{!pl.Name}" onclick="forProduct2DetailPage('{!pIndex}','mobile'); return false">
+                            <apex:facet name="header">Name</apex:facet>
+                        </apex:column>
+                        <apex:column style="border: 1px solid black;"  value="{!pl.ProductCode }">    
+                            <apex:facet name="header">Product Code</apex:facet>
+                        </apex:column>
+                        <apex:column style="border: 1px solid black;" >
+                            <apex:facet name="header">List Price</apex:facet>
+                                {!priceOfProducts[pl.id]}
+                        </apex:column>
+                        <apex:column style="border: 1px solid black;" value="{!pl.Description}">
+                            <apex:facet name="header">Description</apex:facet>
+                        </apex:column>
+                        <apex:column style="border: 1px solid black;" >
+                            <apex:facet name="header">Family</apex:facet>
+                                {!pl.Family}
+                            <apex:variable var="pIndex" value="{!pIndex+1}"/>
+                        </apex:column>
+                    </apex:pageBlockTable>
+            </apex:pageblock>
+        </apex:outputPanel>
+
+        <apex:outputPanel id="proudctEditPage">
+            <apex:outputpanel rendered="{!isProduct_Selected}">
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;">
+                    <b>Enter New Opportuntiy Line Item Details</b>
+                </center>
+                <table  style="font-size:1.2em;border-collapse: collapse;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;" >
+                    <tr width="100%">
+                        <td width="25%">
+                            <b>Product Name:</b>
+                        </td>
+                        <td width="75%" align="left">
+                            <apex:outputText value="{!product2_Obj.Name}"/>
+                        </td>
+                    </tr>
+                    <tr width="100%">
+                        <td width="25%">
+                            <b>List Price:</b>
+                        </td>
+                        <td width="75%" align="left">
+                            <apex:outputText value="{!OpportunityLineItem_Obj.UnitPrice}"/>
+                        </td>
+                    </tr>
+                    <tr width="100%">
+                        <td width="25%">
+                            <b>Quantity :</b>
+                        </td>
+                        <td width="75%" align="left">
+                            <apex:inputField value="{!OpportunityLineItem_Obj.Quantity}" styleClass="slds-input"/>
+                        </td>
+                    </tr>
+                    <tr width="100%">
+                        <td width="25%"><b>Sales Price:</b></td>
+                        <td width="75%" align="left">
+                            <apex:inputField value="{!OpportunityLineItem_Obj.UnitPrice}" styleClass="slds-input"/>
+                        </td>
+                    </tr>
+                    <tr width="100%">
+                        <td width="25%" ><b>Line Description:</b></td>
+                        <td width="75%" align="left">
+                            <apex:inputField value="{!OpportunityLineItem_Obj.Description}" styleClass="slds-input"/>
+                        </td>
+                    </tr>                    
+                </table>
+                <center style="font-size:1.3em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 17px;">          
+                    <apex:commandButton style="color:#0000FF;" value="Save" action="{!saveOpportunityLineItem}" styleClass="slds-button slds-button--neutral" reRender="sbox_pro,proDetail,oppDetail,proudctEditPage"/>
+                    <apex:commandButton style="color:#0000FF;" value="Cancel" immediate="true" action="{!cancelOpportunityLineItem}" reRender="sbox_pro,proDetail,oppDetail,proudctEditPage" styleClass="slds-button slds-button--neutral"/>        
+                </center>
+            </apex:outputpanel>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

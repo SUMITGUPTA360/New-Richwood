@@ -1,0 +1,9 @@
+<!-- 
+*Created By: Snapp
+*Created Date: 1-Nov-2016
+*Purpose: This page is used to track the clicks to this link and then redirect the user to appropriate page
+ -->
+<apex:page controller="TrackingController" action="{!track}" showHeader="false" sidebar="false">
+<br/><br/>
+<apex:outputText style="FONT-SIZE: 20PX;COLOR: RED; margin-left: 10%;" rendered="{!IF(error!=null,true,false)}" value="{!error}"></apex:outputText>
+</apex:page>

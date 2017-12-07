@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contact Role</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contact Roles</value>
+    </caseValues>
+    <fields>
+        <label><!-- Check in With --></label>
+        <name>Check_in_With__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Contact Roles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Division --></label>
+        <name>Division__c</name>
+        <relationshipLabel><!-- Contact Roles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <relationshipLabel><!-- Contact Roles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Roles__c</name>
+        <picklistValues>
+            <masterLabel>Belt Coordinator</masterLabel>
+            <translation><!-- Belt Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forman</masterLabel>
+            <translation><!-- Forman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maintenance Manager</masterLabel>
+            <translation><!-- Maintenance Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Superintendent</masterLabel>
+            <translation><!-- Superintendent --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Contact Role Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

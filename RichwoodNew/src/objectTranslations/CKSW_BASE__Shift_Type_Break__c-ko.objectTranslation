@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>교대 근무 유형 나누기</value>
+    </caseValues>
+    <nameFieldLabel>교대 근무 유형 휴식 이름</nameFieldLabel>
+</CustomObjectTranslation>

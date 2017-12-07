@@ -1,0 +1,1270 @@
+<apex:page controller="SalesForecasts_ctrl" sidebar="false" tabStyle="contact" action="{!setFilter}">
+    <c:CommonStyle />
+    <style>
+        .titleCls {
+            margin-left: 40%;
+            font-size: 30px;
+        }
+        
+        .picklist {
+            height: 36px;
+            padding: 0 8px;
+            border: 1px solid #a4beca;
+            border-left: 7px solid #068ddf;
+            box-sizing: border-box;
+            display: block;
+            width: 23%;
+            font-family: 'Roboto', Arial, Helvetica, sans-serif !important;
+            font-size: 14px;
+            line-height: 18px;
+            color: rgb(149, 149, 149);
+        }
+        
+        body {
+            margin-left: 5%;
+        }
+        
+        body .bPageBlock,
+        body .bPageBlock .pbBody,
+        body .bPageBlock .pbBottomButtons {
+            background-color: #E5FFCC;
+            background-image: none;
+            margin: 0;
+        }
+        
+        .bPageBlock {
+            border-top: 4px solid #f8f8f8;
+        }
+        
+        body .bPageBlock .pbBody .pbSubheader {
+            background: silver;
+        }
+        /* Action Status - Please wait cursor. */
+        
+        .avcircle {
+            width: 22px;
+            height: 22px;
+            float: left;
+            margin-bottom: 18px;
+            margin-top: 18px;
+            margin-left: 55px;
+        }
+        /* Action Status - Please wait text. */
+        
+        .avtxt {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            color: #000000;
+            line-height: 20px;
+            margin-left: 25px;
+            margin-bottom: 18px;
+            margin-top: 18px;
+            width: 200px;
+            font-weight: bold;
+            float: left;
+        }
+        /* When ajax request send disable whole background content. */
+        
+        .avdisableBackPage {
+            filter: Alpha(Opacity=40);
+            -moz-opacity: 0.4;
+            opacity: 0.4;
+            width: 100%;
+            height: 100%;
+            background-color: #999999;
+            position: absolute;
+            z-index: 500;
+            top: 0px;
+            left: 0px;
+        }
+        /* Action Status - Please wait Divition. */
+        
+        .avsplashDiv {
+            position: fixed;
+            left: 500px;
+            top: 280px;
+            border: 0px;
+            z-index: 9999;
+            width: 335px;
+            height: 65px;
+        }
+        th{
+            cursor:pointer;
+        }
+    </style>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+    <apex:includescript value="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" />
+    <apex:includeScript value="{!$Resource.jqueryTableSort}"/> 
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#datepicker").datepicker();
+            $("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
+            $('#datepicker').datepicker('setDate', "{!defaultDateTest}");
+            //$("[id$='a1']").tablesorter({theme: '', dateFormat : "dd/mm/yyyy"});
+            $(".myTable").tablesorter(); 
+        });
+    </script>
+    <Script>
+        function setFocusOnLoad() {}
+    </Script>
+    <script>
+        function datechange(a) {
+            console.log(a.length === 10);
+            if (a.length === 10) {
+                dateChangesf(a);
+            } else {
+                return false;
+            }
+        }
+        // Show Wait Cursor
+        function startSplash() {
+            var divObj = document.getElementById('splashDiv');
+            divObj.style.display = 'block';
+        }
+
+        // Hide Wait Cursor  
+        function endSplash() {
+            document.getElementById('splashDiv').style.display = 'none';
+        }
+
+        function updateSortDirection_js(field) {
+            console.log(field);
+            updateSortDirection_sf(field);
+            return true;
+        }
+    </script>
+    <div id="splashDiv" style="display:none;">
+        <div class="avdisableBackPage"></div>
+        <div class="avsplashDiv">
+            <div class="avcircle">
+                <apex:image value="{!$Resource.LoadingImage}"></apex:image>
+            </div>
+            <div class="avtxt"></div>
+            <!-- Please Wait.... -->
+        </div>
+    </div>
+
+
+    <title>Sales Forecasts</title><br/>
+
+
+    
+
+    <apex:form id="fm" >
+        <h1 class="titleCls"> Sales Forecasts &nbsp;{!year} </h1><br/>
+        <apex:actionFunction name="updateSortDirection_sf" action="{!updateSortDirection}" status="myStatus" reRender="AccountHierachy">
+            <apex:param name="tempidx" value="" assignTo="{!currentField}" />
+        </apex:actionFunction>
+
+        <apex:actionStatus id="myStatus" onstart="startSplash();" onstop="endSplash();" />
+        <apex:actionFunction action="{!setFilter}" name="setFilter" status="myStatus" reRender="AccountHierachy" />
+        <apex:actionFunction action="{!dateChange}" name="dateChangesf" status="myStatus" reRender="fm">
+            <apex:param assignTo="{!defaultDateTest}" name="test" value="" />
+        </apex:actionFunction>
+        <apex:commandButton value="Last Year" action="{!dateChange}" disabled="{!year==currentYear-1}" style="background-color:{!if(year==currentYear-1,'green','')};" status="myStatus" reRender="fm">
+            <apex:param assignTo="{!defaultDateTest}" name="test" value="01/01/{!currentYear-1}" />
+        </apex:commandButton> &nbsp;
+        <apex:commandButton value="This Year" action="{!dateChange}"  disabled="{!year==currentYear}" style="background-color:{!if(year==currentYear,'green','')};" status="myStatus" reRender="fm">
+            <apex:param assignTo="{!defaultDateTest}" name="test" value="01/01/{!currentYear}" />
+        </apex:commandButton>&nbsp;
+        <apex:commandButton value="Next Year" action="{!dateChange}" disabled="{!year==currentYear+1}" style="background-color:{!if(year==currentYear+1,'green','')};" status="myStatus" reRender="fm">
+            <apex:param assignTo="{!defaultDateTest}" name="test" value="01/01/{!currentYear+1}" />
+        </apex:commandButton>
+        &nbsp;
+        <apex:commandButton value="custom year" style="background-color:{!if(AND(year!=currentYear+1,year!=currentYear,year!=currentYear-1),'green','')}; " action="{!customDateChange}" status="myStatus" reRender="fm"/><br/>
+        <p style="display:{!if(isShowDateField,'none','')} ">Forecasts for Year Starting:
+            <input type="text" onchange="datechange(this.value); return false;" value="{!defaultDateTest}" id="datepicker" style="width: 23%;" />
+        </p>
+
+        <p> Display for Sales Rep:
+            <apex:selectList onchange="setFilter()" styleClass="picklist" value="{!selectedUserId}" size="1" multiselect="false">
+                <apex:selectOptions value="{!userHierarchy}" />
+            </apex:selectList><span style="float:right;">
+            <b>
+            <a href="/apex/SalesForecastCSVExport?year={!year}" target="_blank">Sales Forecast CSV Export</a>
+<!--            <apex:outputLink value="/apex/SalesForecastCSVExport?year={!year}">Sales Forecast CSV Export </apex:outputLink>--></b>
+            </span>
+        </p>
+        <apex:pageBlock id="AccountHierachy">
+            
+            <apex:repeat value="{!UserId_subordinateList_Map}" var="i">
+                <apex:pageBlockSection collapsible="true" showHeader="true" title=" {!UserId_User_Map[i].Name} {!if(UserId_User_Map[i].SalesRepId1__c==null,'','('+UserId_User_Map[i].SalesRepId1__c+')')}  " columns="1" rendered="{!And(i==selectedUserId,userID_hasSaleRep[i])}">
+
+                    <apex:pageBlockTable value="{!UserId_AccountList_Map[i]}"  var="a1" columns="8" id="a1" >
+                        <apex:column >
+                            <apex:facet name="header"   >
+                                <span onclick="updateSortDirection_js('accName'); return false">
+                                    <br/>
+                                    Name
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='accName','','none')}">&#9650;</span>
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='accName','','none')}">&#9660;</span>
+                                    <!--
+                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='accName'}"/>
+                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='accName'}"/>-->
+                                </span>
+                            </apex:facet>
+                            <a href="/apex/AccountForecastbyCustomer?Id={!a1.accId}&year={!year(defaultDate)}&manager=m">{!a1.accName} </a>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header" >
+                                <span onclick="updateSortDirection_js('Forecast_Status'); return false">
+                                    
+                                    <br/>Status
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='Forecast_Status','','none')}">&#9650;</span>
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='Forecast_Status','','none')}">&#9660;</span>
+                                    <!--
+                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='Forecast_Status'}"/>
+                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='Forecast_Status'}"/>-->
+                                </span>
+                            </apex:facet>
+
+
+                            <!--<apex:outputText style="color:{!If(a1.forecast.Forecast_Status__c == 'Preparation' || a1.forecast.Forecast_Status__c == 'Adjustment Requested','red',If(a1.forecast.Forecast_Status__c == 'Submitted','orange','green'))}" rendered="{!a1.forecast.Forecast_Status__c != null}" value="{!a1.forecast.Forecast_Status__c}"></apex:outputText>
+                            <apex:outputText style="color:red" rendered="{!a1.forecast.Forecast_Status__c == null}" value="Not Provided"></apex:outputText>-->
+                            <span style="color:{!If(a1.forecast.Forecast_Status__c == 'Preparation' || a1.forecast.Forecast_Status__c == 'Adjustment Requested','red',If(a1.forecast.Forecast_Status__c == 'Submitted','orange','green'))};display: {!if(a1.forecast.Forecast_Status__c != null,'','none')}">{!a1.forecast.Forecast_Status__c}</span>
+                            <span style="color:red;display: {!if(a1.forecast.Forecast_Status__c == null,'','none')}">Not Provided</span>
+                            <apex:facet name="footer">
+                                <!--<span style="float: right;" >Totals:</span>-->
+                                <span style="float: right;" >Totals:</span>
+                            </apex:facet>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header" ><br/>
+                                    Budgeted Sales
+                            </apex:facet>
+                            <apex:inputField rendered="{!or($Profile.Name=='System Administrator',$Profile.Name=='RWI COO - sf')}" value="{!a1.forecast.Budgeted_Sales__c}">
+                                <apex:actionSupport event="onchange" 
+                                action="{!update_AYF}" 
+                                rerender="dummy" status="myStatus">
+                                     <apex:param name="userId" value="{!i}" assignTo="{!userId}"/>
+                                     <apex:param name="ayf_Id" value="{!a1.forecast.id}" assignTo="{!ayf_Id}"/>
+                                </apex:actionSupport>
+                            </apex:inputField>
+
+                        </apex:column>
+                        <!--<apex:column >
+                            <apex:facet name="header">
+                                <apex:outputpanel onclick="updateSortDirection_js('cwSum_2year'); return false">
+                                    <apex:outputText value="${0, number,}">
+                                        <apex:param value="{!UserId_Totals[i].cwSum_2year}" />
+                                    </apex:outputText>
+                                    <br/>Close/Won Amount {!YEAR(stDate)-2}
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum_2year','','none')}">&#9650;</span>
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum_2year','','none')}">&#9660;</span>-->
+                                    <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)-2}"></apex:outputText>
+                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum_2year'}"/>
+                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum_2year'}"/>-->
+
+                                <!--</apex:outputpanel>
+                            </apex:facet>
+                            $
+                            <apex:outputText value="{0, number, }">
+                                <apex:param value="{!a1.cwSum_2year}" />
+                            </apex:outputText>
+                            <apex:facet name="footer">
+                                <apex:outputText value="${0, number,}">
+                                    <apex:param value="{!UserId_ownTotals[i].cwSum_2year}" />
+                                </apex:outputText>
+                            </apex:facet>
+                        </apex:column>-->
+                        <!--<apex:column >
+                            <apex:facet name="header">
+                                <apex:outputpanel onclick="updateSortDirection_js('cwSum_1year'); return false">
+                                    <apex:outputText value="${0, number,}">
+                                        <apex:param value="{!UserId_Totals[i].cwSum_1year}" />
+                                    </apex:outputText>
+                                    <br/>Close/Won Amount {!YEAR(stDate)-1}
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum_1year','','none')}">&#9650;</span>
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum_1year','','none')}">&#9660;</span>-->
+                                    <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)-1}"></apex:outputText>
+                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum_1year'}"/>
+                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum_1year'}"/>-->
+
+                                <!--</apex:outputpanel>
+                            </apex:facet>
+                            $
+                            <apex:outputText value="{0, number, }">
+                                <apex:param value="{!a1.cwSum_1year}" />
+                            </apex:outputText>
+                            <apex:facet name="footer">
+                                <apex:outputText value="${0, number,}">
+                                    <apex:param value="{!UserId_ownTotals[i].cwSum_1year}" />
+                                </apex:outputText>
+                            </apex:facet>
+                        </apex:column>-->
+                        <apex:column >
+
+                            <apex:facet name="header">
+                                <apex:outputpanel onclick="updateSortDirection_js('pAmountSum'); return false">
+                                    <apex:outputText value="${0, number,}">
+                                        <apex:param value="{!UserId_Totals[i].pAmountSum}" />
+                                    </apex:outputText>
+                                    <br/>Projected Amount
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='pAmountSum','','none')}">&#9650;</span>
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='pAmountSum','','none')}">&#9660;</span>
+                                    <!--<apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='pAmountSum'}"/>
+                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='pAmountSum'}"/>-->
+                                </apex:outputpanel>
+                            </apex:facet>
+
+
+                            $
+                            <apex:outputText value="{0, number, }">
+                                <apex:param value="{!a1.pAmountSum}" />
+                            </apex:outputText>
+                            <apex:facet name="footer">
+                                <apex:outputText value="${0, number,}">
+                                    <apex:param value="{!UserId_ownTotals[i].pAmountSum}" />
+                                </apex:outputText>
+                            </apex:facet>
+                        </apex:column>
+                        
+                        
+                        <!-- Reviewed by Column - Seth Stoll -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputpanel onclick="updateSortDirection_js('budget_SalesSum'); return false">
+                                    <apex:outputText value="${0, number,}">
+                                        <apex:param value="{!UserId_Totals[i].budget_SalesSum}" />
+                                    </apex:outputText>
+                                    <br/>Reviewed Amount
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='budget_SalesSum','','none')}">&#9650;</span>
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='budget_SalesSum','','none')}">&#9660;</span>
+                                    <!--<apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='budget_SalesSum'}"/>
+                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='budget_SalesSum'}"/>-->
+                                </apex:outputpanel>
+                            </apex:facet>
+                            $
+                            <apex:outputText value="{0, number, }">
+                                <apex:param value="{!a1.budget_SalesSum}" />
+                            </apex:outputText>
+                            <apex:facet name="footer">
+                                <apex:outputText value="${0, number,}">
+                                    <apex:param value="{!UserId_ownTotals[i].budget_SalesSum}" />
+                                </apex:outputText>
+                            </apex:facet>
+                        </apex:column>
+                        <!-- end Reviewed by Column - Seth Stoll -->
+                        
+                        
+                        
+                        
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputpanel onclick="updateSortDirection_js('cwSum'); return false">
+                                    <apex:outputText value="${0, number,}">
+                                        <apex:param value="{!UserId_Totals[i].cwSum}" />
+                                    </apex:outputText>
+                                    <br/>Close/Won Amount {!YEAR(stDate)}
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum','','none')}">&#9650;</span>
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum','','none')}">&#9660;</span>
+                                    <!--<apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum'}"/>
+                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum'}"/> -->
+
+                                </apex:outputpanel>
+                            </apex:facet>
+                            $
+                            <apex:outputText value="{0, number, }">
+                                <apex:param value="{!a1.cwSum}" />
+                            </apex:outputText>
+                            <apex:facet name="footer">
+                                <apex:outputText value="${0, number,}">
+                                    <apex:param value="{!UserId_ownTotals[i].cwSum}" />
+                                </apex:outputText>
+                            </apex:facet>
+                        </apex:column>
+                        -->
+
+
+
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputpanel onclick="updateSortDirection_js('openSum'); return false">
+                                    <apex:outputText value="${0, number,}">
+                                        <apex:param value="{!UserId_Totals[i].openSum}" />
+                                    </apex:outputText>
+                                    <br/>Open Amount
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='openSum','','none')}">&#9650;</span>
+                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='openSum','','none')}">&#9660;</span>
+                                    <!--<apex:outputText value="Open Amount"></apex:outputText>
+                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='openSum'}"/>
+                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='openSum'}"/>-->
+
+                                </apex:outputpanel>
+                            </apex:facet>
+
+                            $
+                            <apex:outputText value="{0, number,}">
+                                <apex:param value="{!a1.openSum}" />
+                            </apex:outputText>
+                            <apex:facet name="footer">
+                                <apex:outputText value="${0, number,}">
+                                    <apex:param value="{!UserId_ownTotals[i].openSum}" />
+                                </apex:outputText>
+                            </apex:facet>
+                        </apex:column>
+
+                    </apex:pageBlockTable>
+                    <apex:repeat value="{!UserId_subordinateList_Map[i]}" var="j">
+                        <apex:pageBlockSection rendered="{!userID_hasSaleRep[j]}" collapsible="true" showHeader="true" title=" {!UserId_User_Map[j].Name} {!if(UserId_User_Map[j].SalesRepId1__c==null,'','('+UserId_User_Map[j].SalesRepId1__c+')')}" columns="1">
+                            <apex:pageBlockTable value="{!UserId_AccountList_Map[j]}"  var="a2" columns="8" >
+                                <apex:column >
+                                    <apex:facet name="header" >
+
+                                        <span onclick="updateSortDirection_js('accName'); return false" >
+                                            <br/>Name
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='accName','','none')}">&#9650;</span>
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='accName','','none')}">&#9660;</span>
+                                            <!--<apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='accName'}"/>
+                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='accName'}"/>-->
+                                        </span>
+                                    </apex:facet>
+
+                                    <a href="/apex/AccountForecastbyCustomer?Id={!a2.accId}&year={!year(defaultDate)}&manager=m">{!a2.accName} </a>
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <span onclick="updateSortDirection_js('Forecast_Status'); return false">
+                                            
+                                            <br/>Status
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='Forecast_Status','','none')}">&#9650;</span>
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='Forecast_Status','','none')}">&#9660;</span>
+                                            <!--<apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='Forecast_Status'}"/>
+                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='Forecast_Status'}"/>-->
+                                        </span>
+                                    </apex:facet>
+                                    <!--<apex:outputText style="color:{!If(a2.forecast.Forecast_Status__c == 'Preparation' || a2.forecast.Forecast_Status__c == 'Adjustment Requested','red',If(a2.forecast.Forecast_Status__c == 'Submitted','orange','green'))}" rendered="{!a2.forecast.Forecast_Status__c != null}" value="{!a2.forecast.Forecast_Status__c}"></apex:outputText>
+                                    <apex:outputText style="color:red" rendered="{!a2.forecast.Forecast_Status__c == null}" value="Not Provided"></apex:outputText>-->
+                                    <span style="color:{!If(a2.forecast.Forecast_Status__c == 'Preparation' || a2.forecast.Forecast_Status__c == 'Adjustment Requested','red',If(a2.forecast.Forecast_Status__c == 'Submitted','orange','green'))};display: {!if(a2.forecast.Forecast_Status__c != null,'','none')}">
+                                        {!a2.forecast.Forecast_Status__c}
+                                    </span>
+                                    <span style="color:red;display: {!if(a2.forecast.Forecast_Status__c == null,'','none')}">Not Provided</span>
+                                    <apex:facet name="footer">
+                                        <span style="float: right;" >Totals:</span>
+                                    </apex:facet>
+                                </apex:column>
+                                <apex:column >
+                                   <apex:facet name="header" ><br/>
+                                    Budgeted Sales
+                                    </apex:facet>
+
+                                        <apex:inputField rendered="{!or($Profile.Name=='System Administrator',$Profile.Name=='RWI COO - sf')}" value="{!a2.forecast.Budgeted_Sales__c}">
+    <apex:actionSupport event="onchange" 
+    action="{!update_AYF}" 
+    rerender="dummy" status="myStatus">
+         <apex:param name="userId" value="{!j}" assignTo="{!userId}"/>
+         <apex:param name="ayf_Id" value="{!a2.forecast.id}" assignTo="{!ayf_Id}"/>
+    </apex:actionSupport>
+</apex:inputField>
+
+                            </apex:column>
+                                <!--<apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputpanel onclick="updateSortDirection_js('cwSum_2year'); return false">
+                                            <apex:outputText value="${0, number,}">
+                                                <apex:param value="{!UserId_Totals[j].cwSum_2year}" />
+                                            </apex:outputText>
+                                            <br/>Close/Won Amount {!YEAR(stDate)-2}
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum_2year','','none')}">&#9650;</span>
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum_2year','','none')}">&#9660;</span>-->
+                                            <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)-2}"></apex:outputText>
+                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum_2year'}"/>
+                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum_2year'}"/>-->
+                                       <!-- </apex:outputpanel>
+                                    </apex:facet>
+                                    $
+                                    <apex:outputText value="{0, number, }">
+                                        <apex:param value="{!a2.cwSum_2year}" />
+                                    </apex:outputText>
+                                    <apex:facet name="footer">
+                                        <apex:outputText value="${0, number,}">
+                                            <apex:param value="{!UserId_ownTotals[j].cwSum_2year}" />
+                                        </apex:outputText>
+                                    </apex:facet>
+                                </apex:column>-->
+                                <!--<apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputpanel onclick="updateSortDirection_js('cwSum_1year'); return false">
+                                            <apex:outputText value="${0, number,}">
+                                                <apex:param value="{!UserId_Totals[j].cwSum_1year}" />
+                                            </apex:outputText>
+                                            <br/>Close/Won Amount {!YEAR(stDate)-1}
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum_1year','','none')}">&#9650;</span>
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum_1year','','none')}">&#9660;</span>-->
+                                            <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)-1}"></apex:outputText>
+                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum_1year'}"/>
+                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum_1year'}"/>-->
+                                        <!--</apex:outputpanel>
+                                    </apex:facet>
+                                    $
+                                    <apex:outputText value="{0, number, }">
+                                        <apex:param value="{!a2.cwSum_1year}" />
+                                    </apex:outputText>
+                                    <apex:facet name="footer">
+                                        <apex:outputText value="${0, number,}">
+                                            <apex:param value="{!UserId_ownTotals[j].cwSum_1year}" />
+                                        </apex:outputText>
+                                    </apex:facet>
+                                </apex:column>-->
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputpanel onclick="updateSortDirection_js('pAmountSum'); return false" >
+                                            <apex:outputText value="${0, number,}">
+                                                <apex:param value="{!UserId_Totals[j].pAmountSum}" />
+                                            </apex:outputText>
+                                            <br/>Projected Amount
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='pAmountSum','','none')}">&#9650;</span>
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='pAmountSum','','none')}">&#9660;</span>
+                                            <!--<apex:outputText value="Projected Amount"></apex:outputText>
+                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='pAmountSum'}"/>
+                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='pAmountSum'}"/>-->
+                                        </apex:outputpanel>
+                                    </apex:facet>
+                                    $
+                                    <apex:outputText value="{0, number, }">
+                                        <apex:param value="{!a2.pAmountSum}" />
+                                    </apex:outputText>
+                                    <apex:facet name="footer">
+                                        <apex:outputText value="${0, number,}">
+                                            <apex:param value="{!UserId_ownTotals[j].pAmountSum}" />
+                                        </apex:outputText>
+                                    </apex:facet>
+                                </apex:column>
+                                
+                                <!-- Reviewed by Column - Seth Stoll -->
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputpanel onclick="updateSortDirection_js('budget_SalesSum'); return false" >
+                                            <apex:outputText value="${0, number,}">
+                                                <apex:param value="{!UserId_Totals[j].budget_SalesSum}" />
+                                            </apex:outputText>
+                                            <br/>Reviewed Amount
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='budget_SalesSum','','none')}">&#9650;</span>
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='budget_SalesSum','','none')}">&#9660;</span>
+                                            <!--<apex:outputText value="Projected Amount"></apex:outputText>
+                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='budget_SalesSum'}"/>
+                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='budget_SalesSum'}"/>-->
+                                        </apex:outputpanel>
+                                    </apex:facet>
+                                    $
+                                    <apex:outputText value="{0, number, }">
+                                        <apex:param value="{!a2.budget_SalesSum}" />
+                                    </apex:outputText>
+                                    <apex:facet name="footer">
+                                        <apex:outputText value="${0, number,}">
+                                            <apex:param value="{!UserId_ownTotals[j].budget_SalesSum}" />
+                                        </apex:outputText>
+                                    </apex:facet>
+                                </apex:column>
+                                <!-- end Reviewed by Column - Seth Stoll -->                         
+                                
+                                <!-- COMMENT OUT FOR SIZE - Seth Stoll
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputpanel onclick="updateSortDirection_js('cwSum'); return false" >
+                                            <apex:outputText value="${0, number,}">
+                                                <apex:param value="{!UserId_Totals[j].cwSum}" />
+                                            </apex:outputText>
+                                            <br/>Close/Won Amount {!YEAR(stDate)}
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum','','none')}">&#9650;</span>
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum','','none')}">&#9660;</span>
+                                           ///// <apex:outputText value="Close/Won Amount {!YEAR(stDate)}"></apex:outputText>
+                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum'}"/>
+                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum'}"/>
+                                        </apex:outputpanel>
+                                    </apex:facet>
+                                    $
+                                    <apex:outputText value="{0, number, }">
+                                        <apex:param value="{!a2.cwSum}" />
+                                    </apex:outputText>
+                                    <apex:facet name="footer">
+                                        <apex:outputText value="${0, number,}">
+                                            <apex:param value="{!UserId_ownTotals[j].cwSum}" />
+                                        </apex:outputText>
+                                    </apex:facet>
+                                </apex:column>
+                                -->
+
+                                <!-- COMMENT OUT FOR SIZE - Seth Stoll
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputpanel onclick="updateSortDirection_js('openSum'); return false">
+                                            <apex:outputText value="${0, number,}">
+                                                <apex:param value="{!UserId_Totals[j].openSum}" />
+                                            </apex:outputText>
+                                            <br/>Open Amount
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='openSum','','none')}">&#9650;</span>
+                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='openSum','','none')}">&#9660;</span>
+                                            ////// <apex:outputText value="Open Amount"></apex:outputText>
+                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='openSum'}"/>
+                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='openSum'}"/> //////
+                                        </apex:outputpanel>
+                                    </apex:facet>
+
+
+                                    $
+                                    <apex:outputText value="{0, number, }">
+                                        <apex:param value="{!a2.openSum}" />
+                                    </apex:outputText>
+                                    <apex:facet name="footer">
+                                        <apex:outputText value="${0, number,}">
+                                            <apex:param value="{!UserId_ownTotals[j].openSum}" />
+                                        </apex:outputText>
+                                    </apex:facet>
+                                </apex:column>
+                                -->
+
+                            </apex:pageBlockTable>
+
+                            <apex:repeat value="{!UserId_subordinateList_Map[j]}" var="k">
+                                <apex:pageBlockSection rendered="{!userID_hasSaleRep[k]}" collapsible="true" showHeader="true" title="{!UserId_User_Map[k].Name} {!if(UserId_User_Map[k].SalesRepId1__c==null,'','('+UserId_User_Map[k].SalesRepId1__c+')')}" columns="1">
+                                    <apex:pageBlockTable value="{!UserId_AccountList_Map[k]}"  var="a3" columns="8" >
+                                        <apex:column >
+                                            <apex:facet name="header">
+                                                <span onclick="updateSortDirection_js('accName'); return false">
+                                                    <br/>Name
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='accName','','none')}">&#9650;</span>
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='accName','','none')}">&#9660;</span>
+
+                                                    <!--<apex:outputText value="Name"></apex:outputText>
+                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='accName'}"/>
+                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='accName'}"/>-->
+                                                </span>
+                                            </apex:facet>
+
+                                            <a href="/apex/AccountForecastbyCustomer?Id={!a3.accId}&year={!year(defaultDate)}&manager=m">{!a3.accName} </a>
+                                        </apex:column>
+                                        <apex:column >
+                                            <apex:facet name="header">
+                                                <span onclick="updateSortDirection_js('Forecast_Status'); return false" >
+                                                    
+                                                    <br/>Status
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='Forecast_Status','','none')}">&#9650;</span>
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='Forecast_Status','','none')}">&#9660;</span>
+                                                    <!--<apex:outputText value="Status"></apex:outputText>
+                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='Forecast_Status'}"/>
+                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='Forecast_Status'}"/>-->
+                                                </span>
+                                            </apex:facet>
+
+                                            <!--<apex:outputText style="color:{!If(a3.forecast.Forecast_Status__c == 'Preparation' || a3.forecast.Forecast_Status__c == 'Adjustment Requested','red',If(a3.forecast.Forecast_Status__c == 'Submitted','orange','green'))}" rendered="{!a3.forecast.Forecast_Status__c != null}" value="{!a3.forecast.Forecast_Status__c}"></apex:outputText>
+                                            <apex:outputText style="color:red" rendered="{!a3.forecast.Forecast_Status__c == null}" value="Not Provided"></apex:outputText>-->
+                                            <span style="color:{!If(a3.forecast.Forecast_Status__c == 'Preparation' || a3.forecast.Forecast_Status__c == 'Adjustment Requested','red',If(a3.forecast.Forecast_Status__c == 'Submitted','orange','green'))};display: {!if(a3.forecast.Forecast_Status__c != null,'','none')}">{!a3.forecast.Forecast_Status__c}</span>
+                                            <span style="color:red;display: {!if(a3.forecast.Forecast_Status__c == null,'','none')}" >Not Provided</span>
+                                            <apex:facet name="footer">
+                                                <span style="float: right;" >Totals:</span>
+                                            </apex:facet>
+                                        </apex:column>
+                                        <apex:column >
+                            <apex:facet name="header" ><br/>
+                                    Budgeted Sales
+                            </apex:facet>
+<apex:inputField rendered="{!or($Profile.Name=='System Administrator',$Profile.Name=='RWI COO - sf')}" value="{!a3.forecast.Budgeted_Sales__c}">
+                                <apex:actionSupport event="onchange" 
+                                action="{!update_AYF}" 
+                                rerender="dummy" status="myStatus">
+                                     <apex:param name="userId" value="{!k}" assignTo="{!userId}"/>
+                                     <apex:param name="ayf_Id" value="{!a3.forecast.id}" assignTo="{!ayf_Id}"/>
+                                </apex:actionSupport>
+                            </apex:inputField>
+                        </apex:column>
+                                        <!--<apex:column >
+                                            <apex:facet name="header">
+                                                <apex:outputpanel onclick="updateSortDirection_js('cwSum_2year'); return false" >
+                                                    <apex:outputText value="${0, number,}">
+                                                        <apex:param value="{!UserId_Totals[k].cwSum_2year}" />
+                                                    </apex:outputText>
+                                                    <br/>Close/Won Amount {!YEAR(stDate)-2}
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum_2year','','none')}">&#9650;</span>
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum_2year','','none')}">&#9660;</span>-->
+                                                    <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)-2}"></apex:outputText>
+                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum_2year'}"/>
+                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum_2year'}"/>-->
+                                                <!--</apex:outputpanel>
+                                            </apex:facet>
+                                            $
+                                            <apex:outputText value="{0, number, }">
+                                                <apex:param value="{!a3.cwSum_2year}" />
+                                            </apex:outputText>
+                                            <apex:facet name="footer">
+                                                <apex:outputText value="${0, number,}">
+                                                    <apex:param value="{!UserId_ownTotals[k].cwSum_2year}" />
+                                                </apex:outputText>
+                                            </apex:facet>
+                                        </apex:column>-->
+                                      <!--  <apex:column >
+                                            <apex:facet name="header">
+                                                <apex:outputpanel onclick="updateSortDirection_js('cwSum_1year'); return false">
+                                                    <apex:outputText value="${0, number,}">
+                                                        <apex:param value="{!UserId_Totals[k].cwSum_1year}" />
+                                                    </apex:outputText>
+                                                    <br/>Close/Won Amount {!YEAR(stDate)-1}
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum_1year','','none')}">&#9650;</span>
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum_1year','','none')}">&#9660;</span>-->
+                                                    <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)-1}"></apex:outputText>
+                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum_1year'}"/>
+                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum_1year'}"/>-->
+                                               <!-- </apex:outputpanel>
+                                            </apex:facet>
+                                            $
+                                            <apex:outputText value="{0, number, }">
+                                                <apex:param value="{!a3.cwSum_1year}" />
+                                            </apex:outputText>
+                                            <apex:facet name="footer">
+                                                <apex:outputText value="${0, number,}">
+                                                    <apex:param value="{!UserId_ownTotals[k].cwSum_1year}" />
+                                                </apex:outputText>
+                                            </apex:facet>
+                                        </apex:column>-->
+
+                                        <apex:column >
+                                            <apex:facet name="header">
+                                                <apex:outputpanel onclick="updateSortDirection_js('pAmountSum'); return false">
+                                                    <apex:outputText value="${0, number,}">
+                                                        <apex:param value="{!UserId_Totals[k].pAmountSum}" />
+                                                    </apex:outputText>
+                                                    <br/>Projected Amount
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='pAmountSum','','none')}">&#9650;</span>
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='pAmountSum','','none')}">&#9660;</span>
+                                                    <!--<apex:outputText value="Projected Amount"></apex:outputText>
+                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='pAmountSum'}"/>
+                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='pAmountSum'}"/>-->
+                                                </apex:outputpanel>
+                                            </apex:facet>
+
+                                            $
+                                            <apex:outputText value="{0, number, }">
+                                                <apex:param value="{!a3.pAmountSum}" />
+                                            </apex:outputText>
+                                            <apex:facet name="footer">
+                                                <apex:outputText value="${0, number,}">
+                                                    <apex:param value="{!UserId_ownTotals[k].pAmountSum}" />
+                                                </apex:outputText>
+                                            </apex:facet>
+                                        </apex:column>
+                                        
+                                        
+                                        <!-- Reviewed By Column - Seth Stoll -->
+                                        <apex:column >
+                                            <apex:facet name="header">
+                                                <apex:outputpanel onclick="updateSortDirection_js('budget_SalesSum'); return false">
+                                                    <apex:outputText value="${0, number,}">
+                                                        <apex:param value="{!UserId_Totals[k].budget_SalesSum}" />
+                                                    </apex:outputText>
+                                                    <br/>Reviewed Amount
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='budget_SalesSum','','none')}">&#9650;</span>
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='budget_SalesSum','','none')}">&#9660;</span>
+                                                    <!--<apex:outputText value="Projected Amount"></apex:outputText>
+                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='budget_SalesSum'}"/>
+                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='budget_SalesSum'}"/>-->
+                                                </apex:outputpanel>
+                                            </apex:facet>
+
+                                            $
+                                            <apex:outputText value="{0, number, }">
+                                                <apex:param value="{!a3.budget_SalesSum}" />
+                                            </apex:outputText>
+                                            <apex:facet name="footer">
+                                                <apex:outputText value="${0, number,}">
+                                                    <apex:param value="{!UserId_ownTotals[k].budget_SalesSum}" />
+                                                </apex:outputText>
+                                            </apex:facet>
+                                        </apex:column>
+                                       <!-- Reviewed By Column - Seth Stoll -->
+                                       
+                                       
+                                       <!-- COMMENT OUT FOR SIZE - Seth Stoll >
+                                        <apex:column >
+                                            <apex:facet name="header">
+                                                <apex:outputpanel onclick="updateSortDirection_js('cwSum'); return false" >
+                                                    <apex:outputText value="${0, number,}">
+                                                        <apex:param value="{!UserId_Totals[k].cwSum}" />
+                                                    </apex:outputText>
+                                                    <br/>Close/Won Amount {!YEAR(stDate)}
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum','','none')}">&#9650;</span>
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum','','none')}">&#9660;</span>
+                                                   //// <apex:outputText value="Close/Won Amount {!YEAR(stDate)}"></apex:outputText>
+                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum'}"/>
+                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum'}"/>
+                                                </apex:outputpanel>
+                                            </apex:facet>
+                                            $
+                                            <apex:outputText value="{0, number, }">
+                                                <apex:param value="{!a3.cwSum}" />
+                                            </apex:outputText>
+                                            <apex:facet name="footer">
+                                                <apex:outputText value="${0, number,}">
+                                                    <apex:param value="{!UserId_ownTotals[k].cwSum}" />
+                                                </apex:outputText>
+                                            </apex:facet>
+                                        </apex:column>
+                                        -->
+                                        
+                                        <!-- COMMENT OUT FOR SIZE - Seth Stoll >
+                                        <apex:column >
+                                            <apex:facet name="header">
+                                                <apex:outputpanel onclick="updateSortDirection_js('openSum'); return false">
+                                                    <apex:outputText value="${0, number,}">
+                                                        <apex:param value="{!UserId_Totals[k].openSum}" />
+                                                    </apex:outputText>
+                                                    <br/>Open Amount
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='openSum','','none')}">&#9650;</span>
+                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='openSum','','none')}">&#9660;</span>
+                                                   ///// <apex:outputText value="Open Amount"></apex:outputText>
+                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='openSum'}"/>
+                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='openSum'}"/> /////
+                                                </apex:outputpanel>
+                                            </apex:facet>
+                                            $
+                                            <apex:outputText value="{0, number, }">
+                                                <apex:param value="{!a3.openSum}" />
+                                            </apex:outputText>
+                                            <apex:facet name="footer">
+                                                <apex:outputText value="${0, number,}">
+                                                    <apex:param value="{!UserId_ownTotals[k].openSum}" />
+                                                </apex:outputText>
+                                            </apex:facet>
+                                        </apex:column>
+                                        -->
+
+                                    </apex:pageBlockTable>
+                                    <apex:repeat value="{!UserId_subordinateList_Map[k]}" var="l">
+                                        <apex:pageBlockSection collapsible="true" rendered="{!userID_hasSaleRep[l]}" showHeader="true" title="{!UserId_User_Map[l].Name} {!if(UserId_User_Map[l].SalesRepId1__c==null,'','('+UserId_User_Map[l].SalesRepId1__c+')')}" columns="1">
+                                            <apex:pageBlockTable value="{!UserId_AccountList_Map[l]}"  var="a4" columns="8" >
+                                                <apex:column >
+                                                    <apex:facet name="header">
+                                                        <span onclick="updateSortDirection_js('accName'); return false">
+                                                            <br/>Name
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='accName','','none')}">&#9650;</span>
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='accName','','none')}">&#9660;</span>
+
+                                                            <!--<apex:outputText value="Name"></apex:outputText>
+                                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='accName'}"/>
+                                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='accName'}"/>-->
+                                                        </span>
+                                                    </apex:facet>
+
+                                                    <a href="/apex/AccountForecastbyCustomer?Id={!a4.accId}&year={!year(defaultDate)}&manager=m">{!a4.accName} </a>
+                                                </apex:column>
+                                                <apex:column >
+                                                    <apex:facet name="header">
+                                                        <span onclick="updateSortDirection_js('Forecast_Status'); return false">
+                                                            
+                                                            <br/>Status
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='Forecast_Status','','none')}">&#9650;</span>
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='Forecast_Status','','none')}">&#9660;</span>
+                                                            <!--<apex:outputText value="Status"></apex:outputText>
+                                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='Forecast_Status'}"/>
+                                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='Forecast_Status'}"/>-->
+                                                        </span>
+                                                    </apex:facet>
+
+                                                    <!--<apex:outputText style="color:{!If(a4.forecast.Forecast_Status__c == 'Preparation' || a4.forecast.Forecast_Status__c == 'Adjustment Requested','red',If(a4.forecast.Forecast_Status__c == 'Submitted','orange','green'))}" rendered="{!a4.forecast.Forecast_Status__c != null}" value="{!a4.forecast.Forecast_Status__c}"></apex:outputText>
+                                                    <apex:outputText style="color:red" rendered="{!a4.forecast.Forecast_Status__c == null}" value="Not Provided"></apex:outputText>-->
+                                                    <span style="color:{!If(a4.forecast.Forecast_Status__c == 'Preparation' || a4.forecast.Forecast_Status__c == 'Adjustment Requested','red',If(a4.forecast.Forecast_Status__c == 'Submitted','orange','green'))};display:{!if(a4.forecast.Forecast_Status__c != null,'','none')}" >{!a4.forecast.Forecast_Status__c}</span>
+                                                    <span style="color:red;display:{!if(a4.forecast.Forecast_Status__c == null,'','none')}" >Not Provided</span>
+
+                                                    <apex:facet name="footer">
+                                                        <span style="float: right;" >Totals:</span>
+                                                    </apex:facet>
+                                                </apex:column>
+                                                <apex:column >
+                            <apex:facet name="header" ><br/>
+                                    Budgeted Sales
+                            </apex:facet>
+<apex:inputField rendered="{!or($Profile.Name=='System Administrator',$Profile.Name=='RWI COO - sf')}" value="{!a4.forecast.Budgeted_Sales__c}">
+                                <apex:actionSupport event="onchange" 
+                                action="{!update_AYF}" 
+                                rerender="dummy" status="myStatus">
+                                     <apex:param name="userId" value="{!l}" assignTo="{!userId}"/>
+                                     <apex:param name="ayf_Id" value="{!a4.forecast.id}" assignTo="{!ayf_Id}"/>
+                                </apex:actionSupport>
+                            </apex:inputField>
+                        </apex:column>
+                                               <!-- <apex:column >
+                                                    <apex:facet name="header" >
+                                                        <apex:outputpanel onclick="updateSortDirection_js('cwSum_2year'); return false">
+                                                            <apex:outputText value="${0, number,}">
+                                                                <apex:param value="{!UserId_Totals[l].cwSum_2year}" />
+                                                            </apex:outputText>
+                                                            <br/>Close/Won Amount {!YEAR(stDate)-2}
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum_2year','','none')}">&#9650;</span>
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum_2year','','none')}">&#9660;</span>-->
+                                                            <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)-2}"></apex:outputText>
+                                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum_2year'}"/>
+                                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum_2year'}"/>-->
+                                                        <!--</apex:outputpanel>
+                                                    </apex:facet>
+                                                    $
+                                                    <apex:outputText value="{0, number, }">
+                                                        <apex:param value="{!a4.cwSum_2year}" />
+                                                    </apex:outputText>
+                                                    <apex:facet name="footer">
+                                                        <apex:outputText value="${0, number,}">
+                                                            <apex:param value="{!UserId_ownTotals[l].cwSum_2year}" />
+                                                        </apex:outputText>
+                                                    </apex:facet>
+                                                </apex:column>-->
+                                               <!-- <apex:column >
+                                                    <apex:facet name="header">
+                                                        <apex:outputpanel onclick="updateSortDirection_js('cwSum_1year'); return false">
+                                                            <apex:outputText value="${0, number,}">
+                                                                <apex:param value="{!UserId_Totals[l].cwSum_1year}" />
+                                                            </apex:outputText>
+                                                            <br/>Close/Won Amount {!YEAR(stDate)-1}
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum_1year','','none')}">&#9650;</span>
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum_1year','','none')}">&#9660;</span>-->
+                                                            <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)-1}"></apex:outputText>
+                                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum_1year'}"/>
+                                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum_1year'}"/>-->
+                                                        <!--</apex:outputpanel>
+                                                    </apex:facet>
+                                                    $
+                                                    <apex:outputText value="{0, number, }">
+                                                        <apex:param value="{!a4.cwSum_1year}" />
+                                                    </apex:outputText>
+                                                    <apex:facet name="footer">
+                                                        <apex:outputText value="${0, number,}">
+                                                            <apex:param value="{!UserId_ownTotals[l].cwSum_1year}" />
+                                                        </apex:outputText>
+                                                    </apex:facet>
+                                                </apex:column>-->
+                                                <apex:column >
+                                                    <apex:facet name="header">
+                                                        <apex:outputpanel onclick="updateSortDirection_js('pAmountSum'); return false">
+                                                            <apex:outputText value="${0, number,}">
+                                                                <apex:param value="{!UserId_Totals[l].pAmountSum}" />
+                                                            </apex:outputText>
+                                                            <br/>Projected Amount
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='pAmountSum','','none')}">&#9650;</span>
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='pAmountSum','','none')}">&#9660;</span>
+                                                            <!--<apex:outputText value="Projected Amount"></apex:outputText>
+                                                            <<apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='pAmountSum'}"/>
+                                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='pAmountSum'}"/>-->
+                                                        </apex:outputpanel>
+                                                    </apex:facet>
+
+                                                    $
+                                                    <apex:outputText value="{0, number, }">
+                                                        <apex:param value="{!a4.pAmountSum}" />
+                                                    </apex:outputText>
+                                                    <apex:facet name="footer">
+                                                        <apex:outputText value="${0, number,}">
+                                                            <apex:param value="{!UserId_ownTotals[l].pAmountSum}" />
+                                                        </apex:outputText>
+                                                    </apex:facet>
+                                                </apex:column>
+                                                
+                                                <!-- Reviewed by Column - Seth Stoll -->
+                                                <apex:column >
+                                                    <apex:facet name="header">
+                                                        <apex:outputpanel onclick="updateSortDirection_js('budget_SalesSum'); return false">
+                                                            <apex:outputText value="${0, number,}">
+                                                                <apex:param value="{!UserId_Totals[l].budget_SalesSum}" />
+                                                            </apex:outputText>
+                                                            <br/>Reviewed Amount
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='budget_SalesSum','','none')}">&#9650;</span>
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='budget_SalesSum','','none')}">&#9660;</span>
+                                                            <!--<apex:outputText value="Projected Amount"></apex:outputText>
+                                                            <<apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='budget_SalesSum'}"/>
+                                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='budget_SalesSum'}"/>-->
+                                                        </apex:outputpanel>
+                                                    </apex:facet>
+
+                                                    $
+                                                    <apex:outputText value="{0, number, }">
+                                                        <apex:param value="{!a4.budget_SalesSum}" />
+                                                    </apex:outputText>
+                                                    <apex:facet name="footer">
+                                                        <apex:outputText value="${0, number,}">
+                                                            <apex:param value="{!UserId_ownTotals[l].budget_SalesSum}" />
+                                                        </apex:outputText>
+                                                    </apex:facet>
+                                                </apex:column>
+                                                <!-- end Reviewed by Column - Seth Stoll -->
+                                                
+                                                <!-- COMMENT out for SIZE - Seth Stoll 
+                                                <apex:column >
+                                                    <apex:facet name="header">
+                                                        <apex:outputpanel onclick="updateSortDirection_js('cwSum'); return false">
+                                                            <apex:outputText value="${0, number,}">
+                                                                <apex:param value="{!UserId_Totals[l].cwSum}" />
+                                                            </apex:outputText>
+                                                            <br/>Close/Won Amount {!YEAR(stDate)}
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum','','none')}">&#9650;</span>
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum','','none')}">&#9660;</span>
+                                                            ////// <apex:outputText value="Close/Won Amount {!YEAR(stDate)}"></apex:outputText>
+                                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum'}"/>
+                                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum'}"/> //////
+                                                        </apex:outputpanel>
+                                                    </apex:facet>
+                                                    $
+                                                    <apex:outputText value="{0, number, }">
+                                                        <apex:param value="{!a4.cwSum}" />
+                                                    </apex:outputText>
+                                                    <apex:facet name="footer">
+                                                        <apex:outputText value="${0, number,}">
+                                                            <apex:param value="{!UserId_ownTotals[l].cwSum}" />
+                                                        </apex:outputText>
+                                                    </apex:facet>
+                                                </apex:column>
+                                                -->
+                                                
+                                                <!-- COMMENT out for SIZE - Seth Stoll 
+                                                <apex:column >
+                                                    <apex:facet name="header">
+                                                        <apex:outputpanel onclick="updateSortDirection_js('openSum'); return false" >
+                                                            <apex:outputText value="${0, number,}">
+                                                                <apex:param value="{!UserId_Totals[l].openSum}" />
+                                                            </apex:outputText>
+                                                            <br/>Open Amount
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='openSum','','none')}">&#9650;</span>
+                                                            <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='openSum','','none')}">&#9660;</span>
+                                                            ////// <apex:outputText value="Open Amount"></apex:outputText>
+                                                            <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='openSum'}"/>
+                                                            <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='openSum'}"/> //////
+                                                        </apex:outputpanel>
+                                                    </apex:facet>
+                                                    $
+                                                    <apex:outputText value="{0, number, }">
+                                                        <apex:param value="{!a4.openSum}" />
+                                                    </apex:outputText>
+                                                    <apex:facet name="footer">
+                                                        <apex:outputText value="${0, number,}">
+                                                            <apex:param value="{!UserId_ownTotals[l].openSum}" />
+                                                        </apex:outputText>
+                                                    </apex:facet>
+                                                </apex:column>
+                                                -->
+
+                                            </apex:pageBlockTable>
+                                            <apex:repeat value="{!UserId_subordinateList_Map[l]}" var="m">
+                                                <apex:pageBlockSection collapsible="true" rendered="{!userID_hasSaleRep[m]}" showHeader="true" title="{!UserId_User_Map[m].Name} {!if(UserId_User_Map[m].SalesRepId1__c==null,'','('+UserId_User_Map[m].SalesRepId1__c+')')}" columns="1">
+                                                    <apex:pageBlockTable value="{!UserId_AccountList_Map[m]}"  var="a5" columns="8" >
+                                                        <apex:column >
+                                                            <apex:facet name="header">
+                                                                <span onclick="updateSortDirection_js('accName'); return false">
+                                                                    <br/>Name
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='accName','','none')}">&#9650;</span>
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='accName','','none')}">&#9660;</span>
+
+                                                                    <!--<apex:outputText value="Name"></apex:outputText>
+                                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='accName'}"/>
+                                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='accName'}"/>-->
+                                                                </span>
+                                                            </apex:facet>
+
+                                                            <a value="/apex/AccountForecastbyCustomer?Id={!a5.accId}&year={!year(defaultDate)}&manager=m">{!a5.accName} </a>
+                                                        </apex:column>
+                                                        <apex:column >
+                                                            <apex:facet name="header" >
+                                                                <span onclick="updateSortDirection_js('Forecast_Status'); return false">
+                                                                    
+                                                                    <br/>Status
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='Forecast_Status','','none')}">&#9650;</span>
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='Forecast_Status','','none')}">&#9660;</span>
+                                                                    <!--<apex:outputText value="Status"></apex:outputText>
+                                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='Forecast_Status'}"/>
+                                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='Forecast_Status'}"/>-->
+                                                                </span>
+                                                            </apex:facet>
+
+                                                            <!--<apex:outputText style="color:{!If(a5.forecast.Forecast_Status__c == 'Preparation' || a5.forecast.Forecast_Status__c == 'Adjustment Requested','red',If(a5.forecast.Forecast_Status__c == 'Submitted','orange','green'))}" rendered="{!a5.forecast.Forecast_Status__c != null}" value="{!a5.forecast.Forecast_Status__c}"></apex:outputText>
+                                                            <apex:outputText style="color:red" rendered="{!a5.forecast.Forecast_Status__c == null}" value="Not Provided"></apex:outputText>-->
+                                                            <span style="color:{!If(a5.forecast.Forecast_Status__c == 'Preparation' || a5.forecast.Forecast_Status__c == 'Adjustment Requested','red',If(a5.forecast.Forecast_Status__c == 'Submitted','orange','green'))};display: {!if(a5.forecast.Forecast_Status__c != null,'','none')}" >{!a5.forecast.Forecast_Status__c}</span>
+                                                            <span style="color:red;display: {!if(a5.forecast.Forecast_Status__c == null,'','none')}">Not Provided</span>
+                                                            <apex:facet name="footer">
+                                                                <span style="float: right;" >Totals:</span>
+                                                            </apex:facet>
+                                                        </apex:column>
+                                                        <apex:column >
+                                                            <apex:facet name="header" ><br/>
+                                                                Budgeted Sales
+                                                            </apex:facet>
+                                                             <apex:inputField rendered="{!or($Profile.Name=='System Administrator',$Profile.Name=='RWI COO - sf')}" value="{!a5.forecast.Budgeted_Sales__c}">
+                                                                <apex:actionSupport event="onchange" 
+                                                                action="{!update_AYF}" 
+                                                                rerender="dummy" status="myStatus">
+                                                                     <apex:param name="userId" value="{!m}" assignTo="{!userId}"/>
+                                                                     <apex:param name="ayf_Id" value="{!a5.forecast.id}" assignTo="{!ayf_Id}"/>
+                                                                </apex:actionSupport>
+                                                            </apex:inputField>
+
+                                                        </apex:column>
+                                                        <!--<apex:column >
+                                                            <apex:facet name="header">
+                                                                <apex:outputpanel onclick="updateSortDirection_js('cwSum_2year'); return false">
+                                                                    <apex:outputText value="${0, number,}">
+                                                                        <apex:param value="{!UserId_Totals[m].cwSum_2year}" />
+                                                                    </apex:outputText>
+                                                                    <br/>Close/Won Amount {!YEAR(stDate)-2}
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum_2year','','none')}">&#9650;</span>
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum_2year','','none')}">&#9660;</span>-->
+                                                                    <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)-2}"></apex:outputText>
+                                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum_2year'}"/>
+                                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum_2year'}"/>-->
+                                                               <!-- </apex:outputpanel>
+                                                            </apex:facet>
+                                                            $
+                                                            <apex:outputText value="{0, number, }">
+                                                                <apex:param value="{!a5.cwSum_2year}" />
+                                                            </apex:outputText>
+                                                            <apex:facet name="footer">
+                                                                <apex:outputText value="${0, number,}">
+                                                                    <apex:param value="{!UserId_ownTotals[m].cwSum_2year}" />
+                                                                </apex:outputText>
+                                                            </apex:facet>
+                                                        </apex:column>-->
+                                                       <!-- <apex:column >
+                                                            <apex:facet name="header">
+                                                                <apex:outputpanel onclick="updateSortDirection_js('cwSum_1year'); return false">
+                                                                    <apex:outputText value="${0, number,}">
+                                                                        <apex:param value="{!UserId_Totals[m].cwSum_1year}" />
+                                                                    </apex:outputText>
+                                                                    <br/>Close/Won Amount {!YEAR(stDate)-1}
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum_1year','','none')}">&#9650;</span>
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum_1year','','none')}">&#9660;</span>-->
+                                                                    <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)-1}"></apex:outputText>
+                                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum_1year'}"/>
+                                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum_1year'}"/>-->
+                                                               <!-- </apex:outputpanel>
+                                                            </apex:facet>
+                                                            $
+                                                            <apex:outputText value="{0, number, }">
+                                                                <apex:param value="{!a5.cwSum_1year}" />
+                                                            </apex:outputText>
+                                                            <apex:facet name="footer">
+                                                                <apex:outputText value="${0, number,}">
+                                                                    <apex:param value="{!UserId_ownTotals[m].cwSum_1year}" />
+                                                                </apex:outputText>
+                                                            </apex:facet>
+                                                        </apex:column>-->
+
+                                                        <apex:column >
+                                                            <apex:facet name="header">
+                                                                <apex:outputpanel onclick="updateSortDirection_js('pAmountSum'); return false">
+                                                                    <apex:outputText value="${0, number,}">
+                                                                        <apex:param value="{!UserId_Totals[m].pAmountSum}" />
+                                                                    </apex:outputText>
+                                                                    <br/>Projected Amount
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='pAmountSum','','none')}">&#9650;</span>
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='pAmountSum','','none')}">&#9660;</span>
+                                                                    <!--<apex:outputText value="Projected Amount"></apex:outputText>
+                                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='pAmountSum'}"/>
+                                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='pAmountSum'}"/>-->
+                                                                </apex:outputpanel>
+                                                            </apex:facet>
+
+                                                            $
+                                                            <apex:outputText value="{0, number, }">
+                                                                <apex:param value="{!a5.pAmountSum}" />
+                                                            </apex:outputText>
+                                                            <apex:facet name="footer">
+                                                                <apex:outputText value="${0, number,}">
+                                                                    <apex:param value="{!UserId_ownTotals[m].pAmountSum}" />
+                                                                </apex:outputText>
+                                                            </apex:facet>
+                                                        </apex:column>
+                                                        
+                                                        
+                                                        <!-- Reviewed by Column - Seth Stoll -->
+                                                        <apex:column >
+                                                            <apex:facet name="header">
+                                                                <apex:outputpanel onclick="updateSortDirection_js('budget_SalesSum'); return false">
+                                                                    <apex:outputText value="${0, number,}">
+                                                                        <apex:param value="{!UserId_Totals[m].budget_SalesSum}" />
+                                                                    </apex:outputText>
+                                                                    <br/>Reviewed Amount
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='budget_SalesSum','','none')}">&#9650;</span>
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='budget_SalesSum','','none')}">&#9660;</span>
+                                                                    <!--<apex:outputText value="Projected Amount"></apex:outputText>
+                                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='budget_SalesSum'}"/>
+                                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='budget_SalesSum'}"/>-->
+                                                                </apex:outputpanel>
+                                                            </apex:facet>
+
+                                                            $
+                                                            <apex:outputText value="{0, number, }">
+                                                                <apex:param value="{!a5.budget_SalesSum}" />
+                                                            </apex:outputText>
+                                                            <apex:facet name="footer">
+                                                                <apex:outputText value="${0, number,}">
+                                                                    <apex:param value="{!UserId_ownTotals[m].budget_SalesSum}" />
+                                                                </apex:outputText>
+                                                            </apex:facet>
+                                                        </apex:column>
+                                                        <!--  endReviewed by Column - Seth Stoll -->
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <apex:column >
+                                                            <apex:facet name="header">
+                                                                <apex:outputpanel onclick="updateSortDirection_js('cwSum'); return false">
+                                                                    <apex:outputText value="${0, number,}">
+                                                                        <apex:param value="{!UserId_Totals[m].cwSum}" />
+                                                                    </apex:outputText>
+                                                                    <br/>Close/Won Amount {!YEAR(stDate)}
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='cwSum','','none')}">&#9650;</span>
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='cwSum','','none')}">&#9660;</span>
+                                                                    <!--<apex:outputText value="Close/Won Amount {!YEAR(stDate)}"></apex:outputText>
+                                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='cwSum'}"/>
+                                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='cwSum'}"/>-->
+                                                                </apex:outputpanel>
+                                                            </apex:facet>
+                                                            $
+                                                            <apex:outputText value="{0, number, }">
+                                                                <apex:param value="{!a5.cwSum}" />
+                                                            </apex:outputText>
+                                                            <apex:facet name="footer">
+                                                                <apex:outputText value="${0, number,}">
+                                                                    <apex:param value="{!UserId_ownTotals[m].cwSum}" />
+                                                                </apex:outputText>
+                                                            </apex:facet>
+                                                        </apex:column>
+
+                                                        <apex:column >
+                                                            <apex:facet name="header">
+                                                                <apex:outputpanel onclick="updateSortDirection_js('openSum'); return false">
+                                                                    <apex:outputText value="${0, number,}">
+                                                                        <apex:param value="{!UserId_Totals[m].openSum}" />
+                                                                    </apex:outputText>
+                                                                    <br/>Open Amount
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='asc'&&currentField=='openSum','','none')}">&#9650;</span>
+                                                                    <span style="float:right;font-size:20px;display: {!if(sortDirection=='desc'&&currentField=='openSum','','none')}">&#9660;</span>
+                                                                    <!--<apex:outputText value="Open Amount"></apex:outputText>
+                                                                    <apex:image value="{!$Resource.sortUP}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='asc'&&currentField=='openSum'}"/>
+                                                                    <apex:image value="{!$Resource.sortdown}" style="float:right;" width="20" height="20" rendered="{!sortDirection=='desc'&&currentField=='openSum'}"/>-->
+                                                                </apex:outputpanel>
+                                                            </apex:facet>
+                                                            $
+                                                            <apex:outputText value="{0, number, }">
+                                                                <apex:param value="{!a5.openSum}" />
+                                                            </apex:outputText>
+                                                            <apex:facet name="footer">
+                                                                <apex:outputText value="${0, number,}">
+                                                                    <apex:param value="{!UserId_ownTotals[m].openSum}" />
+                                                                </apex:outputText>
+                                                            </apex:facet>
+
+                                                        </apex:column>
+                                                    </apex:pageBlockTable>
+                                                </apex:pageBlockSection>
+                                            </apex:repeat>
+                                        </apex:pageBlockSection>
+                                    </apex:repeat>
+                                </apex:pageBlockSection>
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+            </apex:repeat>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

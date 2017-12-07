@@ -1,0 +1,35 @@
+<messaging:emailTemplate subject="SF: Opportunity released for booking {!relatedTo.Account.Name} - {!relatedTo.Name} - {!relatedTo.Quote_Type__c}" recipientType="Contact" relatedToType="Opportunity">
+
+
+<messaging:plainTextEmailBody >
+
+---- Order Release ----
+
+Account Name: {!relatedTo.Account.Name}
+Opportunity Name: {!relatedTo.Name}
+Opportunity Link: https://richwood.my.salesforce.com/{!relatedTo.id}
+
+Sales Rep: {!relatedTo.Owner.Name}
+Manager: {!relatedTo.Owner.Manager.Name}
+
+Contacts:
+<apex:repeat value="{!relatedTo.OpportunityContactRoles}" var="ocr">
+{!ocr.Role }: {!ocr.contact.Name} - {!ocr.contact.Email}
+</apex:repeat>
+
+Belt Designation:
+<apex:repeat value="{!relatedTo.Opportunity_Assets__r}" var="oa">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{!oa.Customer_Asset__r.Name}
+</apex:repeat>
+Type: {!relatedTo.Type}
+Quote Type: {!relatedTo.Quote_Type__c}
+
+
+Description: {!relatedTo.Description}
+
+
+All Opportunities ready for Booking: https://richwood.lightning.force.com/one/one.app?source=aloha#/sObject/Opportunity/list?filterName=00B36000007rYJnEAM
+
+Please process, then update to the appropriate closed stage"
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

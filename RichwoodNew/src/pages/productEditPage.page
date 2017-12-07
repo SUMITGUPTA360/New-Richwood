@@ -1,0 +1,28 @@
+<apex:page controller="proudctEditPage_ctrl" tabStyle="contact" >
+    <apex:form >
+         <apex:pageblock rendered="{!isDesktop}" >
+            <apex:pageBlockSection title="Enter New Opportuntiy Line Item Details" collapsible="false">
+                <apex:pageBlockSectionItem ><b>Product Name:</b></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputText value="{!$CurrentPage.parameters.product_name}"/></apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem ><b>List Price:</b></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputText value="{!$CurrentPage.parameters.UnitPrice}"/></apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem ><b>Quantity :</b></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:inputField value="{!OpportunityLineItem_Obj.Quantity}"/></apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem ><b>Sales Price:</b></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:inputField value="{!OpportunityLineItem_Obj.UnitPrice}"/></apex:pageBlockSectionItem>
+                    
+                    
+                    <apex:pageBlockSectionItem ><b>Line Description:</b></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:inputField value="{!OpportunityLineItem_Obj.Description}"/></apex:pageBlockSectionItem>
+                    
+                </apex:pageBlockSection>
+        		<apex:pageBlockButtons location="bottom">
+             		<apex:commandButton value="Save" action="{!saveOpportunityLineItem}" />
+                    <apex:commandButton value="Cancel" immediate="true" action="{!cancelOpportunityLineItem}"/>
+             	</apex:pageBlockButtons>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

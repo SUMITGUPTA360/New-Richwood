@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account Source Detail --></label>
+        <name>Account_Source_Detail__c</name>
+        <picklistValues>
+            <masterLabel>EZSelect</masterLabel>
+            <translation><!-- EZSelect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SME</masterLabel>
+            <translation><!-- SME --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Area of Distribution --></label>
+        <name>Area_of_Distribution__c</name>
+        <picklistValues>
+            <masterLabel>International</masterLabel>
+            <translation><!-- International --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local</masterLabel>
+            <translation><!-- Local --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National</masterLabel>
+            <translation><!-- National --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regional</masterLabel>
+            <translation><!-- Regional --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Brand Names --></label>
+        <name>Brand_Names__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>CommercientSF__Active__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Commercient ArCustomerCode --></label>
+        <name>CommercientSF__Commercient_ArCustomerCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commercient CustomerGUID --></label>
+        <name>CommercientSF__Commercient_CustomerGUID2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commercient CustomerGUID --></label>
+        <name>CommercientSF__Commercient_CustomerGUID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Priority --></label>
+        <name>CommercientSF__CustomerPriority__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number of Locations --></label>
+        <name>CommercientSF__NumberofLocations__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLA Expiration Date --></label>
+        <name>CommercientSF__SLAExpirationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLA Serial Number --></label>
+        <name>CommercientSF__SLASerialNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLA --></label>
+        <name>CommercientSF__SLA__c</name>
+        <picklistValues>
+            <masterLabel>Bronze</masterLabel>
+            <translation><!-- Bronze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold</masterLabel>
+            <translation><!-- Gold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum</masterLabel>
+            <translation><!-- Platinum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver</masterLabel>
+            <translation><!-- Silver --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Syspro Customer Record --></label>
+        <name>CommercientSF__Syspro_Customer_Record__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Upsell Opportunity --></label>
+        <name>CommercientSF__UpsellOpportunity__c</name>
+        <picklistValues>
+            <masterLabel>Maybe</masterLabel>
+            <translation><!-- Maybe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ISO Ratings --></label>
+        <name>ISO_Ratings__c</name>
+    </fields>
+    <fields>
+        <label><!-- Include in Forecast --></label>
+        <name>Include_in_Forecast__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary SIC Code --></label>
+        <name>Primary_SIC_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- SIC Code 2 --></label>
+        <name>SIC_Code_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- SIC Code 3 --></label>
+        <name>SIC_Code_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- SIC Code 4 --></label>
+        <name>SIC_Code_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Year Established --></label>
+        <name>Year_Established__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hierarchy Parents --></label>
+        <name>accHierarchy__Hierarchy_Parents__c</name>
+    </fields>
+    <fields>
+        <label><!-- On Previous Hierarchy Level --></label>
+        <name>accHierarchy__On_Previous_Hierarchy_Level__c</name>
+    </fields>
+    <fields>
+        <label><!-- Top Parent Id --></label>
+        <name>accHierarchy__TopParentId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Has Child With Changes --></label>
+        <name>accHierarchy__hasChildWithChanges__c</name>
+    </fields>
+    <layouts>
+        <layout>Castings Account Layout</layout>
+        <sections>
+            <label><!-- Additional Details --></label>
+            <section>Additional Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Executive Account Layout</layout>
+        <sections>
+            <label><!-- Account Summary --></label>
+            <section>Account Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Box Files --></label>
+            <section>Box Files</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>RWI Account Layout</layout>
+        <sections>
+            <label><!-- Account Summary --></label>
+            <section>Account Summary</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Child Account --></label>
+        <name>Child_Account</name>
+    </quickActions>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Quick_Opportunity --></label>
+        <name>Quick_Opportunity</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Button_View_Hierarchy --></label>
+        <name>accHierarchy__Button_View_Hierarchy</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Pardot_Emails --></label>
+        <name>pi__Send_Pardot_Emails</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Single_Pardot_Email --></label>
+        <name>pi__Send_Single_Pardot_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_To_Prospect_Insight --></label>
+        <name>pi__Send_To_Prospect_Insight</name>
+    </webLinks>
+</CustomObjectTranslation>

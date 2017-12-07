@@ -1,0 +1,7 @@
+This quote has been sent.
+
+Opportunity Name: {!Opportunity.Name}
+Account Name: {!Opportunity.Account}
+Sales Rep: {!Opportunity.OwnerFullName}
+Quote Prepared By: {!Opportunity.Quote_Assigned_To__c}
+Link to Opportunity: {!Opportunity.Link}

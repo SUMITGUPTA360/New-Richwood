@@ -1,0 +1,454 @@
+<apex:page controller="SF1_Opportunity_ctrl" id="pg" tabStyle="contact" >
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    -->
+    <apex:form >
+        <script type="text/javascript">
+            function doSearch() {
+                searchServer(document.getElementById("firstName").value);
+            }
+            function forAccountDetailPage(idx){
+                forAccountDetailFunction(idx);
+                return true;
+            }
+            function forProduct2DetailPage(idx,sr){
+                forProduct2DetailFunction(idx,sr);
+                return true;
+            }
+            function forContact(){
+                var abc=document.getElementById("contactId").options[document.getElementById("contactId").selectedIndex].value;
+                forContactDetailFunction(abc);
+            }
+            function forOpportunity(){
+                var abc=document.getElementById("opportuntiyId").options[document.getElementById("opportuntiyId").selectedIndex].value;
+                forOpportuntiyDetailFunction(abc);
+            }
+            function productSearch(){
+                productSearchFunction(document.getElementById("productName").value);    
+            }
+      </script>     
+         
+        <apex:actionFunction name="searchServer" action="{!forAccountSearch}" rerender="pb,accDetail" status="status">
+          <apex:param name="account_name" value="" />
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="forAccountDetailFunction" action="{!forAccountDetail}" reRender="pb,accDetail,isAccountSelect">
+            <apex:param name="account_idx" value=""></apex:param>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="forProduct2DetailFunction" action="{!forProduct2Detail}" reRender="proudctEditPage,proDetail,sbox_pro">
+            <apex:param name="product2_idx" value=""></apex:param>
+            <apex:param name="orgin" value=""></apex:param>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="forContactDetailFunction" action="{!forContactDetail}" reRender="accDetail,conDetail">
+            <apex:param name="contact_idx" value=""></apex:param>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="forOpportuntiyDetailFunction" action="{!forOpportuntiyDetail}" reRender="conDetail,oppDetail">
+            <apex:param name="opp_idx" value=""></apex:param>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="productSearchFunction" action="{!forProductSearch}" reRender="proDetail">
+            <apex:param name="pro_idx" value=""></apex:param>
+        </apex:actionFunction>
+        
+        <apex:outputPanel id="isAccountSelect" >
+            <div style="display:{!if(isAccountSelected,'none','block')}" class="centerdiv">
+                <apex:pageBlock >
+                   <apex:pageBlockSection title="Select Account OR Create New Account" collapsible="false">
+                        <apex:pageBlockSectionItem >
+                            <b>Search Account by Name: </b>
+                                <input type="text" id="firstName" onkeyup="doSearch();" size="12" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:commandButton value="New Account" action="{!accountCreate}" reRender="isAccountSelect,isAccountCreated_id,pb" styleClass="formButtonfront"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </div>   
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="isAccountCreated_id">
+            <apex:outputPanel rendered="{!isAccountCreated}">
+                <apex:pageBlock >
+                    <apex:pageblocksection title="Enter New Account Details" collapsible="false">
+                        <apex:pageBlockSectionItem ><b>Name:</b></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:inputField value="{!account_Obj.name}"/></apex:pageBlockSectionItem>
+                    </apex:pageblocksection>
+                    <apex:pageBlockButtons location="bottom">
+                        <apex:commandButton value="Save" action="{!saveAccount}" rerender="isAccountSelect,isAccountCreated_id,pb,accDetail"/>
+                        <apex:commandbutton value="Cancel" action="{!cancelAccount}" immediate="true" rerender="isAccountSelect,isAccountCreated_id,pb,accDetail"/>
+                    </apex:pageBlockButtons>
+                </apex:pageBlock>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="pb">
+            <apex:actionStatus id="status" >
+                      <apex:facet name="start" ><br/><br/><br/><br/>
+                                    <center><img src="/img/loading.gif" /> </center>                    
+                                </apex:facet>
+                      <apex:facet name="stop">
+                                  
+                        <apex:pageBlock rendered="{!account_List.size!=0&&not(isAccountSelected)}">
+                            <apex:variable value="{!0}" var="idx"/>
+                                <apex:pageBlockTable value="{!account_List}" var="acc" style="border-collapse: collapse; width:100%">
+                                    <apex:column value="{!acc.Name}" onclick="forAccountDetailPage('{!idx}'); return false"/>
+                                    <apex:column onclick="forAccountDetailPage('{!idx}'); return false">
+                                        <apex:facet name="header">Phone </apex:facet>
+                                            {!acc.Phone}
+                                        <apex:variable var="idx" value="{!idx+1}"/>
+                                    </apex:column>
+                                </apex:pageBlockTable>
+                        </apex:pageBlock>
+            
+                </apex:facet>
+            </apex:actionStatus>
+        </apex:outputPanel>
+   
+        <apex:outputPanel id="accDetail">
+            <apex:pageBlock rendered="{!account_Obj.id!=null&&not(isContactSelected)}">
+                <apex:pageBlockSection title="Account Details" id="accdisMode_Acc" collapsible="false" rendered="{!isAccountDisplayMode}">
+                    <apex:pageBlockSectionItem >
+                        <b>Name:</b> 
+                            <apex:outputField value="{!account_Obj.Name}" />   
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <center style="display:{!if(isAccountDisplayMode,'block','none')}">
+                    <apex:commandButton value=" Edit "  action="{!EditAccount}" rerender="conEditMode_Acc,condisMode_Acc,accDetail"/>
+                </center>
+                
+                <apex:pageBlockSection title="Edit Account Details" id="accEditMode_Acc" collapsible="false" rendered="{!not(isAccountDisplayMode)}">
+                    <apex:pageBlockSectionItem >
+                        <b>Name:</b>
+                            <apex:inputField value="{!account_Obj.Name}"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                <center style="display:{!if(not(isAccountDisplayMode),'block','none')}">
+                    <apex:commandButton value=" Save " action="{!saveAccount}" rerender="accdisMode_Acc,accEditMode_Acc,accDetail"/>
+                    <apex:commandButton value="Cancel" action="{!cancelAccount_Mode}" rerender="accdisMode_Acc,accEditMode_Acc,accDetail"/>
+                </center>
+                <apex:pageBlockSection title="Select Contact OR Create New Contact" collapsible="false"/>
+                <table style="border: 0px solid black;border-collapse: collapse; width:100%;">
+                    <tr>
+                        <td style="border: 0px solid black;display:{!if(contact_List.size!=0,'block','none')}" width="100%"><b>Select Contact:</b> 
+                            <select id="contactId" onchange="forContact();">
+                                <option value=""></option>
+                                    <apex:repeat value="{!contact_List}" var="con">
+                                        <option value="{!con.id}">{!con.FirstName} {!con.LastName}</option>
+                                    </apex:repeat>
+                            </select> 
+                        </td>
+                    </tr>
+                    <tr>
+                        
+                        <td style="border: 0px solid black;" width="100%" align="center">
+                            <apex:commandButton value="New Contact" action="{!contactCreate}" reRender="accDetail,isContactCreated_id"/>
+                        </td>
+                    </tr>
+                </table>
+            </apex:pageBlock>
+        </apex:outputPanel>        
+        
+        <apex:outputPanel id="isContactCreated_id">
+            <apex:outputPanel rendered="{!isContactCreated}">
+                <apex:pageblock >
+                    <apex:pageBlockSection title="Enter New Contact Details" collapsible="false">
+                        <apex:pageBlockSectionItem >
+                            <b>First Name:</b>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:inputField value="{!contact_Obj.firstName}"/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <b>Last Name:</b>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:inputField value="{!contact_Obj.LastName}"/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <b>Phone:</b>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:inputField value="{!contact_Obj.Phone}"/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <b>Email:</b>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:inputField value="{!contact_Obj.Email}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockButtons location="bottom">
+                        <apex:commandButton value="Save" action="{!saveContact}" rerender="accDetail,isContactCreated_id,conDetail"/>
+                        <apex:commandbutton value="Cancel" action="{!cancelContact}" immediate="true" rerender="accDetail,isContactCreated_id"/>    
+                    </apex:pageBlockButtons>
+                </apex:pageblock> 
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="conDetail">
+            <apex:pageBlock rendered="{!contact_Obj.id!=null&&not(isOpportunitySelected)}">
+                <apex:pageBlockSection title="Account Details" id="condisMode_Acc" collapsible="false" rendered="{!isAccountDisplayMode}">
+                    <apex:pageBlockSectionItem >
+                        <b>Name:</b> 
+                            <apex:outputField value="{!account_Obj.Name}" />   
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <center style="display:{!if(isAccountDisplayMode,'block','none')}">
+                    <apex:commandButton value=" Edit "  action="{!EditAccount}" rerender="conEditMode_Acc,condisMode_Acc,conDetail"/>
+                </center>
+                <apex:pageBlockSection title="Edit Account Details" id="conEditMode_Acc" collapsible="false" rendered="{!not(isAccountDisplayMode)}">
+                    <apex:pageBlockSectionItem >
+                        <b>Name:</b>
+                            <apex:inputField value="{!account_Obj.Name}"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <center style="display:{!if(not(isAccountDisplayMode),'block','none')}">
+                    <apex:commandButton value=" Save " action="{!saveAccount}" rerender="conEditMode_Acc,condisMode_Acc,conDetail"/>
+                    <apex:commandButton value="Cancel" action="{!cancelAccount_Mode}" rerender="conEditMode_Acc,condisMode_Acc,conDetail"/>
+                </center>
+                <apex:pageBlockSection title="Contact Details"  collapsible="false" rendered="{!isContactDisplayMode}">
+                    <apex:pageBlockSectionItem ><b>First Name: </b> <apex:outputField value="{!contact_Obj.FirstName}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Last Name: </b> <apex:outputField value="{!contact_Obj.LastName}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Phone: </b> <apex:outputField value="{!contact_Obj.Phone}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Email: </b> <apex:outputField value="{!contact_Obj.Email}" />   </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <center style="display:{!if(isContactDisplayMode,'block','none')}">
+                    <apex:commandButton value=" Edit "  action="{!EditContact}" rerender="conDetail"/>
+                </center>
+                <apex:pageBlockSection title="Edit Contact Details"  collapsible="false" rendered="{!not(isContactDisplayMode)}">
+                    <apex:pageBlockSectionItem ><b>First Name: </b> <apex:inputField value="{!contact_Obj.FirstName}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Last Name: </b> <apex:inputField value="{!contact_Obj.LastName}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Phone: </b> <apex:inputField value="{!contact_Obj.Phone}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Email: </b> <apex:inputField value="{!contact_Obj.Email}" />   </apex:pageBlockSectionItem>
+                    
+                </apex:pageBlockSection>
+                <center style="display:{!if(not(isContactDisplayMode),'block','none')}">    
+                        <apex:commandButton value=" Save " action="{!saveContact}" rerender="conDetail"/>
+                        <apex:commandButton value="Cancel" action="{!cancelContact_Mode}" rerender="conDetail"/>
+                </center>
+                
+                
+                <apex:pageBlockSection title="Select Opportunity OR Create New Opportunity" collapsible="false"/>
+                <table style="border: 0px solid black;border-collapse: collapse; width:100%">
+                    <tr>
+                        <td style="border: 0px solid black;display:{!if(Opportunity_List.size!=0,'block','none')}" width="100%"><b>Select Opportuntiy:</b> 
+                            <select id="opportuntiyId" onchange="forOpportunity();">
+                                <option value=""></option>
+                                    <apex:repeat value="{!Opportunity_List}" var="opp">
+                                        <option value="{!opp.id}">{!opp.Name}</option>
+                                     </apex:repeat>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                    
+                        <td style="border: 0px solid black;" width="100%" align="center">
+                            <apex:commandButton value="New Opportunity" action="{!oppCreate}" reRender="conDetail,isoppCreated_id"/>        
+                        </td>                    
+                    </tr>
+                </table>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="isoppCreated_id">
+            <apex:outputPanel rendered="{!isOppCreated}">
+                <apex:pageBlock >
+                    <apex:pageblocksection title="Enter New Opportunity Details" collapsible="false">
+                        <apex:pageBlockSectionItem ><b>Name:</b></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:inputField value="{!opportunity_Obj.Name}"/></apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem ><b>Close Date: </b></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:inputField value="{!opportunity_Obj.CloseDate}"/></apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem ><b>Stage Name: </b></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:inputfield value="{!opportunity_Obj.StageName}"/></apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem ><b>Description :</b></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:inputfield value="{!opportunity_Obj.Description}"/></apex:pageBlockSectionItem>                        
+                    </apex:pageblocksection>
+                    <apex:pageBlockButtons location="bottom">
+                        <apex:commandButton value="Save" action="{!saveopp}" rerender="conDetail,isoppCreated_id,oppDetail"/>
+                        <apex:commandbutton value="Cancel" action="{!cancelopp}" immediate="true" rerender="conDetail,isoppCreated_id"/>
+                    </apex:pageBlockButtons>
+                </apex:pageBlock>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+        
+        <apex:outputPanel id="oppDetail">
+            <apex:pageblock rendered="{!opportunity_Obj.id!=null&&isOpportunitySelected&&not(isProduct_btn_Selected)}">
+                <apex:pageBlockSection title="Account Details"  collapsible="false" rendered="{!isAccountDisplayMode}">
+                    <apex:pageBlockSectionItem ><b>Name:</b> <apex:outputField value="{!account_Obj.Name}" />   </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <center style="display:{!if(isAccountDisplayMode,'block','none')}">
+                    <apex:commandButton value=" Edit "  action="{!EditAccount}" rerender="oppDetail"/>
+                </center>
+                <apex:pageBlockSection title="Edit Account Details"  collapsible="false" rendered="{!not(isAccountDisplayMode)}">
+                    <apex:pageBlockSectionItem ><b>Name:</b><apex:inputField value="{!account_Obj.Name}"/></apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <center style="display:{!if(not(isAccountDisplayMode),'block','none')}">
+                    <apex:commandButton value=" Save " action="{!saveAccount}" rerender="oppDetail"/>
+                    <apex:commandButton value="Cancel" action="{!cancelAccount_Mode}" rerender="oppDetail"/>
+                </center>
+                <apex:pageBlockSection title="Contact Details"  collapsible="false" rendered="{!isContactDisplayMode}">
+                    <apex:pageBlockSectionItem ><b>First Name: </b> <apex:outputField value="{!contact_Obj.FirstName}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Last Name: </b> <apex:outputField value="{!contact_Obj.LastName}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Phone: </b> <apex:outputField value="{!contact_Obj.Phone}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Email: </b> <apex:outputField value="{!contact_Obj.Email}" />   </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <center style="display:{!if(isContactDisplayMode,'block','none')}">
+                    <apex:commandButton value=" Edit "  action="{!EditContact}" rerender="oppDetail"/>
+                </center>
+                <apex:pageBlockSection title="Edit Contact Details"  collapsible="false" rendered="{!not(isContactDisplayMode)}">
+                    <apex:pageBlockSectionItem ><b>First Name: </b> <apex:inputField value="{!contact_Obj.FirstName}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Last Name: </b> <apex:inputField value="{!contact_Obj.LastName}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Phone: </b> <apex:inputField value="{!contact_Obj.Phone}" />   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Email: </b> <apex:inputField value="{!contact_Obj.Email}" />   </apex:pageBlockSectionItem>
+                    
+                </apex:pageBlockSection>
+                <center style="display:{!if(not(isContactDisplayMode),'block','none')}">    
+                        <apex:commandButton value=" Save " action="{!saveContact}" rerender="oppDetail"/>
+                        <apex:commandButton value="Cancel" action="{!cancelContact_Mode}" rerender="oppDetail"/>
+                </center>
+            
+                <apex:pageBlockSection title="Opportunity Details" collapsible="false" rendered="{!isOpportunityDisplayMode}">
+                    <apex:pageBlockSectionItem ><b>Name:</b><apex:outputField value="{!opportunity_Obj.Name}"/>   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Stage Name:</b><apex:outputField value="{!opportunity_Obj.stagename}"/> </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Close Date:</b><apex:outputField value="{!opportunity_Obj.closedate}"/> </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Description:</b><apex:outputField value="{!opportunity_Obj.Description}"/> </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                <center style="display:{!if(isOpportunityDisplayMode,'block','none')}">
+                    <apex:commandButton value=" Edit "  action="{!EditOpp}" rerender="oppDetail"/>
+                </center>
+                
+                <apex:pageBlockSection title="Edit Opportunity Details" collapsible="false" rendered="{!not(isOpportunityDisplayMode)}">
+                    <apex:pageBlockSectionItem ><b>Name:</b><apex:inputfield value="{!opportunity_Obj.Name}"/>   </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Stage Name:</b><apex:inputfield value="{!opportunity_Obj.stagename}"/> </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Close Date:</b><apex:inputfield value="{!opportunity_Obj.closedate}"/> </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><b>Description:</b><apex:inputfield value="{!opportunity_Obj.Description}"/> </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                    <center style="display:{!if(not(isOpportunityDisplayMode),'block','none')}">    
+                        <apex:commandButton value=" Save " action="{!saveopp}" rerender="oppDetail"/>
+                        <apex:commandButton value="Cancel" action="{!cancelOPP_Mode}" rerender="oppDetail"/>
+                </center>
+                <apex:pageBlockSection title="List of Opportunity Line Items" collapsible="false"/>
+                    <apex:pageBlockTable value="{!OpportunityLineItem_list}" var="oli">
+                        <apex:column value="{!oli.Product2.Name}"/>
+                        <apex:column value="{!oli.ProductCode }"/>
+                        <apex:column > 
+                            <apex:facet name="header">Description</apex:facet>
+                                <apex:outputField value="{!oli.Description }" rendered="{!opp_pro_lineItemID_Mode_Map[oli.id]}" />
+                                <apex:inputField value="{!oli.Description }"  rendered="{!not(opp_pro_lineItemID_Mode_Map[oli.id])}"/>
+                        </apex:column>
+                        <apex:column > 
+                            <apex:facet name="header">Quantity</apex:facet>
+                                <apex:outputField value="{!oli.Quantity }" rendered="{!opp_pro_lineItemID_Mode_Map[oli.id]}" />
+                                <apex:inputField value="{!oli.Quantity }"  rendered="{!not(opp_pro_lineItemID_Mode_Map[oli.id])}"/>
+                        </apex:column>
+                        <apex:column > 
+                            <apex:facet name="header">List Price</apex:facet>
+                                <apex:outputField value="{!oli.ListPrice }" rendered="{!opp_pro_lineItemID_Mode_Map[oli.id]}" />
+                                <apex:inputField value="{!oli.ListPrice }"  rendered="{!not(opp_pro_lineItemID_Mode_Map[oli.id])}"/>
+                        </apex:column>
+                        <apex:column >
+                            <apex:commandButton value="Edit" action="{!EditOppLineItem}" rendered="{!opp_pro_lineItemID_Mode_Map[oli.id]}" rerender="oppDetail">
+                                <apex:param name="ediOliId" value="{!oli.id}" assignTo="{!opp_LineItem_id}"/>
+                            </apex:commandButton> 
+                        
+                            <apex:commandButton value="Save" action="{!saveOppLineItem}" rendered="{!not(opp_pro_lineItemID_Mode_Map[oli.id])}" rerender="oppDetail">
+                                <apex:param name="saveOliId" value="{!oli.id}" assignTo="{!opp_LineItem_id}"/>
+                            </apex:commandButton>  
+                        
+                        </apex:column>
+                        <apex:column >  
+                        
+                            <apex:commandButton value="Delete" action="{!DelOppLineItem}" rendered="{!opp_pro_lineItemID_Mode_Map[oli.id]}" rerender="oppDetail">
+                                <apex:param name="delOliId" value="{!oli.id}" assignTo="{!opp_LineItem_id}"/>
+                            </apex:commandButton>    
+                            <apex:commandButton value="Cancel" action="{!cancelOppLineItem}" rendered="{!not(opp_pro_lineItemID_Mode_Map[oli.id])}" rerender="oppDetail">
+                                <apex:param name="cancelOliId" value="{!oli.id}" assignTo="{!opp_LineItem_id}"/>
+                            </apex:commandButton>    
+                        </apex:column>
+                   </apex:pageBlockTable>
+                    <apex:pageBlockButtons location="bottom">
+                       <apex:commandButton value="Add Product" reRender="sbox_pro,proDetail,oppDetail" action="{!showProductDetails}"/>  
+                    </apex:pageBlockButtons>
+            </apex:pageblock>
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="sbox_pro" >
+            <apex:outputPanel rendered="{!isProduct_btn_Selected&&not(isProduct_Selected)}">
+                <apex:pageBlock >
+                    <apex:pageBlockSection title="Search for Product to Create new Opportuntiy Line Item" collapsible="false">
+                        <apex:pageblocksectionitem ><b>Search for Product : </b></apex:pageblocksectionitem>
+                        <apex:pageblocksectionitem ><input type="text" id="productName" onkeyup="productSearch();" /> <apex:commandButton value="Back" immediate="true" action="{!cancelOpportunityLineItem}" reRender="sbox_pro,proDetail,oppDetail,proudctEditPage"/></apex:pageblocksectionitem>
+                    </apex:pageBlockSection>  
+                    </apex:pageBlock>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+        
+        <apex:outputPanel id="proDetail">
+            <apex:pageblock rendered="{!isProduct_btn_Selected&&not(isProduct_Selected)&&Product2_list.size!=0}">
+                <apex:variable var="pIndex" value="{!0}"/>
+                <apex:pageBlockTable value="{!Product2_list}" style="border-collapse: collapse; width:100%" var="pl" >
+                    <apex:column value="{!pl.Name}" onclick="forProduct2DetailPage('{!pIndex}','desktop'); return false">
+                        <apex:facet name="header">Name</apex:facet>
+                    </apex:column>
+                    <apex:column value="{!pl.ProductCode }">    
+                        <apex:facet name="header">Product Code</apex:facet>
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">List Price</apex:facet>
+                            {!priceOfProducts[pl.id]}
+                    </apex:column>
+                    <apex:column value="{!pl.Description}">
+                        <apex:facet name="header">Description</apex:facet>
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Family</apex:facet>
+                        {!pl.Family}<apex:variable var="pIndex" value="{!pIndex+1}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+           </apex:pageblock>
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="proudctEditPage">
+            <apex:pageblock rendered="{!isProduct_Selected}">
+                
+                <apex:pageBlockSection title="Enter New Opportuntiy Line Item Details" collapsible="false">
+                    <apex:pageBlockSectionItem ><b>Product Name:</b></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputText value="{!product2_Obj.Name}"/></apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem ><b>List Price:</b></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputText value="{!OpportunityLineItem_Obj.UnitPrice}"/></apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem ><b>Quantity :</b></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:inputField value="{!OpportunityLineItem_Obj.Quantity}"/></apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem ><b>Sales Price:</b></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:inputField value="{!OpportunityLineItem_Obj.UnitPrice}"/></apex:pageBlockSectionItem>
+                    
+                    
+                    <apex:pageBlockSectionItem ><b>Line Description:</b></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:inputField value="{!OpportunityLineItem_Obj.Description}"/></apex:pageBlockSectionItem>
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockButtons location="bottom">
+                        <apex:commandButton value="Save" action="{!saveOpportunityLineItem}" reRender="sbox_pro,proDetail,oppDetail,proudctEditPage"/>
+                        <apex:commandButton value="Cancel" immediate="true" action="{!cancelOpportunityLineItem}" reRender="sbox_pro,proDetail,oppDetail,proudctEditPage"/>        
+                    </apex:pageBlockButtons>
+            </apex:pageblock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

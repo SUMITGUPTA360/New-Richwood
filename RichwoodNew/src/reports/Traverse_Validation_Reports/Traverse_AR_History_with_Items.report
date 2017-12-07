@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>CommercientSF7__tblArHistDetail__c.CommercientSF7__PriceExt__c:SUM * CommercientSF7__tblArHistDetail__c.CommercientSF7__tblArHistHeader__c.CommercientSF7__TransType__c:SUM</calculatedFormula>
+        <datatype>currency</datatype>
+        <description>TotalPrice</description>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>totalPrice</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <field>CommercientSF7__tblArHistDetail__c$CommercientSF7__Desc__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>CommercientSF7__tblArHistDetail__c$CommercientSF7__QtyShipSell__c</field>
+    </columns>
+    <description>Traverse AR History with Item Detail</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CommercientSF7__tblArHistDetail__c$CommercientSF7__tblArHistHeader__c.CommercientSF7__Account__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Traverse AR History with Item Detail</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Traverse_AR_History_with_Detail__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CommercientSF7__tblArHistDetail__c$CommercientSF7__tblArHistHeader__c.CommercientSF7__InvcDate__c</dateColumn>
+        <interval>INTERVAL_PREVFY</interval>
+    </timeFrameFilter>
+</Report>

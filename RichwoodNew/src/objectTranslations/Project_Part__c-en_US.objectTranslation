@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project Part</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Project Parts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Line Description --></label>
+        <name>Line_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is Part Price * Quantity --></help>
+        <label><!-- Line Total --></label>
+        <name>Line_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Part Price (EA) --></label>
+        <name>Part_Price_EA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Part --></label>
+        <name>Part__c</name>
+        <relationshipLabel><!-- Part Sold on these Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Project Parts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <layouts>
+        <layout>Project Part Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Pricing --></label>
+            <section>Pricing</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

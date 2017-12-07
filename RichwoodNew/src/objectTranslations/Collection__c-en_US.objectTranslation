@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Collection</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Collections</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Collections --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Does this contact need a follow up call? --></help>
+        <label><!-- Follow Up Required --></label>
+        <name>Follow_Up_Required__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Start typing a name to search for a contact, or create a new contact. --></help>
+        <label><!-- Primary Contact --></label>
+        <name>Primary_Contact__c</name>
+        <relationshipLabel><!-- Collections --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Start typing the contact&apos;s name to search, or create a new contact. --></help>
+        <label><!-- Secondary Contact --></label>
+        <name>Secondary_Contact__c</name>
+        <relationshipLabel><!-- Collections (Secondary Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Awaiting Payment</masterLabel>
+            <translation><!-- Awaiting Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Paid</masterLabel>
+            <translation><!-- Closed - Paid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Write Off</masterLabel>
+            <translation><!-- Closed - Write Off --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contacted</masterLabel>
+            <translation><!-- Contacted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Collection Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

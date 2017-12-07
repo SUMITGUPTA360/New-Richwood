@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Отсъствие на екип</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Отсъствия на екип</value>
+    </caseValues>
+    <gender>Neuter</gender>
+    <nameFieldLabel>Номер на отсъствието на екип</nameFieldLabel>
+</CustomObjectTranslation>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Forecast Product Category</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Forecast Product Categories</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Yearly Forecast --></label>
+        <name>Account_Yearly_Forecast__c</name>
+        <relationshipLabel><!-- Product Categories in this Forecast --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Budgeted Sales --></label>
+        <name>Budgeted_Sales__c</name>
+    </fields>
+    <fields>
+        <label><!-- Budgeted Units --></label>
+        <name>Budgeted_Units__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Category --></label>
+        <name>Product_Category__c</name>
+        <relationshipLabel><!-- Forecasts Against this Product Category --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Projected Amount --></label>
+        <name>Projected_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projected Units --></label>
+        <name>Units__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

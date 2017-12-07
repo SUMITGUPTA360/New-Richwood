@@ -1,0 +1,622 @@
+<apex:page controller="QuickServiceRequest_Ctrl" id="pg"  title="Quick Service Request" docType="html-5.0" standardStylesheets="false" showheader="false" sidebar="false" >
+    <apex:stylesheet value="{!URLFOR($Resource.Mobile_Design_Templates, 'Mobile-Design-Templates-master/common/css/app.min.css')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.Mobile_Design_Templates, 'Mobile-Design-Templates-master/common/js/jQuery2.0.2.min.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.Mobile_Design_Templates, 'Mobile-Design-Templates-master/common/js/jquery.touchwipe.min.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.Mobile_Design_Templates, 'Mobile-Design-Templates-master/common/js/main.min.js')}"/>
+      <script type='text/javascript' src='/canvas/sdk/js/publisher.js'>
+      </script>
+      <style>
+          .list-view-header, .data-capture-buttons a {
+                background: -webkit-linear-gradient(#2a93d5,#107abb);
+                background: linear-gradient(#2a93d5,#107abb);
+                box-shadow: 0 1px 3px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.21);
+                color: white;
+                font-weight: bold;
+          }
+      </style>    
+        <script type="text/javascript">
+            function accountSearch_js(){
+                accountSearch_sf(document.getElementById("firstName").value);
+            }
+            function newAccount_js(){
+                newAccount_sf();
+            }
+            function saveAccount_js(){
+                saveAccount_sf();
+            }
+            function editAccount_js(){
+                editAccount_sf();
+            }
+            function cancelAccount_js(){
+                cancelAccount_sf();
+            }
+            function selectingAccount_js(idx){
+                selectingAccount_sf(idx);
+                return true;
+            }
+            function newContact_js(){
+                newContact_sf();
+            }
+            function saveContact_js(){
+                saveContact_sf();
+            }
+            function editContact_js(){
+                editContact_sf();
+            }
+            function selectingContact_js(){
+                selectingContact_sf();
+            }
+            function cancelContact_js(){
+                cancelContact_sf();
+            }
+    
+            function newQrs_js(){
+                newQrs_sf();
+            }
+            function Property_Location_js(){
+                Property_Location_sf();
+            }
+            function Division_js(){
+                Division_sf();
+            }
+            function saveQRS_js(){
+                saveQRS_sf();
+            }
+            function cancelQRS_js(){
+                cancelQRS_sf();
+            }
+            function newProperty_js(){
+                newProperty_sf();
+            }
+            function saveProperty_js(){
+                saveProperty_sf();
+            }
+            function cancelProperty_js(){
+                cancelProperty_sf();
+            }
+            // Customer Assist
+            function saveConveyor_js(){
+                saveConveyor_sf();
+            }
+            function cancelConveyor_js(){
+                cancelConveyor_sf();
+            }
+            function newConveyor_js(){
+                if(document.getElementById(idDivision_js).value.length===3){
+                    alert('Please Select "Division" for Creating "New CUSTOMER ASSET"');
+                    return false;
+                }else{
+                    newConveyor_sf();
+                    return true;
+                }
+            }
+            function newQRSContact_js(){
+                newQRSContact_sf();
+            }
+            function saveQRSContact_js(){
+                saveQRSContact_sf();
+            }
+            function cancelQRSContact_js(){
+                cancelQRSContact_sf();
+            }
+            //  Division
+            function newDivision_js(){
+                if(document.getElementById(idOfLoc).value.length===3){
+                    alert('Please Select "Location" for Creating "New Division"');
+                    return false;
+                }else{
+                    newDivision_sf();
+                    return true;
+                }
+            }
+            function saveDivision_js(){
+                saveDivision_sf();
+            }
+            function cancelDivision_js(){
+                cancelDivision_sf();
+            }
+        </script>
+        <apex:form id="form"> 
+         
+        <apex:actionFunction name="newContact_sf" action="{!newContact}" reRender="AccountTableId,AccountEditId,AccountDisplayId,ContactEditId,ContactHomeId" />    
+         
+        <apex:actionFunction name="accountSearch_sf" action="{!accountSearch}" reRender="AccountTableId,AccountEditId,AccountDisplayId" status="status">
+            <apex:param name="firstName" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="newAccount_sf" action="{!newAccount}" reRender="AccountHomeId,AccountTableId,AccountEditId,AccountDisplayId" />    
+        <apex:actionFunction name="saveAccount_sf"  action="{!saveAccount}" reRender="AccountHomeId,AccountTableId,AccountEditId,AccountDisplayId,ContactHomeId,ContactEditId,ContactDisplayId"/>            
+        <apex:actionFunction name="cancelAccount_sf" immediate="true" action="{!cancelAccount}" reRender="AccountHomeId,AccountTableId,AccountEditId,AccountDisplayId,ContactHomeId,ContactEditId,ContactDisplayId"/>            
+        <apex:actionFunction name="editAccount_sf" action="{!editAccount}" reRender="AccountHomeId,AccountTableId,AccountEditId,AccountDisplayId,ContactHomeId,ContactEditId,ContactDisplayId"/>
+        <apex:actionFunction name="selectingAccount_sf" action="{!selectingAccount}" reRender="AccountHomeId,AccountTableId,AccountEditId,AccountDisplayId,ContactHomeId">
+            <apex:param name="account_idx" value=""></apex:param>
+        </apex:actionFunction>
+        
+        <apex:actionfunction name="saveContact_sf" action="{!saveContact}" reRender="QsrBttn_id,AccountHomeId,AccountTableId,AccountEditId,AccountDisplayId,ContactHomeId,ContactEditId,ContactDisplayId"/>
+        <apex:actionfunction name="cancelContact_sf"  immediate="true" action="{!cancelContact}" reRender="AccountHomeId,AccountTableId,AccountEditId,AccountDisplayId,ContactHomeId,ContactEditId,ContactDisplayId" />    
+        <apex:actionFunction name="editContact_sf" action="{!editContact}" reRender="AccountHomeId,AccountTableId,AccountEditId,AccountDisplayId,ContactHomeId,ContactEditId,ContactDisplayId" />            
+        <apex:actionFunction name="selectingContact_sf" action="{!selectingContact}" reRender="QsrBttn_id,ContactHomeId,ContactDisplayId" />
+        
+        <apex:actionFunction name="newQrs_sf" action="{!newQRSBttn}" reRender="QrsFinalId,qsrHome_id,QsrBttn_id,ContactEditId,ContactDisplayId,AccountDisplayId,AccountEditId" />    
+        <apex:actionFunction name="saveQRS_sf" action="{!saveQRS}" reRender="QrsFinalId,qsrHome_id" />
+        <apex:actionFunction name="cancelQRS_sf" action="{!cancelQRS}" immediate="true" reRender="AccountDisplayId,ContactDisplayId,QsrBttn_id,qsrHome_id" />
+            
+        <apex:actionFunction name="Property_Location_sf" action="{!Property_Location}" reRender="qsrHome_id" />
+        <apex:actionFunction name="saveProperty_sf" action="{!saveProperty}" reRender="Property_Location_Home,qsrHome_id" />
+        <apex:actionFunction name="cancelProperty_sf" action="{!cancelProperty}" immediate="true" reRender="Property_Location_Home,qsrHome_id" />
+        <apex:actionFunction name="newProperty_sf" action="{!newProperty}" reRender="Property_Location_Home,qsrHome_id" />
+        
+        <apex:actionfunction name="newQRSContact_sf" action="{!newQRSContact}" rerender="qsrHome_id,QRSContactId"/>    
+        <apex:actionFunction name="saveQRSContact_sf" action="{!saveQRSContact}" reRender="qsrHome_id,QRSContactId" />
+        <apex:actionFunction name="cancelQRSContact_sf" action="{!cancelQRSContact}" reRender="qsrHome_id,QRSContactId" immediate="true" />
+            
+        <apex:actionFunction name="newConveyor_sf" action="{!newConveyor}" reRender="conveyorHomeID,qsrHome_id"/>
+        <apex:actionFunction name="saveConveyor_sf" action="{!saveConveyor}" reRender="conveyorHomeID,qsrHome_id" />
+        <apex:actionFunction name="cancelConveyor_sf" action="{!cancelConveyor}" immediate="true" reRender="conveyorHomeID,qsrHome_id" />
+        
+        <apex:actionFunction name="Division_sf" action="{!Division_so}" reRender="qsrHome_id"/>    
+        <apex:actionFunction name="newDivision_sf" action="{!newDivision}" reRender="DivisionHomeID,qsrHome_id"/>
+        <apex:actionFunction name="saveDivision_sf" action="{!saveDivision}" reRender="DivisionHomeID,qsrHome_id" />
+        <apex:actionFunction name="cancelDivision_sf" action="{!cancelDivision}" immediate="true" reRender="DivisionHomeID,qsrHome_id" />    
+        <apex:outputPanel id="AccountHomeId">
+                <apex:outputPanel rendered="{!isAccountHome}">
+                    <div class="list-view-header">Select Account OR Create New Account</div>
+                       <section class="border-bottom">
+                            <div class="content">
+                                <h3>Search Account by Name:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <input type="text" id="firstName" onkeyup="accountSearch_js();" size="12"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="data-capture-buttons one-buttons">
+                            <div class="content">
+                                <section class="data-capture-buttons one-buttons">
+                                     <a href="#" id="findWarehouses" onClick="newAccount_js();" style="text-transform: none;" >New Account</a>
+                                </section>
+                            </div>
+                        </section>  
+                </apex:outputPanel>
+         </apex:outputPanel>
+            <apex:outputPanel id="AccountTableId">
+                  <apex:actionStatus id="status" >
+                      <apex:facet name="start" ><br/><br/><br/><br/>
+                                    <center><img src="/img/loading.gif" /> </center>                    
+                                </apex:facet>
+                      <apex:facet name="stop">
+                    <apex:outputPanel rendered="{!(isAccountHome&&accountList.size!=0)}">
+                     <section class="border-bottom">
+                      <div class="content">
+                        <apex:variable value="{!0}" var="idx"/>
+                        <table class="detail-view-table" width="100%">
+                            <thead><tr>
+                                        <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;"><b>Name</b></th>
+                                        <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;"><b>Phone</b></th>
+                                    </tr>
+                            </thead>
+                            <apex:repeat value="{!accountList}" var="acc">
+                                <tr class=".detail-view-table-row" >
+                                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;" onclick="selectingAccount_js('{!idx}'); return false">{!acc.Name}</td>
+                                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;" onclick="selectingAccount_js('{!idx}'); return false">{!acc.Phone}</td>
+                                </tr>
+                                <apex:variable var="idx" value="{!idx+1}"/>
+                            </apex:repeat>
+                        </table>
+                         </div>
+                        </section>
+                    </apex:outputPanel>    
+                      </apex:facet>
+                            </apex:actionStatus>
+                </apex:outputPanel>
+        
+                <apex:outputPanel id="AccountEditId">
+                        <apex:outputPanel rendered="{!isAccountEdit}">            
+                            <div class="list-view-header">Enter {!if(account_Obj.id=='','New','Edit')} Account Details</div>
+                                <section class="border-bottom">
+                                    <div class="content">
+                                        <h3>Name:</h3>
+                                            <div class="form-control-group">
+                                            <div class="form-control form-control-text">
+                                                <apex:inputField value="{!account_Obj.name}"/>
+                                            </div>
+                                            </div>
+                                    </div>
+                                </section>
+                        <section class="data-capture-buttons two-buttons">
+                            <div class="content">
+                                <section class="data-capture-buttons twp-buttons">
+                                     <a href="#" onClick="saveAccount_js();" style="text-transform: none;" >Save</a>
+                                     <a href="#" onClick="cancelAccount_js();" style="text-transform: none;" >Cancel</a>
+                                </section>
+                           </div>
+                        </section> 
+                        </apex:outputPanel>  
+            </apex:outputPanel>
+            <apex:outputPanel id="AccountDisplayId">
+                <apex:outputPanel rendered="{!isAccountDisplay}" >
+                    <div class="list-view-header">Account Details</div>
+                    <section class="border-bottom">
+                            <div class="content">
+                                <h3>Name:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <input type="text" value="{!account_Obj.Name}" disabled="true" style="background-color:white;"/>
+                                    </div>
+                                </div>
+                                <section class="data-capture-buttons one-buttons">
+                                     <a href="#" onClick="editAccount_js();" style="text-transform: none;" >Edit</a>
+                                </section>
+                            </div>
+                        </section>
+                </apex:outputPanel>
+           </apex:outputPanel>
+           
+            <apex:outputPanel id="ContactHomeId">
+                    <apex:outputPanel rendered="{!isContactHome}" >
+                        <div class="list-view-header">Select Contact OR Create New Contact</div>
+                        <section class="border-bottom">
+                            <div class="content">
+                                <h3>Select Contact:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:selectList size="1" value="{!selectedContact}" onchange="selectingContact_js();return false">
+                                            <apex:selectOptions value="{!contact_so }"/>
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="data-capture-buttons one-buttons">
+                                <div class="content">
+                                    <section class="data-capture-buttons one-buttons">
+                                         <a href="#" onClick="newContact_js();" style="text-transform: none;" >New Contact</a>
+                                    </section>
+                                </div>
+                        </section>
+                     </apex:outputPanel>
+            </apex:outputPanel>
+            <apex:outputPanel id="ContactEditId">
+                <apex:outputPanel rendered="{!isContactEdit}">
+                    <div class="list-view-header">Enter {!if(contact_Obj.id=='','New','Edit')} Contact Details</div>
+                        <section class="border-bottom">
+                            <div class="content">
+                                <h3>First Name:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!contact_Obj.firstName}"/>
+                                    </div>
+                                </div>
+                                <h3>Last Name:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!contact_Obj.LastName}"/>
+                                    </div>
+                                </div>
+                                <h3>Phone:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!contact_Obj.Phone}"/>
+                                    </div>
+                                </div>
+                                <h3>Email:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!contact_Obj.Email}"/>
+                                    </div>
+                                </div>
+                                </div>
+                        </section>
+                        <section class="data-capture-buttons two-buttons">
+                            <a href="#" onClick="saveContact_js();" style="text-transform: none;" >Save</a>
+                            <a href="#" onClick="cancelContact_js();" style="text-transform: none;" >Cancel</a>
+                        </section>
+                </apex:outputPanel>
+            </apex:outputPanel> 
+            <apex:outputPanel id="ContactDisplayId">
+                <apex:outputPanel rendered="{!isContactDisplay}" >
+                    <div class="list-view-header">Contact Details</div>
+                        <section class="border-bottom">
+                            <div class="content">
+                                <h3>First Name:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <input type="text" value="{!contact_Obj.FirstName}" disabled="true" style="background-color:white;"/>
+                                    </div>
+                                </div>
+                                <h3>Last Name:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <input type="text" value="{!contact_Obj.LastName}" disabled="true" style="background-color:white;"/>
+                                    </div>
+                                </div>
+                                <h3>Phone:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <input type="text" value="{!contact_Obj.Phone}" disabled="true" style="background-color:white;" />
+                                    </div>
+                                </div>
+                                <h3>Email:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <input type="text" value="{!contact_Obj.Email}" disabled="true" style="background-color:white;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="data-capture-buttons one-buttons">
+                                     <a href="#" onClick="editContact_js();" style="text-transform: none;" >Edit</a>
+                        </section>
+                    <br/><br/>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            <br/>
+            <apex:outputPanel id="QsrBttn_id">
+                <apex:outputPanel rendered="{!isQrsBttn}">
+                    <section class="data-capture-buttons one-buttons">
+                          <a href="#" onClick="newQrs_js();" style="text-transform: none;" >New Quick Service Request</a>
+                    </section><br/><br/> <br/><br/>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            <!-- Location Details -->
+            <apex:outputPanel id="Property_Location_Home">
+                <apex:outputPanel rendered="{!isPropertyHome}">
+                    <div class="list-view-header">Enter Location Details</div>
+                    <section class="border-bottom">
+                            <div class="content">
+                                <h3>Location:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!Property_Location_Obj.Name}" required="true" />
+                                    </div>
+                                </div>
+                        </div>
+                    </section>
+                     <section class="data-capture-buttons two-buttons">
+                         <a href="#" onClick="saveProperty_js();" style="text-transform: none;" >Save</a>
+                         <a href="#" onClick="cancelProperty_js();" style="text-transform: none;" >Cancel</a>
+                      </section>
+                </apex:outputPanel> 
+            </apex:outputPanel>
+            <!--  Customer Asset -->
+            <apex:outputPanel id="conveyorHomeID">
+                <apex:outputPanel rendered="{!isConveyorHome}">
+                    <div class="list-view-header">Enter  Customer Asset Details</div>
+                    <section class="border-bottom">
+                            <div class="content">
+                                <h3>Customer Asset Name:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!conveyorObj.Name}" required="true" />
+                                    </div>
+                                </div>
+                        </div>
+                    </section>
+                     <section class="data-capture-buttons two-buttons">
+                         <a href="#" onClick="saveConveyor_js();" style="text-transform: none;" >Save</a>
+                         <a href="#" onClick="cancelConveyor_js();" style="text-transform: none;" >Cancel</a>
+                     </section>
+                </apex:outputPanel> 
+            </apex:outputPanel>
+            <!-- Division -->
+            <apex:outputPanel id="DivisionHomeID">
+                <apex:outputPanel rendered="{!isDivisionHome}">
+                    <div class="list-view-header">Enter Division Details</div>
+                    <section class="border-bottom">
+                            <div class="content">
+                                <h3>Division Name:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!divisionObj.Name}" required="true" />
+                                    </div>
+                                </div>
+                        </div>
+                    </section>
+                     <section class="data-capture-buttons two-buttons">
+                         <a href="#" onClick="saveDivision_js();" style="text-transform: none;" >Save</a>
+                         <a href="#" onClick="cancelDivision_js();" style="text-transform: none;" >Cancel</a>
+                     </section>
+                </apex:outputPanel> 
+            </apex:outputPanel>
+            <!-- Contact Role For QRS-->
+            <apex:outputPanel id="QRSContactId">
+                <apex:outputPanel rendered="{!isQRSContact}"> 
+                     <div class="list-view-header">Enter Contact  Details</div>
+                        <section class="border-bottom">
+                            <div class="content">
+                                <h3>First Name:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!QRScontact_Obj.firstName}"/>
+                                    </div>
+                                </div>
+                                <h3>Last Name:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!QRScontact_Obj.LastName}"/>
+                                    </div>
+                                </div>
+                                <h3>Phone:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!QRScontact_Obj.Phone}"/>
+                                    </div>
+                                </div>
+                                <h3>Email:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!QRScontact_Obj.Email}"/>
+                                    </div>
+                                </div>
+                                </div>  
+                        </section>
+                        <section class="data-capture-buttons two-buttons">
+                            <a href="#" onClick="saveQRSContact_js();" style="text-transform: none;" >Save</a>
+                            <a href="#" onClick="cancelQRSContact_js();" style="text-transform: none;" >Cancel</a>
+                        </section>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            <!-- QSR Home -->
+            <apex:outputPanel id="qsrHome_id">
+                <apex:outputPanel rendered="{!isQSRHome}">
+                    <div class="list-view-header">Quick Service Request Details</div>
+                    <section class="border-bottom">
+                            <div class="content">
+                                <h3>Service Request Subject:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!sr_Obj.Name}"  />
+                                    </div>
+                                </div>
+                                <h3>Service Request Type:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!sr_Obj.Service_Request_Type__c}"/>
+                                    </div>
+                                </div>
+                                <h3>Work Required Description:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputTextarea value="{!sr_Obj.Work_Required_Description__c}"/>
+                                    </div>
+                                </div>
+                                <h3>Location:</h3>
+                              <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:selectList size="1" value="{!Property_Location}" id="Property_LocationID" onchange="Property_Location_js();return false" >
+                                            <apex:selectOptions value="{!propertyLocation_so}"/>
+                                            <script> 
+                                                    idOfLoc='{!$Component.Property_LocationID}';
+                                            </script>
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                               <!-- <apex:commandButton style="color:#0000FF;" reRender="Property_Location_Home,qsrHome_id" value="New Location" action="{!newProperty}"/>        -->
+                                
+                                    <!--<div class="content">-->
+                                <section class="data-capture-buttons one-buttons" style="height: 40px;padding:0px;">
+                                    <a href="#" onClick="newProperty_js();" style="text-transform: none;" >New Location</a>
+                                </section>
+                                <label style="display: block;height:20px;"/>
+                                <h3>Division</h3>                                
+                                <!-- New Code -->
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:selectList size="1" value="{!division}" id="division_so_id" onchange="Division_js();return false" >
+                                            <apex:selectOptions value="{!division_so}" />
+                                            <script> 
+                                                    idDivision_js='{!$Component.division_so_id}';
+                                            </script>
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                                
+                                <section class="data-capture-buttons one-buttons" style="height: 40px;padding:0px;">
+                                    <a href="#" onclick="newDivision_js();return false" style="text-transform: none;" >New Division</a>
+                                </section>
+                                <label style="display: block;height:20px;"/>
+                                
+                                <!-- End of new Code -->
+                                <h3>Customer Asset:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:selectList size="1" value="{!Conveyor}" >
+                                            <apex:selectOptions value="{!Conveyor_so}"/>
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                                
+                                <section class="data-capture-buttons one-buttons" style="height: 40px;padding:0px;">
+                                    <a href="#" onclick="newConveyor_js();return false" style="text-transform: none;" >New Customer Asset</a>
+                                </section>
+                                <label style="display: block;height:20px;"/>
+                                
+                                
+                                <h3>Section:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!sr_Obj.Conveyor_Section__c}"/>
+                                    </div>
+                                </div>
+                                
+                                <h3>Check in With:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!conRole.Check_in_With__c}"/>
+                                    </div>
+                                </div>
+                                
+                                <h3>Role:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!conRole.Roles__c}"/>
+                                    </div>
+                                </div>
+                                
+                                <h3>Contact Role</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:selectList size="1" value="{!QSRcontact}" >
+                                            <apex:selectOptions value="{!QSRcontact_so}"/>
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                               
+                                <section class="data-capture-buttons one-buttons" style="height: 40px;padding:0px;">
+                                    <a href="#" onclick="newQRSContact_js();return false" style="text-transform: none;" >New Contact Role</a>
+                                </section>
+                                <label style="display: block;height:20px;"/>
+                                
+                                <h3>Bring Welding Trailer:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!sr_Obj.Bring_Welding_Trailer__c}"/>
+                                    </div>
+                                </div>
+
+                                
+                                
+                                <h3>Purchase Order Number:</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-text">
+                                        <apex:inputField value="{!sr_Obj.Purchase_Order_Number__c}"/>
+                                    </div>
+                                </div>
+                        </div>
+                    </section>
+                    <section class="data-capture-buttons two-buttons">
+                        <a href="#" onClick="saveQRS_js();" style="text-transform: none;" >Save</a>
+                        <a href="#" onClick="cancelQRS_js();" style="text-transform: none;" >Cancel</a>
+                    </section>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            <!-- QRS Final -->                        
+            <apex:outputPanel id="QrsFinalId">
+                <apex:outputpanel rendered="{!isQrsFinal}" >
+                    <div class="list-view-header">Service Request Created</div>
+                    <section class="border-bottom">
+                                    <div class="content">
+                                        <h3>Account Name:</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-text">
+                                                        <input type="text" value="{!account_Obj.name}" disabled="true" style="background-color:white;"/>
+                                                </div>
+                                            </div>
+                                         <h3>Service Request Subject:</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-text">
+                                                    <input type="text" value="{!sr_Obj.Name}" disabled="true" style="background-color:white;"/>
+                                                </div>
+                                            </div>       
+                                    </div>
+                    </section>
+                    <section class="data-capture-buttons one-buttons">
+                        <a href="#" onClick="newQrs_js();" style="text-transform: none;" >Create Another Service Request</a>
+                    </section>
+                    <section class="data-capture-buttons one-buttons">
+                        <a href="/home/home.jsp" onClick="cancelQRS_js();" style="text-transform: none;" >Home</a>
+                    </section>
+               </apex:outputpanel>
+            </apex:outputpanel>    
+    </apex:form>
+</apex:page>

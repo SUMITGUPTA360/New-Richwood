@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>helpdesk@richwood.com</contactEmail>
+    <label>SSO</label>
+    <oauthConfig>
+        <callbackUrl>https://cloud.centrify.com/manage</callbackUrl>
+        <consumerKey>3MVG9uudbyLbNPZOGBwUz7DS6u_9XBd9YoDiivfhJoizEqVwfrksWGN3NUXHhqveSbfZrMtFZ8poZysPbLtG9</consumerKey>
+        <scopes>Basic</scopes>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+        <scopes>Full</scopes>
+        <scopes>Chatter</scopes>
+        <scopes>CustomApplications</scopes>
+        <scopes>RefreshToken</scopes>
+        <scopes>OpenID</scopes>
+        <scopes>CustomPermissions</scopes>
+        <scopes>Wave</scopes>
+    </oauthConfig>
+</ConnectedApp>

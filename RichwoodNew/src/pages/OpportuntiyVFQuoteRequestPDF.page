@@ -1,0 +1,79 @@
+<apex:page standardcontroller="Opportunity" renderas="pdf" applyHtmlTag="false" showHeader="false" cache="true" readOnly="true">
+<!-- <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <style type="text/css" media="print">
+            @page {
+                size:A4 portrait;
+                margin-top:2.5cm;
+                margin-bottom:2.5cm;
+                margin-right:1cm;
+                margin-left:1cm;
+                @top-right{
+                    content: element(pageHeader);
+                }
+                
+                @bottom-right {
+                    content: element(pageFooter);
+                }  
+            }
+            p.spacy {line-height:2}
+            p.tight {line-height:1}
+        
+         table.gridtable {
+   font-family: verdana,arial,sans-serif;
+   font-size:11px;
+    color:#333333;
+    border-width: 1px;
+     border-color: #666666;
+        border-collapse: collapse;
+        page-break-inside: avoid;
+        border-spacing: 0px;
+ }
+    table.gridtable th {
+     border-width: 1px;
+   padding: 8px;
+   border-style: solid;
+   border-color: #666666;
+  font-weight:bold;
+  page-break-inside: avoid;
+
+ }
+table.gridtable td {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #666666;
+background-color: #ffffff;
+page-break-inside: avoid;
+ }
+               div{border: 0px solid black; padding: 0px; border-spacing:0px; margin:0px;}
+ 
+    </style>
+    </head>-->
+<center><h4>SF:Quote Request:  <apex:outputfield value="{!Opportunity.Account.Name}"/> - <apex:outputfield value="{!Opportunity.Name}"/> - <apex:outputfield value="{!Opportunity.Quote_Type__c}"/></h4></center>
+<hr/>
+<center><b>QUOTE REQUEST</b></center>
+<hr/><br/>
+<table style="width:100%">
+    <tr><td style="width:150px"><b>Account Name:</b></td><td colspan="2"><apex:outputfield value="{!Opportunity.Account.Name}"/></td></tr>
+    <tr><td><b>Opportunity Name:</b></td><td colspan="2"><apex:outputfield value="{!Opportunity.Name}"/></td></tr>
+    <tr><td><b>Opportunity Link:</b></td><td colspan="2"><a href="https://richwood.my.salesforce.com/{!Opportunity.id}">Link</a></td></tr>
+    <tr><td><b>Sales Rep:</b></td><td colspan="2"><apex:outputfield value="{!Opportunity.Owner.Name}"/></td></tr>
+    <tr><td><b>Manager:</b></td><td colspan="2"><apex:outputfield value="{!Opportunity.Owner.Manager.Name}"/></td></tr>
+    <tr><td><b>Contacts:</b></td></tr>
+    <apex:repeat value="{!Opportunity.OpportunityContactRoles}" var="ocr">
+        <tr><td><b><i>{!ocr.Role }:</i></b></td><td> {!ocr.contact.Name}</td><td>{!ocr.contact.Email}</td></tr>
+    </apex:repeat>
+    <tr><td><b>Belt Designation::</b></td></tr>
+    <apex:repeat value="{!Opportunity.Opportunity_Assets__r}" var="oa">
+        <tr><td></td><td colspan="2">{!oa.Customer_Asset__r.Name}</td></tr>
+    </apex:repeat>
+    <tr><td valign="top"><b>Type:</b></td><td colspan="2"><apex:outputfield value="{!Opportunity.Type}"/></td></tr>
+    <tr><td valign="top"><b>Quote Type:</b></td><td colspan="2"><apex:outputfield value="{!Opportunity.Quote_Type__c}"/></td></tr>
+    <tr><td valign="top"><b>Description:</b></td><td colspan="2"><apex:outputfield value="{!Opportunity.Description}"/></td></tr>
+    <tr><td valign="top"><b>Quote Requests:</b></td><td colspan="2"><a href="https://richwood.lightning.force.com/one/one.app?source=aloha#/sObject/Opportunity/list?filterName=00B36000007eYRPEA2" >Link</a></td></tr>
+</table>
+<br/>
+<i>Please review, prepare the quote, then update the stage of the opportunity to "Customer Service Quote Sent"</i>
+
+</apex:page>

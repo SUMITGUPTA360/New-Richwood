@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Afzonderlijk antwoord enquête</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Afzonderlijke antwoorden enquête</value>
+    </caseValues>
+    <gender>Neuter</gender>
+    <nameFieldLabel>Naam SurveySingleAnswer</nameFieldLabel>
+</CustomObjectTranslation>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Richwood Computing and Communication Device inventory</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Cellular_Number__c</fullName>
+        <description>North American Cellular Numbers</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Input as ten digits, without the leading &quot;1&quot;</inlineHelpText>
+        <label>Cellular Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Cellular_Provider__c</fullName>
+        <description>Device Cellular Provider</description>
+        <externalId>false</externalId>
+        <label>Cellular Provider</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AT&amp;T</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Appalachian Wireless</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rogers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Verizon</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Device_Make__c</fullName>
+        <description>Device Manufacturer</description>
+        <externalId>false</externalId>
+        <label>Device Make</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Apple</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cisco</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dell</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Grandstream</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lenovo</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Meraki</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Motorola</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Netgear</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nokia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Novatel</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pantech</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ricoh</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RIM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Samsung</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sierra Wireless</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vizio</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ZTE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Device_Model__c</fullName>
+        <description>Device Model</description>
+        <externalId>false</externalId>
+        <label>Device Model</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>iPad 1st Gen - A1219 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad 1st Gen - A1337 (3G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad 2nd Gen - A1395 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad 2nd Gen - A1396 (GSM)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad 2nd Gen - A1397 (CDMA)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad 3rd Gen - A1416 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad 3rd Gen - A1440 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad 3rd Gen - A1403 (4G VZ)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Mini 1st Gen - A1432 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Mini 1st Gen - A1454 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Mini 1st Gen - A1455 (4G MM)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad 4th Gen - A1458 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad 4th Gen - A1459 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad 4th Gen - A1459 (4G MM)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Mini 2nd Gen - A1489 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Mini 2nd Gen - A1490 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Air 5th Gen - A1474 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Air 5th Gen - A1475 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Mini 3rd Gen - A1599 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Mini 3rd Gen - A1600 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Air 2 6th Gen - A1566 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Air 2 6th Gen - A1667 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Mini 4th Gen - A1538 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Mini 4th Gen - A1550 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Pro - A1584 (Wifi)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPad Pro - A1652 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone - A1203</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 3G - A1241 (3G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 3GS - A1303 (3G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 4 - A1332 (GSM)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 4 - A1349 (CDMA)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 4S - A1387 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 5 - A1428 (4G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 5 - A1429 (4G VZ)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 5c - GSM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 5c - CDMA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 5s - GSM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 5s - CDMA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 6 - GSM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 6 - CDMA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 6 Plus - GSM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 6 Plus - CDMA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 6S - GSM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 6S - CDMA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 6S Plus - GSM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone 6S Plus - CDMA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Hostname__c</fullName>
+        <externalId>false</externalId>
+        <label>Hostname</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IMEI__c</fullName>
+        <description>Device IMEI</description>
+        <externalId>false</externalId>
+        <label>IMEI</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Internal_Storage__c</fullName>
+        <description>Internal Storage (Phones &amp; Tablets)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter in Gigabytes</inlineHelpText>
+        <label>Internal Storage</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MEID__c</fullName>
+        <description>Device MEID</description>
+        <externalId>false</externalId>
+        <label>MEID</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OS_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>OS Version</label>
+        <length>65</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prontoforms_Username__c</fullName>
+        <description>Associated Prontoforms Username, if applicable</description>
+        <externalId>false</externalId>
+        <label>Prontoforms Username</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Wireless_Mac_Address__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Device Wireless Mac Address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Input letters and numbers with no spaces or separators (eg, &quot;:&quot; or &quot;.&quot;)</inlineHelpText>
+        <label>Wireless Mac Address</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Device</label>
+    <listViews>
+        <fullName>All_Devices</fullName>
+        <columns>NAME</columns>
+        <columns>Device_Make__c</columns>
+        <columns>Device_Model__c</columns>
+        <columns>Cellular_Provider__c</columns>
+        <columns>IMEI__c</columns>
+        <columns>OS_Version__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Devices</label>
+    </listViews>
+    <nameField>
+        <label>Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Devices</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

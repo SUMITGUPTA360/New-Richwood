@@ -1,0 +1,263 @@
+<apex:component >
+
+<link href='//fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'></link>
+<link rel="stylesheet" href="http://ehussain.in/demo/salesforce/style.css"></link>
+<style type="text/css">
+
+html, body 
+{
+    height: 100%;
+}
+
+header 
+{
+    padding: 15px 30px;
+    border-top: 4px solid #078ddf;
+}
+
+
+body
+{
+    font-family: 'Roboto', Arial,Helvetica,sans-serif !important;
+    font-size: 12px;
+    color: rgb(125 , 125 , 125);
+    line-height: 16px;
+
+    background: rgb(236 , 236 , 236);
+    /*
+    background: -webkit-linear-gradient(#FFF, #ddeef3);
+    background: -o-linear-gradient(#FFF, #ddeef3);
+    background: -moz-linear-gradient(#FFF, #ddeef3);
+    background: linear-gradient(#FFF, #ddeef3);
+    /**/
+}   
+
+td 
+{
+    font-family: 'Roboto', Arial,Helvetica,sans-serif !important;
+}
+ /*
+.bPageBlock 
+{
+    background: none !important;
+    border: none !important;
+}
+ /**/
+.login-panel
+{
+    background: -webkit-linear-gradient(#fbfdfe, #ddeef4);
+    background: -o-linear-gradient(#fbfdfe, #ddeef4);
+    background: -moz-linear-gradient(#fbfdfe, #ddeef4);
+    background: linear-gradient(#fbfdfe, #ddeef4);
+
+    border: 1px solid #b6ccd6;
+    width: 370px;
+    margin: auto;
+    margin-top: 140px;
+}
+
+.login-panel .bPageBlock 
+{
+    border: none;
+    margin: 0;
+}
+
+.login-panel label
+{
+    text-transform: uppercase;
+    margin-right: 20px;
+}
+
+.login-panel table 
+{
+    width: 100%;
+}
+
+input[type="text"],input[type="password"]
+{
+    height: 36px;
+    padding: 0 8px;
+    border: 1px solid #a4beca;
+    border-left: 7px solid #068ddf; 
+    box-sizing: border-box;
+    display: block;
+    width: 100%;    
+
+    font-family: 'Roboto', Arial,Helvetica,sans-serif !important;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(149 , 149 , 149);
+}
+
+input[type="button"], input[type="submit"]
+{
+    /*
+    background: -webkit-linear-gradient(#0097c3, #0073ac);
+    background: -o-linear-gradient(#0097c3, #0073ac);
+    background: -moz-linear-gradient(#0097c3, #0073ac);
+    background: linear-gradient(#0097c3, #0073ac);
+    /**/
+
+    background: rgb(66 , 133 ,224);
+    box-shadow: none;
+
+    height: 30px;
+    padding: 0 30px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover 
+{
+    background-position: 0 0;
+    background: rgb(66 , 133 ,224);
+    opacity: 0.8;
+}
+
+
+.login-panel tr td
+{
+    padding-bottom: 10px;
+}
+
+a 
+{
+    text-decoration: none;  
+    color: #8c786a;
+}
+
+a:hover, a:focus, a:active
+{
+    text-decoration: underline;
+}
+
+.float-right
+{
+    float: right;
+    
+}
+
+.float-left
+{
+    float: left;
+    padding: 0 230px;
+     
+}
+.breadcrumb 
+{
+    background: -webkit-linear-gradient(#494949, #000000);
+    background: -o-linear-gradient(#494949, #000000);
+    background: -moz-linear-gradient(#494949, #000000);
+    background: linear-gradient(#494949, #000000);
+
+    min-height: 30px;
+    margin-bottom: 45px;
+}
+
+.breadcrumb a 
+{
+    color: #fff;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 4px 20px;
+}
+ 
+.breadcrumb a label 
+{
+    cursor: pointer;
+}
+
+.breadcrumb a:hover 
+{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.logo 
+{
+    float: left;
+}
+
+.lnk-logout
+{
+    float: right;
+    color: #0072bd;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+.clearfix 
+{
+    clear: both;
+    float: none;        
+}
+
+table.table-data 
+{
+    width: 100%;
+    border: 1px solid #e7e9ea;
+}
+
+table.table-data tr th, table.table-data tr td.td-blue
+{
+    background: #deecf2;
+}
+
+table.table-data tr td, table.table-data tr th
+{
+    border: 1px solid #e7e9ea;
+    padding: 10px;
+}
+
+table.list 
+{
+    width: 100%;
+    border: 1px solid #e7e9ea;
+}
+
+table.list tr th, table.list tr td.td-blue
+{
+    background: #deecf2 !important;
+}
+
+table.list tr td, table.list tr th
+{
+    border: 1px solid #e7e9ea !important;
+    padding: 10px !important;
+}
+
+table.detailList label 
+{
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+table.detailList select 
+{
+    height: 30px;
+    padding: 0 8px;
+    width: 150px;
+}   
+
+table.detailList tr td, table.detailList tr th 
+{
+    padding: 10px !important;
+    vertical-align: middle;
+}
+
+body .bPageBlock .pbBody .pbSubheader
+{
+    background: #078ddf;
+    padding: 10px;
+}
+
+.table-container table.detailList tr td, .table-container table.detailList tr th 
+{
+    padding: 5px !important;
+}
+
+</style>
+
+</apex:component>

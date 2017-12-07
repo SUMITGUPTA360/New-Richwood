@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Calculated_WAG__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(Forecast_Period_Start__c &lt;= date(year(today()),month( today()),1), 0,
+
+Last_Year_this_Month_C_W__c *(Forecast_Period_Start__c - (date(year(today()),month( today()),1)))/365
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is an automatic WAG which takes into consideration the distance into the future of the forecast month and uses that distance and the amount c/w for that month in the previous year. Months far into the future will have a larger WAG.</inlineHelpText>
+        <label>Calculated WAG</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Forecast_Period_Start__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the start date of the forecast period (so 7/1 for July as an example)</inlineHelpText>
+        <label>Forecast Period Start</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Forecast_Quality__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(Total_Rolled__c +  Total_Lost__c + Total_Rep_Period_Forecast__c =0,0, Total_Rep_Period_Forecast__c/(Total_Rolled__c +  Total_Lost__c + Total_Rep_Period_Forecast__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Numbers approaching 100% indicate a higher quality score (because there were fewer rolled opportunities). This is a reflection of the strength of this reps predictions throughout this period, not the quality of this forecast at the moment.</inlineHelpText>
+        <label>Forecast Quality</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Last_Year_this_Month_C_W__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the closed/won amount from this rep (or territory) for this same month last year.</inlineHelpText>
+        <label>Last Year (this Month) C/W</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opptys_Forecast_for_Period__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Open__c +  Total_Won__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opptys Forecast for Period</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rep_Comments_about_Period_Forecast__c</fullName>
+        <externalId>false</externalId>
+        <label>Rep Comments about Period Forecast</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sales_Rep__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sales Rep</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Rep_Forecasts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Total_Lost__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Lost</label>
+        <summarizedField>Applied_to_Forecast__c.Opportunity_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>Applied_to_Forecast__c.Status__c</field>
+            <operation>equals</operation>
+            <value>4 - Lost</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Applied_to_Forecast__c.Rep_Forecast__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Open__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Open</label>
+        <summarizedField>Applied_to_Forecast__c.Opportunity_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>Applied_to_Forecast__c.Status__c</field>
+            <operation>equals</operation>
+            <value>1 - Open</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Applied_to_Forecast__c.Rep_Forecast__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Rep_Period_Forecast__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opptys_Forecast_for_Period__c +   Calculated_WAG__c +  Untracked_WAG__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is the total of the opportunities (open and won) in the period plus the Rep WAG.</inlineHelpText>
+        <label>Total Rep Period Forecast</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Rolled__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Rolled</label>
+        <summarizedField>Applied_to_Forecast__c.Opportunity_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>Applied_to_Forecast__c.Status__c</field>
+            <operation>equals</operation>
+            <value>2 - Rolled</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Applied_to_Forecast__c.Rep_Forecast__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Won__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Won</label>
+        <summarizedField>Applied_to_Forecast__c.Opportunity_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>Applied_to_Forecast__c.Status__c</field>
+            <operation>equals</operation>
+            <value>3 - Won</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Applied_to_Forecast__c.Rep_Forecast__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Untracked_WAG__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If there are amounts that you expect to have in your forecast but are not in an opportunity at the moment, then enter those amounts here.</inlineHelpText>
+        <label>Manual WAG</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Rep Forecast</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Calculated_WAG__c</columns>
+        <columns>Forecast_Period_Start__c</columns>
+        <columns>Sales_Rep__c</columns>
+        <columns>Total_Open__c</columns>
+        <columns>Total_Won__c</columns>
+        <columns>Total_Lost__c</columns>
+        <columns>Total_Rep_Period_Forecast__c</columns>
+        <columns>Total_Rolled__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Rep Forecast Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Rep Forecasts</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Sales_Rep__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Rolled__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Open__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Won__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Rep_Period_Forecast__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Lost__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Rep_Comments_about_Period_Forecast__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

@@ -1,0 +1,9 @@
+<apex:page controller="SalesForecastCSVExport_ctrl" contentType="application/vnd.ms-excel#SalesForceExport_{!year}.xls" cache="true">
+          <table border="1" >
+          <tr><td bgcolor="#D4EBFF" align="center" colspan="2"><b>Richwood Sales Forecast {!year}</b></td> <td bgcolor="#D4EBFF" align="right" colspan="1"><b>Export Date:</b></td> <td bgcolor="#D4EBFF" align="left" colspan="1"><b>{!(now())}</b></td></tr>
+           <tr><td bgcolor="#4c4c4c"><font color="#ffffff"><b>Sales Rep Id</b></font></td> <td bgcolor="#4c4c4c"><font color="#ffffff"><b>Name</b></font></td> <td bgcolor="#4c4c4c"><font color="#ffffff"><b>Projected Sales</b></font></td> <td bgcolor="#4c4c4c"><font color="#ffffff"><b>Budgeted Sales</b></font></td></tr>
+           <apex:repeat var="repRecord" value="{!AggregateResult_list}">           
+               <tr><td><apex:outputtext style="float:right;" value="{!repRecord['repid']}"/></td> <td>{!repRecord['ownername']}</td> <td>{!repRecord['Projected_Amount']}</td> <td>{!repRecord['Budgeted_Sales']}</td></tr>
+           </apex:repeat>
+        </table>
+</apex:page>

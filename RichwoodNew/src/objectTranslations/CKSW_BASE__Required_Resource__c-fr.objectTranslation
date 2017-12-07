@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Ressource requise</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Ressources requises</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Numéro de la ressource requise</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

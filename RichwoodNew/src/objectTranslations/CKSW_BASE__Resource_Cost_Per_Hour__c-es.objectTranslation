@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Coste de recurso por hora</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Costes de recursos por hora</value>
+    </caseValues>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Nombre de coste de recurso por hora</nameFieldLabel>
+</CustomObjectTranslation>

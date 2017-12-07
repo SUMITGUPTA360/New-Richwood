@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Saddle</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Saddles</value>
+    </caseValues>
+    <fields>
+        <label><!-- Asset --></label>
+        <name>Asset__c</name>
+        <relationshipLabel><!-- Saddles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Belt Speed --></label>
+        <name>Belt_Speed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Belt Width --></label>
+        <name>Belt_Width__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bolt Centers --></label>
+        <name>Bolt_Centers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Center Height --></label>
+        <name>Center_Height__c</name>
+    </fields>
+    <fields>
+        <label><!-- Chord Length --></label>
+        <name>Chord_Length__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Asset --></label>
+        <name>Customer_Asset__c</name>
+        <relationshipLabel><!-- Saddles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Dimension A --></label>
+        <name>Dimension_A__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dimension B --></label>
+        <name>Dimension_B__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dimension C --></label>
+        <name>Dimension_C__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dimension D --></label>
+        <name>Dimension_D__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dimension E --></label>
+        <name>Dimension_E__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dimension F --></label>
+        <name>Dimension_F__c</name>
+    </fields>
+    <fields>
+        <label><!-- Drop Height --></label>
+        <name>Drop_Height__c</name>
+    </fields>
+    <fields>
+        <label><!-- Idler --></label>
+        <name>Idler__c</name>
+    </fields>
+    <fields>
+        <label><!-- Idler in Load Zone? --></label>
+        <name>Idler_in_Load_Zone__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MAX Lump Size --></label>
+        <name>MAX_Lump_Size__c</name>
+    </fields>
+    <fields>
+        <label><!-- MAX Lump Weight --></label>
+        <name>MAX_Lump_Weight__c</name>
+    </fields>
+    <fields>
+        <label><!-- Material Density --></label>
+        <name>Material_Density__c</name>
+    </fields>
+    <fields>
+        <label><!-- Material --></label>
+        <name>Material__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Saddles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Saddle --></label>
+        <name>Saddle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tons per Hour --></label>
+        <name>Tons_per_Hour__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trough Angle --></label>
+        <name>Trough_Angle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Units --></label>
+        <name>Units__c</name>
+        <picklistValues>
+            <masterLabel>Metric</masterLabel>
+            <translation><!-- Metric --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Wing Height --></label>
+        <name>Wing_Height__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

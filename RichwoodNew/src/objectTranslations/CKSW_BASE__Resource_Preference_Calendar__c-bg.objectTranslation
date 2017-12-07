@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Календар на предпочитаните ресурси</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Календари на предпочитаните ресурси</value>
+    </caseValues>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Номер на календара на предпочитаните рес</nameFieldLabel>
+</CustomObjectTranslation>

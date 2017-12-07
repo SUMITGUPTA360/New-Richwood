@@ -1,0 +1,370 @@
+<apex:page applyHtmlTag="true" showHeader="true" sidebar="false" docType="html-5.0" controller="AccountForecastbyCustomerController" id="pg" action="{!InitializingData}">
+
+    <c:CommonStyle />
+<style>
+    .titleCls{
+        margin-left: 43%;
+        font-size: 30px;
+    }
+    .titleCls1{
+        
+        font-size: 20px;
+    }
+    p {
+        text-align:center;
+        font-size: 20px;
+    }
+    .picklist{
+        height: 36px;
+        padding: 0 8px;
+        border: 1px solid #a4beca;
+        border-left: 7px solid #068ddf;
+        box-sizing: border-box;
+        display: block;
+        width: 23%;
+        font-family: 'Roboto', Arial,Helvetica,sans-serif !important;
+        font-size: 14px;
+        line-height: 18px;
+        color: rgb(149 , 149 , 149);
+    }
+    body{
+        margin-left: 5%;
+    }
+    
+    body .bPageBlock, body .bPageBlock .pbBody, body .bPageBlock .pbBottomButtons {
+    background-color: #E5FFCC;
+    background-image: none;
+    margin: 0;
+    }
+    
+     .bPageBlock {
+        border-top: 4px solid #f8f8f8;
+    }
+    
+    body .bPageBlock .pbBody .pbSubheader {
+        background: silver;
+    }
+    table.detailList tr td, table.detailList tr th {
+        padding: 0px !important;
+        padding-left: 10px !important;
+    }
+    
+    /* Action Status - Please wait cursor. */
+        .avcircle {    
+        width:22px;
+        height:22px;
+        float:left;
+        margin-bottom:18px;
+        margin-top:18px;
+        margin-left: 55px;
+        }
+         
+        /* Action Status - Please wait text. */
+        .avtxt {
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+        font-size:13px;
+        color:#000000;
+        line-height:20px;
+        margin-left:25px;
+        margin-bottom:18px;
+        margin-top:18px;
+        width: 200px;
+        font-weight: bold;
+        float: left;
+        }                        
+         
+        /* When ajax request send disable whole background content. */
+        .avdisableBackPage {
+        filter: Alpha(Opacity = 40);
+        -moz-opacity: 0.4;
+        opacity: 0.4;
+        width: 100%;
+        height: 100%;
+        background-color: #999999;
+        position: absolute;
+        z-index: 500;
+        top: 0px;
+        left: 0px;
+        }   
+        /* Action Status - Please wait Divition. */
+        .avsplashDiv{
+        position: fixed;
+        left: 500px;
+        top:280px;
+        border: 0px;
+        z-index: 9999;  
+        width:335px;
+        height:65px;
+        }
+    </style>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="/resources/demos/style.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    
+    <head>
+        <title >By Customer</title>
+    </head>
+    <h1 class="titleCls"> By Customer </h1>
+    
+    <b><apex:outputLink rendered="{!$CurrentPage.parameters.manager==''}" value="/apex/SalesForecasts_Page?year={!year}" style="position: absolute; left: 0px;  padding: 10px;">&lt;&lt; Back to Forecast overview </apex:outputLink></b>
+    <b><apex:outputLink rendered="{!$CurrentPage.parameters.manager!=''}" value="/apex/HTMLSalesForecasts_Page?year={!year}" style="position: absolute; left: 0px;  padding: 10px;">&lt;&lt; Back to Forecast overview </apex:outputLink></b>
+    <apex:form id="fm">
+        
+        <p>SALESMAN: <apex:outputText >  {!account_list[AccountLocationNumber].owner.name}</apex:outputText></p>
+        <p>Forecast for {!year}</p>
+        
+        <div id="splashDiv" style="display:none;">
+                  <div class="avdisableBackPage"></div>
+                  <div class="avsplashDiv" >
+                      <div class="avcircle"><apex:image value="{!$Resource.LoadingImage}"></apex:image></div>
+                      <div class="avtxt"></div>
+                  </div>
+        </div>
+        <!-- Action Functions -->
+        <apex:actionStatus onstart="startSplash();" onstop="endSplash();" id="myStatus"/>
+        
+        <!-- <apex:outputPanel id="dummy"></apex:outputPanel> -->
+        <apex:actionFunction action="{!updateForecast}" reRender="dummy,totalunitsID,totalPId,budgettotalsID,budgetsalesId,GrandTotalUnits,GrandTotalAmount,GrandBudgetTotalUnits,GrandBudgetTotalSales"   name="updateForecastsf">
+            <apex:param name="proidx" value="" assignTo="{!projectIdx}"/>
+            <apex:param name="proType" value="" assignTo="{!projectType}"/>
+        </apex:actionFunction>
+        
+        <apex:actionFunction action="{!updateCapitalProject}" reRender="Project" status="myStatus"  name="updateCapitalProjectsf">
+            <apex:param name="capitalprojectidx" value="" assignTo="{!capitalprojectidx}"/>
+        </apex:actionFunction>
+        
+        <apex:actionFunction action="{!createNewCapitalForecast}" reRender="Project" status="myStatus"  name="updateProjectForc_sf">
+            <apex:param name="projectfORindex" value="" assignTo="{!capitalprojectidx}"/>
+        </apex:actionFunction>
+        
+        <!-- / Action Functions -->
+        <apex:outputPanel id="accountId">
+            
+            <apex:variable var="submitButtonRendering" value="{!if($Profile.Name=='System Administrator',true,if($User.Id!=account_list[AccountLocationNumber].OwnerId,true,if(ayf_wrapper_Obj.forecastStatus_value=='Preparation'||ayf_wrapper_Obj.forecastStatus_value=='Adjustment Requested',true,false)))}"/>
+            <apex:variable var="statuspicklistRendering" value="{!if($Profile.Name=='System Administrator',true,if($User.Id!=account_list[AccountLocationNumber].OwnerId,true,false))}"/>
+            <apex:variable var="forecatFieldsRendering" value="{!if($Profile.Name=='System Administrator',true, if($User.Id==account_list[AccountLocationNumber].OwnerId, if(ayf_wrapper_Obj.forecastStatus_value=='Preparation'||ayf_wrapper_Obj.forecastStatus_value=='Adjustment Requested',true,false),false ))}"/>
+            
+            
+            <apex:variable var="budgetedFieldsRendering" value="{!if($Profile.Name=='System Administrator',true,if($User.Id!=account_list[AccountLocationNumber].OwnerId,true,false))}"/>
+            
+            
+            <table align="center">
+                <tr>
+                    <td>
+                        <apex:commandButton value="Previous Account" rendered="{!isPrevious}" disabled="{!Not(isPrevious)}" action="{!previous}" reRender="accountId" status="myStatus"/>
+                    </td>
+                    <th>
+                       <p> CUSTOMER:&nbsp;<apex:outputText value="{!account_list[AccountLocationNumber].Name}"/></p>
+                    </th>
+                    <td>
+                        <apex:commandButton value="Next Account" rendered="{!isNext}" disabled="{!Not(isNext)}" action="{!next}" reRender="accountId" status="myStatus"/>
+                    </td>
+                </tr>
+            </table>
+            <p>Forecast Status: {!ayf_wrapper_Obj.forecastStatus_value}</p>
+            <apex:pageBlock >
+                <div style="overflow: auto; width: auto; height: 400px;">
+                <table class="list" border="0" cellpadding="0" cellspacing="0" style="overflow: scroll;" >
+                    <tr><th>PRODUCT</th><th>Projected Units</th><th>Projected Sales</th><th>Budgeted Units</th><th>Budgeted Sales</th>
+                    <th>Total Units</th>    <th>Total Amount    </th><th>Total Budgeted Units</th>  <th>Total Budgeted Sales</th>
+                    </tr>
+                    <apex:repeat value="{!productType_List}" var="pro_type">
+                        <apex:variable value="{!0}" var="pro_size"/>
+                        <apex:repeat value="{!ProductType_ProductCategoryList_Map[pro_type]}" var="pro_temp">
+                               <apex:variable value="{!pro_size+1}" var="pro_size"/>    
+                        </apex:repeat>
+                        <tr style="display:{!if(pro_size>0,'','none')};background-color: #dddddd;">
+                            <td scope="col" colspan="5"><apex:outputtext ><b>{!productType_Map[pro_type]}</b></apex:outputtext></td>
+                            <td scope="col"><apex:outputPanel id="totalunitsID"> <b>
+                                                    <apex:outputText value="{0, number,}">
+                                                        <apex:param value="{!ProductType_TotalUnits[pro_type]}" />
+                                                    </apex:outputText>
+                                            </b></apex:outputPanel>
+                            </td>
+                            <td scope="col"><apex:outputPanel id="totalPId"><b>
+                                                        <apex:outputText value="{0, number,}">
+                                                            <apex:param value="{!ProductType_TotalAmount[pro_type]}" />
+                                                        </apex:outputText></b>
+                                            </apex:outputPanel>
+                            </td>
+                            <td scope="col"><apex:outputPanel id="budgettotalsID"><b>
+                                                    <apex:outputText value="{0, number,}">
+                                                        <apex:param value="{!ProductType_budget_TotalUnits[pro_type]}" />
+                                                    </apex:outputText></b>
+                                            </apex:outputPanel>
+                            </td>
+                            <td scope="col"><apex:outputPanel id="budgetsalesId"><b>
+                                                    <apex:outputText value="{0, number,}">
+                                                        <apex:param value="{!ProductType_budget_TotalSales[pro_type]}" />
+                                                    </apex:outputText></b>
+                                            </apex:outputPanel>
+                            </td>
+                        </tr>
+                        
+                        <apex:variable var="idx" value="{!0}"/>    
+                        <apex:repeat value="{!ProductType_ProductCategoryList_Map[pro_type]}" var="pro">
+                        <tr style="display:{!if(pro_size>0,'','none')}">   
+                           <td>
+                               <apex:outputText >{!pro.ProductCategoryName} </apex:outputText>
+                           </td>
+                           <td>
+                               <apex:inputText value="{!pro.fpc_wrapper_Obj.Units}" rendered="{!forecatFieldsRendering}" onchange="updateForecastsf('{!idx}','{!pro_type}');" size="5" />  
+                               <!--<apex:outputText value="{0, number,}" rendered="{!not(forecatFieldsRendering)}" >
+                                    <apex:param value="{!pro.fpc_wrapper_Obj.Units}"/>
+                               </apex:outputText>-->
+                               <apex:outputPanel rendered="{!not(forecatFieldsRendering)}">
+                                <apex:outputPanel rendered="{!LEN(pro.fpc_wrapper_Obj.Units)!=0}">
+                                    <apex:variable value="{!isNumber(SUBSTITUTE(SUBSTITUTE(pro.fpc_wrapper_Obj.Units, '$', ''), ',', ''))}" var="units" />
+                                    
+                                        <apex:outputText value="{0, number,}" rendered="{!units}">
+                                            <apex:param value="{!value(SUBSTITUTE(SUBSTITUTE(pro.fpc_wrapper_Obj.Units, '$', ''), ',', ''))}" />
+                                        </apex:outputText>
+                                </apex:outputPanel>
+                                </apex:outputPanel>
+                           </td>
+                           <td>
+                               <apex:inputText value="{!pro.fpc_wrapper_Obj.projectedAmount}" rendered="{!forecatFieldsRendering}" onchange="updateForecastsf('{!idx}','{!pro_type}');" size="5" /> 
+                               <!--<apex:outputText value="{0, number,}" rendered="{!not(forecatFieldsRendering)}" >
+                                   <apex:param value="{!pro.fpc_wrapper_Obj.projectedAmount}"/>
+                               </apex:outputText>-->
+                               <apex:outputPanel rendered="{!not(forecatFieldsRendering)}">
+                                <apex:outputPanel rendered="{!LEN(pro.fpc_wrapper_Obj.projectedAmount)!=0}">
+                                    <apex:variable value="{!isNumber(SUBSTITUTE(SUBSTITUTE(pro.fpc_wrapper_Obj.projectedAmount, '$', ''), ',', ''))}" var="units" />
+                                        <apex:outputText value="{0, number,}" rendered="{!units}">
+                                            <apex:param value="{!value(SUBSTITUTE(SUBSTITUTE(pro.fpc_wrapper_Obj.projectedAmount, '$', ''), ',', ''))}" />
+                                        </apex:outputText>
+                                </apex:outputPanel>
+                                </apex:outputPanel>
+                           </td>
+                          <td>
+                              <apex:inputText value="{!pro.fpc_wrapper_Obj.budget_Units}" rendered="{!budgetedFieldsRendering}" onchange="updateForecastsf('{!idx}','{!pro_type}');" size="5" />  
+                              <!--<apex:outputText value="{0, number,}"  rendered="{!not(budgetedFieldsRendering)}">
+                               <apex:param value="{!pro.fpc_wrapper_Obj.budget_Units}"/>
+                              </apex:outputText>-->
+                              <apex:outputPanel rendered="{!not(budgetedFieldsRendering)}">
+                                <apex:outputPanel rendered="{!LEN(pro.fpc_wrapper_Obj.budget_Units)!=0}">
+                                    <apex:variable value="{!isNumber(SUBSTITUTE(SUBSTITUTE(pro.fpc_wrapper_Obj.budget_Units, '$', ''), ',', ''))}" var="units" />
+                                        <apex:outputText value="{0, number,}" rendered="{!units}">
+                                            <apex:param value="{!value(SUBSTITUTE(SUBSTITUTE(pro.fpc_wrapper_Obj.budget_Units, '$', ''), ',', ''))}" />
+                                        </apex:outputText>
+                                </apex:outputPanel>
+                                </apex:outputPanel>
+                          </td>
+                          <td>
+                              <apex:inputText value="{!pro.fpc_wrapper_Obj.budget_sales}" rendered="{!budgetedFieldsRendering}" onchange="updateForecastsf('{!idx}','{!pro_type}');" size="5" />  
+                              <!--
+                              <apex:outputText value="{0, number,}"  rendered="{!not(budgetedFieldsRendering)}">
+                                    <apex:param value="{!pro.fpc_wrapper_Obj.budget_sales}" />
+                                </apex:outputText>-->
+                              <apex:outputPanel rendered="{!not(budgetedFieldsRendering)}">
+                                <apex:outputPanel rendered="{!LEN(pro.fpc_wrapper_Obj.budget_sales)!=0}">
+                                    <apex:variable value="{!isNumber(SUBSTITUTE(SUBSTITUTE(pro.fpc_wrapper_Obj.budget_sales, '$', ''), ',', ''))}" var="units" />
+                                        <apex:outputText value="{0, number,}" rendered="{!units}">
+                                            <apex:param value="{!value(SUBSTITUTE(SUBSTITUTE(pro.fpc_wrapper_Obj.budget_sales, '$', ''), ',', ''))}" />
+                                        </apex:outputText>
+                                </apex:outputPanel>
+                                </apex:outputPanel>
+                              <apex:variable var="idx" value="{!idx+1}"/>
+                          </td>
+                         </tr>   
+                         </apex:repeat>
+                    </apex:repeat>
+                    
+                    <tr style="background-color: #dddddd;">
+                        <td align="right">TOTAL</td>
+                        <td><apex:outputPanel id="GrandTotalUnits">
+                                <apex:outputText value="{0, number,}">
+                                        <apex:param value="{!totalUnits}" />
+                                 </apex:outputText>
+                            </apex:outputPanel>
+                        </td>
+                        <td><apex:outputPanel id="GrandTotalAmount">
+                                <apex:outputText value="{0, number,}">
+                                    <apex:param value="{!totalAmount}" />
+                                </apex:outputText>
+                            </apex:outputPanel>
+                        </td>
+                        <td><apex:outputpanel id="GrandBudgetTotalUnits">
+                            <apex:outputText value="{0, number,}">
+                                    <apex:param value="{!budget_TotalUnits}" />
+                                </apex:outputText>
+                            </apex:outputpanel></td>
+                        <td><apex:outputpanel id="GrandBudgetTotalSales">
+                            <apex:outputText value="{0, number,}">
+                                    <apex:param value="{!budget_TotalSales}" />
+                                </apex:outputText>
+                            </apex:outputpanel></td>
+                        <td colspan="4"></td>
+                    </tr>
+                </table>
+                </div>
+            
+            </apex:pageBlock>
+            
+            <apex:pageblock id="Project">
+                <apex:pageBlockSection title="Capital Projects" collapsible="false" ></apex:pageBlockSection>
+                <apex:variable var="cpidx" value="{!0}"/>
+                <apex:pageBlockTable value="{!capitalProject_List}" var="obj">
+                    <apex:column headerValue="Name">
+                        <apex:inputText value="{!obj.cp_wrapper_Obj.Name}" rendered="{!isFieldsDisable}"  onchange="updateCapitalProjectsf('{!cpidx}');" /> 
+                        <apex:outputText value="{!obj.cp_wrapper_Obj.Name}" rendered="{!not(isFieldsDisable)}" />
+                    </apex:column>
+                    <apex:column headerValue="Project Description">
+                        <apex:inputTextarea cols="24" value="{!obj.cp_wrapper_Obj.projectDescription}" rendered="{!isFieldsDisable}" onchange="updateCapitalProjectsf('{!cpidx}');"/>
+                        <apex:outputtext value="{!obj.cp_wrapper_Obj.projectDescription}" rendered="{!not(isFieldsDisable)}"  />
+                    </apex:column>
+                    <apex:column headerValue="Project Status">
+                        <apex:outputText value="{!obj.cp_wrapper_Obj.Status_value}" rendered="{!not(isFieldsDisable)}"/>
+                        <apex:selectList onchange="updateCapitalProjectsf('{!cpidx}');" rendered="{!isFieldsDisable}"   value="{!obj.cp_wrapper_Obj.Status_value}" size="1" multiselect="false">
+                            <apex:selectOptions value="{!obj.cp_wrapper_Obj.Status}" />
+                        </apex:selectList>
+                        
+                    </apex:column>
+                    <apex:column headerValue="Forecast Description" >
+                        
+                      <apex:inputtextarea cols="24" value="{!obj.cpf_wrapper_Obj.Description}" onchange="updateProjectForc_sf('{!cpidx}');" rendered="{!And(obj.cp_wrapper_Obj.cp_Id!=null,obj.cpf_wrapper_Obj.cpf_Id!=null,isFieldsDisable)}"   />
+                      
+                     <apex:commandButton value="New Capital Project Forecast" rendered="{!And(obj.cp_wrapper_Obj.cp_Id!=null,obj.cpf_wrapper_Obj.cpf_Id==null,isFieldsDisable)}" reRender="Project" action="{!createNewCapitalForecast}" status="myStatus" >  
+                          <apex:param name="projectindex" value="{!cpidx}" assignTo="{!capitalprojectidx}"/>
+                      </apex:commandButton>
+                      
+                      <apex:outputText value="{!obj.cpf_wrapper_Obj.Description}" rendered="{!Not(isFieldsDisable)}"  />  
+                    </apex:column>
+                    <apex:column headerValue="Amount for {!year}">
+                            <apex:inputText value="{!obj.cpf_wrapper_Obj.amountThisYear}" onchange="updateProjectForc_sf('{!cpidx}');" rendered="{!And(obj.cp_wrapper_Obj.cp_Id!=null,obj.cpf_wrapper_Obj.cpf_Id!=null,isFieldsDisable)}"    />
+                            <apex:outputText value="{0, number,}"  rendered="{!Not(isFieldsDisable)}">
+                                 <apex:param value="{!obj.cpf_wrapper_Obj.amountThisYear}" />
+                            </apex:outputText>
+                        <apex:variable var="cpidx" value="{!cpidx+1}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+                
+                <apex:commandButton style="position: absolute; left: 25px;  padding: 10px;" value="Create New Project" action="{!createNewCapitalProject}"  status="myStatus" reRender="accountId" rendered="{!(isFieldsDisable)}"  />
+                <center>&nbsp;&nbsp;&nbsp;
+                    <apex:commandButton value="Submit this Forecast" action="{!SubmitForecast}" status="myStatus" reRender="accountId" rendered="{!submitButtonRendering}" />&nbsp;&nbsp;&nbsp;
+                   
+                    <apex:outputpanel rendered="{!statuspicklistRendering}" ><b>Status:</b> &nbsp;&nbsp;
+                        <apex:selectList value="{!ayf_wrapper_Obj.forecastStatus_value}" size="1" multiselect="false">
+                            <apex:selectOptions value="{!ayf_wrapper_Obj.forecastStatus}" />
+                        </apex:selectList>
+                    </apex:outputpanel>
+                    
+                </center><br/>
+                <center>
+                    <apex:commandButton style="width:250px;" action="{!save}" value="    Save    " status="myStatus" reRender="accountId" rendered="{!(isFieldsDisable)}" />
+                </center>
+            </apex:pageblock>
+            <script> 
+                    function startSplash() {                     
+                    var divObj = document.getElementById('splashDiv');           
+                    divObj.style.display='block';                                                
+                    }
+                    function endSplash() {           
+                    document.getElementById('splashDiv').style.display='none';                   
+                    }    
+            </script>
+        </apex:outputPanel>     
+    </apex:form>
+</apex:page>

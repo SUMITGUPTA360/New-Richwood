@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Modèle de poste - Élément de modèle de poste</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Modèles de poste - Éléments de modèle de poste</value>
+    </caseValues>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Modèle de poste Nom de l&apos;élément de modè</nameFieldLabel>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

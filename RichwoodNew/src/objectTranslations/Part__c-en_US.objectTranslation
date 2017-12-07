@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Part</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Parts</value>
+    </caseValues>
+    <fields>
+        <help><!-- If this account uses a different reference number for their alloy for this part, note that reference here. --></help>
+        <label><!-- Account Alloy Reference --></label>
+        <name>Account_Alloy_Reference__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Parts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contracted Price --></label>
+        <name>Contracted_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Part Description --></label>
+        <name>Part_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Part Number --></label>
+        <name>Part_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Available</masterLabel>
+            <translation><!-- Available --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Concept</masterLabel>
+            <translation><!-- Concept --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deprecated</masterLabel>
+            <translation><!-- Deprecated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Design</masterLabel>
+            <translation><!-- Design --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing</masterLabel>
+            <translation><!-- Pricing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proof/Samples Produced</masterLabel>
+            <translation><!-- Proof/Samples Produced --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Part Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

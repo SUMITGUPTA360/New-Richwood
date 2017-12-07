@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CommercientSF7__tblSoTransDetail__c$CommercientSF7__Descr__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>CommercientSF7__tblSoTransDetail__c$CommercientSF7__PriceExt__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>CommercientSF7__tblSoTransDetail__c$CommercientSF7__QtyShipSell__c</field>
+    </columns>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CommercientSF7__tblSoTransDetail__c$CommercientSF7__tblSoTransHeader__c.CommercientSF7__Account__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Traverse Sales Orders with SO Lines</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Traverse_Sales_Orders_with_SO_Lines__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CommercientSF7__tblSoTransDetail__c$CommercientSF7__ActShipDate__c</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

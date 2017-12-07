@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Associated Asset</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Associated Assets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact Role --></label>
+        <name>Contact_Role__c</name>
+        <relationshipLabel><!-- Assets Associated with this Contact --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Customer Asset --></label>
+        <name>Customer_Asset__c</name>
+        <relationshipLabel><!-- Contacts Associated with this Asset --></relationshipLabel>
+    </fields>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

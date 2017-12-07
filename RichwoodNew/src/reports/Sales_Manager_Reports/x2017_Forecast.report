@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Account_Yearly_Forecasts__r$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Account_Yearly_Forecasts__r$Projected_Amount__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>2017 Forecast</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Annual_Forecast__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account.Account_Yearly_Forecasts__r$Forecast_Period_Start__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

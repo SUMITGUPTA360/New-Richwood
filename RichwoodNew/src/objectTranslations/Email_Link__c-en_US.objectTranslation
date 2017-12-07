@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Email Link</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Email Links</value>
+    </caseValues>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+        <relationshipLabel><!-- Email Links --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Click Count --></label>
+        <name>Click_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Destination URL --></label>
+        <name>Destination_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link Identifier --></label>
+        <name>Link_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link to Use --></label>
+        <name>Link_to_Use__c</name>
+    </fields>
+    <layouts>
+        <layout>Email Link Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

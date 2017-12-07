@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ProntoForm Test</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ProntoForm Tests</value>
+    </caseValues>
+    <fields>
+        <label><!-- Answer #10 --></label>
+        <name>Answer_10__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #11 --></label>
+        <name>Answer_11__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #12 --></label>
+        <name>Answer_12__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #13 --></label>
+        <name>Answer_13__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #14 --></label>
+        <name>Answer_14__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #15 --></label>
+        <name>Answer_15__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #16 --></label>
+        <name>Answer_16__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #17 --></label>
+        <name>Answer_17__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #18 --></label>
+        <name>Answer_18__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #19 --></label>
+        <name>Answer_19__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #1 --></label>
+        <name>Answer_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #20 --></label>
+        <name>Answer_20__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #21 --></label>
+        <name>Answer_21__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #22 --></label>
+        <name>Answer_22__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #23 --></label>
+        <name>Answer_23__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #24 --></label>
+        <name>Answer_24__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #25 --></label>
+        <name>Answer_25__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #26 --></label>
+        <name>Answer_26__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #27 --></label>
+        <name>Answer_27__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #28 --></label>
+        <name>Answer_28__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #29 --></label>
+        <name>Answer_29__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #2 --></label>
+        <name>Answer_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #30 --></label>
+        <name>Answer_30__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #3 --></label>
+        <name>Answer_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #4 --></label>
+        <name>Answer_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #5 --></label>
+        <name>Answer_5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #6 --></label>
+        <name>Answer_6__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #7 --></label>
+        <name>Answer_7__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #8 --></label>
+        <name>Answer_8__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer #9 --></label>
+        <name>Answer_9__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Asset --></label>
+        <name>Customer_Asset__c</name>
+        <relationshipLabel><!-- ProntoForm Tests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Form Submission Date/Time --></label>
+        <name>Form_Submission_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Submitted By --></label>
+        <name>Form_Submitted_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #10 --></label>
+        <name>Question_10__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #11 --></label>
+        <name>Question_11__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #12 --></label>
+        <name>Question_12__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #13 --></label>
+        <name>Question_13__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #14 --></label>
+        <name>Question_14__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #15 --></label>
+        <name>Question_15__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #16 --></label>
+        <name>Question_16__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #17 --></label>
+        <name>Question_17__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #18 --></label>
+        <name>Question_18__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #19 --></label>
+        <name>Question_19__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #1 --></label>
+        <name>Question_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #20 --></label>
+        <name>Question_20__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #21 --></label>
+        <name>Question_21__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #22 --></label>
+        <name>Question_22__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #23 --></label>
+        <name>Question_23__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #24 --></label>
+        <name>Question_24__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #25 --></label>
+        <name>Question_25__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #26 --></label>
+        <name>Question_26__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #27 --></label>
+        <name>Question_27__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #28 --></label>
+        <name>Question_28__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #29 --></label>
+        <name>Question_29__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #2 --></label>
+        <name>Question_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #30 --></label>
+        <name>Question_30__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #3 --></label>
+        <name>Question_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #4 --></label>
+        <name>Question_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #5 --></label>
+        <name>Question_5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #6 --></label>
+        <name>Question_6__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #7 --></label>
+        <name>Question_7__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #8 --></label>
+        <name>Question_8__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question #9 --></label>
+        <name>Question_9__c</name>
+    </fields>
+    <layouts>
+        <layout>ProntoForm Test Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

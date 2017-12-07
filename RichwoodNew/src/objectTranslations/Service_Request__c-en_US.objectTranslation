@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Service Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Service Requests</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Service Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Bring Welding Trailer --></label>
+        <name>Bring_Welding_Trailer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conveyor Section --></label>
+        <name>Conveyor_Section__c</name>
+        <picklistValues>
+            <masterLabel>Belt</masterLabel>
+            <translation><!-- Belt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Head</masterLabel>
+            <translation><!-- Head --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tail</masterLabel>
+            <translation><!-- Tail --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Customer Asset --></label>
+        <name>Customer_Asset__c</name>
+        <relationshipLabel><!-- Service Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <relationshipLabel><!-- Service Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Purchase Order Number --></label>
+        <name>Purchase_Order_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Date/Time --></label>
+        <name>Scheduled_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Request Type --></label>
+        <name>Service_Request_Type__c</name>
+        <picklistValues>
+            <masterLabel>Inspection Only</masterLabel>
+            <translation><!-- Inspection Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inspection with Mx</masterLabel>
+            <translation><!-- Inspection with Mx --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Installation</masterLabel>
+            <translation><!-- Installation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maintenance</masterLabel>
+            <translation><!-- Maintenance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supervision Only</masterLabel>
+            <translation><!-- Supervision Only --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation><!-- Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready</masterLabel>
+            <translation><!-- Ready --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Work Required Description --></label>
+        <name>Work_Required_Description__c</name>
+    </fields>
+    <layouts>
+        <layout>Service Request Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

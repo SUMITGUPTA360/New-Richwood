@@ -1,0 +1,791 @@
+<apex:page standardController="Saddle__c"  action="{!unload}" extensions="SaddleandIdlerLookup_ctrl" tabStyle="contact" showHeader="true" sidebar="false"  title="Saddle and Idler Lookup" >
+    <apex:form id="form">
+        <center><h4>Saddle and Idler Lookup</h4></center>
+        <table width="{!if(isMobile,'100%','35%')}" align="{!if(isMobile,'center','left')}" border="1" style="border-collapse: collapse;font-weight:bold;">
+                <tr>
+                    <td>
+                        Units
+                    </td>
+                    <td>
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.Units__c}">
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="form" />
+                        </apex:inputField>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Units__c}"/>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[0].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[0].fractionNumber}</b>
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                        Belt Width
+                    </td>
+                    <td>
+                        <apex:selectList rendered="{!isEditMode}" size="1" value="{!saddle.Belt_Width__c}" style="margin-right:4%" >
+                            <apex:selectOptions value="{!beltWidthOptions}" /> 
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:selectList>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Belt_Width__c}"/>
+                        {!if(saddle.Units__c=='Standard','in','mm')}
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[1].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[1].fractionNumber}</b>
+                    </td>
+                </tr>    
+                <tr>
+                    <td>
+                        Belt Speed
+                    </td>
+                    <td>
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.Belt_Speed__c}">
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputField>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Belt_Speed__c}"/>
+                        {!if(saddle.Units__c=='Standard','ft/min','m/s')}
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[2].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[2].fractionNumber}</b>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        Tons per Hour
+                    </td>
+                    <td>
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.Tons_per_Hour__c}">
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputField>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Tons_per_Hour__c}"/>
+                            {!if(saddle.Units__c=='Standard','Tons/hr','Tonnes/hr')}
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[3].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[3].fractionNumber}</b>
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                        Material
+                    </td>
+                    <td>
+                        <apex:selectList rendered="{!isEditMode}" size="1" value="{!saddle.Material_Density__c}" style="margin-right:4%">
+                            <apex:selectOptions value="{!materialOptions}" />
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:selectList>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Material_Density__c}"/>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[4].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[4].fractionNumber}</b>
+                    </td>
+                </tr>    
+                <tr>
+                    <td>
+                        MAX Lump Size
+                    </td>
+                    <td>
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.MAX_Lump_Size__c}">
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputField>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.MAX_Lump_Size__c}"/>
+                        {!if(saddle.Units__c=='Standard','in','mm')}
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[5].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[5].fractionNumber}</b>
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                        Drop Height
+                    </td>
+                    <td>
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.Drop_Height__c}">
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputField>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Drop_Height__c}"/>
+                        {!if(saddle.Units__c=='Standard','in','mm')}
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[6].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[6].fractionNumber}</b>
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                        Trough Angle
+                    </td>
+                    <td>
+                        <apex:selectList size="1"  rendered="{!isEditMode}" value="{!saddle.Trough_Angle__c}" style="margin-right:4%">
+                            <apex:selectOptions value="{!troughAngleOptions}" /> 
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:selectList>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Trough_Angle__c}"/>
+                        Degrees
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[7].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[7].fractionNumber}</b>
+                    </td>
+                </tr>    
+                <tr>
+                    <td>
+                        Bolt Centers
+                    </td>
+                    <td>
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.Bolt_Centers__c}">
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputField>    
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Bolt_Centers__c}"/>
+                        {!if(saddle.Units__c=='Standard','in','mm')}
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[8].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[8].fractionNumber}</b>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        Center Height
+                    </td>
+                    <td>
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.Center_Height__c}">
+                           <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputField>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Center_Height__c}"/>
+                        {!if(saddle.Units__c=='Standard','in','mm')}
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[9].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[9].fractionNumber}</b>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        Wing Height
+                    </td>
+                    <td>
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.Wing_Height__c}">
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputField>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Wing_Height__c}"/>
+                        {!if(saddle.Units__c=='Standard','in','mm')}
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[10].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[10].fractionNumber}</b>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        Chord Length
+                    </td>
+                    <td>
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.Chord_Length__c}">
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputField>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Chord_Length__c}"/>
+                        {!if(saddle.Units__c=='Standard','in','mm')}
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[11].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[11].fractionNumber}</b>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        Idler In Load Zone?
+                    </td>
+                    <td>
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.Idler_in_Load_Zone__c}" >
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputField>
+                        <apex:outputField rendered="{!!isEditMode}" value="{!saddle.Idler_in_Load_Zone__c}"/>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[12].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[12].fractionNumber}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Opportunity</td>
+                    <td><!--
+                        <apex:inputField rendered="{!isEditMode}" value="{!saddle.Opportunity__c}" >
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputField>-->
+                        <apex:outputField value="{!saddle.Opportunity__c}"/>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[13].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[13].fractionNumber}</b>
+                    </td>
+            </tr>
+            <tr><td align="right">
+                    <apex:commandButton value="Save" style="color:blue;text-align:center;padding-left:1rem;padding-right:1rem;vertical-align:middle;border:1px solid rgb(221, 219, 218);box-sizing:border-box;transition:border .15s linear;border-color:rgb(221, 219, 218);background-color:rgb(255, 255, 255);display:inline-block;padding:0;background:transparent;background-clip:border-box;border-radius:.25rem;line-height:1.875rem;text-decoration:none;color:rgb(0, 112, 210);-webkit-appearance:none;white-space:normal;user-select:none;cursor:pointer;box-sizing:border-box;text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-indent: 0px; text-shadow: none; -webkit-writing-mode: horizontal-tb;width:120px!important" rendered="{!isEditMode}" reRender="form" action="{!saveSaddle}" />
+                    <apex:commandButton value="Edit" rendered="{!!isEditMode}" reRender="form" action="{!editSaddle}" style="color:blue;text-align:center;padding-left:1rem;padding-right:1rem;vertical-align:middle;border:1px solid rgb(221, 219, 218);box-sizing:border-box;transition:border .15s linear;border-color:rgb(221, 219, 218);background-color:rgb(255, 255, 255);display:inline-block;padding:0;background:transparent;background-clip:border-box;border-radius:.25rem;line-height:1.875rem;text-decoration:none;color:rgb(0, 112, 210);-webkit-appearance:none;white-space:normal;user-select:none;cursor:pointer;box-sizing:border-box;text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-indent: 0px; text-shadow: none; -webkit-writing-mode: horizontal-tb;width:120px!important" />
+                </td><td align="left">
+                    <apex:commandButton value="Cancel" action="{!CancelSaddle}" style="color:blue;text-align:center;padding-left:1rem;padding-right:1rem;vertical-align:middle;border:1px solid rgb(221, 219, 218);box-sizing:border-box;transition:border .15s linear;border-color:rgb(221, 219, 218);background-color:rgb(255, 255, 255);display:inline-block;padding:0;background:transparent;background-clip:border-box;border-radius:.25rem;line-height:1.875rem;text-decoration:none;color:rgb(0, 112, 210);-webkit-appearance:none;white-space:normal;user-select:none;cursor:pointer;box-sizing:border-box;text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-indent: 0px; text-shadow: none; -webkit-writing-mode: horizontal-tb;width:120px!important" />&nbsp;&nbsp;
+                    <apex:commandButton value="Add to Opportunity" action="{!joinOpp}" reRender="form" style="color:blue;text-align:center;padding-left:1rem;padding-right:1rem;vertical-align:middle;border:1px solid rgb(221, 219, 218);box-sizing:border-box;transition:border .15s linear;border-color:rgb(221, 219, 218);background-color:rgb(255, 255, 255);display:inline-block;padding:0;background:transparent;background-clip:border-box;border-radius:.25rem;line-height:1.875rem;text-decoration:none;color:rgb(0, 112, 210);-webkit-appearance:none;white-space:normal;user-select:none;cursor:pointer;box-sizing:border-box;text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-indent: 0px; text-shadow: none; -webkit-writing-mode: horizontal-tb;width:120px!important" />
+                </td>
+                <td>
+                        <b>{!fractionWrapperList[14].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[14].fractionNumber}</b>
+                    </td>
+            </tr>
+            <!--<tr>
+                <td></td><td></td>
+                <td>
+                        <b>{!fractionWrapperList[15].fraction}</b>
+                    </td>
+                    <td>
+                        <b>{!fractionWrapperList[15].fractionNumber}</b>
+                    </td>
+            </tr>-->
+            
+            </table>
+            
+            
+            <apex:outputPanel id="fm">
+            <table  align="{!if(ismobile,'center','left')}" width="{!if(isMobile,'100%','24%')}" border="1" style="border-collapse: collapse;margin-right:0px;margin-left:0px;font-weight:bold;">
+                <tr>
+                    <td colspan="2" >
+                        <strong style="font-size: 16px;">Saddle:&nbsp;&nbsp;<apex:outputField value="{!Saddle.Saddle__c}"/></strong>
+                    </td>
+                </tr>    
+                <tr>
+                    <td colspan="2" >
+                        <strong style="font-size: 16px;">Idler:&nbsp;&nbsp;<apex:outputField value="{!saddle.Idler__c}"/></strong>
+                    </td>
+                </tr>    
+                <tr>
+                    <td width="15%">
+                        <!--Dimension A-->Bolt Centers:&nbsp;&nbsp;<apex:outputField value="{!saddle.Dimension_A__c}" /> 
+                    </td>
+                    <td width="15%">
+                        <!--Dimension D-->Wing Height:&nbsp;&nbsp; <apex:outputField value="{!saddle.Dimension_D__c}" />
+                    </td>
+                </tr>    
+                <tr>
+                    <td width="15%">
+                        <!--Dimension B-->Overall Width:&nbsp;&nbsp; <apex:outputField value="{!saddle.Dimension_B__c}" />
+                    </td>
+                    <td width="15%">
+                        <!--Dimension E-->Chord:&nbsp;&nbsp; <apex:outputField value="{!saddle.Dimension_E__c}" />
+                    </td>
+                </tr>    
+                <tr>
+                    <td width="15%">
+                        <!--Dimension C-->Center Height:&nbsp;&nbsp; <apex:outputField value="{!saddle.Dimension_C__c}" />
+                    </td>
+                    <td width="15%">
+                        <!--Dimension F-->Trough Angle:&nbsp;&nbsp; <apex:outputField value="{!saddle.Dimension_F__c}" />
+                    </td>
+                </tr>
+                <tr><td colspan="2" align="center" >
+                        <strong style="font-size: 16px;">{!message1}</strong>
+                    </td>
+                </tr>
+                <tr><td colspan="2" align="center" >
+                        <strong style="font-size: 16px;">{!message2}</strong>
+                    </td>
+                </tr>
+                <tr><td colspan="2" align="center" >
+                    <strong style="font-size: 16px;">{!message3}</strong></td></tr>
+                <tr><td  colspan="2" align="center"  ><apex:image url="/resource/1507728985000/specificationVF"/></td></tr>
+        </table>
+        </apex:outputPanel>     
+        <apex:outputPanel >
+            <apex:outputPanel rendered="{!selectJoin}" styleClass="customPopup" >
+                <apex:pageBlock rendered="{!isoppBtns}" >
+                    <apex:pageBlockSection title="Joining Opportunity" collapsible="false" />
+                    <center>
+                        <apex:commandButton rendered="{!isoppBtns}" action="{!existingOpp}" value="Existing opportunity" reRender="form" style="color:blue;text-align:center;padding-left:1rem;padding-right:1rem;vertical-align:middle;border:1px solid rgb(221, 219, 218);box-sizing:border-box;transition:border .15s linear;border-color:rgb(221, 219, 218);background-color:rgb(255, 255, 255);display:inline-block;padding:0;background:transparent;background-clip:border-box;border-radius:.25rem;line-height:1.875rem;text-decoration:none;color:rgb(0, 112, 210);-webkit-appearance:none;white-space:normal;user-select:none;cursor:pointer;box-sizing:border-box;text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-indent: 0px; text-shadow: none; -webkit-writing-mode: horizontal-tb;width:120px!important" />
+                        <br/><br/>
+                        <apex:commandButton rendered="{!isoppBtns}" action="{!newOppCreate}" value="New Opportunity" reRender="form" style="color:blue;text-align:center;padding-left:1rem;padding-right:1rem;vertical-align:middle;border:1px solid rgb(221, 219, 218);box-sizing:border-box;transition:border .15s linear;border-color:rgb(221, 219, 218);background-color:rgb(255, 255, 255);display:inline-block;padding:0;background:transparent;background-clip:border-box;border-radius:.25rem;line-height:1.875rem;text-decoration:none;color:rgb(0, 112, 210);-webkit-appearance:none;white-space:normal;user-select:none;cursor:pointer;box-sizing:border-box;text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-indent: 0px; text-shadow: none; -webkit-writing-mode: horizontal-tb;width:120px!important" />
+                        <br/><br/>
+                        <apex:commandButton value="Cancel" reRender="form" immediate="true" action="{!closejoinOpp}" style="color:blue;text-align:center;padding-left:1rem;padding-right:1rem;vertical-align:middle;border:1px solid rgb(221, 219, 218);box-sizing:border-box;transition:border .15s linear;border-color:rgb(221, 219, 218);background-color:rgb(255, 255, 255);display:inline-block;padding:0;background:transparent;background-clip:border-box;border-radius:.25rem;line-height:1.875rem;text-decoration:none;color:rgb(0, 112, 210);-webkit-appearance:none;white-space:normal;user-select:none;cursor:pointer;box-sizing:border-box;text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-indent: 0px; text-shadow: none; -webkit-writing-mode: horizontal-tb;width:120px!important" />
+                    </center>
+                    
+                </apex:pageBlock>
+                <apex:outputPanel rendered="{!isexisting}">
+                    <table border="1" style="border-collapse: collapse;">
+                        <tr><td align="center" colspan="2"><b>Joining Opportunity</b></td></tr>
+                        <tr><td><b>Opportunity</b></td><td><apex:inputField value="{!saddle.Opportunity__c}" >
+                                    <apex:actionSupport event="onchange" reRender="form" action="{!refresh}" />
+                            </apex:inputField>
+                            </td></tr>
+                        <tr><td><b>Customer Asset</b></td>
+                            <td><apex:outputPanel rendered="{!saddle.Opportunity__c!=null}">
+                                    <!--<apex:inputField value="{!saddle.Customer_Asset__c}"/>-->
+                                    <apex:selectList size="1" value="{!saddle.Customer_Asset__c}">
+                                        <apex:selectOptions value="{!UpdateAssetsOptions}"></apex:selectOptions>
+                                    </apex:selectList>
+                                </apex:outputPanel>
+                            </td>
+                        </tr>
+                        <tr><td align="center" colspan="2"><b><apex:commandButton value="Close" action="{!closejoinOpp}" reRender="form" style="color:blue;text-align:center;padding-left:1rem;padding-right:1rem;vertical-align:middle;border:1px solid rgb(221, 219, 218);box-sizing:border-box;transition:border .15s linear;border-color:rgb(221, 219, 218);background-color:rgb(255, 255, 255);display:inline-block;padding:0;background:transparent;background-clip:border-box;border-radius:.25rem;line-height:1.875rem;text-decoration:none;color:rgb(0, 112, 210);-webkit-appearance:none;white-space:normal;user-select:none;cursor:pointer;box-sizing:border-box;text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-indent: 0px; text-shadow: none; -webkit-writing-mode: horizontal-tb;width:120px!important" /></b></td></tr>
+                    </table>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!isnewOpp}"   >
+                    <table border="1" style="border-collapse: collapse;">
+                        <tr><td align="center" colspan="2"><b>Joining Opportunity</b></td></tr>
+                        <tr><td><b>Opportunity Name</b></td><td><apex:inputField value="{!newOpp.Name}" /></td></tr>
+                        <tr><td><b>Close Date</b></td><td><apex:inputField value="{!newOpp.CloseDate}" /></td></tr>
+                        <tr><td><b>Account Name</b></td><td><apex:inputField value="{!newOpp.AccountId}" required="true" /></td></tr>
+                        <tr><td><b>Stage</b></td><td><apex:inputField value="{!newOpp.StageName}" /></td></tr>
+                        <tr><td><b>Quote Type</b></td><td><apex:inputField value="{!newOpp.Quote_Type__c}" /></td></tr>
+                        <tr><td align="right"><apex:commandButton value="Save" action="{!saveOpp}" reRender="form" style="color:blue;text-align:center;padding-left:1rem;padding-right:1rem;vertical-align:middle;border:1px solid rgb(221, 219, 218);box-sizing:border-box;transition:border .15s linear;border-color:rgb(221, 219, 218);background-color:rgb(255, 255, 255);display:inline-block;padding:0;background:transparent;background-clip:border-box;border-radius:.25rem;line-height:1.875rem;text-decoration:none;color:rgb(0, 112, 210);-webkit-appearance:none;white-space:normal;user-select:none;cursor:pointer;box-sizing:border-box;text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-indent: 0px; text-shadow: none; -webkit-writing-mode: horizontal-tb;width:120px!important" /></td>
+                            <td align="left"><apex:commandButton value="Cancel" immediate="true" action="{!closejoinOpp}" reRender="form" style="color:blue;text-align:center;padding-left:1rem;padding-right:1rem;vertical-align:middle;border:1px solid rgb(221, 219, 218);box-sizing:border-box;transition:border .15s linear;border-color:rgb(221, 219, 218);background-color:rgb(255, 255, 255);display:inline-block;padding:0;background:transparent;background-clip:border-box;border-radius:.25rem;line-height:1.875rem;text-decoration:none;color:rgb(0, 112, 210);-webkit-appearance:none;white-space:normal;user-select:none;cursor:pointer;box-sizing:border-box;text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-indent: 0px; text-shadow: none; -webkit-writing-mode: horizontal-tb;width:120px!important" /></td></tr>
+                    </table>
+                </apex:outputPanel>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        <!--
+        <table  align="right" border="1" style="border-collapse: collapse;margin-right:10px;margin-left:0px">
+                <tr>
+                    <td colspan="3">
+                        Keeping for option to add later 
+                    </td>
+                </tr>    
+                <tr>
+                    <td>
+                        MAX Lump Weight
+                    </td>
+                    <td>
+                        <apex:inputfield value="{!saddle.MAX_Lump_Weight__c}">
+                            <apex:actionSupport event="onchange" action="{!initialize}" reRender="fm" />
+                        </apex:inputfield>
+                    </td>
+                    <td>
+                        {!if(saddle.Units__c=='Standard','lbs','kg')}
+                    </td>
+                </tr>
+            </table><br/>
+        <table align="center" border="1" style="border-collapse: collapse;margin-right:10px;margin-left:10px">
+            <apex:repeat value="{!fractionWrapperList}" var="fwl">
+                <tr>
+                    <td>
+                        {!fwl.fraction}
+                    </td>
+                    <td>
+                        {!fwl.fractionNumber}
+                    </td>
+                </tr>
+            </apex:repeat>
+        </table><br/>
+        
+        <table  align="center" border="1" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td><b>Variable Name</b></td><td><b>Varible Value</b></td></tr>
+            <tr><td>BC</td><td>{!BC}</td></tr>
+            <tr><td>Belt_Speed</td><td>{!Belt_Speed}</td></tr>
+            <tr><td>BW</td><td>{!BW}</td></tr>
+            <tr><td>Center_Height***</td><td>{!Center_Height}</td></tr>
+            <tr><td>CH</td><td>{!CH}</td></tr>
+            <tr><td>Chord_Length***</td><td>{!Chord_Length}</td></tr>
+            <tr><td>CL</td><td>{!CL}</td></tr>
+            <tr><td>Drop_Height</td><td>{!Drop_Height}</td></tr>
+            <tr><td>Material_Density</td><td>{!saddle.Material_Density__c}==>{!Material_Density}</td></tr>
+            <tr><td>MAX_Lump_Size</td><td>{!MAX_Lump_Size}</td></tr>
+            <tr><td>MAX_Lump_Weight</td><td>{!MAX_Lump_Weight}</td></tr>
+            <tr><td>PCH</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!PCH}</apex:outputPanel></td></tr>
+            <tr><td>PCL</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel>
+                                <apex:outputPanel rendered="{!!isError}">{!PCL}</apex:outputPanel></td></tr>
+            <tr><td>PWH</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel>
+                                <apex:outputPanel rendered="{!!isError}">{!PWH}</apex:outputPanel></td></tr>
+            <tr><td>TA</td><td>{!TA}</td></tr>
+            <tr><td>TA_D</td><td>{!TA_D}</td></tr>
+            <tr><td>Tons_per_Hour</td><td>{!Tons_per_Hour}</td></tr>
+            <tr><td>Trough_Angle***</td><td>{!Trough_Angle}</td></tr>
+            <tr><td>WH</td><td>{!WH}</td></tr>
+            <tr><td>Wing_Height***</td><td>{!Wing_Height}</td></tr>
+        </table>
+        
+        <br/>
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td colspan="2"><b>Table Lookup</b></td></tr>
+            <tr><td>V63</td><td>{!V63}</td></tr>
+            <tr><td>V64</td><td>{!v64}</td></tr>
+            <tr><td>V65</td><td>{!v65}</td></tr>
+            <tr><td>ChordLength20</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel><apex:outputPanel rendered="{!!isError}">{!ChordLength20}</apex:outputPanel></td></tr>
+            <tr><td>ChordLength35</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel><apex:outputPanel rendered="{!!isError}">{!ChordLength35}</apex:outputPanel></td></tr>
+            <tr><td>ChordLength45</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel><apex:outputPanel rendered="{!!isError}">{!ChordLength45}</apex:outputPanel></td></tr>
+            <tr><td>WingHeight20</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel><apex:outputPanel rendered="{!!isError}">{!WingHeight20}</apex:outputPanel></td></tr>
+            <tr><td>WingHeight35</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel><apex:outputPanel rendered="{!!isError}">{!WingHeight35}</apex:outputPanel></td></tr>
+            <tr><td>WingHeight45</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel><apex:outputPanel rendered="{!!isError}">{!WingHeight45}</apex:outputPanel></td></tr>
+            <tr><td>Center Height</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel><apex:outputPanel rendered="{!!isError}">{!CenterHeight}</apex:outputPanel></td></tr>
+        </table><br/>
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td colspan="2">Roll Options</td></tr>
+            <tr><td>ASR</td><td>Yes</td></tr>
+            <tr><td>SWR</td><td>No</td></tr>
+            <tr><td>ARR</td><td></td></tr>
+            <tr><td>UWB</td><td></td></tr>
+        </table><br/>
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td colspan="3">Program Layout Seal Point Heights</td></tr>
+            <tr><td>Center Height</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                                          <apex:outputPanel rendered="{!!isError}">{!CenterHeight_sph}</apex:outputPanel></td><td></td></tr>
+            <tr><td>Wing Height</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!WingHeight_sph}</apex:outputPanel></td><td></td></tr>
+            
+            <tr><td>Chord Length</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!ChordLength_sph}</apex:outputPanel></td><td></td></tr>
+            
+            <tr><td>Seal Point</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!SealPoint_sph}</apex:outputPanel></td><td></td></tr>
+            
+            <tr><td colspan="3">Point of Tangency</td></tr>
+            
+            <tr><td>tan</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!tan_sph}</apex:outputPanel></td><td>Tan of TA</td></tr>
+            
+            <tr><td>cos</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!cos_sph}</apex:outputPanel></td><td>Cos of TA</td></tr>
+            
+            <tr><td>sin</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!sin_sph}</apex:outputPanel></td><td>Sin of TA</td></tr>
+            
+            <tr><td>y2</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!y2_sph}</apex:outputPanel></td><td>Center of secondary arc</td></tr>
+            
+            <tr><td>x</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!x_sph}</apex:outputPanel></td><td>X-coordinate of point of tangency</td></tr>
+            
+            <tr><td>y</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!y_sph}</apex:outputPanel></td><td>Y-coordinate of point of tangency</td></tr>
+            
+            <tr><td>Pot Chord</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!PoTChord_sph}</apex:outputPanel></td><td>Point of tan. Chord.</td></tr>
+            
+            <tr><td colspan="3">Line</td></tr>
+            
+            <tr><td>B</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!B_sph}</apex:outputPanel></td><td>Y-intercept</td></tr>
+            
+            <tr><td>Ysp</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!Ysp_sph}</apex:outputPanel></td><td>Height at 2/3 BW on line</td></tr>
+            
+            <tr><td colspan="3">Arc</td></tr>
+            
+            <tr><td>Y1</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!y1_sph}</apex:outputPanel></td><td>Center of Arc</td></tr>
+            
+            <tr><td>r</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!r_sph}</apex:outputPanel></td><td>Radius of Arc</td></tr>
+            
+            <tr><td>r^2</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!r2_sph}</apex:outputPanel></td><td>Radius squared</td></tr>
+            
+            <tr><td>Yasp</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!yasp_sph}</apex:outputPanel></td><td>Height at 2/3 BW on arc</td></tr>
+            
+            <tr><td colspan="3">Arc</td></tr>
+            
+            <tr><td>Seal Location</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!SealLocation_sph}</apex:outputPanel></td><td>Checks if seal is on arc or line</td></tr>
+            
+            <tr><td>Seal Height</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!SealHeight_sph}</apex:outputPanel></td><td></td></tr>
+        </table><br/>
+        
+
+
+
+
+
+
+
+
+        
+        
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td colspan="4">Circle Equations</td></tr>
+            <tr><td>a=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!a}</apex:outputPanel></td>
+                <td>a^2=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!a2}</apex:outputPanel></td></tr>
+            <tr><td>b=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!b}</apex:outputPanel></td>
+                <td>b^2=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!b2}</apex:outputPanel></td></tr>
+            <tr><td>c=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!c}</apex:outputPanel></td>
+                <td>c^2=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!c2}</apex:outputPanel></td></tr>
+            <tr><td>d=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!d}</apex:outputPanel></td>
+                <td>d^2=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!d2}</apex:outputPanel></td></tr>
+            <tr><td>e=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!e}</apex:outputPanel></td>
+                <td>e^2=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!e2}</apex:outputPanel></td></tr>
+            <tr><td>f=</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!f}</apex:outputPanel></td>
+                <td>f^2</td><td><apex:outputPanel rendered="{!isError}">#N/A</apex:outputPanel> 
+                               <apex:outputPanel rendered="{!!isError}">{!f2}</apex:outputPanel></td></tr>
+            <tr><td colspan="4"><hr/></td></tr>
+            <tr><td>h</td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!h}</apex:outputPanel>
+                </td>
+                <td>y01</td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!y01}</apex:outputPanel></td>
+            </tr>
+            <tr><td>k</td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!k}</apex:outputPanel>
+                </td>
+                <td>y0S</td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!y0S}</apex:outputPanel></td>
+            </tr>
+            <tr><td>r^2</td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!r2}</apex:outputPanel>
+                </td>
+                <td>y20</td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!y20}</apex:outputPanel></td>
+            </tr>
+            <tr><td>r</td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!r}</apex:outputPanel>
+                </td>
+                <td>y35</td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!y35}</apex:outputPanel></td>
+            </tr>
+            <tr>
+                <td></td><td></td>
+                <td>y45</td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!y45}</apex:outputPanel></td>
+            </tr>
+        </table><br/>
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td colspan="3"></td></tr>
+            <tr><td>0 Idler</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Idler0_sin}</apex:outputPanel></td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Idler0_deg}</apex:outputPanel></td></tr>
+            
+            <tr><td>0 Saddle</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Saddle0_sin}</apex:outputPanel></td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Saddle0_deg}</apex:outputPanel></td></tr>
+            
+            <tr><td>20</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AE20_sin}</apex:outputPanel></td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AE20_deg}</apex:outputPanel></td></tr>
+            
+            <tr><td>35</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AE35_sin}</apex:outputPanel></td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AE35_deg}</apex:outputPanel></td></tr>
+            
+            <tr><td>45</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AE45_sin}</apex:outputPanel></td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AE45_deg}</apex:outputPanel></td></tr>
+        </table><br/>
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td>saddle Increments 20</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!saddleIncrements20}</apex:outputPanel></td></tr>
+            
+            <tr><td>Idler Increments 20</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!IdlerIncrements20}</apex:outputPanel></td></tr>
+            
+            <tr><td>Increments 20 to 35</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Increments20_35}</apex:outputPanel></td></tr>
+            
+            <tr><td>Increments 35 to 45</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Increments35_45}</apex:outputPanel></td></tr>
+        </table><br/>
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td>New Saddle Angle</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!NewSaddleAngle}</apex:outputPanel></td></tr>
+            
+            <tr><td>New Idler Angle</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!NewIdlerAngle}</apex:outputPanel></td></tr>
+            
+            <tr><td>New Saddle Chord</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!NewSaddleChord}</apex:outputPanel></td></tr>
+            
+            <tr><td>New Idler Chord</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!NewIdlerChord}</apex:outputPanel></td></tr>
+            
+            <tr><td>New Saddle Wing Height</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!NewSaddleWingHeight}</apex:outputPanel></td></tr>
+            
+            <tr><td>New Idler Wing Height</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!NewIdlerWingHeight}</apex:outputPanel></td></tr>
+        </table><br/>
+        
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td colspan="2">Saddle Name</td></tr>
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM35}</apex:outputPanel></td><td></td></tr>
+            
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM36}</apex:outputPanel></td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AO36}</apex:outputPanel></td></tr>
+            
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM37}</apex:outputPanel></td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AO37}</apex:outputPanel></td></tr>
+            
+            
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM38}</apex:outputPanel></td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AO38}</apex:outputPanel></td></tr>
+            
+            
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM39}</apex:outputPanel></td><td></td></tr>
+        </table><br/>
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td colspan="2">Idler Name</td></tr>
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM42}</apex:outputPanel></td><td></td></tr>
+            
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM43}</apex:outputPanel></td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AO43}</apex:outputPanel></td></tr>
+            
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM44}</apex:outputPanel></td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AO44}</apex:outputPanel></td></tr>
+            
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM45}</apex:outputPanel></td>
+                <td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AO45}</apex:outputPanel></td></tr>
+            
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM46}</apex:outputPanel></td>
+                <td></td></tr>
+            
+            <tr><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!AM47}</apex:outputPanel></td>
+                <td></td></tr>
+        </table><br/>
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td colspan="2">Height of Old Idler @ 2/3 BW</td></tr>
+            
+            <tr><td>tan of angle</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!tanofangle}</apex:outputPanel></td></tr>
+            
+            <tr><td>Chord/2</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Chord2}</apex:outputPanel></td></tr>
+            
+            <tr><td>2/3 of belt width</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!beltwidthOF23}</apex:outputPanel></td></tr>
+            
+            <tr><td>2/3 Height:</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Height23}</apex:outputPanel></td></tr>
+        </table><br/>
+        
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td colspan="2">Height of New Idler @ Seal Height</td></tr>
+            <tr><td>Seal Height</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!SealHeight}</apex:outputPanel></td></tr>
+            
+            <tr><td>BW and Angle</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!BWAngle}</apex:outputPanel></td></tr>
+            
+            <tr><td>Lookup Standard CH</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!LookupStandardCH}</apex:outputPanel></td></tr>
+            
+            <tr><td>Min Height</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!MinHeight}</apex:outputPanel></td></tr>
+            
+            <tr><td>Extra Height</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!ExtraHeight}</apex:outputPanel></td></tr>
+            <tr><td>2/3 Height:</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Height2_3}</apex:outputPanel></td></tr>
+            
+        </table><br/>
+        <table border="1" align="center" style="border-collapse: collapse;margin-right:0px;margin-left:10px">
+            <tr><td>Difference:</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Difference}</apex:outputPanel></td></tr>
+            <tr><td>Distance:</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Distance}</apex:outputPanel></td></tr>
+            <tr><td>Program?</td><td><apex:outputPanel rendered="{!isError}">#NA</apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isError}">{!Program}</apex:outputPanel></td></tr>
+        </table><br/>
+        {!AS38}<br/>{!AS40}<br/>{!AS42}<br/>{!AS46}<br/>{!AS48}<br/>{!AS50}<br/>{!AS52}<br/>{!AS54}<br/>{!AS56}<br/>{!AQ65}<br/>{!AQ66}<br/>
+        {!SaddleSpringConstant}<br/> {!IdlerSpringConstant}<br/> {!FrameThickness}<br/> {!YieldStrength}<br/> {!RequiredFOS}<br/> {!Volumeoflump}<br/> {!Weightoflump}<br/> {!WeightofAverageLinearFt}<br/> {!Deflectionofspring_Saddle}<br/> {!ForceSaddle}<br/> {!DeflectionofspringIdler}<br/> {!ForceIdler}<br/> {!SaddleCenterHeightSegment}<br/> {!SaddleFrameHeight}<br/> {!IdlerCenterHeightRollFrame}<br/> {!IdlerFrameHeight}<br/> {!SaddleDropHeight}<br/> {!IdlerDropHeight}<br/> {!MinClearanceNeeded}<br/> {!MaxBendingMoment}<br/> {!ShearStress}<br/> {!BendingStress}<br/> {!Stress}<br/> {!ShearFOS}<br/> {!BendingFOS}<br/> {!MaxBendingMoment_id}<br/> {!ShearStress_id}<br/> {!BendingStress_id}<br/> {!Stress_id}<br/> {!ShearFOS_id}<br/> {!BendingFOS_id}<br/> {!WillStandardSaddleWork}<br/>{!WillStandardIdlerWork}<br/> {!Willbothunitswork}<br/>
+        -->
+        <style type="text/css">
+        .customPopup {
+         background-color: white;
+            border-style: solid;
+            border-width: 2px;
+            left: 20%;
+            padding: 10px;
+            position: fixed;
+        z-index: 9999;
+            //width: 800px;
+            top: 20%;
+        height:260px;
+        }
+        .customPopupOne {
+            background-color: white;
+            border-style: solid;
+            border-width: 2px;
+            left: 20%;
+            padding: 10px;
+            position: fixed;
+            z-index: 9999;
+            /* These are the 3 css properties you will need to tweak so the pop 
+                                    up displays in the center of the screen. First set the width. Then set 
+                                    margin-left to negative half of what the width is. You can also add 
+                                    the height property for a fixed size pop up.*/
+            width: 700px;
+            top: 1%;
+        }
+    </style>
+        
+    </apex:form>
+</apex:page>

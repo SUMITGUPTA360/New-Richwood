@@ -1,0 +1,52 @@
+<apex:page controller="proudctEditPage_ctrl" tabStyle="contact" showHeader="false">
+    <apex:form >
+        <apex:pageBlock rendered="{!isMobile}">
+            <link rel="stylesheet" href="/resource/1458911286000/lightningCSS"/>
+                <center class="slds-text-heading--label" style="color:white;background-color:#8370C2; font-size:1.2em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 15px;">
+                    <b>Enter New Opportuntiy Line Item Details</b>
+                </center>
+                <table  style="font-size:1.2em;border-collapse: collapse;margin-top:15px;margin-bottom:15px;margin-left:1%;margin-right:1%; width:98%;" >
+                    <tr width="100%">
+                        <td width="25%">
+                            <b>Product Name:</b>
+                        </td>
+                        <td width="75%" align="left">
+                            <apex:outputText value="{!$CurrentPage.parameters.product_name}"/>
+                        </td>
+                    </tr>
+                    <tr width="100%">
+                        <td width="25%">
+                            <b>List Price:</b>
+                        </td>
+                        <td width="75%" align="left">
+                            <apex:outputText value="{!$CurrentPage.parameters.UnitPrice}"/>
+                        </td>
+                    </tr>
+                    <tr width="100%">
+                        <td width="25%">
+                            <b>Quantity :</b>
+                        </td>
+                        <td width="75%" align="left">
+                            <apex:inputField value="{!OpportunityLineItem_Obj.Quantity}" styleClass="slds-input"/>
+                        </td>
+                    </tr>
+                    <tr width="100%">
+                        <td width="25%"><b>Sales Price:</b></td>
+                        <td width="75%" align="left">
+                            <apex:inputField value="{!OpportunityLineItem_Obj.UnitPrice}" styleClass="slds-input"/>
+                        </td>
+                    </tr>
+                    <tr width="100%">
+                        <td width="25%" ><b>Line Description:</b></td>
+                        <td width="75%" align="left">
+                            <apex:inputField value="{!OpportunityLineItem_Obj.Description}" styleClass="slds-input"/>
+                        </td>
+                    </tr>                    
+                </table>
+                <center style="font-size:1.3em;  heigth:15%;border-radius: 25px;margin:5px;     padding: 17px;">          
+                    <apex:commandButton style="color:#0000FF;" value="Save" action="{!saveOpportunityLineItem}" styleClass="slds-button slds-button--neutral" reRender="sbox_pro,proDetail,oppDetail,proudctEditPage"/>
+                    <apex:commandButton style="color:#0000FF;" value="Cancel" immediate="true" action="{!cancelOpportunityLineItem}" reRender="sbox_pro,proDetail,oppDetail,proudctEditPage" styleClass="slds-button slds-button--neutral"/>        
+                </center>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

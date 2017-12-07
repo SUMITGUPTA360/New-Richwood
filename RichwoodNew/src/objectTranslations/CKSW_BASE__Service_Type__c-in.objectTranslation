@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Jenis Layanan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Jenis Layanan /target&gt;
+            Please enter the plural form of &apos;Service Type&apos;
+        </value>
+    </caseValues>
+    <nameFieldLabel>Nama Jenis Layanan</nameFieldLabel>
+</CustomObjectTranslation>

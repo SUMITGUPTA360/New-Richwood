@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Close Date --></label>
+        <name>Close_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lost Detail --></label>
+        <name>Lost_Detail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lost Reason --></label>
+        <name>Lost_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Delivery</masterLabel>
+            <translation><!-- Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price</masterLabel>
+            <translation><!-- Price --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Relationship with other Foundry</masterLabel>
+            <translation><!-- Relationship with other Foundry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>rwc - Beyond current capabilities</masterLabel>
+            <translation><!-- rwc - Beyond current capabilities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>rwc - Declined to Quote</masterLabel>
+            <translation><!-- rwc - Declined to Quote --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This is a rollup summary of the Parts Line Totals --></help>
+        <label><!-- Parts Total --></label>
+        <name>Parts_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Client POC --></label>
+        <name>Project_Client_POC__c</name>
+        <relationshipLabel><!-- Projects for this Contact --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project Description --></label>
+        <name>Project_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Awaiting Acceptance</masterLabel>
+            <translation><!-- Awaiting Acceptance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Billing Complete</masterLabel>
+            <translation><!-- Billing Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineering/Testing</masterLabel>
+            <translation><!-- Engineering/Testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>First Article PO Received</masterLabel>
+            <translation><!-- First Article PO Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost</masterLabel>
+            <translation><!-- Lost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PO for Tooling Received</masterLabel>
+            <translation><!-- PO for Tooling Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Production</masterLabel>
+            <translation><!-- Production --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qualification</masterLabel>
+            <translation><!-- Qualification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quoting</masterLabel>
+            <translation><!-- Quoting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipped</masterLabel>
+            <translation><!-- Shipped --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Project Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Project --></label>
+            <section>Project</section>
+        </sections>
+        <sections>
+            <label><!-- Stage --></label>
+            <section>Stage</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

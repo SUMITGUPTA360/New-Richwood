@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Capital Project Forecast</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Capital Project Forecasts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Yearly Forecast --></label>
+        <name>Account_Yearly_Forecast__c</name>
+        <relationshipLabel><!-- Capital Projects with Forecast Spending in this Year --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is the forecasted amount for this project for this year. --></help>
+        <label><!-- Amount this Year --></label>
+        <name>Amount_this_year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capital Project --></label>
+        <name>Capital_Project__c</name>
+        <relationshipLabel><!-- Forecast Spend Per Year --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please explain what you think they client will be doing on this capital project in this year. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

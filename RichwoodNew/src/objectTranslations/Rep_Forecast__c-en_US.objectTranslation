@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Rep Forecast</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Rep Forecasts</value>
+    </caseValues>
+    <fields>
+        <help><!-- This is an automatic WAG which takes into consideration the distance into the future of the forecast month and uses that distance and the amount c/w for that month in the previous year. Months far into the future will have a larger WAG. --></help>
+        <label><!-- Calculated WAG --></label>
+        <name>Calculated_WAG__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the start date of the forecast period (so 7/1 for July as an example) --></help>
+        <label><!-- Forecast Period Start --></label>
+        <name>Forecast_Period_Start__c</name>
+    </fields>
+    <fields>
+        <help><!-- Numbers approaching 100% indicate a higher quality score (because there were fewer rolled opportunities). This is a reflection of the strength of this reps predictions throughout this period, not the quality of this forecast at the moment. --></help>
+        <label><!-- Forecast Quality --></label>
+        <name>Forecast_Quality__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the closed/won amount from this rep (or territory) for this same month last year. --></help>
+        <label><!-- Last Year (this Month) C/W --></label>
+        <name>Last_Year_this_Month_C_W__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opptys Forecast for Period --></label>
+        <name>Opptys_Forecast_for_Period__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rep Comments about Period Forecast --></label>
+        <name>Rep_Comments_about_Period_Forecast__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Rep --></label>
+        <name>Sales_Rep__c</name>
+        <relationshipLabel><!-- Rep Forecasts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Total Lost --></label>
+        <name>Total_Lost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Open --></label>
+        <name>Total_Open__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the total of the opportunities (open and won) in the period plus the Rep WAG. --></help>
+        <label><!-- Total Rep Period Forecast --></label>
+        <name>Total_Rep_Period_Forecast__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Rolled --></label>
+        <name>Total_Rolled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Won --></label>
+        <name>Total_Won__c</name>
+    </fields>
+    <fields>
+        <help><!-- If there are amounts that you expect to have in your forecast but are not in an opportunity at the moment, then enter those amounts here. --></help>
+        <label><!-- Manual WAG --></label>
+        <name>Untracked_WAG__c</name>
+    </fields>
+    <layouts>
+        <layout>Rep Forecast Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Forecast Details --></label>
+            <section>Forecast Details</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

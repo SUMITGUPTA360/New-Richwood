@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Assigned Device</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Assigned Devices</value>
+    </caseValues>
+    <fields>
+        <label><!-- Assigned To --></label>
+        <name>Assigned_To__c</name>
+        <relationshipLabel><!-- Devices Assigned to this Person --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Received --></label>
+        <name>Date_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Turned In --></label>
+        <name>Date_Turned_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device --></label>
+        <name>Device__c</name>
+        <relationshipLabel><!-- Personnel to Whom this Device Was/Is Assigned --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

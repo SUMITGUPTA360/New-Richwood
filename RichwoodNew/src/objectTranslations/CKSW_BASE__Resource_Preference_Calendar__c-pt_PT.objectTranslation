@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Calendário de recursos preferenciais</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Calendários de recursos preferenciais</value>
+    </caseValues>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Número de calendário preferencial do rec</nameFieldLabel>
+</CustomObjectTranslation>

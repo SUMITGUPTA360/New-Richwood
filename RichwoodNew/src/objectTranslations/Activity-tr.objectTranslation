@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Employee Absence --></label>
+        <name>CKSW_BASE__Employee_Absence__c</name>
+        <relationshipLabel><!-- Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Event Type --></label>
+        <name>CKSW_BASE__Event_Type__c</name>
+        <picklistValues>
+            <masterLabel>Absence</masterLabel>
+            <translation>İzin</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation>Hizmet</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shift</masterLabel>
+            <translation>Vardiya</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Service --></label>
+        <name>CKSW_BASE__Service__c</name>
+        <relationshipLabel><!-- Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Shift --></label>
+        <name>CKSW_BASE__Shift__c</name>
+        <relationshipLabel><!-- Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DB Activity Type --></label>
+        <name>DB_Activity_Type__c</name>
+    </fields>
+    <fields>
+        <help>Tüm olayların sayısı</help>
+        <label><!-- Count of Events --></label>
+        <name>FSL__Count_of_Events__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of Tasks --></label>
+        <name>FSL__Count_of_Tasks__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Type --></label>
+        <name>FSL__Event_Type__c</name>
+        <picklistValues>
+            <masterLabel>Resource Absence</masterLabel>
+            <translation>Kaynak İzni</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Appointment</masterLabel>
+            <translation>Hizmet Randevusu</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Pardot Source Id --></label>
+        <name>pi__pardot_source_id__c</name>
+    </fields>
+</CustomObjectTranslation>

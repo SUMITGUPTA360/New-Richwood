@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Yearly Forecast</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Yearly Forecasts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Account Yearly Forecasts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Budgeted Sales --></label>
+        <name>Budgeted_Sales__c</name>
+    </fields>
+    <fields>
+        <label><!-- Budgeted --></label>
+        <name>Budgeted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecast Period Start --></label>
+        <name>Forecast_Period_Start__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecast Status --></label>
+        <name>Forecast_Status__c</name>
+        <picklistValues>
+            <masterLabel>Adjustment Requested</masterLabel>
+            <translation><!-- Adjustment Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Budgeted</masterLabel>
+            <translation><!-- Budgeted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preparation</masterLabel>
+            <translation><!-- Preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Projected Amount --></label>
+        <name>Projected_Amount__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Yearly Forecast Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

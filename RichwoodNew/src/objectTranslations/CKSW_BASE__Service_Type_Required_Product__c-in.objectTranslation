@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Produk yang Dibutuhkan Jenis Layanan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Produk yang Dibutuhkan Jenis Layanan</value>
+    </caseValues>
+    <nameFieldLabel>Nomor Produk yang Dibutuhkan</nameFieldLabel>
+</CustomObjectTranslation>
