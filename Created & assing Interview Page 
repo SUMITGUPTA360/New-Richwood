@@ -1,0 +1,195 @@
+As a Functional Manager, from the Interviews related list on an HR-Position Application page, I want to create and assign HR-Interview and HR-Interview Questions from existing HR-Interview records marked as a “Template.”
+
+Preconditions:
+
+1. Actor is on a HR-Position Application record.
+
+Basic Flow:
+
+1. From the HR-Interview related list on an HR-Position Application page, the actor selects the “Create & Assign Interviews” button.
+
+????? okk 
+
+
+
+2. System displays the “Create & Assign Interviews” page. https://docs.google.com/spreadsheets/d/1JmVwh8MP3-eOrvEmP2EC3gZONyJG5NJiraRoPTS0H9U/edit#gid=0 with the "Filter By" fields and the "Filter Logic" set to NULL
+??? okk
+
+3. Actor selects the "Search" button in the section on the page that contains the "Filter By" and "Filter Logic".
+??? okk 
+
+
+4. System applies filters and displays ALL HR-Interview records where the "Template" field value on HR-Interview record = TRUE
+??? okk 
+
+
+5. Actor selects one Interview Template (HR-Interview where Template=TRUE).
+??? okk
+
+
+6. System updates the read only "Interview Template" field in the "Add Interviews" section on the custom page.
+??? Okk
+
+
+7. Actor enters a number in the "Quantity" field (required field) in the "Add Interviews" section on the custom page.
+????? required field remaining
+
+
+8. Actor selects the "Add Rows" button in the "Add Interviews" section on the custom page.
+????? okk 
+
+9. System displays a row for each Quantity, resets the “Quantity” field to null in the “Add Interviews” section on the page, and the following columns are displayed:
+??? okk 
+
+{NOTE: 2 columns are preset in UI and the remaining columns are predefined via the “Create & Assign Interviews Columns” Field Set. Fields may be added or removed as columns via the Field Set.}
+?????? okkk
+
+:
+
+9a. Interview Template (Lookup editable. System defaults to value selected in “Interview Templates” field in the “Add Interviews” section on the custom page. )
+????? sir
+
+9b. Interviewer (required field editable)
+?????  required Sir
+
+
+{Developer Note: preset the following fields noted in 9c-9f in the Field Set for this object but allow editing of Field Set}
+
+9c. Interview Due Date (predefined in a Field Set)
+??? amit sir
+
+9d. Organization (predefined in a Field Set. Lookup editable. System defaults to value set on the selected Interview Template)
+??? amit sir
+
+
+9e. Job Family (predefined in a Field Set. Lookup editable. System defaults to value set on the selected Interview Template)
+??? amit sir
+
+
+9f. Job (predefined in a Field Set. Lookup editable. System defaults to value set on the selected Interview Template)
+??? amit sir
+
+
+10. Actor sets the Interviewer field value for each row.
+??? okk
+
+
+11. Actor sets Interview Due Date (optional).
+??? okk 
+
+12. Actor selects the “Create & Assign” button.
+??? okk
+
+
+13. System applies rules in viewavatar?size=xsmall&avatarId=10316&av SR-51 ACCEPTED ,viewavatar?size=xsmall&avatarId=10316&av SR-52 ACCEPTANCE TESTING ,viewavatar?size=xsmall&avatarId=10316&av SR-61 TEST EXCEPTION ,viewavatar?size=xsmall&avatarId=10316&av SR-94 ACCEPTANCE TESTING and creates cloned HR-Interview and related HR-Interview Questions records from the template, sets values entered/edited in steps 9a-9f.
+??? okk
+
+
+
+
+14. System sets the “Interview Status” field on the HR-Interview records to a value of “Pending” and the “Template” field to a value of FALSE.
+?????
+
+15. System sends an email notification to each Interviewer set on each Interview record (Seeviewavatar?size=xsmall&avatarId=10316&av SR-62 ACCEPTED for email requirements).
+????
+
+16. Post Condition of Basic Flow.
+??? okk
+
+Alternate Flows:
+
+AF1: Actor selects the Cancel button.
+???? done
+
+1. If at any step in the Basic Flow before the “Create & Assign” button is selected, the actor selects the “Cancel” button.
+
+2. System does not create HR-Interview records and returns the actor to the HR-Position Application page.
+??? done
+
+3. Post Condition AF1.
+??? done
+
+AF2: Actor does NOT enter a whole number value > NULL and > 0.
+????? amit sir
+
+1. IF the “Add Rows” button is selected and a whole number > 0 is not entered, THEN display the following error message, “A whole number greater than NULL and 0 must be entered in the Quantity field before selecting the Add Rows button.”
+??? done 
+
+2. Actor selects the “OK” button.
+???? 
+
+3. Post Condition AF2.
+
+AF3: Actor selects the “Delete Row” button next to a row in the “Interviews” section on the page.
+??? okk 
+
+1. IF the actor selects the “Delete Row” button, THEN the row is removed from the page.
+???? done 
+
+2. Post Condition AF3.
+
+AF4: Actor enters additional amount in “Quantity” field and lookup to “Interview Template” add selects “Add Rows” button after rows are already added to the “Interviews” section on the page.
+???? done 
+
+1. IF at any step in Basic Flow before the “Create & Assign” button is selected the actor enters a number in the “Quantity” field
+??? done 
+
+{NOTE: this field is reset to NULL when rows are added}
+
+, selects a value in the “Interviews Template” field and selects the “Add Rows” button.
+
+2. THEN the system will add a row for each new quantity and Interview Template selected.
+??? okk 
+
+3. System adds these new rows to the existing list of rows. System does NOT update existing rows previously added.
+??? done
+
+4. Post Condition AF4.
+
+
+
+
+
+
+
+
+
+AF5: Actor edits “Interview Template” field in a row in the “Interviews” section on the page.
+
+1. IF the actor edits the "Interview Template" value in a row in the “Interviews” section on the page.
+
+2. System applies the field filter values set in the “Filter By” fields on the page and displays HR-Interview records where:
+
+3. Field values set in “Filter By” = field values (e.g. matching Job, Job Family, Organization, or any custom field value on the HR-Interview).
+
+4. System defaults to value for each column based on what is set on the selected Interview Template selected.
+
+5. Post Condition AF5.
+
+AF6: Actor enters values in "Filter By" and "Filter Logic" fields before "Search" button is selected.
+
+1. IF between Step 3 and Step 4 of Basic Flow, the actor sets a value in one or more of the "Filter By" field and enters a value in the "Filter Logic" field, THEN when the "Search" button is selected.
+
+2. System applies the "Filter By" and "Filter Logic".
+
+2a. If no "Filter Logic" is entered, then the "Interview Templates" displayed when the "Search" button is selected is based on "OR" applied to the values set in the "Filter By" field. This is based off the standard functionality of Salesforce reporting filtering and filter logic
+
+2b. Fields available in "Filter By" are managed via Field Set on HR-Interview
+
+3. Post Condition AF6.
+
+Post Conditions:
+
+1. Basic Flow Post Condition: System creates cloned HR-Interview and related HR-Interview Questions records from the template, sets values entered/edited in steps 10a-10f and system sends email notification(s). System returns actor to the HR-Position Application page.
+
+2. AF1 Post Condition: No HR-Interview records are created and no email notifications are sent.
+
+3. AF2 Post Condition: Actor remains on the Create & Assign Interviews page.
+
+4. AF3 Post Condition: Row is removed from page and actor remains on the Create & Assign Interviews page.
+
+5. AF4 Post Condition: Additional rows are added to the “Interviews” section on the page and actor remains on the Create & Assign Interviews page.
+
+6. AF5 Post Condition: Fields in columns edited. System defaults to value for each column based on what is set on the selected Interview Template selected.
+
+7. AF6 Post Condition: Actor returns to Step 4 of Basic Flow.

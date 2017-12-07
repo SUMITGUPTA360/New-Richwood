@@ -1,0 +1,126 @@
+public class SMSHistoryTriggerHandler
+{
+    public static void onAfterInsert(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    {    
+        onAfterInsertAction(newListOfSMSHistory);            
+    }
+    
+    private static void onAfterInsertAction(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    { 
+     try{
+      String setMessage;
+	  set<lead> setlead = new set<lead>();
+     
+      String[] setDetails; 
+      String setDetails1;
+     
+      // setMessage = Sumit,sumit123@test.com,12312 ;
+      tdc_tsw__Message__c objMessage = newListOfSMSHistory[0];
+             
+         if(objMessage.Name == 'Incoming' && String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Message_Text_New__c)) && String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Lead__c)) ){ 
+		 
+		     list<tdc_tsw__Message__c> listSmsHistory = [select id,tdc_tsw__SMS_Template__c,tdc_tsw__Lead__c form tdc_tsw__Message__c where objLead.id =: objMessage.tdc_tsw__Message_Text_New__c and tdc_tsw__SMS_Template__c != null and Name =: 'Outgoing' orderBy DESC ];
+             setMessage = objMessage.tdc_tsw__Message_Text_New__c ;
+             setlead.add(objMessage.tdc_tsw__Lead__c);
+             setDetails = setMessage.split(',');
+			 
+			 
+			 }  
+			 
+           list<lead> listlead = [select id from lead where Id = : setlead and  ]
+            if(setDetails.size() > 2 )
+               {  
+                   String regex = '[()\\-\\()]' ;
+                   String replacement = '' ;
+                
+                   Lead objLead = new Lead();
+                   objLead.id = objMessage.tdc_tsw__Lead__c;
+                   if(String.isNotBlank(String.valueOf(setDetails[0]))){
+                      objLead.Salutation = null;
+                      objLead.FirstName = null;
+                      objLead.LastName  = setDetails[0];
+                   }
+                   if(String.isNotBlank(String.valueOf(setDetails[1]))){
+                       objLead.Email = setDetails[1];
+                   }
+                   if(String.isNotBlank(String.valueOf(setDetails[2]))){
+                        objLead.PostalCode = setDetails[2].replaceAll(regex,replacement);
+                   }
+                   
+                   if(objLead != null)
+                   update objLead;
+               }                  
+        
+       }
+       catch(Exception e){
+           system.debug('Exception  '+e);
+         }    
+  }
+}
+
+
+31 - 10 time 7 o'clock  run code
+
+public class SMSHistoryTriggerHandler
+{
+    public static void onAfterInsert(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    {    
+        onAfterInsertAction(newListOfSMSHistory);            
+    }
+    
+    private static void onAfterInsertAction(list<tdc_tsw__Message__c> newListOfSMSHistory)
+    { 
+     try{
+      String setMessage;
+     
+      String[] setDetails; 
+      String setDetails1;
+      list<tdc_tsw__Message__c> listSmsHistory;
+      // setMessage = Sumit,sumit123@test.com,12312 ;
+      tdc_tsw__Message__c objMessage = newListOfSMSHistory[0];
+             
+      if(objMessage.Name == 'Incoming' && String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Message_Text_New__c)) && String.isNotBlank(String.valueOf(objMessage.tdc_tsw__Lead__c)) ){ 
+         
+         listSmsHistory = [ select id, tdc_tsw__SMS_Template__c, tdc_tsw__Lead__c from tdc_tsw__Message__c  where tdc_tsw__Lead__c = : objMessage.tdc_tsw__Lead__c and tdc_tsw__SMS_Template__c != null and Name = : 'Outgoing' ORDER BY Name DESC  limit 1 ];
+        
+         setMessage = objMessage.tdc_tsw__Message_Text_New__c ;
+          system.debug('listSmsHistory  24'+listSmsHistory[0].tdc_tsw__SMS_Template__c);
+         setDetails = setMessage.split(',');
+                     
+       }  
+       system.debug('listSmsHistory  28'+listSmsHistory[0].tdc_tsw__SMS_Template__c);
+       if(listSmsHistory[0].tdc_tsw__SMS_Template__c == 'a1v29000000N1Me'){
+          
+            if(setDetails.size() > 2 )
+               {  
+                system.debug('listSmsHistory  28'+listSmsHistory[0].tdc_tsw__SMS_Template__c);
+                   String regex = '[()\\-\\()]' ;
+                   String replacement = '' ;
+           
+                       Lead objLead = new Lead();
+                       objLead.id = objMessage.tdc_tsw__Lead__c;
+                       if(String.isNotBlank(String.valueOf(setDetails[0]))){
+                          objLead.Salutation = null;
+                          objLead.FirstName = null;
+                          objLead.LastName  = setDetails[0];
+                       }
+                       if(String.isNotBlank(String.valueOf(setDetails[1]))){
+                           objLead.Email = setDetails[1];
+                       }
+                       if(String.isNotBlank(String.valueOf(setDetails[2]))){
+                            objLead.PostalCode = setDetails[2].replaceAll(regex,replacement);
+                       }
+                       if(objLead != null)
+                       update objLead;                
+               }   
+            }                  
+        
+       }
+       catch(Exception e){
+           system.debug('Exception  '+e);
+         }    
+  }
+}
+
+
+

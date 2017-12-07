@@ -1,0 +1,32 @@
+
+
+
+Thanks, && Regards,
+Sumit Gupta
+Software Developer
+360 Degree Cloud Technologies (P) Ltd.
+Ph: 0129-4050116,
+Email:  sumit.gupta@360degreecloud.co.in
+Website:www.360degreecloud.com
+Branch: Faridabad
+
+Send Auto SMS After a Lead Created 
+Send Auto SMS to Lead after Checkbox is Checked by Workflow
+ 
+ 
+  String str = 'incoming_= [testName;test@gmail.com;121112]';  
+            String name = '';  
+            String email = ''; 
+            String zip = '';  
+            name = str.subStringBetween('incoming_= [', ';');
+            System.debug('str...............'+name);  
+            email = str.subStringBetween(';',';'); 
+            System.debug('email...............'+email); 
+            str = str.subStringAfter(';'); 
+            System.debug('str.....................'+str);  
+            zip = str.subStringBetween(';', ']'); 
+            System.debug('zip...............'+zip);
+            
+			
+			Task: I have created Trigger on custom object tdc_tsw__Message__c and also update some code for SMS app	
+			and I have an update trigger according to Rajeev.
